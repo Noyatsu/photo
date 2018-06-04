@@ -13,7 +13,7 @@ class CategoriesTableSeeder extends Seeder
     {
         $categories = ['自然','建築'];
         foreach ($categories as $category) {
-            DB:table('categories')->insert([
+            DB::table('categories')->insert([
                 'name' => $category
             ]);
         }
