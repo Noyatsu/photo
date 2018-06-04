@@ -19,17 +19,17 @@ class CreatePhotosTable extends Migration
             $table->unsignedInteger('category_id');
             $table->string('title');
             $table->string('path');
-            $table->string('location');
-            $table->string('tags');
-            $table->unsignedInteger('views');
-            $table->unsignedInteger('likes');
-            $table->double('points');
-            $table->string('camera');
-            $table->string('lens');
-            $table->string('focal_length');
-            $table->string('speed');
-            $table->string('iris');
-            $table->string('iso');
+            $table->string('location')->nullable();
+            $table->string('tags')->nullable();
+            $table->unsignedInteger('views')->default(0);
+            $table->unsignedInteger('likes')->default(0);
+            $table->double('points')->default(0);
+            $table->string('camera')->nullable();
+            $table->string('lens')->nullable();
+            $table->string('focal_length')->nullable();
+            $table->string('speed')->nullable();
+            $table->string('iris')->nullable();
+            $table->string('iso')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
