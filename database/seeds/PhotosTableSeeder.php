@@ -11,7 +11,7 @@ class PhotosTableSeeder extends Seeder
      */
     public function run()
     {
-        DB:table('photos')->insert([
+        DB::table('photos')->insert([
             'user_id' => 1,
             'category_id' => 1,
             'title' => 'THE BLUE',
