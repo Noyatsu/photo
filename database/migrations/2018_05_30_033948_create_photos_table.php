@@ -21,9 +21,9 @@ class CreatePhotosTable extends Migration
             $table->string('path');
             $table->string('location')->nullable();
             $table->string('tags')->nullable();
-            $table->unsignedInteger('views');
-            $table->unsignedInteger('likes');
-            $table->double('points');
+            $table->unsignedInteger('views')->default(0);
+            $table->unsignedInteger('likes')->default(0);
+            $table->double('points')->default(0);
             $table->string('camera')->nullable();
             $table->string('lens')->nullable();
             $table->string('focal_length')->nullable();
