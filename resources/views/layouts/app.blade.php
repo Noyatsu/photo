@@ -8,7 +8,7 @@
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>{{ config('app.name', 'Laravel') }}</title>
+  <title>{{ config('app.name') }}</title>
 
   <!-- Scripts -->
   <script src="{{ asset('js/app.js') }}" defer></script>
@@ -19,13 +19,14 @@
 
   <!-- Styles -->
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/master.css') }}" rel="stylesheet">
 </head>
 <body>
   <div id="app">
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <a class="navbar-item" href="{{ url('/') }}">
-          {{ config('app.name', 'Laravel') }}
+          {{ config('app.name') }}
         </a>
       </div>
       <div class="navbar-menu is-active">
@@ -34,10 +35,10 @@
         <a class="nav-link navbar-item" href="{{ route('login') }}">{{ __('Login') }}</a>
         <a class="nav-link navbar-item" href="{{ route('register') }}">{{ __('Register') }}</a>
         @else
-        <a class="navbar-link" href="/user">
+        <a class="nav-link navbar-item" href="/user">
           {{ Auth::user()->name }}のプロフィール
         </a>
-        <a class="navbar-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+        <a class="nav-link navbar-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
           {{ __('Logout') }}
         </a>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
