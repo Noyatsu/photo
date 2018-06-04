@@ -1,0 +1,13 @@
+.m-profile {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.m-profile figure {
+  margin-bottom: 10px;
+}
+
+.m-profile img {
+  width:200px;
+  border-radius:100px;
+}
