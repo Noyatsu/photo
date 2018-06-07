@@ -38,6 +38,12 @@
 
 .m-tab-bar {
   position: static;
+  z-index: 999;
+}
+
+.m-tab-contents {
+  padding-top: 25px;
+  padding-bottom: 50px;
 }
 
 @media (max-width: 767px) {

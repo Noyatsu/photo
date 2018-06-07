@@ -8,19 +8,19 @@
           <i v-bind:class="[ tab.cls ]"></i>
         </div>
     </div>
-    <div v-if="contents == 0">
+    <div v-if="contents == 0" class="m-tab-contents">
       TL
     </div>
-    <div v-if="contents == 1">
+    <div v-if="contents == 1" class="m-tab-contents">
       検索
     </div>
-    <div v-if="contents == 2">
+    <div v-if="contents == 2" class="m-tab-contents">
       アップロード
     </div>
-    <div v-if="contents == 3">
+    <div v-if="contents == 3" class="m-tab-contents">
       いいね!
     </div>
-    <div v-if="contents == 4">
+    <div v-if="contents == 4" class="m-tab-contents">
       @include('user/profile-block')
     </div>
   </div>
