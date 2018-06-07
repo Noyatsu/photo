@@ -3,11 +3,56 @@
   margin: 0 auto;
 }
 
+.m-profile-img {
+  height: 128px;
+  margin-bottom: 52px;
+  position: relative;
+}
+
 .m-profile figure {
-  margin-bottom: 10px;
+  position: absolute;
+  bottom: -48px;
+  left: 50%;
+  margin-left: -48px;
 }
 
 .m-profile img {
-  width:200px;
+  border: solid 2px white;
   border-radius:100px;
+}
+
+.m-tab {
+  display: inline-block;
+  width: calc(100%/5);
+  height: 45px;
+  line-height: 45px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.m-tab-active {
+  background-color: #ffffff;
+  color: #565656;
+  border-bottom: solid 2px #565656;
+}
+
+.m-tab-bar {
+  position: static;
+}
+
+@media (max-width: 767px) {
+  .m-tab {
+    background-color: #f5f5f5;
+  }
+
+  .m-tab-active {
+    background-color: #565656;
+    color: #ffffff;
+  }
+  .m-tab-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
 }
