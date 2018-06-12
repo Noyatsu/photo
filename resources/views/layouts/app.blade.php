@@ -25,13 +25,12 @@
 </head>
 <body>
   <div id="app">
-    <nav class="navbar" role="navigation" aria-label="main navigation">
+    <nav class="navbar has-background-white-ter" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <a class="navbar-item" href="{{ url('/') }}">
           {{ config('app.name') }}
         </a>
       </div>
-      <div class="navbar-menu is-active">
         <!-- Authentication Links -->
         @guest
         <a class="nav-link navbar-item" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -46,7 +45,6 @@
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
           @csrf
         </form>
-      </div>
     </li>
     @endguest
   </div>
