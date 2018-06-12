@@ -1,4 +1,3 @@
-<br>
 <div class="card">
   <div class="m-profile">
     <div class="m-profile-img has-background-link" style="background-image: url('{{ Storage::url('photo/1.JPG') }}'); background-position:center center; background-size: cover;">
@@ -13,9 +12,10 @@
       <p class="is-size-7 has-text-grey-light"><time>{{ $user->created_at }}</time>に登録</p>
     </div>
   </div>
-  <footer class="card-footer">
-    <a href="#" class="card-footer-item">フォロー: 0</a>
-    <a href="#" class="card-footer-item">フォロワー: 0</a>
-    <a href="#" class="card-footer-item">いいね: 0</a>
+  <footer class="card-footer has-text-centered">
+    <a href="#" class="card-footer-item has-text-grey">投稿<br>0</a>
+    <a href="#" class="card-footer-item has-text-grey">フォロー<br>0</a>
+    <a href="#" class="card-footer-item has-text-grey">フォロワー<br>0</a>
+    <a href="#" class="card-footer-item has-text-grey">いいね<br>0</a>
   </footer>
 </div>

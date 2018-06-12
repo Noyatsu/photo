@@ -8,19 +8,19 @@
           <i v-bind:class="[ tab.cls ]"></i>
         </div>
     </div>
-    <div v-if="contents == 0">
+    <div v-if="contents == 0" class="m-tab-contents">
       TL
     </div>
-    <div v-if="contents == 1">
+    <div v-if="contents == 1" class="m-tab-contents">
       検索
     </div>
-    <div v-if="contents == 2">
+    <div v-if="contents == 2" class="m-tab-contents">
       アップロード
     </div>
-    <div v-if="contents == 3">
+    <div v-if="contents == 3" class="m-tab-contents">
       いいね!
     </div>
-    <div v-if="contents == 4">
+    <div v-if="contents == 4" class="m-tab-contents">
       @include('user/profile-block')
     </div>
   </div>
@@ -31,25 +31,33 @@ var tab = new Vue({
   data: {
     scrollY: 0,
     tabnavs: [
-      { cls: 'fas fa-home', isActive: true },
-      { cls: 'fas fa-search', isActive: false },
-      { cls: 'far fa-plus-square', isActive: false },
-      { cls: 'fas fa-heart', isActive:false },
-      { cls: 'fas fa-user-circle', isActive:false }
+      { cls: 'fas fa-home', isActive: false, name: 'timeline'},
+      { cls: 'fas fa-search', isActive: false, name: 'search' },
+      { cls: 'far fa-plus-square', isActive: false, name: 'upload' },
+      { cls: 'fas fa-heart', isActive:false, name: 'like' },
+      { cls: 'fas fa-user-circle', isActive:false, name: 'profile' }
     ],
-    contents: 0
+    contents: {{ $tab }}
   },
   methods: {
     changeTab: function (index) {
       this.contents = index;
-      this.tabnavs[0].isActive = false;
-      this.tabnavs[1].isActive = false;
-      this.tabnavs[2].isActive = false;
-      this.tabnavs[3].isActive = false;
-      this.tabnavs[4].isActive = false;
+      for (var i = 0; i < 5; i++) {
+        this.tabnavs[i].isActive = false;
+      }
       this.tabnavs[index].isActive = true;
+      history.pushState(index,'','/home/'+this.tabnavs[index].name);
+    }
+  },
+  created: function () {
+    var index = this.contents;
+    this.tabnavs[index].isActive = true;
+
+    window.onpopstate = function(e) {
+      location.reload();
     }
   }
-})
+});
+
 </script>
 @endsection
