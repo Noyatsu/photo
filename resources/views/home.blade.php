@@ -46,12 +46,16 @@ var tab = new Vue({
         this.tabnavs[i].isActive = false;
       }
       this.tabnavs[index].isActive = true;
-      history.replaceState(index,'','/home/'+this.tabnavs[index].name);
+      history.pushState(index,'','/home/'+this.tabnavs[index].name);
     }
   },
   created: function () {
     var index = this.contents;
-    this.tabnavs[index].isActive = true;    
+    this.tabnavs[index].isActive = true;
+
+    window.onpopstate = function(e) {
+      location.reload();
+    }
   }
 });
 
