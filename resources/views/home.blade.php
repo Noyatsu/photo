@@ -31,13 +31,18 @@ var tab = new Vue({
   data: {
     scrollY: 0,
     tabnavs: [
-      { cls: 'fas fa-home', isActive: true },
+      { cls: 'fas fa-home', isActive: false },
       { cls: 'fas fa-search', isActive: false },
       { cls: 'far fa-plus-square', isActive: false },
       { cls: 'fas fa-heart', isActive:false },
       { cls: 'fas fa-user-circle', isActive:false }
     ],
-    contents: 0
+    contents: {{ $tab }}
+  },
+  created: function () {
+    var index = this.contents;
+    this.tabnavs[index].isActive = true;
+
   },
   methods: {
     changeTab: function (index) {

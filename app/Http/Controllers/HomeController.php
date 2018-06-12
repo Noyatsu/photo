@@ -22,9 +22,27 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($tab = 'timeline')
     {
+      switch($tab) {
+        case 'timeline':
+          $tab = 0;
+          break;
+        case 'search':
+          $tab = 1;
+          break;
+        case 'upload':
+          $tab = 2;
+          break;
+        case 'like':
+          $tab = 3;
+          break;
+        case 'profile':
+          $tab = 4;
+          break;
+      }
+
         $user = Auth::user();
-        return view('home', ['user' => $user]);
+        return view('home', ['user' => $user, 'tab' => $tab]);
     }
 }
