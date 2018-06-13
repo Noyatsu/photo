@@ -15,7 +15,7 @@
       検索
     </div>
     <div v-if="contents == 2" class="m-tab-contents">
-      アップロード
+      @include('photo/upload')
     </div>
     <div v-if="contents == 3" class="m-tab-contents">
       いいね!

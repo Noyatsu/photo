@@ -1,3 +1,4 @@
+/*profile*/
 .m-profile {
   text-align: center;
   margin: 0 auto;
@@ -21,11 +22,50 @@
   border-radius:100px;
 }
 
+/*navbar*/
+body {
+  padding-top: 3.25rem;
+}
+
+.m-navbar {
+  padding:0.5rem;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right : 0px;
+  z-index: 999;
+}
+
+.m-navbar-item {
+  color: #4a4a4a;
+  display: inline-block;
+  line-height: 1.5;
+  padding: 0.5rem 0.75rem;
+  position: relative;
+}
+
+.m-navbar .m-navbar-left {
+  display: inline-block;
+  position: absolute;
+  left: 0.5rem;
+  top: 0.5rem;
+}
+
+.m-navbar .m-navbar-right {
+  display: inline-block;
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+}
+
+/*tab*/
 .m-tab {
   display: inline-block;
   width: calc(100%/5);
   height: 45px;
   line-height: 45px;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
   background-color: #ffffff;
   text-align: center;
 }
@@ -42,13 +82,14 @@
 }
 
 .m-tab-contents {
-  padding-top: 25px;
   padding-bottom: 50px;
 }
 
 @media (max-width: 767px) {
   .m-tab {
     background-color: hsl(0, 0%, 96%);
+    margin-top: 0px;
+    margin-bottom: 0px;
   }
 
   .m-tab-active {

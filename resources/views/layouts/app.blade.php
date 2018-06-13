@@ -25,30 +25,40 @@
 </head>
 <body>
   <div id="app">
-    <nav class="navbar has-background-white-ter" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand">
-        <a class="navbar-item" href="{{ url('/') }}">
-          {{ config('app.name') }}
-        </a>
+    <nav class="m-navbar has-background-white-ter">
+          <a class="m-navbar-item" href="{{ url('/') }}">
+            {{ config('app.name') }}
+          </a>
+      <!-- Authentication Links -->
+      @guest
+      <a class="m-navbar-item" href="{{ route('login') }}">{{ __('Login') }}</a>
+      <a class="m-navbar-item" href="{{ route('register') }}">{{ __('Register') }}</a>
+      @else
+      <div class="m-navbar-right">
+        <div class="dropdown is-hoverable is-right">
+          <div class="dropdown-trigger">
+            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu3">
+              <span>...</span>
+            </button>
+          </div>
+          <div class="dropdown-menu" id="dropdown-menu3" role="menu">
+            <div class="dropdown-content">
+              <a class="nav-link navbar-item" href="/user">
+                {{ Auth::user()->name }}のプロフィール
+              </a>
+              <a class="nav-link navbar-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                {{ __('Logout') }}
+              </a>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
-        <!-- Authentication Links -->
-        @guest
-        <a class="nav-link navbar-item" href="{{ route('login') }}">{{ __('Login') }}</a>
-        <a class="nav-link navbar-item" href="{{ route('register') }}">{{ __('Register') }}</a>
-        @else
-        <a class="nav-link navbar-item" href="/user">
-          {{ Auth::user()->name }}のプロフィール
-        </a>
-        <a class="nav-link navbar-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-          {{ __('Logout') }}
-        </a>
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-          @csrf
-        </form>
-    </li>
-    @endguest
+      @endguest
+    </div>
   </div>
-</div>
 </nav>
 
 <main class="container">
