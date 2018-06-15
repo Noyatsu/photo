@@ -1,77 +1,69 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="{{ config('app.locale') }}">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 
-@section('content')
-<div class="container">
-  <div id="tab" v-cloak>
-    <div class="m-tab-bar">
-      <div class="m-tab" v-for="(tab, index) in tabnavs" v-bind:class="{ 'm-tab-active': tab.isActive }" @click="changeTab(index)">
-        <i v-bind:class="[ tab.cls ]"></i>
+  <title>てすとだよ</title>
+
+  <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/master.css') }}">
+
+  <script>
+  window.Laravel = {
+    csrfToken: "{{ csrf_token() }}"
+  };
+  </script>
+</head>
+<body>
+  <div id="app">
+    <nav class="m-navbar has-background-white-ter">
+      <a class="m-navbar-item" href="{{ url('/') }}">
+        {{ config('app.name') }}
+      </a>
+      <!-- Authentication Links -->
+      @guest
+      <a class="m-navbar-item" href="{{ route('login') }}">{{ __('Login') }}</a>
+      <a class="m-navbar-item" href="{{ route('register') }}">{{ __('Register') }}</a>
+      @else
+      <div class="m-navbar-right">
+        <div class="dropdown is-hoverable is-right">
+          <div class="dropdown-trigger">
+            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu3">
+              <span>...</span>
+            </button>
+          </div>
+          <div class="dropdown-menu" id="dropdown-menu3" role="menu">
+            <div class="dropdown-content">
+              <a class="nav-link navbar-item" href="/user">
+                {{ Auth::user()->name }}のプロフィール
+              </a>
+              <a class="nav-link navbar-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                {{ __('Logout') }}
+              </a>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
+      @endguest
+    </nav>
+    <div class="container">
+      <div class="m-tab-bar">
+        <router-link class="m-tab" to='/home' tag="div"><i class="fas fa-home"></i></router-link>
+        <router-link class="m-tab" to='/home/search' tag="div"><i class="fas fa-search"></i></router-link>
+        <router-link class="m-tab" to='/home/upload' tag="div"><i class="far fa-plus-square"></i></router-link>
+        <router-link class="m-tab" to='/home/like' tag="div"><i class="fas fa-heart"></i></router-link>
+        <router-link class="m-tab" to='/home/profile' tag="div"><i class="fas fa-user-circle"></i></router-link>
+      </div>
+      <router-view></router-view>
     </div>
-    <transition name="fade">
-      <div v-if="contents == 0" class="m-tab-contents">
-        TL
-      </div>
-    </transition>
-    <transition name="fade">
-      <div v-if="contents == 1" class="m-tab-contents">
-        検索
-      </div>
-    </transition>
-    <transition name="fade">
-      <div v-if="contents == 2" class="m-tab-contents">
-        @include('photo/upload')
-      </div>
-    </transition>
-    <transition name="fade">
-      <div v-if="contents == 3" class="m-tab-contents">
-        いいね!
-      </div>
-    </transition>
-    <transition name="fade">
-      <div v-if="contents == 4" class="m-tab-contents">
-        @include('user/profile-block')
-      </div>
-    </transition>
   </div>
-</div>
-<script>
-let tab = new Vue({
-  el: '#tab',
-  data: {
-    scrollY: 0,
-    tabnavs: [
-      { cls: 'fas fa-home', isActive: false, name: 'timeline'},
-      { cls: 'fas fa-search', isActive: false, name: 'search' },
-      { cls: 'far fa-plus-square', isActive: false, name: 'upload' },
-      { cls: 'fas fa-heart', isActive:false, name: 'like' },
-      { cls: 'fas fa-user-circle', isActive:false, name: 'profile' }
-    ],
-    contents: {{ $tab }}
-  },
-  methods: {
-    setTab: function (index) {
-      for (let i = 0; i < 5; i++) {
-        this.tabnavs[i].isActive = false;
-      }
-      this.tabnavs[index].isActive = true;
-    },
-    changeTab: function (index) {
-      this.contents = index;
-      this.setTab(index);
-      history.pushState(index,'','/home/'+this.tabnavs[index].name);
-    }
-  },
-  created: function () {
-    let self = this;
-    this.tabnavs[self.contents].isActive = true;
-
-    window.onpopstate = function(e) {
-      self.contents = e.state;
-      self.setTab(e.state);
-    }
-  }
-});
-
-</script>
-@endsection
+</body>
+<script src="{{ mix('js/app.js') }}"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+</html>
