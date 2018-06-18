@@ -10,7 +10,6 @@
 
   <link rel="stylesheet" href="{{ mix('css/app.css') }}">
   <link rel="stylesheet" href="{{ asset('css/master.css') }}">
-
   <script>
   window.Laravel = {
     csrfToken: "{{ csrf_token() }}"
