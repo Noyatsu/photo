@@ -1,3 +1,7 @@
+body {
+  box-sizing: border-box;
+}
+
 /*profile*/
 .m-profile {
   text-align: center;
@@ -5,7 +9,7 @@
 }
 
 .m-profile-img {
-  height: 128px;
+  height: 256px;
   margin-bottom: 52px;
   position: relative;
 }
@@ -22,6 +26,27 @@
   border-radius:100px;
 }
 
+@media (max-width: 767px) {
+  .m-profile-img {
+    height: 128px;
+    margin-bottom: 52px;
+    position: relative;
+  }
+
+  .m-profile figure {
+    position: absolute;
+    bottom: -48px;
+    left: 50%;
+    margin-left: -48px;
+  }
+
+  .m-profile img {
+    border: solid 2px white;
+    border-radius:100px;
+  }
+
+}
+
 /*navbar*/
 body {
   padding-top: 3.25rem;
@@ -34,6 +59,7 @@ body {
   left: 0px;
   right : 0px;
   z-index: 999;
+  border-bottom: solid 1px hsl(0, 0%, 86%);
 }
 
 .m-navbar-item {
@@ -61,16 +87,20 @@ body {
 /*tab*/
 .m-tab {
   display: inline-block;
-  width: calc(100%/5);
+  width: 20%;
   height: 45px;
   line-height: 45px;
+  margin-left: 0px;
+  margin-right: 0px;
   margin-bottom: 0.5rem;
   margin-top: 0.5rem;
   background-color: #ffffff;
+  color: #4a4a4a;
   text-align: center;
+  font-size: 1rem;
 }
 
-.m-tab-active {
+.m-tab-bar .router-link-exact-active {
   background-color: #ffffff;
   color: #565656;
   border-bottom: solid 2px #565656;
@@ -79,6 +109,9 @@ body {
 .m-tab-bar {
   position: static;
   z-index: 999;
+  font-size:0;
+  border-top: solid 1px hsl(0, 0%, 86%);
+
 }
 
 .m-tab-contents {
@@ -92,7 +125,7 @@ body {
     margin-bottom: 0px;
   }
 
-  .m-tab-active {
+  .m-tab-bar .router-link-exact-active{
     background-color: #565656;
     color: #ffffff;
   }
@@ -102,4 +135,14 @@ body {
     left: 0;
     right: 0;
   }
+}
+
+.fade-enter-active {
+  transition: opacity 0.3s;
+}
+.fade-leave-active {
+
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }

@@ -1,5 +1,5 @@
+<template>
 <section class="section">
-  <div class="container">
     <form>
       <div class="field is-grouped is-grouped-centered">
         <div class="file has-name is-boxed">
@@ -46,6 +46,14 @@
         </div>
         <div class="field-body">
           <div class="field">
+            <div>
+              <span class="tag is-primary">Nature</span>
+              <span class="tag is-primary">ファインダーの中の私の世界</span>
+              <span class="tag is-primary">sky</span>
+              <span class="tag is-primary">写真好きな人とつながりたい</span>
+              <span class="tag is-primary">絶景</span>
+            </div>
+
             <p class="control is-expanded has-icons-left">
               <input class="input" type="text" name="tag" placeholder="タグ(コンマ(,)区切り)">
               <span class="icon is-small is-left">
@@ -86,9 +94,6 @@
           </div>
         </div>
       </div>
-
-
-
       <div class="field is-horizontal">
         <div class="field-label">
         </div>
@@ -106,5 +111,5 @@
         </div>
       </div>
     </form>
-  </div>
 </section>
+</template>
