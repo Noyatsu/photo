@@ -33,4 +33,12 @@ class UserController extends Controller
     }
     return view('user.profile', ['user' => $user]);
   }
+
+  /**
+  * @return \Illuminate\Database\Eloquent\Relations\HasMany
+  */
+  public function photos()
+  {
+    return $this->hasMany(Photo::class);
+  }
 }

@@ -3,19 +3,19 @@
     <div class="post-header">
       <div class="post-header-left is-size-7">
         <p><img src="https://bulma.io/images/placeholders/128x128.png"></p>
-        <p><strong>{{ name }}</strong> ({{ location }})</p>
+        <p><strong>{{ photo.name }}</strong>(@{{photo.screen_name}}) {{ photo.location }}</p>
       </div>
     </div>
     <div class="post-contents">
-      <img src="/storage/photo/1.JPG">
+      <img v-bind:src="'/storage/photo/' + photo.path">
     </div>
     <div class="post-footer">
-      <p class="post-title"><strong>{{ title }}</strong></p>
+      <p class="post-title"><strong>{{ photo.title }}</strong></p>
       <div class="post-right">
         <a class="button is-light"><i class="fas fa-share-alt"></i></a>
         <a class="button is-light"><i class="far fa-heart"></i></a>
       </div>
-      <p class="is-size-7 has-text-grey">{{ created_at }}</p>
+      <p class="is-size-7 has-text-grey">{{ photo.created_at }}</p>
     </div>
   </div>
 </template>
@@ -23,21 +23,14 @@
 <script>
 export default{
   name: 'post-component',
+  props: [ 'photo' ],
   data: function () {
     return {
-      name: 'Kosuke Sasaki',
-      title: 'Blue',
-      path: '/storage/photo/1.JPG',
-      location: 'Hitachi Kaihin Park',
-      likes: '10',
-      camera: 'Fujifilm X10',
-      lens: 'Fujifilm',
-      focal_length: '50mm',
-      speed: '1/300',
-      iris: 'F1.8',
-      iso: '200',
-      created_at: '2018/6/18 14:11'
+
     }
+  },
+  created () {
+    console.log(this.photo);
   }
 }
 </script>

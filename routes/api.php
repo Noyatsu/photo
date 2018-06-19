@@ -16,3 +16,6 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// 認証は面倒なので一旦省略
+Route::resource('/photos', 'PhotoController', ['except' => ['create', 'edit']]);
