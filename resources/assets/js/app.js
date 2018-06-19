@@ -1,5 +1,3 @@
-window.axios.defaults.headers.common['Authorization'] = 'Bearer ' + Laravel.apiToken;
-
 /**
 * First we will load all of this project's JavaScript dependencies which
 * includes Vue and other libraries. It is a great starting point when
