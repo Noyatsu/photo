@@ -3,19 +3,48 @@
     <div class="post-header">
       <div class="post-header-left is-size-7">
         <p><img src="https://bulma.io/images/placeholders/128x128.png"></p>
-        <p><strong>{{ photo.name }}</strong>(@{{photo.screen_name}}) {{ photo.location }}</p>
+        <p><strong>{{ photo.name }}</strong>(@{{photo.screen_name}}) at {{ photo.p_location }}</p>
       </div>
     </div>
     <div class="post-contents">
-      <img v-bind:src="'/storage/photo/' + photo.path">
+      <img v-bind:src="'/storage/photo/' + photo.path" @click="showModal = true">
     </div>
     <div class="post-footer">
       <p class="post-title"><strong>{{ photo.title }}</strong></p>
       <div class="post-right">
         <a class="button is-light"><i class="fas fa-share-alt"></i></a>
-        <a class="button is-light"><i class="far fa-heart"></i></a>
+        <a class="button is-light"><i class="far fa-heart"></i>11</a>
       </div>
-      <p class="is-size-7 has-text-grey">{{ photo.created_at }}</p>
+      <p class="is-size-7 has-text-grey">{{ photo.p_created_at }}</p>
+    </div>
+
+    <div class="modal is-active" v-if="showModal" @close="showModal = false">
+      <div class="modal-background" @click="showModal = false"></div>
+      <div class="modal-card">
+        <header class="modal-card-head has-background-black">
+          <p class="modal-card-title has-text-light">{{ photo.title }}</p>
+          <button class="delete" aria-label="close"  @click="showModal = false"></button>
+        </header>
+        <section class="modal-card-body has-background-black has-text-light">
+          <p class="image">
+            <img v-bind:src="'/storage/photo/' + photo.path" alt="">
+          </p>
+          <p><i class="fas fa-user fa-fw"></i> {{ photo.screen_name }}</p>
+          <p><i class="fas fa-tag fa-fw"></i> <span class="tag is-dark">{{ photo.c_name }}</span></p>
+          <p><i class="fas fa-map-marker fa-fw"></i> {{ photo.p_location }}</p>
+          <p><i class="fas fa-camera fa-fw"></i> {{ photo.camera }}</p>
+          <p><i class="far fa-dot-circle fa-fw"></i> {{ photo.lens }}</p>
+          <p>{{ photo.focal_length }}mm {{ photo.speed }} F{{ photo.iris }} ISO{{ photo.iso }}</p>
+          <hr>
+          <h3>コメント</h3>
+          <p>なし</p>
+        </section>
+        <footer class="modal-card-foot has-background-black">
+          <a class="button is-dark"><i class="fas fa-share-alt"></i></a>
+          <a class="button is-dark"><i class="far fa-heart"></i>11</a>
+          <button class="button is-dark" @click="showModal = false">閉じる</button>
+        </footer>
+      </div>
     </div>
   </div>
 </template>
@@ -26,11 +55,10 @@ export default{
   props: [ 'photo' ],
   data: function () {
     return {
-
+      showModal: false
     }
   },
   created () {
-    console.log(this.photo);
   }
 }
 </script>
@@ -86,5 +114,9 @@ export default{
     }
     margin-top: 0rem;
   }
+}
+
+.modal {
+  z-index: 1000;
 }
 </style>

@@ -16871,7 +16871,7 @@ exports = module.exports = __webpack_require__(43)(false);
 
 
 // module
-exports.push([module.i, "\n.post[data-v-33cd90d3] {\n  margin-top: 1rem;\n  margin-bottom: 1rem;\n}\n.post .post-header[data-v-33cd90d3] {\n    height: 2rem;\n    position: relative;\n}\n.post .post-header .post-header-left[data-v-33cd90d3] {\n      display: inline-block;\n      position: absolute;\n      left: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-header .post-header-left p[data-v-33cd90d3] {\n        display: inline-block;\n        vertical-align: middle;\n        height: 2rem;\n        line-height: 2rem;\n}\n.post .post-header .post-header-left p img[data-v-33cd90d3] {\n        width: 2rem;\n        height: 2rem;\n        margin-right: 0.2rem;\n        border-radius: 100%;\n}\n.post .post-header .post-header-right[data-v-33cd90d3] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-contents[data-v-33cd90d3] {\n    margin-top: 0.25rem;\n}\n.post .post-footer[data-v-33cd90d3] {\n    position: relative;\n    margin-left: 0.5rem;\n    margin-top: 0rem;\n}\n.post .post-footer .post-right[data-v-33cd90d3] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0.2rem;\n      bottom: 0;\n}\n", ""]);
+exports.push([module.i, "\n.post[data-v-33cd90d3] {\n  margin-top: 1rem;\n  margin-bottom: 1rem;\n}\n.post .post-header[data-v-33cd90d3] {\n    height: 2rem;\n    position: relative;\n}\n.post .post-header .post-header-left[data-v-33cd90d3] {\n      display: inline-block;\n      position: absolute;\n      left: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-header .post-header-left p[data-v-33cd90d3] {\n        display: inline-block;\n        vertical-align: middle;\n        height: 2rem;\n        line-height: 2rem;\n}\n.post .post-header .post-header-left p img[data-v-33cd90d3] {\n        width: 2rem;\n        height: 2rem;\n        margin-right: 0.2rem;\n        border-radius: 100%;\n}\n.post .post-header .post-header-right[data-v-33cd90d3] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-contents[data-v-33cd90d3] {\n    margin-top: 0.25rem;\n}\n.post .post-footer[data-v-33cd90d3] {\n    position: relative;\n    margin-left: 0.5rem;\n    margin-top: 0rem;\n}\n.post .post-footer .post-right[data-v-33cd90d3] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0.2rem;\n      bottom: 0;\n}\n.modal[data-v-33cd90d3] {\n  z-index: 1000;\n}\n", ""]);
 
 // exports
 
@@ -17247,16 +17247,45 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'post-component',
   props: ['photo'],
   data: function data() {
-    return {};
+    return {
+      showModal: false
+    };
   },
-  created: function created() {
-    console.log(this.photo);
-  }
+  created: function created() {}
 });
 
 /***/ }),
@@ -17277,15 +17306,22 @@ var render = function() {
           _vm._v(
             "(@" +
               _vm._s(_vm.photo.screen_name) +
-              ") " +
-              _vm._s(_vm.photo.location)
+              ") at " +
+              _vm._s(_vm.photo.p_location)
           )
         ])
       ])
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "post-contents" }, [
-      _c("img", { attrs: { src: "/storage/photo/" + _vm.photo.path } })
+      _c("img", {
+        attrs: { src: "/storage/photo/" + _vm.photo.path },
+        on: {
+          click: function($event) {
+            _vm.showModal = true
+          }
+        }
+      })
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "post-footer" }, [
@@ -17296,9 +17332,142 @@ var render = function() {
       _vm._m(1),
       _vm._v(" "),
       _c("p", { staticClass: "is-size-7 has-text-grey" }, [
-        _vm._v(_vm._s(_vm.photo.created_at))
+        _vm._v(_vm._s(_vm.photo.p_created_at))
       ])
-    ])
+    ]),
+    _vm._v(" "),
+    _vm.showModal
+      ? _c(
+          "div",
+          {
+            staticClass: "modal is-active",
+            on: {
+              close: function($event) {
+                _vm.showModal = false
+              }
+            }
+          },
+          [
+            _c("div", {
+              staticClass: "modal-background",
+              on: {
+                click: function($event) {
+                  _vm.showModal = false
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-card" }, [
+              _c(
+                "header",
+                { staticClass: "modal-card-head has-background-black" },
+                [
+                  _c("p", { staticClass: "modal-card-title has-text-light" }, [
+                    _vm._v(_vm._s(_vm.photo.title))
+                  ]),
+                  _vm._v(" "),
+                  _c("button", {
+                    staticClass: "delete",
+                    attrs: { "aria-label": "close" },
+                    on: {
+                      click: function($event) {
+                        _vm.showModal = false
+                      }
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "section",
+                {
+                  staticClass:
+                    "modal-card-body has-background-black has-text-light"
+                },
+                [
+                  _c("p", { staticClass: "image" }, [
+                    _c("img", {
+                      attrs: {
+                        src: "/storage/photo/" + _vm.photo.path,
+                        alt: ""
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _c("i", { staticClass: "fas fa-user fa-fw" }),
+                    _vm._v(" " + _vm._s(_vm.photo.screen_name))
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _c("i", { staticClass: "fas fa-tag fa-fw" }),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "tag is-dark" }, [
+                      _vm._v(_vm._s(_vm.photo.c_name))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _c("i", { staticClass: "fas fa-map-marker fa-fw" }),
+                    _vm._v(" " + _vm._s(_vm.photo.p_location))
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _c("i", { staticClass: "fas fa-camera fa-fw" }),
+                    _vm._v(" " + _vm._s(_vm.photo.camera))
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _c("i", { staticClass: "far fa-dot-circle fa-fw" }),
+                    _vm._v(" " + _vm._s(_vm.photo.lens))
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      _vm._s(_vm.photo.focal_length) +
+                        "mm " +
+                        _vm._s(_vm.photo.speed) +
+                        " F" +
+                        _vm._s(_vm.photo.iris) +
+                        " ISO" +
+                        _vm._s(_vm.photo.iso)
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("hr"),
+                  _vm._v(" "),
+                  _c("h3", [_vm._v("コメント")]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v("なし")])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "footer",
+                { staticClass: "modal-card-foot has-background-black" },
+                [
+                  _vm._m(2),
+                  _vm._v(" "),
+                  _vm._m(3),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "button is-dark",
+                      on: {
+                        click: function($event) {
+                          _vm.showModal = false
+                        }
+                      }
+                    },
+                    [_vm._v("閉じる")]
+                  )
+                ]
+              )
+            ])
+          ]
+        )
+      : _vm._e()
   ])
 }
 var staticRenderFns = [
@@ -17322,8 +17491,26 @@ var staticRenderFns = [
       ]),
       _vm._v(" "),
       _c("a", { staticClass: "button is-light" }, [
-        _c("i", { staticClass: "far fa-heart" })
+        _c("i", { staticClass: "far fa-heart" }),
+        _vm._v("11")
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "button is-dark" }, [
+      _c("i", { staticClass: "fas fa-share-alt" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "button is-dark" }, [
+      _c("i", { staticClass: "far fa-heart" }),
+      _vm._v("11")
     ])
   }
 ]

@@ -22,7 +22,10 @@ class PhotoController extends Controller
   */
   public function index()
   {
-    return response(Photo::select()->join('users','photos.user_id','=','users.id')->get());
+    return response(
+      Photo::select('photos.location as p_location', 'photos.created_at as p_created_at','photos.*', 'users.*', 'categories.name as c_name')
+      ->join('users','photos.user_id','=','users.id')->join('categories','categories.id','=','photos.category_id')->get()
+    );
   }
 
   /**
