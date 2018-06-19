@@ -37,22 +37,5 @@ class LoginController extends Controller
     $this->middleware('guest')->except('logout');
   }
 
-  protected function authenticated(Request $request, $user)
-  {
-    $user->update(['api_token' => str_random(100)]);
-  }
 
-  public function logout(Request $request)
-  {
-    // api_tokenをnullにする
-    $user = $request->user();
-    $user->update(['api_token' => null]);
-
-    $this->guard()->logout();
-
-    $request->session()->flush();
-    $request->session()->regenerate();
-
-    return redirect('/');
-  }
 }
