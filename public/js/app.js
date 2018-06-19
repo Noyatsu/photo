@@ -17276,6 +17276,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'post-component',
@@ -17434,11 +17440,9 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _c("hr"),
-                  _vm._v(" "),
                   _c("h3", [_vm._v("コメント")]),
                   _vm._v(" "),
-                  _c("p", [_vm._v("なし")])
+                  _vm._m(2)
                 ]
               ),
               _vm._v(" "),
@@ -17446,9 +17450,9 @@ var render = function() {
                 "footer",
                 { staticClass: "modal-card-foot has-background-black" },
                 [
-                  _vm._m(2),
-                  _vm._v(" "),
                   _vm._m(3),
+                  _vm._v(" "),
+                  _vm._m(4),
                   _vm._v(" "),
                   _c(
                     "button",
@@ -17493,6 +17497,23 @@ var staticRenderFns = [
       _c("a", { staticClass: "button is-light" }, [
         _c("i", { staticClass: "far fa-heart" }),
         _vm._v("11")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "field" }, [
+      _c("p", { staticClass: "control has-icons-left has-icons-right" }, [
+        _c("input", {
+          staticClass: "input has-background-dark has-text-light",
+          attrs: { placeholder: "コメントを追加" }
+        }),
+        _vm._v(" "),
+        _c("span", { staticClass: "icon is-small is-left" }, [
+          _c("i", { staticClass: "fas fa-comment" })
+        ])
       ])
     ])
   },

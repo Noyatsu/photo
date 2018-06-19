@@ -35,9 +35,15 @@
           <p><i class="fas fa-camera fa-fw"></i> {{ photo.camera }}</p>
           <p><i class="far fa-dot-circle fa-fw"></i> {{ photo.lens }}</p>
           <p>{{ photo.focal_length }}mm {{ photo.speed }} F{{ photo.iris }} ISO{{ photo.iso }}</p>
-          <hr>
           <h3>コメント</h3>
-          <p>なし</p>
+          <div class="field">
+            <p class="control has-icons-left has-icons-right">
+              <input class="input has-background-dark has-text-light" placeholder="コメントを追加">
+              <span class="icon is-small is-left">
+                <i class="fas fa-comment"></i>
+              </span>
+            </p>
+          </div>
         </section>
         <footer class="modal-card-foot has-background-black">
           <a class="button is-dark"><i class="fas fa-share-alt"></i></a>
