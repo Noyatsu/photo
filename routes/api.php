@@ -19,3 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 // 認証は面倒なので一旦省略
 Route::resource('/photos', 'PhotoController', ['except' => ['create', 'edit']]);
+Route::get('/users/{screen_name}', 'UserController@userInfo');

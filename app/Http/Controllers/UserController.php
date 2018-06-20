@@ -41,4 +41,9 @@ class UserController extends Controller
   {
     return $this->hasMany(Photo::class);
   }
+
+  public function userInfo($screen_name)
+  {
+    return response(User::firstOrNew(['screen_name' => $screen_name]));
+  }
 }

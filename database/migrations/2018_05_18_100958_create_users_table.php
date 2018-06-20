@@ -25,9 +25,8 @@ class CreateUsersTable extends Migration
             $table->string('time_zone')->nullable();
             $table->string('lang')->nullable();
             $table->string('verified')->nullable();
-            $table->string('icon')->nullable();
+            $table->string('icon')->default('default.png');
             $table->string('background')->nullable();
-            $table->string('api_token', 60)->unique()->nullable();
             $table->string('remember_token')->nullable();
             $table->timestamps();
         });

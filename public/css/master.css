@@ -2,50 +2,6 @@ body {
   box-sizing: border-box;
 }
 
-/*profile*/
-.m-profile {
-  text-align: center;
-  margin: 0 auto;
-}
-
-.m-profile-img {
-  height: 256px;
-  margin-bottom: 52px;
-  position: relative;
-}
-
-.m-profile figure {
-  position: absolute;
-  bottom: -48px;
-  left: 50%;
-  margin-left: -48px;
-}
-
-.m-profile img {
-  border: solid 2px white;
-  border-radius:100px;
-}
-
-@media (max-width: 767px) {
-  .m-profile-img {
-    height: 128px;
-    margin-bottom: 52px;
-    position: relative;
-  }
-
-  .m-profile figure {
-    position: absolute;
-    bottom: -48px;
-    left: 50%;
-    margin-left: -48px;
-  }
-
-  .m-profile img {
-    border: solid 2px white;
-    border-radius:100px;
-  }
-
-}
 
 /*navbar*/
 body {
