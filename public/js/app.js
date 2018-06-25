@@ -18278,7 +18278,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/*profile*/\n.m-profile[data-v-22ef5402] {\r\n  text-align: center;\r\n  margin: 0 auto;\n}\n.m-profile-img[data-v-22ef5402] {\r\n  height: 256px;\r\n  margin-bottom: 52px;\r\n  position: relative;\n}\n.m-profile figure[data-v-22ef5402] {\r\n  position: absolute;\r\n  bottom: -48px;\r\n  left: 50%;\r\n  margin-left: -48px;\n}\n.m-profile img[data-v-22ef5402] {\r\n  border: solid 2px white;\r\n  border-radius:100px;\n}\n@media (max-width: 767px) {\n.m-profile-img[data-v-22ef5402] {\r\n    height: 128px;\r\n    margin-bottom: 52px;\r\n    position: relative;\n}\n.m-profile figure[data-v-22ef5402] {\r\n    position: absolute;\r\n    bottom: -48px;\r\n    left: 50%;\r\n    margin-left: -48px;\n}\n.m-profile img[data-v-22ef5402] {\r\n    border: solid 2px white;\r\n    border-radius:100px;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/*profile*/\n.m-profile[data-v-22ef5402] {\r\n  text-align: center;\r\n  margin: 0 auto;\n}\n.m-profile-img[data-v-22ef5402] {\r\n  height: 256px;\r\n  margin-bottom: 52px;\r\n  position: relative;\n}\n.m-profile figure[data-v-22ef5402] {\r\n  position: absolute;\r\n  bottom: -48px;\r\n  left: 50%;\r\n  margin-left: -48px;\n}\n.m-profile img[data-v-22ef5402] {\r\n  border: solid 2px white;\r\n  border-radius:100px;\n}\n@media (max-width: 767px) {\n.m-profile-img[data-v-22ef5402] {\r\n    height: 128px;\r\n    margin-bottom: 52px;\r\n    position: relative;\n}\n.m-profile figure[data-v-22ef5402] {\r\n    position: absolute;\r\n    bottom: -48px;\r\n    left: 50%;\r\n    margin-left: -48px;\n}\n.m-profile img[data-v-22ef5402] {\r\n    border: solid 2px white;\r\n    border-radius:100px;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -18331,6 +18331,14 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -18341,7 +18349,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
   data: function data() {
     return {
       user_data: [],
-      isMine: false
+      isMine: false,
+      isFollow: false
     };
   },
 
@@ -18350,7 +18359,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
   },
   created: function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
-      var res;
+      var res, _res;
+
       return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -18392,11 +18402,32 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
               console.error(_context.t0);
 
             case 18:
+              _context.prev = 18;
+              _res = void 0;
+              _context.next = 22;
+              return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/users/follow/check/' + user_screen_name + '/' + this.user_data.screen_name);
+
+            case 22:
+              _res = _context.sent;
+
+              if (_res.data == true) {
+                this.isFollow = true;
+              }
+              _context.next = 29;
+              break;
+
+            case 26:
+              _context.prev = 26;
+              _context.t1 = _context['catch'](18);
+
+              console.error(_context.t1);
+
+            case 29:
             case 'end':
               return _context.stop();
           }
         }
-      }, _callee, this, [[0, 15]]);
+      }, _callee, this, [[0, 15], [18, 26]]);
     }));
 
     function created() {
@@ -18404,7 +18435,28 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
     }
 
     return created;
-  }()
+  }(),
+
+  methods: {
+    followToggle: function followToggle() {
+      var _this = this;
+
+      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post('/api/users/follow/toggle', {
+        screen_name: user_screen_name,
+        api_token: user_api_token,
+        opponent_screen_name: this.user_data.screen_name,
+        csrfToken: window.Laravel.csrfToken
+      }).then(function (response) {
+        if (_this.isFollow == true) {
+          _this.isFollow = false;
+        } else {
+          _this.isFollow = true;
+        }
+      }).catch(function (error) {
+        console.log(error.response);
+      });;
+    }
+  }
 });
 
 /***/ }),
@@ -18455,13 +18507,41 @@ var render = function() {
           _vm._v(" "),
           _c("p", [_vm._v(_vm._s(_vm.user_data.description))]),
           _vm._v(" "),
-          !_vm.isMine ? _c("p", [_vm._m(0)]) : _vm._e(),
+          !_vm.isMine
+            ? _c("p", [
+                !_vm.isFollow
+                  ? _c(
+                      "a",
+                      {
+                        staticClass: "button is-info is-outlined",
+                        on: { click: _vm.followToggle }
+                      },
+                      [_vm._m(0), _vm._v(" "), _c("span", [_vm._v("ウォッチ")])]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.isFollow
+                  ? _c(
+                      "a",
+                      {
+                        staticClass: "button is-info",
+                        on: { click: _vm.followToggle }
+                      },
+                      [
+                        _vm._m(1),
+                        _vm._v(" "),
+                        _c("span", [_vm._v("ウォッチ中")])
+                      ]
+                    )
+                  : _vm._e()
+              ])
+            : _vm._e(),
           _vm._v(" "),
-          _vm._m(1)
+          _vm._m(2)
         ])
       ]),
       _vm._v(" "),
-      _vm._m(2)
+      _vm._m(3)
     ])
   ])
 }
@@ -18470,12 +18550,16 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("a", { staticClass: "button is-info" }, [
-      _c("span", { staticClass: "icon" }, [
-        _c("i", { staticClass: "fas fa-user-plus" })
-      ]),
-      _vm._v(" "),
-      _c("span", [_vm._v("ウォッチ")])
+    return _c("span", { staticClass: "icon" }, [
+      _c("i", { staticClass: "fas fa-user-plus" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "icon" }, [
+      _c("i", { staticClass: "fas fa-check" })
     ])
   },
   function() {

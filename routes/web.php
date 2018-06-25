@@ -19,10 +19,10 @@ Auth::routes();
 
 Route::group(['middleware' => 'auth'], function(){
   //HomeController
-  Route::get('/home', function(){ return view('home'); });
-  Route::get('/home/{any}', function(){ return view('home'); })->where('any', '.*');
+  Route::get('/home', 'HomeController@index');
+  Route::get('/home/{any}', 'HomeController@index')->where('any', '.*');
 
   //UserController
-  Route::get('/user', function(){ return view('home'); });
-  Route::get('/user/{screen_name}', function(){ return view('home'); });
+  Route::get('/user', 'HomeController@index');
+  Route::get('/user/{screen_name}', 'HomeController@index');
 });

@@ -12,12 +12,20 @@
           <p class="is-size-7 has-text-grey-light">@<span>{{ user_data.screen_name }}</span></p>
           <p>{{ user_data.description }}</p>
 
-          <p v-if="!isMine"><a class="button is-info">
-            <span class="icon">
-              <i class="fas fa-user-plus"></i>
-            </span>
-            <span>ウォッチ</span>
-          </a></p>
+          <p v-if="!isMine">
+            <a class="button is-info is-outlined" @click="followToggle" v-if="!isFollow">
+              <span class="icon">
+                <i class="fas fa-user-plus"></i>
+              </span>
+              <span>ウォッチ</span>
+            </a>
+            <a class="button is-info" @click="followToggle" v-if="isFollow">
+              <span class="icon">
+                <i class="fas fa-check"></i>
+              </span>
+              <span>ウォッチ中</span>
+            </a>
+          </p>
 
           <p class="is-size-7 has-text-grey-light"><time>2018/4/1</time>に登録</p>
         </div>
@@ -40,7 +48,8 @@ export default {
   data() {
     return {
       user_data: [],
-      isMine: false
+      isMine: false,
+      isFollow: false
     };
   },
   components: {
@@ -60,6 +69,37 @@ export default {
       this.user_data = res.data;
     } catch (e) {
       console.error(e)
+    }
+
+    try {
+      let res;
+      res = await axios.get('/api/users/follow/check/' + user_screen_name + '/' + this.user_data.screen_name);
+      if(res.data==true) {
+        this.isFollow = true;
+      }
+    } catch (e) {
+      console.error(e)
+    }
+  },
+  methods: {
+    followToggle: function() {
+      axios.post('/api/users/follow/toggle', {
+        screen_name: user_screen_name,
+        api_token: user_api_token,
+        opponent_screen_name: this.user_data.screen_name,
+        csrfToken: window.Laravel.csrfToken
+      })
+      .then(response => {
+        if(this.isFollow == true){
+          this.isFollow = false;
+        }
+        else {
+          this.isFollow = true;
+        }
+      })
+      .catch(error => {
+        console.log(error.response)
+      });;
     }
   }
 }

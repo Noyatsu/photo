@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>てすとだよ</title>
+  <title>Photo Club</title>
 
   <link rel="stylesheet" href="{{ mix('css/app.css') }}">
   <link rel="stylesheet" href="{{ asset('css/master.css') }}">
@@ -14,7 +14,8 @@
   window.Laravel = {
     csrfToken: "{{ csrf_token() }}"
   };
-  const user_screen_name = "{{ Auth::user()->screen_name }}"
+  const user_api_token = "{{ $api_token }}";
+  const user_screen_name = "{{ Auth::user()->screen_name }}";
   </script>
 </head>
 <body>
