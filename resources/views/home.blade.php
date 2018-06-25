@@ -60,7 +60,9 @@
         <router-link class="m-tab" to='/home/like' tag="div"><i class="fas fa-heart"></i></router-link>
         <router-link class="m-tab" to='/home/profile' tag="div"><i class="fas fa-user-circle"></i></router-link>
       </div>
-      <router-view></router-view>
+      <transition name="fade" mode="out-in">
+        <router-view></router-view>
+      </transition>
     </div>
   </div>
 </body>

@@ -17,41 +17,43 @@
       </div>
       <p class="is-size-7 has-text-grey">{{ photo.p_created_at }}</p>
     </div>
+    <transition name="fade" mode="out-in">
 
-    <div class="modal is-active" v-if="showModal" @close="showModal = false">
-      <div class="modal-background" @click="showModal = false"></div>
-      <div class="modal-card">
-        <header class="modal-card-head has-background-black">
-          <p class="modal-card-title has-text-light">{{ photo.title }}</p>
-          <button class="delete" aria-label="close"  @click="showModal = false"></button>
-        </header>
-        <section class="modal-card-body has-background-black has-text-light">
-          <p class="image">
-            <img v-bind:src="'/storage/photo/' + photo.path" alt="">
-          </p>
-          <p><i class="fas fa-user fa-fw"></i> {{ photo.screen_name }}</p>
-          <p><i class="fas fa-tag fa-fw"></i> <span class="tag is-dark">{{ photo.c_name }}</span></p>
-          <p><i class="fas fa-map-marker fa-fw"></i> {{ photo.p_location }}</p>
-          <p><i class="fas fa-camera fa-fw"></i> {{ photo.camera }}</p>
-          <p><i class="far fa-dot-circle fa-fw"></i> {{ photo.lens }}</p>
-          <p>{{ photo.focal_length }}mm {{ photo.speed }} F{{ photo.iris }} ISO{{ photo.iso }}</p>
-          <h3>コメント</h3>
-          <div class="field">
-            <p class="control has-icons-left has-icons-right">
-              <input class="input has-background-dark has-text-light" placeholder="コメントを追加">
-              <span class="icon is-small is-left">
-                <i class="fas fa-comment"></i>
-              </span>
+      <div class="modal is-active" v-if="showModal" @close="showModal = false">
+        <div class="modal-background" @click="showModal = false"></div>
+        <div class="modal-card">
+          <header class="modal-card-head has-background-black">
+            <p class="modal-card-title has-text-light">{{ photo.title }}</p>
+            <button class="delete" aria-label="close"  @click="showModal = false"></button>
+          </header>
+          <section class="modal-card-body has-background-black has-text-light">
+            <p class="image">
+              <img v-bind:src="'/storage/photo/' + photo.path" alt="">
             </p>
-          </div>
-        </section>
-        <footer class="modal-card-foot has-background-black">
-          <a class="button is-dark"><i class="fas fa-share-alt"></i></a>
-          <a class="button is-dark"><i class="far fa-heart"></i>11</a>
-          <button class="button is-dark" @click="showModal = false">閉じる</button>
-        </footer>
+            <p><i class="fas fa-user fa-fw"></i> {{ photo.screen_name }}</p>
+            <p><i class="fas fa-tag fa-fw"></i> <span class="tag is-dark">{{ photo.c_name }}</span></p>
+            <p><i class="fas fa-map-marker fa-fw"></i> {{ photo.p_location }}</p>
+            <p><i class="fas fa-camera fa-fw"></i> {{ photo.camera }}</p>
+            <p><i class="far fa-dot-circle fa-fw"></i> {{ photo.lens }}</p>
+            <p>{{ photo.focal_length }}mm {{ photo.speed }} F{{ photo.iris }} ISO{{ photo.iso }}</p>
+            <h3>コメント</h3>
+            <div class="field">
+              <p class="control has-icons-left has-icons-right">
+                <input class="input has-background-dark has-text-light" placeholder="コメントを追加">
+                <span class="icon is-small is-left">
+                  <i class="fas fa-comment"></i>
+                </span>
+              </p>
+            </div>
+          </section>
+          <footer class="modal-card-foot has-background-black">
+            <a class="button is-dark"><i class="fas fa-share-alt"></i></a>
+            <a class="button is-dark"><i class="far fa-heart"></i>11</a>
+            <button class="button is-dark" @click="showModal = false">閉じる</button>
+          </footer>
+        </div>
       </div>
-    </div>
+    </transition>
   </div>
 </template>
 

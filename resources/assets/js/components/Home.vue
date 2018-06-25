@@ -9,15 +9,20 @@ import axios from 'axios';
 
 //子コンポネート
 import PostComponent from './parts/Post.vue';
+import LoadingComponent from './parts/Loading.vue';
 
 export default {
   data() {
     return {
-      photos_list: []
+      photos_list: [],
+      loading: false
     };
   },
   components: {
-    'post-component': PostComponent
+    'post-component': PostComponent,
+    'load-component': LoadingComponent
+  },
+  methods: {
   },
   async created() {
     try {

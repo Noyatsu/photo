@@ -4,7 +4,7 @@
   <div class="m-profile">
     <div class="m-profile-img has-background-link" v-bind:style="{ 'background-image': 'url(/storage/photo/' + user_data.background + ')', 'background-position':'center center', 'background-size': 'cover' }">
       <figure class="image is-96x96">
-        <img v-bind:src="'/storage/icon/' + user_data.icon ">
+        <img v-bind:src="'/storage/icon/' + user_data.icon">
       </figure>
     </div>
     <div class="content">
@@ -39,6 +39,7 @@ export default {
     'post-component': PostComponent
   },
   async created() {
+
     try {
       let res = await axios.get('/api/users/' + user_screen_name);
       this.user_data = res.data;
