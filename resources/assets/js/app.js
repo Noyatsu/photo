@@ -22,6 +22,10 @@ const router = new VueRouter({
         { path: '/home/upload', component: require('./components/Upload.vue') },
         { path: '/home/like', component: require('./components/Like.vue') },
         { path: '/home/profile', component: require('./components/Profile.vue') },
+
+        { path: '/user/' + user_screen_name,  redirect: '/home/profile' },
+        { path: '/user/:screen_name', component: require('./components/Profile.vue') },
+
     ]
 });
 

@@ -12446,7 +12446,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
 // vue-routerのインスタンス化、オプションroutesでアクセスされるパスとその時に表示するComponentを指定
 var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
   mode: 'history',
-  routes: [{ path: '/home', component: __webpack_require__(21) }, { path: '/home/search', component: __webpack_require__(54) }, { path: '/home/upload', component: __webpack_require__(56) }, { path: '/home/like', component: __webpack_require__(58) }, { path: '/home/profile', component: __webpack_require__(60) }]
+  routes: [{ path: '/home', component: __webpack_require__(21) }, { path: '/home/search', component: __webpack_require__(54) }, { path: '/home/upload', component: __webpack_require__(56) }, { path: '/home/like', component: __webpack_require__(58) }, { path: '/home/profile', component: __webpack_require__(60) }, { path: '/user/' + user_screen_name, redirect: '/home/profile' }, { path: '/user/:screen_name', component: __webpack_require__(60) }]
 });
 
 /**
@@ -17187,7 +17187,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n.post[data-v-33cd90d3] {\n  margin-top: 1rem;\n  margin-bottom: 1rem;\n}\n.post .post-header[data-v-33cd90d3] {\n    height: 2rem;\n    position: relative;\n}\n.post .post-header .post-header-left[data-v-33cd90d3] {\n      display: inline-block;\n      position: absolute;\n      left: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-header .post-header-left p[data-v-33cd90d3] {\n        display: inline-block;\n        vertical-align: middle;\n        height: 2rem;\n        line-height: 2rem;\n}\n.post .post-header .post-header-left p img[data-v-33cd90d3] {\n        width: 2rem;\n        height: 2rem;\n        margin-right: 0.2rem;\n        border-radius: 100%;\n}\n.post .post-header .post-header-right[data-v-33cd90d3] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-contents[data-v-33cd90d3] {\n    margin-top: 0.25rem;\n}\n.post .post-footer[data-v-33cd90d3] {\n    position: relative;\n    margin-left: 0.5rem;\n    margin-top: 0rem;\n}\n.post .post-footer .post-right[data-v-33cd90d3] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0.2rem;\n      bottom: 0;\n}\n.modal[data-v-33cd90d3] {\n  z-index: 1000;\n}\n", ""]);
+exports.push([module.i, "\n.post[data-v-33cd90d3] {\n  margin-top: 1rem;\n  margin-bottom: 1rem;\n}\n.post .post-header[data-v-33cd90d3] {\n    height: 2rem;\n    position: relative;\n}\n.post .post-header .post-header-left[data-v-33cd90d3] {\n      display: inline-block;\n      position: absolute;\n      left: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-header .post-header-left p[data-v-33cd90d3] {\n        display: inline-block;\n        vertical-align: middle;\n        height: 2rem;\n        line-height: 2rem;\n}\n.post .post-header .post-header-left p img[data-v-33cd90d3] {\n        width: 2rem;\n        height: 2rem;\n        margin-right: 0.2rem;\n        border-radius: 100%;\n}\n.post .post-header .post-header-right[data-v-33cd90d3] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-contents[data-v-33cd90d3] {\n    margin-top: 0.25rem;\n}\n.post .post-footer[data-v-33cd90d3] {\n    position: relative;\n    margin-left: 0.5rem;\n    margin-top: 0rem;\n}\n.post .post-footer .post-right[data-v-33cd90d3] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0.2rem;\n      bottom: 0;\n}\n.modal[data-v-33cd90d3] {\n  z-index: 1000;\n}\na strong[data-v-33cd90d3] {\n  color: #000000;\n}\na[data-v-33cd90d3] {\n  color: white;\n}\n", ""]);
 
 // exports
 
@@ -17316,17 +17316,41 @@ var render = function() {
     [
       _c("div", { staticClass: "post-header" }, [
         _c("div", { staticClass: "post-header-left is-size-7" }, [
-          _vm._m(0),
+          _c(
+            "p",
+            [
+              _c(
+                "router-link",
+                { attrs: { to: "/user/" + _vm.photo.screen_name } },
+                [
+                  _c("img", {
+                    attrs: {
+                      src: "https://bulma.io/images/placeholders/128x128.png"
+                    }
+                  })
+                ]
+              )
+            ],
+            1
+          ),
           _vm._v(" "),
-          _c("p", [
-            _c("strong", [_vm._v(_vm._s(_vm.photo.name))]),
-            _vm._v(
-              "(@" +
-                _vm._s(_vm.photo.screen_name) +
-                ") at " +
-                _vm._s(_vm.photo.p_location)
-            )
-          ])
+          _c(
+            "p",
+            [
+              _c(
+                "router-link",
+                { attrs: { to: "/user/" + _vm.photo.screen_name } },
+                [_c("strong", [_vm._v(_vm._s(_vm.photo.name))])]
+              ),
+              _vm._v(
+                "(@" +
+                  _vm._s(_vm.photo.screen_name) +
+                  ") at " +
+                  _vm._s(_vm.photo.p_location)
+              )
+            ],
+            1
+          )
         ])
       ]),
       _vm._v(" "),
@@ -17346,7 +17370,7 @@ var render = function() {
           _c("strong", [_vm._v(_vm._s(_vm.photo.title))])
         ]),
         _vm._v(" "),
-        _vm._m(1),
+        _vm._m(0),
         _vm._v(" "),
         _c("p", { staticClass: "is-size-7 has-text-grey" }, [
           _vm._v(_vm._s(_vm.photo.p_created_at))
@@ -17414,10 +17438,20 @@ var render = function() {
                         })
                       ]),
                       _vm._v(" "),
-                      _c("p", [
-                        _c("i", { staticClass: "fas fa-user fa-fw" }),
-                        _vm._v(" " + _vm._s(_vm.photo.screen_name))
-                      ]),
+                      _c(
+                        "p",
+                        [
+                          _c("i", { staticClass: "fas fa-user fa-fw" }),
+                          _vm._v(" "),
+                          _c(
+                            "router-link",
+                            { attrs: { to: "/user/" + _vm.photo.screen_name } },
+                            [_vm._v(_vm._s(_vm.photo.name))]
+                          ),
+                          _vm._v("(@" + _vm._s(_vm.photo.screen_name) + ")")
+                        ],
+                        1
+                      ),
                       _vm._v(" "),
                       _c("p", [
                         _c("i", { staticClass: "fas fa-tag fa-fw" }),
@@ -17518,16 +17552,6 @@ var render = function() {
   )
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", [
-      _c("img", {
-        attrs: { src: "https://bulma.io/images/placeholders/128x128.png" }
-      })
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -17716,7 +17740,7 @@ var render = function() {
   return _c(
     "div",
     _vm._l(_vm.photos_list, function(photo) {
-      return _c("post-component", { key: photo.id, attrs: { photo: photo } })
+      return _c("post-component", { key: photo.p_id, attrs: { photo: photo } })
     })
   )
 }
@@ -18254,7 +18278,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/*profile*/\n.m-profile[data-v-22ef5402] {\r\n  text-align: center;\r\n  margin: 0 auto;\n}\n.m-profile-img[data-v-22ef5402] {\r\n  height: 256px;\r\n  margin-bottom: 52px;\r\n  position: relative;\n}\n.m-profile figure[data-v-22ef5402] {\r\n  position: absolute;\r\n  bottom: -48px;\r\n  left: 50%;\r\n  margin-left: -48px;\n}\n.m-profile img[data-v-22ef5402] {\r\n  border: solid 2px white;\r\n  border-radius:100px;\n}\n@media (max-width: 767px) {\n.m-profile-img[data-v-22ef5402] {\r\n    height: 128px;\r\n    margin-bottom: 52px;\r\n    position: relative;\n}\n.m-profile figure[data-v-22ef5402] {\r\n    position: absolute;\r\n    bottom: -48px;\r\n    left: 50%;\r\n    margin-left: -48px;\n}\n.m-profile img[data-v-22ef5402] {\r\n    border: solid 2px white;\r\n    border-radius:100px;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/*profile*/\n.m-profile[data-v-22ef5402] {\r\n  text-align: center;\r\n  margin: 0 auto;\n}\n.m-profile-img[data-v-22ef5402] {\r\n  height: 256px;\r\n  margin-bottom: 52px;\r\n  position: relative;\n}\n.m-profile figure[data-v-22ef5402] {\r\n  position: absolute;\r\n  bottom: -48px;\r\n  left: 50%;\r\n  margin-left: -48px;\n}\n.m-profile img[data-v-22ef5402] {\r\n  border: solid 2px white;\r\n  border-radius:100px;\n}\n@media (max-width: 767px) {\n.m-profile-img[data-v-22ef5402] {\r\n    height: 128px;\r\n    margin-bottom: 52px;\r\n    position: relative;\n}\n.m-profile figure[data-v-22ef5402] {\r\n    position: absolute;\r\n    bottom: -48px;\r\n    left: 50%;\r\n    margin-left: -48px;\n}\n.m-profile img[data-v-22ef5402] {\r\n    border: solid 2px white;\r\n    border-radius:100px;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -18299,6 +18323,14 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -18308,7 +18340,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      user_data: []
+      user_data: [],
+      isMine: false
     };
   },
 
@@ -18323,28 +18356,47 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
           switch (_context.prev = _context.next) {
             case 0:
               _context.prev = 0;
-              _context.next = 3;
+              res = void 0;
+
+              if (!(this.$route.params.screen_name == undefined)) {
+                _context.next = 9;
+                break;
+              }
+
+              _context.next = 5;
               return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/users/' + user_screen_name);
 
-            case 3:
+            case 5:
               res = _context.sent;
 
-              this.user_data = res.data;
-              _context.next = 10;
+              this.isMine = true;
+              _context.next = 12;
               break;
 
-            case 7:
-              _context.prev = 7;
+            case 9:
+              _context.next = 11;
+              return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/users/' + this.$route.params.screen_name);
+
+            case 11:
+              res = _context.sent;
+
+            case 12:
+              this.user_data = res.data;
+              _context.next = 18;
+              break;
+
+            case 15:
+              _context.prev = 15;
               _context.t0 = _context['catch'](0);
 
               console.error(_context.t0);
 
-            case 10:
+            case 18:
             case 'end':
               return _context.stop();
           }
         }
-      }, _callee, this, [[0, 7]]);
+      }, _callee, this, [[0, 15]]);
     }));
 
     function created() {
@@ -18403,15 +18455,29 @@ var render = function() {
           _vm._v(" "),
           _c("p", [_vm._v(_vm._s(_vm.user_data.description))]),
           _vm._v(" "),
-          _vm._m(0)
+          !_vm.isMine ? _c("p", [_vm._m(0)]) : _vm._e(),
+          _vm._v(" "),
+          _vm._m(1)
         ])
       ]),
       _vm._v(" "),
-      _vm._m(1)
+      _vm._m(2)
     ])
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "button is-info" }, [
+      _c("span", { staticClass: "icon" }, [
+        _c("i", { staticClass: "fas fa-user-plus" })
+      ]),
+      _vm._v(" "),
+      _c("span", [_vm._v("ウォッチ")])
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

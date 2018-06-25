@@ -2,8 +2,8 @@
   <div class="post">
     <div class="post-header">
       <div class="post-header-left is-size-7">
-        <p><img src="https://bulma.io/images/placeholders/128x128.png"></p>
-        <p><strong>{{ photo.name }}</strong>(@{{photo.screen_name}}) at {{ photo.p_location }}</p>
+        <p><router-link v-bind:to="'/user/' + photo.screen_name"><img src="https://bulma.io/images/placeholders/128x128.png"></router-link></p>
+        <p><router-link v-bind:to="'/user/' + photo.screen_name"><strong>{{ photo.name }}</strong></router-link>(@{{photo.screen_name}}) at {{ photo.p_location }}</p>
       </div>
     </div>
     <div class="post-contents">
@@ -17,8 +17,8 @@
       </div>
       <p class="is-size-7 has-text-grey">{{ photo.p_created_at }}</p>
     </div>
-    <transition name="fade" mode="out-in">
 
+    <transition name="fade" mode="out-in">
       <div class="modal is-active" v-if="showModal" @close="showModal = false">
         <div class="modal-background" @click="showModal = false"></div>
         <div class="modal-card">
@@ -30,7 +30,7 @@
             <p class="image">
               <img v-bind:src="'/storage/photo/' + photo.path" alt="">
             </p>
-            <p><i class="fas fa-user fa-fw"></i> {{ photo.screen_name }}</p>
+            <p><i class="fas fa-user fa-fw"></i> <router-link v-bind:to="'/user/' + photo.screen_name">{{ photo.name }}</router-link>(@{{photo.screen_name}})</p>
             <p><i class="fas fa-tag fa-fw"></i> <span class="tag is-dark">{{ photo.c_name }}</span></p>
             <p><i class="fas fa-map-marker fa-fw"></i> {{ photo.p_location }}</p>
             <p><i class="fas fa-camera fa-fw"></i> {{ photo.camera }}</p>
@@ -126,5 +126,13 @@ export default{
 
 .modal {
   z-index: 1000;
+}
+
+a strong{
+  color: #000000;
+}
+
+a {
+  color: white;
 }
 </style>

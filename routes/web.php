@@ -21,9 +21,8 @@ Route::group(['middleware' => 'auth'], function(){
   //HomeController
   Route::get('/home', function(){ return view('home'); });
   Route::get('/home/{any}', function(){ return view('home'); })->where('any', '.*');
- 
-});
 
-//UserController
-Route::get('/user', 'UserController@showUser');
-Route::get('/user/{screen_name}', 'UserController@show');
+  //UserController
+  Route::get('/user', function(){ return view('home'); });
+  Route::get('/user/{screen_name}', function(){ return view('home'); });
+});
