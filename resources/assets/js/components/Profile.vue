@@ -15,10 +15,9 @@
     </div>
   </div>
   <footer class="card-footer has-text-centered">
-    <a href="#" class="card-footer-item has-text-grey">投稿<br>0</a>
-    <a href="#" class="card-footer-item has-text-grey">フォロー<br>0</a>
-    <a href="#" class="card-footer-item has-text-grey">フォロワー<br>0</a>
-    <a href="#" class="card-footer-item has-text-grey">いいね<br>0</a>
+    <a href="#" class="card-footer-item has-text-grey">投稿<br>2</a>
+    <a href="#" class="card-footer-item has-text-grey">ウォッチ<br>10</a>
+    <a href="#" class="card-footer-item has-text-grey">いいね<br>202</a>
   </footer>
 </div>
 </div>
