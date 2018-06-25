@@ -25,5 +25,19 @@ class PhotosTableSeeder extends Seeder
             'iso' => '200',
             'created_at' => '2018-6-19 17:53:21'
         ]);
+        DB::table('photos')->insert([
+            'user_id' => 2,
+            'category_id' => 1,
+            'title' => 'THE ORANGE',
+            'path' => '2.JPG',
+            'location' => 'シエラネバダ山脈',
+            'camera' => 'CANON EOS 70D',
+            'lens' => 'CANON EF-S 18-55mm IS STM',
+            'focal_length' => '18',
+            'speed' => '1/200',
+            'iris' => '3.5',
+            'iso' => '200',
+            'created_at' => '2016-5-19 17:53:21'
+        ]);
     }
 }

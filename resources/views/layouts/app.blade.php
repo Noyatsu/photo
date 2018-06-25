@@ -31,8 +31,8 @@
           </a>
       <!-- Authentication Links -->
       @guest
-      <a class="m-navbar-item" href="{{ route('login') }}">{{ __('Login') }}</a>
-      <a class="m-navbar-item" href="{{ route('register') }}">{{ __('Register') }}</a>
+      <a class="m-navbar-item" href="{{ route('login') }}">{{ __('ログイン') }}</a>
+      <a class="m-navbar-item" href="{{ route('register') }}">{{ __('新規登録') }}</a>
       @else
       <div class="m-navbar-right">
         <div class="dropdown is-hoverable is-right">

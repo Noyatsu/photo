@@ -7,7 +7,7 @@
       <br>
       <div class="card">
         <div class="card-header">
-          <p class="card-header-title">{{ __('Login') }}</p>
+          <p class="card-header-title">{{ __('ログイン') }}</p>
         </div>
 
         <div class="card-content">
@@ -15,7 +15,7 @@
             @csrf
 
             <div class="field">
-              <label for="email" class="label">{{ __('E-Mail Address') }}</label>
+              <label for="email" class="label">{{ __('メールアドレス') }}</label>
 
               <div class="control">
                 <input id="email" type="email" class="input{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
@@ -29,7 +29,7 @@
             </div>
 
             <div class="field">
-              <label for="password" class="label">{{ __('Password') }}</label>
+              <label for="password" class="label">{{ __('パスワード') }}</label>
 
               <div class="control">
                 <input id="password" type="password" class="input{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
@@ -45,19 +45,19 @@
             <div class="field">
               <div class="control">
                 <label class="checkbox">
-                  <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('Remember Me') }}
+                  <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('ログイン情報を記憶') }}
                 </label>
               </div>
             </div>
 
             <div class="field">
               <div class="control">
-                <button type="submit" class="button is-primary">
-                  {{ __('Login') }}
+                <button type="submit" class="button is-info">
+                  {{ __('ログイン') }}
                 </button>
 
                 <a class="button" href="{{ route('password.request') }}">
-                  {{ __('Forgot Your Password?') }}
+                  {{ __('パスワードを忘れましたか？') }}
                 </a>
               </div>
             </div>
