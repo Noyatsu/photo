@@ -6,15 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>てすとだよ</title>
+  <title>Photo Club</title>
 
   <link rel="stylesheet" href="{{ mix('css/app.css') }}">
   <link rel="stylesheet" href="{{ asset('css/master.css') }}">
-
   <script>
   window.Laravel = {
     csrfToken: "{{ csrf_token() }}"
   };
+  const user_api_token = "{{ $api_token }}";
+  const user_screen_name = "{{ Auth::user()->screen_name }}";
   </script>
 </head>
 <body>
@@ -60,7 +61,9 @@
         <router-link class="m-tab" to='/home/like' tag="div"><i class="fas fa-heart"></i></router-link>
         <router-link class="m-tab" to='/home/profile' tag="div"><i class="fas fa-user-circle"></i></router-link>
       </div>
-      <router-view></router-view>
+      <transition name="fade" mode="out-in">
+        <router-view></router-view>
+      </transition>
     </div>
   </div>
 </body>
