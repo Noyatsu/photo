@@ -17355,14 +17355,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -17520,35 +17512,19 @@ var render = function() {
         _c("div", { staticClass: "post-right" }, [
           _vm._m(0),
           _vm._v(" "),
-          !_vm.isLiked
-            ? _c(
-                "a",
-                {
-                  staticClass: "button is-light",
-                  on: { click: _vm.likeToggle }
-                },
-                [
-                  _c("i", { staticClass: "far fa-heart" }),
-                  _vm._v(" "),
-                  _c("span", [_vm._v(" " + _vm._s(_vm.likeNum))])
-                ]
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.isLiked
-            ? _c(
-                "a",
-                {
-                  staticClass: "button is-light",
-                  on: { click: _vm.likeToggle }
-                },
-                [
-                  _c("i", { staticClass: "fas fa-heart" }),
-                  _vm._v(" "),
-                  _c("span", [_vm._v(" " + _vm._s(_vm.likeNum))])
-                ]
-              )
-            : _vm._e()
+          _c(
+            "a",
+            {
+              staticClass: "button is-light",
+              class: { "is-danger": _vm.isLiked },
+              on: { click: _vm.likeToggle }
+            },
+            [
+              _c("i", { staticClass: "fas fa-heart" }),
+              _vm._v(" "),
+              _c("span", [_vm._v(_vm._s(_vm.likeNum))])
+            ]
+          )
         ]),
         _vm._v(" "),
         _c("p", { staticClass: "is-size-7 has-text-grey" }, [
@@ -17702,35 +17678,22 @@ var render = function() {
                         _c("i", { staticClass: "fas fa-share-alt" })
                       ]),
                       _vm._v(" "),
-                      !_vm.isLiked
-                        ? _c(
-                            "a",
-                            {
-                              staticClass: "button is-dark",
-                              on: { click: _vm.likeToggle }
-                            },
-                            [
-                              _c("i", { staticClass: "far fa-heart" }),
-                              _vm._v(" "),
-                              _c("span", [_vm._v(" " + _vm._s(_vm.likeNum))])
-                            ]
-                          )
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _vm.isLiked
-                        ? _c(
-                            "a",
-                            {
-                              staticClass: "button is-dark",
-                              on: { click: _vm.likeToggle }
-                            },
-                            [
-                              _c("i", { staticClass: "fas fa-heart" }),
-                              _vm._v(" "),
-                              _c("span", [_vm._v(" " + _vm._s(_vm.likeNum))])
-                            ]
-                          )
-                        : _vm._e(),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "button",
+                          class: {
+                            "is-white": _vm.isLiked,
+                            "is-dark": !_vm.isLiked
+                          },
+                          on: { click: _vm.likeToggle }
+                        },
+                        [
+                          _c("i", { staticClass: "fas fa-heart" }),
+                          _vm._v(" "),
+                          _c("span", [_vm._v(" " + _vm._s(_vm.likeNum))])
+                        ]
+                      ),
                       _vm._v(" "),
                       _c(
                         "button",

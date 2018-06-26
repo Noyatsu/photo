@@ -113,7 +113,7 @@ class PhotoController extends Controller
       $photo->save();
     }
     else {
-      Like::insert(['user_id' => $user->id, 'photo_id' => $photo_id]);
+      Like::insert(['user_id' => $user->id, 'photo_id' => $photo_id, 'updated_at' => date('Y/m/d H:i:s'), 'created_at' => date('Y/m/d H:i:s')]);
       $photo->likes += 1;
       $photo->save();
     }

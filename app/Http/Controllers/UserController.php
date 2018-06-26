@@ -82,7 +82,7 @@ class UserController extends Controller
     $user = User::firstOrNew(['screen_name' => $screen_name]);
     $opponent = User::firstOrNew(['screen_name' => $opponent_screen_name]);
     if(Follow::select()->where(['user_id' => $user->id, 'follow_user_id' => $opponent->id])->exists()) {
-      $follow = Follow::firstOrNew(['user_id' => $user->id, 'follow_user_id' => $opponent->id]);
+      $follow = Follow::firstOrNew(['user_id' => $user->id, 'follow_user_id' => $opponent->id, 'updated_at' => date('Y/m/d H:i:s'), 'created_at' => date('Y/m/d H:i:s')]);
       $follow->delete();
     }
     else {

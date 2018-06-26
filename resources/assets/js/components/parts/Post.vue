@@ -13,13 +13,9 @@
       <p class="post-title"><strong>{{ photo.title }}</strong></p>
       <div class="post-right">
         <a class="button is-light"><i class="fas fa-share-alt"></i></a>
-        <a class="button is-light" v-if="!isLiked" @click="likeToggle">
-          <i class="far fa-heart"></i>
-          <span> {{ likeNum }}</span>
-        </a>
-        <a class="button is-light" v-if="isLiked" @click="likeToggle">
+        <a class="button is-light" @click="likeToggle" v-bind:class="{ 'is-danger': isLiked }">
           <i class="fas fa-heart"></i>
-          <span> {{ likeNum }}</span>
+          <span>{{ likeNum }}</span>
         </a>
       </div>
       <p class="is-size-7 has-text-grey">{{ photo.p_created_at }}</p>
@@ -55,11 +51,7 @@
           </section>
           <footer class="modal-card-foot has-background-black">
             <a class="button is-dark"><i class="fas fa-share-alt"></i></a>
-            <a class="button is-dark" v-if="!isLiked" @click="likeToggle">
-              <i class="far fa-heart"></i>
-              <span> {{ likeNum }}</span>
-            </a>
-            <a class="button is-dark" v-if="isLiked" @click="likeToggle">
+            <a class="button" @click="likeToggle" v-bind:class="{ 'is-white': isLiked, 'is-dark': !isLiked }">
               <i class="fas fa-heart"></i>
               <span> {{ likeNum }}</span>
             </a>
