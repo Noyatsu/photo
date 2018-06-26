@@ -1,10 +1,10 @@
 <template>
 <section class="section">
-    <form>
+    <form action="/api/upload" method="POST" enctype="multipart/form-data">
       <div class="field is-grouped is-grouped-centered">
         <div class="file has-name is-boxed">
           <label class="file-label">
-            <input class="file-input" type="file" name="photofile" accept="image/*" >
+            <input class="file-input" type="file" name="photo" accept="image/*" >
             <span class="file-cta">
               <span class="file-icon">
                 <i class="fas fa-camera-retro"></i>
@@ -100,7 +100,8 @@
         <div class="field-body">
           <div class="field">
             <div class="control">
-              <button class="button is-primary">
+              <input type="hidden" name="csrfToken" v:bind:value="window.Laravel.csrfToken">
+              <button class="button is-primary" type="submit">
                 <span class="icon is-small is-left">
                   <i class="fas fa-upload"></i>
                 </span>

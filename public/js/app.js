@@ -60,83 +60,120 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-__webpack_require__(1);
-module.exports = __webpack_require__(2);
+/* globals __VUE_SSR_CONTEXT__ */
+
+// IMPORTANT: Do NOT use ES2015 features in this file.
+// This module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle.
+
+module.exports = function normalizeComponent (
+  rawScriptExports,
+  compiledTemplate,
+  functionalTemplate,
+  injectStyles,
+  scopeId,
+  moduleIdentifier /* server only */
+) {
+  var esModule
+  var scriptExports = rawScriptExports = rawScriptExports || {}
+
+  // ES6 modules interop
+  var type = typeof rawScriptExports.default
+  if (type === 'object' || type === 'function') {
+    esModule = rawScriptExports
+    scriptExports = rawScriptExports.default
+  }
+
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // render functions
+  if (compiledTemplate) {
+    options.render = compiledTemplate.render
+    options.staticRenderFns = compiledTemplate.staticRenderFns
+    options._compiled = true
+  }
+
+  // functional template
+  if (functionalTemplate) {
+    options.functional = true
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = scopeId
+  }
+
+  var hook
+  if (moduleIdentifier) { // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = injectStyles
+  }
+
+  if (hook) {
+    var functional = options.functional
+    var existing = functional
+      ? options.render
+      : options.beforeCreate
+
+    if (!functional) {
+      // inject component registration as beforeCreate hook
+      options.beforeCreate = existing
+        ? [].concat(existing, hook)
+        : [hook]
+    } else {
+      // for template-only hot-reload because in that case the render fn doesn't
+      // go through the normalizer
+      options._injectStyles = hook
+      // register for functioal component in vue file
+      options.render = function renderWithStyleInjection (h, context) {
+        hook.call(context)
+        return existing(h, context)
+      }
+    }
+  }
+
+  return {
+    esModule: esModule,
+    exports: scriptExports,
+    options: options
+  }
+}
 
 
 /***/ }),
 /* 1 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(13);
-
-/**
-* First we will load all of this project's JavaScript dependencies which
-* includes Vue and other libraries. It is a great starting point when
-* building robust, powerful web applications using Vue and Laravel.
-*/
-
-// vueとvue-routerの定義
-
-
-
-//require('./bootstrap');
-
-window.Vue = __webpack_require__(8);
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
-
-// vue-routerのインスタンス化、オプションroutesでアクセスされるパスとその時に表示するComponentを指定
-var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
-  mode: 'history',
-  routes: [{ path: '/home', component: __webpack_require__(14) }, { path: '/home/search', component: __webpack_require__(16) }, { path: '/home/upload', component: __webpack_require__(18) }, { path: '/home/like', component: __webpack_require__(19) }, { path: '/home/profile', component: __webpack_require__(20) }]
-});
-
-/**
-* Next, we will create a fresh Vue application instance and attach it to
-* the page. Then, you may begin adding components to this application
-* or customize the JavaScript scaffolding to fit your unique needs.
-*/
-
-var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
-  router: router,
-  el: '#app',
-  data: {
-    scrollY: 0,
-    tabnavs: [{ cls: 'fas fa-home', isActive: false, name: 'timeline' }, { cls: 'fas fa-search', isActive: false, name: 'search' }, { cls: 'far fa-plus-square', isActive: false, name: 'upload' }, { cls: 'fas fa-heart', isActive: false, name: 'like' }, { cls: 'fas fa-user-circle', isActive: false, name: 'profile' }]
-  },
-  methods: {
-    setTab: function setTab(index) {
-      for (var i = 0; i < 5; i++) {
-        this.tabnavs[i].isActive = false;
-      }
-      this.tabnavs[index].isActive = true;
-    }
-  }
-});
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */
 /***/ (function(module, exports) {
 
 var g;
@@ -163,7 +200,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 8 */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11126,119 +11163,72 @@ Vue.compile = compileToFunctions;
 
 module.exports = Vue;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7), __webpack_require__(10).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(5).setImmediate))
 
 /***/ }),
-/* 9 */
-/***/ (function(module, exports) {
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
 
-/* globals __VUE_SSR_CONTEXT__ */
-
-// IMPORTANT: Do NOT use ES2015 features in this file.
-// This module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle.
-
-module.exports = function normalizeComponent (
-  rawScriptExports,
-  compiledTemplate,
-  functionalTemplate,
-  injectStyles,
-  scopeId,
-  moduleIdentifier /* server only */
-) {
-  var esModule
-  var scriptExports = rawScriptExports = rawScriptExports || {}
-
-  // ES6 modules interop
-  var type = typeof rawScriptExports.default
-  if (type === 'object' || type === 'function') {
-    esModule = rawScriptExports
-    scriptExports = rawScriptExports.default
-  }
-
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // render functions
-  if (compiledTemplate) {
-    options.render = compiledTemplate.render
-    options.staticRenderFns = compiledTemplate.staticRenderFns
-    options._compiled = true
-  }
-
-  // functional template
-  if (functionalTemplate) {
-    options.functional = true
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = scopeId
-  }
-
-  var hook
-  if (moduleIdentifier) { // server build
-    hook = function (context) {
-      // 2.3 injection
-      context =
-        context || // cached call
-        (this.$vnode && this.$vnode.ssrContext) || // stateful
-        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
-      // 2.2 with runInNewContext: true
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__
-      }
-      // inject component styles
-      if (injectStyles) {
-        injectStyles.call(this, context)
-      }
-      // register component module identifier for async chunk inferrence
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier)
-      }
-    }
-    // used by ssr in case component is cached and beforeCreate
-    // never gets called
-    options._ssrRegister = hook
-  } else if (injectStyles) {
-    hook = injectStyles
-  }
-
-  if (hook) {
-    var functional = options.functional
-    var existing = functional
-      ? options.render
-      : options.beforeCreate
-
-    if (!functional) {
-      // inject component registration as beforeCreate hook
-      options.beforeCreate = existing
-        ? [].concat(existing, hook)
-        : [hook]
-    } else {
-      // for template-only hot-reload because in that case the render fn doesn't
-      // go through the normalizer
-      options._injectStyles = hook
-      // register for functioal component in vue file
-      options.render = function renderWithStyleInjection (h, context) {
-        hook.call(context)
-        return existing(h, context)
-      }
-    }
-  }
-
-  return {
-    esModule: esModule,
-    exports: scriptExports,
-    options: options
-  }
-}
+__webpack_require__(4);
+module.exports = __webpack_require__(19);
 
 
 /***/ }),
-/* 10 */
+/* 4 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(8);
+
+/**
+* First we will load all of this project's JavaScript dependencies which
+* includes Vue and other libraries. It is a great starting point when
+* building robust, powerful web applications using Vue and Laravel.
+*/
+
+// vueとvue-routerの定義
+
+
+
+//require('./bootstrap');
+
+window.Vue = __webpack_require__(2);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
+
+// vue-routerのインスタンス化、オプションroutesでアクセスされるパスとその時に表示するComponentを指定
+var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
+  mode: 'history',
+  routes: [{ path: '/home', component: __webpack_require__(9) }, { path: '/home/search', component: __webpack_require__(11) }, { path: '/home/upload', component: __webpack_require__(13) }, { path: '/home/like', component: __webpack_require__(15) }, { path: '/home/profile', component: __webpack_require__(17) }]
+});
+
+/**
+* Next, we will create a fresh Vue application instance and attach it to
+* the page. Then, you may begin adding components to this application
+* or customize the JavaScript scaffolding to fit your unique needs.
+*/
+
+var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
+  router: router,
+  el: '#app',
+  data: {
+    scrollY: 0,
+    tabnavs: [{ cls: 'fas fa-home', isActive: false, name: 'timeline' }, { cls: 'fas fa-search', isActive: false, name: 'search' }, { cls: 'far fa-plus-square', isActive: false, name: 'upload' }, { cls: 'fas fa-heart', isActive: false, name: 'like' }, { cls: 'fas fa-user-circle', isActive: false, name: 'profile' }]
+  },
+  methods: {
+    setTab: function setTab(index) {
+      for (var i = 0; i < 5; i++) {
+        this.tabnavs[i].isActive = false;
+      }
+      this.tabnavs[index].isActive = true;
+    }
+  }
+});
+
+/***/ }),
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !== "undefined" && global) ||
@@ -11294,7 +11284,7 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(11);
+__webpack_require__(6);
 // On some exotic environments, it's not clear which object `setimmediate` was
 // able to install onto.  Search each possibility in the same order as the
 // `setimmediate` library.
@@ -11305,10 +11295,10 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
                          (typeof global !== "undefined" && global.clearImmediate) ||
                          (this && this.clearImmediate);
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 11 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -11498,10 +11488,10 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7), __webpack_require__(12)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(7)))
 
 /***/ }),
-/* 12 */
+/* 7 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -11691,7 +11681,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 13 */
+/* 8 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -14321,15 +14311,15 @@ if (inBrowser && window.Vue) {
 
 
 /***/ }),
-/* 14 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(9)
+var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(15)
+var __vue_template__ = __webpack_require__(10)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -14346,7 +14336,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\Home.vue"
+Component.options.__file = "resources/assets/js/components/Home.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -14355,9 +14345,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-85ef4954", Component.options)
+    hotAPI.createRecord("data-v-6707e3d4", Component.options)
   } else {
-    hotAPI.reload("data-v-85ef4954", Component.options)
+    hotAPI.reload("data-v-6707e3d4", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -14368,7 +14358,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 15 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -14393,20 +14383,20 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-85ef4954", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-6707e3d4", module.exports)
   }
 }
 
 /***/ }),
-/* 16 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(9)
+var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(17)
+var __vue_template__ = __webpack_require__(12)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -14423,7 +14413,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\Search.vue"
+Component.options.__file = "resources/assets/js/components/Search.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -14432,9 +14422,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-7b88e3df", Component.options)
+    hotAPI.createRecord("data-v-7cdae69f", Component.options)
   } else {
-    hotAPI.reload("data-v-7b88e3df", Component.options)
+    hotAPI.reload("data-v-7cdae69f", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -14445,7 +14435,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 17 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -14480,20 +14470,20 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-7b88e3df", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-7cdae69f", module.exports)
   }
 }
 
 /***/ }),
-/* 18 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(9)
+var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(21)
+var __vue_template__ = __webpack_require__(14)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -14510,7 +14500,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\Upload.vue"
+Component.options.__file = "resources/assets/js/components/Upload.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -14519,9 +14509,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-d1369090", Component.options)
+    hotAPI.createRecord("data-v-ce928b10", Component.options)
   } else {
-    hotAPI.reload("data-v-d1369090", Component.options)
+    hotAPI.reload("data-v-ce928b10", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -14532,101 +14522,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 19 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(9)
-/* script */
-var __vue_script__ = null
-/* template */
-var __vue_template__ = __webpack_require__(22)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources\\assets\\js\\components\\Like.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-1bbdfa0e", Component.options)
-  } else {
-    hotAPI.reload("data-v-1bbdfa0e", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 20 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(9)
-/* script */
-var __vue_script__ = null
-/* template */
-var __vue_template__ = __webpack_require__(23)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources\\assets\\js\\components\\Profile.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-22ef5402", Component.options)
-  } else {
-    hotAPI.reload("data-v-22ef5402", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 21 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -14641,175 +14537,204 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("section", { staticClass: "section" }, [
-      _c("form", [
-        _c("div", { staticClass: "field is-grouped is-grouped-centered" }, [
-          _c("div", { staticClass: "file has-name is-boxed" }, [
-            _c("label", { staticClass: "file-label" }, [
-              _c("input", {
-                staticClass: "file-input",
-                attrs: { type: "file", name: "photofile", accept: "image/*" }
-              }),
-              _vm._v(" "),
-              _c("span", { staticClass: "file-cta" }, [
-                _c("span", { staticClass: "file-icon" }, [
-                  _c("i", { staticClass: "fas fa-camera-retro" })
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "file-label" }, [
-                  _vm._v("\r\n                写真を選択\r\n              ")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("span", { staticClass: "file-name" })
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "field is-horizontal" }, [
-          _c("div", { staticClass: "field-label is-normal" }, [
-            _c("label", { staticClass: "label" }, [_vm._v("情報")])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "field-body" }, [
-            _c("div", { staticClass: "field" }, [
-              _c("p", { staticClass: "control is-expanded has-icons-left" }, [
+      _c(
+        "form",
+        {
+          attrs: {
+            action: "/api/upload",
+            method: "POST",
+            enctype: "multipart/form-data"
+          }
+        },
+        [
+          _c("div", { staticClass: "field is-grouped is-grouped-centered" }, [
+            _c("div", { staticClass: "file has-name is-boxed" }, [
+              _c("label", { staticClass: "file-label" }, [
                 _c("input", {
-                  staticClass: "input",
-                  attrs: {
-                    type: "text",
-                    name: "title",
-                    placeholder: "タイトル"
-                  }
+                  staticClass: "file-input",
+                  attrs: { type: "file", name: "photo", accept: "image/*" }
                 }),
                 _vm._v(" "),
-                _c("span", { staticClass: "icon is-small is-left" }, [
-                  _c("i", { staticClass: "far fa-image" })
-                ])
+                _c("span", { staticClass: "file-cta" }, [
+                  _c("span", { staticClass: "file-icon" }, [
+                    _c("i", { staticClass: "fas fa-camera-retro" })
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "file-label" }, [
+                    _vm._v("\n                写真を選択\n              ")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("span", { staticClass: "file-name" })
               ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "field is-horizontal" }, [
+            _c("div", { staticClass: "field-label is-normal" }, [
+              _c("label", { staticClass: "label" }, [_vm._v("情報")])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "field" }, [
-              _c(
-                "p",
-                {
-                  staticClass:
-                    "control is-expanded has-icons-left has-icons-right"
-                },
-                [
+            _c("div", { staticClass: "field-body" }, [
+              _c("div", { staticClass: "field" }, [
+                _c("p", { staticClass: "control is-expanded has-icons-left" }, [
                   _c("input", {
                     staticClass: "input",
-                    attrs: { name: "location", placeholder: "撮影場所" }
+                    attrs: {
+                      type: "text",
+                      name: "title",
+                      placeholder: "タイトル"
+                    }
                   }),
                   _vm._v(" "),
                   _c("span", { staticClass: "icon is-small is-left" }, [
-                    _c("i", { staticClass: "fas fa-map-marker" })
+                    _c("i", { staticClass: "far fa-image" })
                   ])
-                ]
-              )
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "field is-horizontal" }, [
-          _c("div", { staticClass: "field-label is-normal" }, [
-            _c("label", { staticClass: "label" })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "field-body" }, [
-            _c("div", { staticClass: "field" }, [
-              _c("div", [
-                _c("span", { staticClass: "tag is-primary" }, [
-                  _vm._v("Nature")
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "tag is-primary" }, [
-                  _vm._v("ファインダーの中の私の世界")
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "tag is-primary" }, [_vm._v("sky")]),
-                _vm._v(" "),
-                _c("span", { staticClass: "tag is-primary" }, [
-                  _vm._v("写真好きな人とつながりたい")
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "tag is-primary" }, [_vm._v("絶景")])
+                ])
               ]),
               _vm._v(" "),
-              _c("p", { staticClass: "control is-expanded has-icons-left" }, [
-                _c("input", {
-                  staticClass: "input",
-                  attrs: {
-                    type: "text",
-                    name: "tag",
-                    placeholder: "タグ(コンマ(,)区切り)"
-                  }
-                }),
+              _c("div", { staticClass: "field" }, [
+                _c(
+                  "p",
+                  {
+                    staticClass:
+                      "control is-expanded has-icons-left has-icons-right"
+                  },
+                  [
+                    _c("input", {
+                      staticClass: "input",
+                      attrs: { name: "location", placeholder: "撮影場所" }
+                    }),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "icon is-small is-left" }, [
+                      _c("i", { staticClass: "fas fa-map-marker" })
+                    ])
+                  ]
+                )
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "field is-horizontal" }, [
+            _c("div", { staticClass: "field-label is-normal" }, [
+              _c("label", { staticClass: "label" })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "field-body" }, [
+              _c("div", { staticClass: "field" }, [
+                _c("div", [
+                  _c("span", { staticClass: "tag is-primary" }, [
+                    _vm._v("Nature")
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "tag is-primary" }, [
+                    _vm._v("ファインダーの中の私の世界")
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "tag is-primary" }, [
+                    _vm._v("sky")
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "tag is-primary" }, [
+                    _vm._v("写真好きな人とつながりたい")
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "tag is-primary" }, [
+                    _vm._v("絶景")
+                  ])
+                ]),
                 _vm._v(" "),
-                _c("span", { staticClass: "icon is-small is-left" }, [
-                  _c("i", { staticClass: "fas fa-tag" })
-                ])
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "field is-horizontal" }, [
-          _c("div", { staticClass: "field-label is-normal" }, [
-            _c("label", { staticClass: "label" })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "field-body" }, [
-            _c("div", { staticClass: "field" }, [
-              _c("div", { staticClass: "control" }, [
-                _c("textarea", {
-                  staticClass: "textarea",
-                  attrs: { name: "description", placeholder: "説明" }
-                })
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "field is-horizontal" }, [
-          _c("div", { staticClass: "field-label is-normal" }, [
-            _c("label", { staticClass: "label" }, [_vm._v("カテゴリ")])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "field-body" }, [
-            _c("div", { staticClass: "field is-narrow" }, [
-              _c("div", { staticClass: "control" }, [
-                _c("div", { staticClass: "select is-fullwidth" }, [
-                  _c("select", { attrs: { name: "category" } }, [
-                    _c("option", [_vm._v("自然")]),
-                    _vm._v(" "),
-                    _c("option", [_vm._v("動物")]),
-                    _vm._v(" "),
-                    _c("option", [_vm._v("建築")])
+                _c("p", { staticClass: "control is-expanded has-icons-left" }, [
+                  _c("input", {
+                    staticClass: "input",
+                    attrs: {
+                      type: "text",
+                      name: "tag",
+                      placeholder: "タグ(コンマ(,)区切り)"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "icon is-small is-left" }, [
+                    _c("i", { staticClass: "fas fa-tag" })
                   ])
                 ])
               ])
             ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "field is-horizontal" }, [
-          _c("div", { staticClass: "field-label" }),
+          ]),
           _vm._v(" "),
-          _c("div", { staticClass: "field-body" }, [
-            _c("div", { staticClass: "field" }, [
-              _c("div", { staticClass: "control" }, [
-                _c("button", { staticClass: "button is-primary" }, [
-                  _c("span", { staticClass: "icon is-small is-left" }, [
-                    _c("i", { staticClass: "fas fa-upload" })
-                  ]),
+          _c("div", { staticClass: "field is-horizontal" }, [
+            _c("div", { staticClass: "field-label is-normal" }, [
+              _c("label", { staticClass: "label" })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "field-body" }, [
+              _c("div", { staticClass: "field" }, [
+                _c("div", { staticClass: "control" }, [
+                  _c("textarea", {
+                    staticClass: "textarea",
+                    attrs: { name: "description", placeholder: "説明" }
+                  })
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "field is-horizontal" }, [
+            _c("div", { staticClass: "field-label is-normal" }, [
+              _c("label", { staticClass: "label" }, [_vm._v("カテゴリ")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "field-body" }, [
+              _c("div", { staticClass: "field is-narrow" }, [
+                _c("div", { staticClass: "control" }, [
+                  _c("div", { staticClass: "select is-fullwidth" }, [
+                    _c("select", { attrs: { name: "category" } }, [
+                      _c("option", [_vm._v("自然")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("動物")]),
+                      _vm._v(" "),
+                      _c("option", [_vm._v("建築")])
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "field is-horizontal" }, [
+            _c("div", { staticClass: "field-label" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "field-body" }, [
+              _c("div", { staticClass: "field" }, [
+                _c("div", { staticClass: "control" }, [
+                  _c("input", {
+                    attrs: {
+                      type: "hidden",
+                      name: "csrfToken",
+                      "v:bind:value": "window.Laravel.csrfToken"
+                    }
+                  }),
                   _vm._v(" "),
-                  _c("p", [_vm._v("アップロード")])
+                  _c(
+                    "button",
+                    {
+                      staticClass: "button is-primary",
+                      attrs: { type: "submit" }
+                    },
+                    [
+                      _c("span", { staticClass: "icon is-small is-left" }, [
+                        _c("i", { staticClass: "fas fa-upload" })
+                      ]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("アップロード")])
+                    ]
+                  )
                 ])
               ])
             ])
           ])
-        ])
-      ])
+        ]
+      )
     ])
   }
 ]
@@ -14818,12 +14743,59 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-d1369090", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-ce928b10", module.exports)
   }
 }
 
 /***/ }),
-/* 22 */
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = null
+/* template */
+var __vue_template__ = __webpack_require__(16)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/Like.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-2b31acce", Component.options)
+  } else {
+    hotAPI.reload("data-v-2b31acce", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -14878,12 +14850,59 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-1bbdfa0e", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-2b31acce", module.exports)
   }
 }
 
 /***/ }),
-/* 23 */
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = null
+/* template */
+var __vue_template__ = __webpack_require__(18)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/Profile.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-4bdda942", Component.options)
+  } else {
+    hotAPI.reload("data-v-4bdda942", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -14992,9 +15011,15 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-22ef5402", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-4bdda942", module.exports)
   }
 }
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
