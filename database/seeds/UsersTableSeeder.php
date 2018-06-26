@@ -25,5 +25,12 @@ class UsersTableSeeder extends Seeder
             'name' => 'テスト次郎',
             'description' => 'こんにちは，テスト次郎です．実験的なこと，いわゆる次郎系が大好きです．よろしくお願いします．'
         ]);
+        DB::table('users')->insert([
+            'email' => 'shun_september@live.jp',
+            'password' => bcrypt('test'),
+            'screen_name' => 'witalosk',
+            'name' => 'うぃた',
+            'description' => 'mast15/UTSB39perc/村42 BUMP カメラ 旅 絶景 音楽 廃道 スキー モノつくりたい 星 絵 動画編集 Webサービス 最近は物理ベースなCG そうほうさい2018 筑打'
+        ]);
     }
 }

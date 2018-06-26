@@ -2,54 +2,11 @@ body {
   box-sizing: border-box;
 }
 
-/*profile*/
-.m-profile {
-  text-align: center;
-  margin: 0 auto;
-}
-
-.m-profile-img {
-  height: 256px;
-  margin-bottom: 52px;
-  position: relative;
-}
-
-.m-profile figure {
-  position: absolute;
-  bottom: -48px;
-  left: 50%;
-  margin-left: -48px;
-}
-
-.m-profile img {
-  border: solid 2px white;
-  border-radius:100px;
-}
-
-@media (max-width: 767px) {
-  .m-profile-img {
-    height: 128px;
-    margin-bottom: 52px;
-    position: relative;
-  }
-
-  .m-profile figure {
-    position: absolute;
-    bottom: -48px;
-    left: 50%;
-    margin-left: -48px;
-  }
-
-  .m-profile img {
-    border: solid 2px white;
-    border-radius:100px;
-  }
-
-}
 
 /*navbar*/
 body {
   padding-top: 3.25rem;
+  padding-bottom: 50px;
 }
 
 .m-navbar {
@@ -137,12 +94,15 @@ body {
   }
 }
 
-.fade-enter-active {
-  transition: opacity 0.3s;
-}
-.fade-leave-active {
-
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
+}
+
+img, router-view{
+    background-image: url("/storage/gload.gif");
+    background-repeat: no-repeat;
+    background-position: center center;
 }
