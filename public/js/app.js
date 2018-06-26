@@ -17238,7 +17238,7 @@ exports = module.exports = __webpack_require__(6)(false);
 
 
 // module
-exports.push([module.i, "\n.post[data-v-33cd90d3] {\n  margin-top: 1rem;\n  margin-bottom: 1rem;\n}\n.post .post-header[data-v-33cd90d3] {\n    height: 2rem;\n    position: relative;\n}\n.post .post-header .post-header-left[data-v-33cd90d3] {\n      display: inline-block;\n      position: absolute;\n      left: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-header .post-header-left p[data-v-33cd90d3] {\n        display: inline-block;\n        vertical-align: middle;\n        height: 2rem;\n        line-height: 2rem;\n}\n.post .post-header .post-header-left p img[data-v-33cd90d3] {\n        width: 2rem;\n        height: 2rem;\n        margin-right: 0.2rem;\n        border-radius: 100%;\n}\n.post .post-header .post-header-right[data-v-33cd90d3] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-contents[data-v-33cd90d3] {\n    margin-top: 0.25rem;\n}\n.post .post-footer[data-v-33cd90d3] {\n    position: relative;\n    margin-left: 0.5rem;\n    margin-top: 0rem;\n}\n.post .post-footer .post-right[data-v-33cd90d3] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0.2rem;\n      bottom: 0;\n}\n.modal[data-v-33cd90d3] {\n  z-index: 1000;\n}\na strong[data-v-33cd90d3] {\n  color: #000000;\n}\na[data-v-33cd90d3] {\n  color: white;\n}\n", ""]);
+exports.push([module.i, "\n.likenum[data-v-33cd90d3] {\n  margin-left: 0.5rem;\n}\n.post[data-v-33cd90d3] {\n  margin-top: 1rem;\n  margin-bottom: 1rem;\n}\n.post .post-header[data-v-33cd90d3] {\n    height: 2rem;\n    position: relative;\n}\n.post .post-header .post-header-left[data-v-33cd90d3] {\n      display: inline-block;\n      position: absolute;\n      left: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-header .post-header-left p[data-v-33cd90d3] {\n        display: inline-block;\n        vertical-align: middle;\n        height: 2rem;\n        line-height: 2rem;\n}\n.post .post-header .post-header-left p img[data-v-33cd90d3] {\n        width: 2rem;\n        height: 2rem;\n        margin-right: 0.2rem;\n        border-radius: 100%;\n}\n.post .post-header .post-header-right[data-v-33cd90d3] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-contents[data-v-33cd90d3] {\n    margin-top: 0.25rem;\n    background-color: #202020;\n    text-align: center;\n}\n.post .post-contents img[data-v-33cd90d3] {\n      display: inline-block;\n      max-width: 800px;\n}\n@media (max-width: 800px) {\n.post .post-contents img[data-v-33cd90d3] {\n        display: block;\n        width: 100%;\n        max-width: none;\n}\n}\n.post .post-footer[data-v-33cd90d3] {\n    position: relative;\n    margin-left: 0.5rem;\n    margin-top: 0rem;\n}\n.post .post-footer .post-right[data-v-33cd90d3] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0.2rem;\n      bottom: 0;\n}\n.modal[data-v-33cd90d3] {\n  z-index: 1000;\n}\na strong[data-v-33cd90d3] {\n  color: #000000;\n}\na[data-v-33cd90d3] {\n  color: white;\n}\n", ""]);
 
 // exports
 
@@ -17493,16 +17493,20 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "post-contents" }, [
-        _c("img", {
-          attrs: { src: "/storage/photo/" + _vm.photo.path },
-          on: {
-            click: function($event) {
-              _vm.showModal = true
+      _c(
+        "div",
+        { staticClass: "post-contents", staticStyle: { margin: "0 auto" } },
+        [
+          _c("img", {
+            attrs: { src: "/storage/photo/" + _vm.photo.path },
+            on: {
+              click: function($event) {
+                _vm.showModal = true
+              }
             }
-          }
-        })
-      ]),
+          })
+        ]
+      ),
       _vm._v(" "),
       _c("div", { staticClass: "post-footer" }, [
         _c("p", { staticClass: "post-title" }, [
@@ -17522,7 +17526,9 @@ var render = function() {
             [
               _c("i", { staticClass: "fas fa-heart" }),
               _vm._v(" "),
-              _c("span", [_vm._v(_vm._s(_vm.likeNum))])
+              _c("span", { staticClass: "likenum" }, [
+                _vm._v(_vm._s(_vm.likeNum))
+              ])
             ]
           )
         ]),
@@ -17691,7 +17697,9 @@ var render = function() {
                         [
                           _c("i", { staticClass: "fas fa-heart" }),
                           _vm._v(" "),
-                          _c("span", [_vm._v(" " + _vm._s(_vm.likeNum))])
+                          _c("span", { staticClass: "likenum" }, [
+                            _vm._v(" " + _vm._s(_vm.likeNum))
+                          ])
                         ]
                       ),
                       _vm._v(" "),

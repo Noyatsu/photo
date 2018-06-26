@@ -6,7 +6,7 @@
         <p><router-link v-bind:to="'/user/' + photo.screen_name"><strong>{{ photo.name }}</strong></router-link>(@{{photo.screen_name}}) at {{ photo.p_location }}</p>
       </div>
     </div>
-    <div class="post-contents">
+    <div class="post-contents" style="margin: 0 auto;">
       <img v-bind:src="'/storage/photo/' + photo.path" @click="showModal = true">
     </div>
     <div class="post-footer">
@@ -15,7 +15,7 @@
         <a class="button is-light"><i class="fas fa-share-alt"></i></a>
         <a class="button is-light" @click="likeToggle" v-bind:class="{ 'is-danger': isLiked }">
           <i class="fas fa-heart"></i>
-          <span>{{ likeNum }}</span>
+          <span class="likenum">{{ likeNum }}</span>
         </a>
       </div>
       <p class="is-size-7 has-text-grey">{{ photo.p_created_at }}</p>
@@ -53,7 +53,7 @@
             <a class="button is-dark"><i class="fas fa-share-alt"></i></a>
             <a class="button" @click="likeToggle" v-bind:class="{ 'is-white': isLiked, 'is-dark': !isLiked }">
               <i class="fas fa-heart"></i>
-              <span> {{ likeNum }}</span>
+              <span class="likenum"> {{ likeNum }}</span>
             </a>
             <button class="button is-dark" @click="showModal = false">閉じる</button>
           </footer>
@@ -120,6 +120,9 @@ export default{
 }
 </script>
 <style scoped lang="scss">
+.likenum {
+  margin-left: 0.5rem;
+}
 .post {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -156,6 +159,19 @@ export default{
   }
   .post-contents {
     margin-top: 0.25rem;
+    background-color: #202020;
+    text-align: center;
+    img {
+      display: inline-block;
+      max-width: 800px;
+    }
+    @media (max-width: 800px) {
+      img {
+        display: block;
+        width: 100%;
+        max-width: none;
+      }
+    }
   }
   .post-footer {
     position: relative;
