@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Photo;
+use App\Like;
+use App\User;
 use Illuminate\Http\Request;
 
 class PhotoController extends Controller
@@ -92,5 +94,39 @@ class PhotoController extends Controller
   public function destroy(Photo $photo)
   {
     //
+  }
+
+  /**
+   * いいね/アンいいねのトグル
+   */
+  public function toggleLike(Request $request)
+  {
+    $screen_name = $request->input('screen_name');
+    $photo_id = $request->input('photo_id');
+    $user = User::firstOrNew(['screen_name' => $screen_name]);
+    $photo = Photo::firstOrNew(['id' => $photo_id]);
+
+    if(Like::select()->where(['user_id' => $user->id, 'photo_id' => $photo_id])->exists()) {
+      $like = Like::firstOrNew(['user_id' => $user->id, 'photo_id' => $photo_id]);
+      $like->delete();
+      $photo->likes -= 1;
+      $photo->save();
+    }
+    else {
+      Like::insert(['user_id' => $user->id, 'photo_id' => $photo_id, 'updated_at' => date('Y/m/d H:i:s'), 'created_at' => date('Y/m/d H:i:s')]);
+      $photo->likes += 1;
+      $photo->save();
+    }
+  }
+
+  public function checkLike($screen_name, $photo_id)
+  {
+    $user = User::firstOrNew(['screen_name' => $screen_name]);
+    if(Like::select()->where(['user_id' => $user->id, 'photo_id' => $photo_id])->exists()) {
+      return 'true';
+    }
+    else {
+      return 'false';
+    }
   }
 }

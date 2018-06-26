@@ -21,9 +21,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //screen_nameとapi_tokenをPOSTすることが必要
 Route::group(['middleware' => CheckApiToken::class], function(){
   Route::post('/users/follow/toggle', 'UserController@toggleFollow');
+  Route::post('/photos/like/toggle', 'PhotoController@toggleLike');
 });
 
 Route::get('/users/follow/check/{screen_name}/{opponent_screen_name}', 'UserController@checkFollow');
+Route::get('/photos/like/check/{screen_name}/{photo_id}', 'PhotoController@checkLike');
 
 
 // 認証は面倒なので一旦省略

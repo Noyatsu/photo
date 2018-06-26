@@ -13,7 +13,10 @@
       <p class="post-title"><strong>{{ photo.title }}</strong></p>
       <div class="post-right">
         <a class="button is-light"><i class="fas fa-share-alt"></i></a>
-        <a class="button is-light"><i class="far fa-heart"></i>11</a>
+        <a class="button is-light" @click="likeToggle" v-bind:class="{ 'is-danger': isLiked }">
+          <i class="fas fa-heart"></i>
+          <span>{{ likeNum }}</span>
+        </a>
       </div>
       <p class="is-size-7 has-text-grey">{{ photo.p_created_at }}</p>
     </div>
@@ -48,7 +51,10 @@
           </section>
           <footer class="modal-card-foot has-background-black">
             <a class="button is-dark"><i class="fas fa-share-alt"></i></a>
-            <a class="button is-dark"><i class="far fa-heart"></i>11</a>
+            <a class="button" @click="likeToggle" v-bind:class="{ 'is-white': isLiked, 'is-dark': !isLiked }">
+              <i class="fas fa-heart"></i>
+              <span> {{ likeNum }}</span>
+            </a>
             <button class="button is-dark" @click="showModal = false">閉じる</button>
           </footer>
         </div>
@@ -58,16 +64,59 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default{
   name: 'post-component',
   props: [ 'photo' ],
   data: function () {
     return {
-      showModal: false
+      showModal: false,
+      isLiked: false,
+      likeNum: 0
     }
   },
-  created () {
+  async created() {
+    try {
+      let res;
+      res = await axios.get('/api/photos/like/check/' + user_screen_name + '/' + this.photo.p_id);
+      if(res.data==true) {
+        this.isLiked = true;
+      }
+      console.log(res);
+
+    } catch (e) {
+      console.error(e);
+    }
+
+    this.likeNum = this.photo.likes;
+  },
+  methods: {
+    likeToggle: function() {
+      axios.post('/api/photos/like/toggle', {
+        screen_name: user_screen_name,
+        api_token: user_api_token,
+        photo_id: this.photo.p_id,
+        csrfToken: window.Laravel.csrfToken
+      })
+      .then(response => {
+        if(this.isLiked == true){
+          this.isLiked = false;
+          this.likeNum = this.likeNum - 1;
+        }
+        else {
+          this.isLiked = true;
+          this.likeNum = this.likeNum + 1;
+        }
+      })
+      .catch(error => {
+        console.log(error.response)
+      });
+
+
+    }
   }
+
 }
 </script>
 <style scoped lang="scss">
