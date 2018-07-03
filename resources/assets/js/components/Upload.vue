@@ -4,7 +4,7 @@
       <div class="field is-grouped is-grouped-centered">
         <div class="file has-name is-boxed">
           <label class="file-label">
-            <input class="file-input" type="file" name="photofile" accept="image/*" >
+            <input class="file-input" type="file" name="photofile" accept="image/*" v-on:change="onFileChange">
             <span class="file-cta">
               <span class="file-icon">
                 <i class="fas fa-camera-retro"></i>
@@ -12,8 +12,9 @@
               <span class="file-label">
                 写真を選択
               </span>
+              <img v-show="uploadedImage" :src="uploadedImage" class="updimg">
             </span>
-            <span class="file-name"></span>
+            <!--<span class="file-name width100">{{ uploadedImage }}</span>-->
           </label>
         </div>
       </div>
@@ -113,3 +114,41 @@
     </form>
 </section>
 </template>
+
+<script>
+import axios from 'axios';
+
+export default {
+  data() {
+    return {
+      uploadedImage: '',
+      path: ''
+    };
+  },
+  methods: {
+    onFileChange(e) {
+      let files = e.target.files || e.dataTransfer.files;
+      this.createImage(files[0]);
+
+    },
+    // アップロードした画像を表示
+    createImage(file) {
+      let reader = new FileReader();
+      reader.onload = (e) => {
+        this.uploadedImage = e.target.result;
+      };
+      this.path = reader.readAsDataURL(file);
+    }
+  }
+}
+
+</script>
+
+<style scoped>
+.updimg {
+  max-width: 200px;
+}
+.width100 {
+  width: 100%;
+}
+</style>
