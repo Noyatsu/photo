@@ -129,6 +129,7 @@ export default{
   .post-header {
     height: 2rem;
     position: relative;
+    margin-bottom: 0.2em;
 
     .post-header-left {
       display: inline-block;

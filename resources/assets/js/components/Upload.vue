@@ -9,8 +9,11 @@
               <span class="file-icon">
                 <i class="fas fa-camera-retro"></i>
               </span>
-              <span class="file-label">
+              <span class="file-label" v-show="!uploadedImage">
                 写真を選択
+              </span>
+              <span class="file-label" v-show="uploadedImage">
+                写真を変更
               </span>
               <img v-show="uploadedImage" :src="uploadedImage" class="updimg">
             </span>
@@ -48,11 +51,11 @@
         <div class="field-body">
           <div class="field">
             <div>
-              <span class="tag is-primary">Nature</span>
-              <span class="tag is-primary">ファインダーの中の私の世界</span>
-              <span class="tag is-primary">sky</span>
-              <span class="tag is-primary">写真好きな人とつながりたい</span>
-              <span class="tag is-primary">絶景</span>
+              <span class="tag is-info">Nature</span>
+              <span class="tag is-info">ファインダーの中の私の世界</span>
+              <span class="tag is-info">sky</span>
+              <span class="tag is-info">写真好きな人とつながりたい</span>
+              <span class="tag is-info">絶景</span>
             </div>
 
             <p class="control is-expanded has-icons-left">
@@ -101,7 +104,7 @@
         <div class="field-body">
           <div class="field">
             <div class="control">
-              <button class="button is-primary">
+              <button class="button is-info">
                 <span class="icon is-small is-left">
                   <i class="fas fa-upload"></i>
                 </span>
