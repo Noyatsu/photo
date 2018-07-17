@@ -6,7 +6,7 @@
         <p><router-link v-bind:to="'/user/' + photo.screen_name"><strong>{{ photo.name }}</strong></router-link>(@{{photo.screen_name}}) at {{ photo.p_location }}</p>
       </div>
     </div>
-    <div class="post-contents" style="margin: 0 auto;">
+    <div class="post-contents" style="margin: 0 auto;" @click="showModal = true">
       <img v-bind:src="'/storage/photo/' + photo.path" @click="showModal = true">
     </div>
     <div class="post-footer">

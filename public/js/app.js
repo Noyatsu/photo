@@ -17495,7 +17495,15 @@ var render = function() {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "post-contents", staticStyle: { margin: "0 auto" } },
+        {
+          staticClass: "post-contents",
+          staticStyle: { margin: "0 auto" },
+          on: {
+            click: function($event) {
+              _vm.showModal = true
+            }
+          }
+        },
         [
           _c("img", {
             attrs: { src: "/storage/photo/" + _vm.photo.path },
