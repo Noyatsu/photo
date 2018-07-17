@@ -14,18 +14,33 @@ class UserController extends Controller
 {
   /**
    * APIトークン生成
-   * @return [type] [description]
+   * @return string apiToken
    */
   static public function generateApiToken()
   {
     $user = Auth::user();
-    $apiToken = Hash::make($user->id + time());
+    $apiToken = Hash::make($user->id . time());
 
     //APIトークンをdatabaseに格納
     $user->api_token = $apiToken;
     $user->save();
 
     return $apiToken;
+  }
+
+  /**
+   * APIトークンリセット
+   * @return void
+   */
+  static public function resetApiToken()
+  {
+    $user = Auth::user();
+
+    //APIトークンをdatabaseに格納
+    $user->api_token = null;
+    $user->save();
+
+    return;
   }
 
   /**

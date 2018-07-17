@@ -56,32 +56,34 @@ export default {
     'post-component': PostComponent
   },
   async created() {
-
-    try {
-      let res;
-      if (this.$route.params.screen_name == undefined) {
-        res = await axios.get('/api/users/' + user_screen_name);
-        this.isMine = true;
-      }
-      else {
-        res = await axios.get('/api/users/' + this.$route.params.screen_name);
-      }
-      this.user_data = res.data;
-    } catch (e) {
-      console.error(e)
-    }
-
-    try {
-      let res;
-      res = await axios.get('/api/users/follow/check/' + user_screen_name + '/' + this.user_data.screen_name);
-      if(res.data==true) {
-        this.isFollow = true;
-      }
-    } catch (e) {
-      console.error(e)
-    }
+    this.created_method(this.$route.params.screen_name);
   },
   methods: {
+    created_method: async function(screen_name) {
+      try {
+        let res;
+        if (this.$route.params.screen_name == undefined) {
+          res = await axios.get('/api/users/' + user_screen_name);
+          this.isMine = true;
+        }
+        else {
+          res = await axios.get('/api/users/' + screen_name);
+        }
+        this.user_data = res.data;
+      } catch (e) {
+        console.error(e)
+      }
+
+      try {
+        let res;
+        res = await axios.get('/api/users/follow/check/' + user_screen_name + '/' + this.user_data.screen_name);
+        if(res.data==true) {
+          this.isFollow = true;
+        }
+      } catch (e) {
+        console.error(e)
+      }
+    },
     followToggle: function() {
       axios.post('/api/users/follow/toggle', {
         screen_name: user_screen_name,
@@ -100,6 +102,11 @@ export default {
       .catch(error => {
         console.log(error.response)
       });;
+    }
+  },
+  watch: {
+    '$route' (to, from) {
+      this.created_method(to.params.screen_name);
     }
   }
 }

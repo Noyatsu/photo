@@ -17,7 +17,7 @@ class CheckApiToken
   */
   public function handle($request, Closure $next)
   {
-    if (!isset($request->screen_name) || !isset($request->api_token)) {
+    if (!isset($request->screen_name) || !isset($request->api_token) || null == $request->api_token) {
       print '[{"error": "screen_name or api_token is undefined!"}]';
       die();
     }
