@@ -1,5 +1,8 @@
 <template>
   <section class="section">
+    <div class="notification is-info" v-if="upload_mes">
+      {{ upload_mes }}
+    </div>
     <form>
       <apdarea @send-file="sendFile"></apdarea>
       <div class="field is-horizontal">
@@ -83,12 +86,13 @@
       <div class="field-body">
         <div class="field">
           <div class="control">
-            <button type="button" class="button is-info" v-on:click="onSubmit">
+            <button type="button" class="button is-info" v-bind:disabled="is_uploading" v-on:click="onSubmit">
               <span class="icon is-small is-left">
                 <i class="fas fa-upload"></i>
               </span>
               <p>アップロード</p>
             </button>
+            <img src="/storage/gload.gif" v-if="is_uploading">
           </div>
         </div>
       </div>
@@ -104,6 +108,8 @@ const upd_area = require('./parts/UploadArea');
 export default {
   data() {
     return {
+      is_uploading: false,
+      upload_mes: '',
       categories: [],
       files: [],
       title: 'Untitled',
@@ -116,27 +122,39 @@ export default {
   methods: {
     //ファイル送信処理
     onSubmit() {
-      let data = new FormData;
-      data.append('title', this.title);
-      data.append('location', this.location);
-      data.append('tag', this.tag);
-      data.append('description', this.description);
-      data.append('category', this.category);
-      data.append('photofile', this.files[0]);
-      data.append('screen_name', user_screen_name);
-      data.append('api_token', user_api_token);
-      //axiosでサーバーに送信
-      axios.post('/api/photos/uploadtest',data)
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      })
+      if(undefined != this.files[0]) {
+        this.is_uploading = true;
+        this.upload_mes = "ファイルをアップロード中です…";
+        let data = new FormData;
+        data.append('title', this.title);
+        data.append('location', this.location);
+        data.append('tag', this.tag);
+        data.append('description', this.description);
+        data.append('category', this.category);
+        data.append('photofile', this.files[0]);
+        data.append('screen_name', user_screen_name);
+        data.append('api_token', user_api_token);
+        //axiosでサーバーに送信
+        axios.post('/api/photos/uploadtest',data)
+        .then((response) => {
+          console.log(response.data);
+          this.upload_mes = "アップロードに成功しました!";
+          this.is_uploading = false;
+        })
+        .catch((error) => {
+          console.log(error);
+          this.upload_mes = "アップロードに失敗しました…("+error+")";
+          this.is_uploading = false;
+        })
+      }
+      else {
+        this.upload_mes = "写真を選択してください!";
+      }
     },
     //子コンポネートからファイルを受け取り
     sendFile(files){
       this.files = files;
+      this.upload_mes = "";
     }
   },
   async created() {

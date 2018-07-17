@@ -18171,6 +18171,10 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
+//
+//
+//
 
 
 var upd_area = __webpack_require__(72);
@@ -18178,6 +18182,8 @@ var upd_area = __webpack_require__(72);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      is_uploading: false,
+      upload_mes: '',
       categories: [],
       files: [],
       title: 'Untitled',
@@ -18191,26 +18197,39 @@ var upd_area = __webpack_require__(72);
   methods: {
     //ファイル送信処理
     onSubmit: function onSubmit() {
-      var data = new FormData();
-      data.append('title', this.title);
-      data.append('location', this.location);
-      data.append('tag', this.tag);
-      data.append('description', this.description);
-      data.append('category', this.category);
-      data.append('photofile', this.files[0]);
-      data.append('screen_name', user_screen_name);
-      data.append('api_token', user_api_token);
-      //axiosでサーバーに送信
-      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post('/api/photos/uploadtest', data).then(function (response) {
-        console.log(response.data);
-      }).catch(function (error) {
-        console.log(error);
-      });
+      var _this = this;
+
+      if (undefined != this.files[0]) {
+        this.is_uploading = true;
+        this.upload_mes = "ファイルをアップロード中です…";
+        var data = new FormData();
+        data.append('title', this.title);
+        data.append('location', this.location);
+        data.append('tag', this.tag);
+        data.append('description', this.description);
+        data.append('category', this.category);
+        data.append('photofile', this.files[0]);
+        data.append('screen_name', user_screen_name);
+        data.append('api_token', user_api_token);
+        //axiosでサーバーに送信
+        __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post('/api/photos/uploadtest', data).then(function (response) {
+          console.log(response.data);
+          _this.upload_mes = "アップロードに成功しました!";
+          _this.is_uploading = false;
+        }).catch(function (error) {
+          console.log(error);
+          _this.upload_mes = "アップロードに失敗しました…(" + error + ")";
+          _this.is_uploading = false;
+        });
+      } else {
+        this.upload_mes = "写真を選択してください!";
+      }
     },
 
     //子コンポネートからファイルを受け取り
     sendFile: function sendFile(files) {
       this.files = files;
+      this.upload_mes = "";
     }
   },
   created: function () {
@@ -18856,6 +18875,12 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("section", { staticClass: "section" }, [
+    _vm.upload_mes
+      ? _c("div", { staticClass: "notification is-info" }, [
+          _vm._v("\n      " + _vm._s(_vm.upload_mes) + "\n    ")
+        ])
+      : _vm._e(),
+    _vm._v(" "),
     _c(
       "form",
       [
@@ -19033,11 +19058,15 @@ var render = function() {
                   "button",
                   {
                     staticClass: "button is-info",
-                    attrs: { type: "button" },
+                    attrs: { type: "button", disabled: _vm.is_uploading },
                     on: { click: _vm.onSubmit }
                   },
                   [_vm._m(7), _vm._v(" "), _c("p", [_vm._v("アップロード")])]
-                )
+                ),
+                _vm._v(" "),
+                _vm.is_uploading
+                  ? _c("img", { attrs: { src: "/storage/gload.gif" } })
+                  : _vm._e()
               ])
             ])
           ])

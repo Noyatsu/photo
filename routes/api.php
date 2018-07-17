@@ -23,10 +23,15 @@ Route::group(['middleware' => CheckApiToken::class], function(){
   Route::post('/users/follow/toggle', 'UserController@toggleFollow');
   Route::post('/photos/like/toggle', 'PhotoController@toggleLike');
   Route::post('/photos/uploadtest', function(Request $request){
-    print("SUCCESS!!\nPhoto \"".$request->input('title')."\" was uploaded!");
-    print("\nFile is \"".$request->file('photofile')."\".\n");
-    print(json_encode($request->input())."\n");
-    print(json_encode(exif_read_data($request->file('photofile'))));
+    try {
+      print("SUCCESS!!\nPhoto \"".$request->input('title')."\" was uploaded!");
+      print("\nFile is \"".$request->file('photofile')."\".\n");
+      print(json_encode($request->input())."\n");
+      print(json_encode(exif_read_data($request->file('photofile'))));
+    } catch (\Exception $e) {
+      print(json_decode($e));
+    }
+
   });
 });
 
