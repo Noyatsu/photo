@@ -41,7 +41,7 @@ class LoginController extends Controller
 
   public function logout(Request $request)
   {
-    UserController::generateApiToken();
+    UserController::resetApiToken();
     $this->guard()->logout();
     $request->session()->flush();
     $request->session()->regenerate();

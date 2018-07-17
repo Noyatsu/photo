@@ -14,7 +14,7 @@ class UserController extends Controller
 {
   /**
    * APIトークン生成
-   * @return [type] [description]
+   * @return string apiToken
    */
   static public function generateApiToken()
   {
@@ -26,6 +26,21 @@ class UserController extends Controller
     $user->save();
 
     return $apiToken;
+  }
+
+  /**
+   * APIトークンリセット
+   * @return void
+   */
+  static public function resetApiToken()
+  {
+    $user = Auth::user();
+
+    //APIトークンをdatabaseに格納
+    $user->api_token = null;
+    $user->save();
+
+    return;
   }
 
   /**
