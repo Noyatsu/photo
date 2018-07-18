@@ -53,7 +53,6 @@
       </div>
       @endguest
     </nav>
-    <div class="container">
       <div class="m-tab-bar">
         <router-link class="m-tab" to='/home' tag="div"><i class="fas fa-home"></i></router-link>
         <router-link class="m-tab" to='/home/search' tag="div"><i class="fas fa-search"></i></router-link>
@@ -64,7 +63,6 @@
       <transition name="fade" mode="out-in">
         <router-view></router-view>
       </transition>
-    </div>
   </div>
 </body>
 <script src="{{ mix('js/app.js') }}"></script>

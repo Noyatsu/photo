@@ -12467,7 +12467,7 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(18);
-module.exports = __webpack_require__(71);
+module.exports = __webpack_require__(76);
 
 
 /***/ }),
@@ -12497,7 +12497,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
 // vue-routerのインスタンス化、オプションroutesでアクセスされるパスとその時に表示するComponentを指定
 var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
   mode: 'history',
-  routes: [{ path: '/home', component: __webpack_require__(22) }, { path: '/home/search', component: __webpack_require__(55) }, { path: '/home/upload', component: __webpack_require__(57) }, { path: '/home/like', component: __webpack_require__(65) }, { path: '/home/profile', component: __webpack_require__(16) }, { path: '/user/' + user_screen_name, redirect: '/home/profile' }, { path: '/user/:screen_name', component: __webpack_require__(16) }]
+  routes: [{ path: '/home', component: __webpack_require__(22) }, { path: '/home/search', component: __webpack_require__(55) }, { path: '/home/upload', component: __webpack_require__(57) }, { path: '/home/like', component: __webpack_require__(65) }, { path: '/home/profile', component: __webpack_require__(16) }, { path: '/photo/:id', component: __webpack_require__(71) }, { path: '/user/' + user_screen_name, redirect: '/home/profile' }, { path: '/user/:screen_name', component: __webpack_require__(16) }]
 });
 
 /**
@@ -12511,16 +12511,10 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
   el: '#app',
   data: {
     scrollY: 0,
+    global: true,
     tabnavs: [{ cls: 'fas fa-home', isActive: false, name: 'timeline' }, { cls: 'fas fa-search', isActive: false, name: 'search' }, { cls: 'far fa-plus-square', isActive: false, name: 'upload' }, { cls: 'fas fa-heart', isActive: false, name: 'like' }, { cls: 'fas fa-user-circle', isActive: false, name: 'profile' }]
   },
-  methods: {
-    setTab: function setTab(index) {
-      for (var i = 0; i < 5; i++) {
-        this.tabnavs[i].isActive = false;
-      }
-      this.tabnavs[index].isActive = true;
-    }
-  }
+  methods: {}
 });
 
 /***/ }),
@@ -17317,44 +17311,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -17493,28 +17449,13 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "post-contents",
-          staticStyle: { margin: "0 auto" },
-          on: {
-            click: function($event) {
-              _vm.showModal = true
-            }
-          }
-        },
-        [
-          _c("img", {
-            attrs: { src: "/storage/photo/" + _vm.photo.path },
-            on: {
-              click: function($event) {
-                _vm.showModal = true
-              }
-            }
-          })
-        ]
-      ),
+      _c("router-link", { attrs: { to: "/photo/" + _vm.photo.p_id } }, [
+        _c(
+          "div",
+          { staticClass: "post-contents", staticStyle: { margin: "0 auto" } },
+          [_c("img", { attrs: { src: "/storage/photo/" + _vm.photo.path } })]
+        )
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "post-footer" }, [
         _c("p", { staticClass: "post-title" }, [
@@ -17544,191 +17485,6 @@ var render = function() {
         _c("p", { staticClass: "is-size-7 has-text-grey" }, [
           _vm._v(_vm._s(_vm.photo.p_created_at))
         ])
-      ]),
-      _vm._v(" "),
-      _c("transition", { attrs: { name: "fade", mode: "out-in" } }, [
-        _vm.showModal
-          ? _c(
-              "div",
-              {
-                staticClass: "modal is-active",
-                on: {
-                  close: function($event) {
-                    _vm.showModal = false
-                  }
-                }
-              },
-              [
-                _c("div", {
-                  staticClass: "modal-background",
-                  on: {
-                    click: function($event) {
-                      _vm.showModal = false
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "modal-card" }, [
-                  _c(
-                    "header",
-                    { staticClass: "modal-card-head has-background-black" },
-                    [
-                      _c(
-                        "p",
-                        { staticClass: "modal-card-title has-text-light" },
-                        [_vm._v(_vm._s(_vm.photo.title))]
-                      ),
-                      _vm._v(" "),
-                      _c("button", {
-                        staticClass: "delete",
-                        attrs: { "aria-label": "close" },
-                        on: {
-                          click: function($event) {
-                            _vm.showModal = false
-                          }
-                        }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "section",
-                    {
-                      staticClass:
-                        "modal-card-body has-background-black has-text-light"
-                    },
-                    [
-                      _c("p", { staticClass: "image" }, [
-                        _c("img", {
-                          attrs: {
-                            src: "/storage/photo/" + _vm.photo.path,
-                            alt: ""
-                          }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "p",
-                        [
-                          _c("i", { staticClass: "fas fa-user fa-fw" }),
-                          _vm._v(" "),
-                          _c(
-                            "router-link",
-                            { attrs: { to: "/user/" + _vm.photo.screen_name } },
-                            [_vm._v(_vm._s(_vm.photo.name))]
-                          ),
-                          _vm._v("(@" + _vm._s(_vm.photo.screen_name) + ")")
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c("p", [
-                        _c("i", { staticClass: "fas fa-tag fa-fw" }),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "tag is-dark" }, [
-                          _vm._v(_vm._s(_vm.photo.c_name))
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("p", [
-                        _c("i", { staticClass: "fas fa-map-marker fa-fw" }),
-                        _vm._v(" " + _vm._s(_vm.photo.p_location))
-                      ]),
-                      _vm._v(" "),
-                      _c("p", [
-                        _c("i", { staticClass: "fas fa-camera fa-fw" }),
-                        _vm._v(" " + _vm._s(_vm.photo.camera))
-                      ]),
-                      _vm._v(" "),
-                      _c("p", [
-                        _c("i", { staticClass: "far fa-dot-circle fa-fw" }),
-                        _vm._v(" " + _vm._s(_vm.photo.lens))
-                      ]),
-                      _vm._v(" "),
-                      _c("p", [
-                        _vm._v(
-                          _vm._s(_vm.photo.focal_length) +
-                            "mm " +
-                            _vm._s(_vm.photo.speed) +
-                            " F" +
-                            _vm._s(_vm.photo.iris) +
-                            " ISO" +
-                            _vm._s(_vm.photo.iso)
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("h3", [_vm._v("コメント")]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "field" }, [
-                        _c(
-                          "p",
-                          {
-                            staticClass:
-                              "control has-icons-left has-icons-right"
-                          },
-                          [
-                            _c("input", {
-                              staticClass:
-                                "input has-background-dark has-text-light",
-                              attrs: { placeholder: "コメントを追加" }
-                            }),
-                            _vm._v(" "),
-                            _c(
-                              "span",
-                              { staticClass: "icon is-small is-left" },
-                              [_c("i", { staticClass: "fas fa-comment" })]
-                            )
-                          ]
-                        )
-                      ])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "footer",
-                    { staticClass: "modal-card-foot has-background-black" },
-                    [
-                      _c("a", { staticClass: "button is-dark" }, [
-                        _c("i", { staticClass: "fas fa-share-alt" })
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "button",
-                          class: {
-                            "is-white": _vm.isLiked,
-                            "is-dark": !_vm.isLiked
-                          },
-                          on: { click: _vm.likeToggle }
-                        },
-                        [
-                          _c("i", { staticClass: "fas fa-heart" }),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "likenum" }, [
-                            _vm._v(" " + _vm._s(_vm.likeNum))
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass: "button is-dark",
-                          on: {
-                            click: function($event) {
-                              _vm.showModal = false
-                            }
-                          }
-                        },
-                        [_vm._v("閉じる")]
-                      )
-                    ]
-                  )
-                ])
-              ]
-            )
-          : _vm._e()
       ])
     ],
     1
@@ -17915,6 +17671,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { staticClass: "container" },
     _vm._l(_vm.photos_list, function(photo) {
       return _c("post-component", { key: photo.p_id, attrs: { photo: photo } })
     })
@@ -18546,7 +18303,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("section", { staticClass: "section" }, [
+  return _c("section", { staticClass: "container section" }, [
     _vm.upload_mes
       ? _c("div", { staticClass: "notification is-info" }, [
           _vm._v("\n      " + _vm._s(_vm.upload_mes) + "\n    ")
@@ -18898,7 +18655,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
+    return _c("div", { staticClass: "container" }, [
       _c("div", { staticClass: "notification" }, [
         _c("i", { staticClass: "fas fa-heart has-text-danger" }),
         _vm._v(" "),
@@ -19194,7 +18951,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "card" }, [
       _c("div", { staticClass: "m-profile" }, [
         _c(
@@ -19334,6 +19091,467 @@ if (false) {
 
 /***/ }),
 /* 71 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(72)
+}
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(74)
+/* template */
+var __vue_template__ = __webpack_require__(75)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-681d1a08"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\Detail.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-681d1a08", Component.options)
+  } else {
+    hotAPI.reload("data-v-681d1a08", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 72 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(73);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(5)("7b6f6860", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-681d1a08\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Detail.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-681d1a08\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Detail.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 73 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(4)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.likenum[data-v-681d1a08] {\n  margin-left: 0.5rem;\n}\n.post[data-v-681d1a08] {\n  padding-top: 1rem;\n}\n.post .post-header[data-v-681d1a08] {\n    height: 2rem;\n    position: relative;\n    margin-bottom: 0.2em;\n}\n.post .post-header .post-header-left[data-v-681d1a08] {\n      display: inline-block;\n      position: absolute;\n      left: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-header .post-header-left p[data-v-681d1a08] {\n        display: inline-block;\n        vertical-align: middle;\n        height: 2rem;\n        line-height: 2rem;\n}\n.post .post-header .post-header-left p img[data-v-681d1a08] {\n        width: 2rem;\n        height: 2rem;\n        margin-right: 0.2rem;\n        border-radius: 100%;\n}\n.post .post-header .post-header-right[data-v-681d1a08] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-contents[data-v-681d1a08] {\n    margin-top: 0.25rem;\n    text-align: center;\n}\n.post .post-contents img[data-v-681d1a08] {\n      display: block;\n      width: 100%;\n      max-width: none;\n}\n.post .post-footer[data-v-681d1a08] {\n    position: relative;\n    margin-left: 0.5rem;\n    margin-top: 0rem;\n}\n.post .post-footer .post-right[data-v-681d1a08] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0.2rem;\n      bottom: 0;\n}\n.info[data-v-681d1a08] {\n  line-height: 1.8;\n}\na strong[data-v-681d1a08] {\n  color: white;\n}\na[data-v-681d1a08] {\n  color: white;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 74 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
+
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'post-component',
+  data: function data() {
+    return {
+      photo: [],
+      showModal: false,
+      isLiked: false,
+      likeNum: 0
+    };
+  },
+  created: function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
+      var res, _res;
+
+      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.next = 3;
+              return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/photos/get/' + this.$route.params.id);
+
+            case 3:
+              res = _context.sent;
+
+              this.photo = res.data[0];
+              console.log(res.data);
+              _context.next = 11;
+              break;
+
+            case 8:
+              _context.prev = 8;
+              _context.t0 = _context['catch'](0);
+
+              console.error(_context.t0);
+
+            case 11:
+              _context.prev = 11;
+              _res = void 0;
+              _context.next = 15;
+              return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/photos/like/check/' + user_screen_name + '/' + this.photo.p_id);
+
+            case 15:
+              _res = _context.sent;
+
+              if (_res.data == true) {
+                this.isLiked = true;
+              }
+              console.log(_res);
+
+              _context.next = 23;
+              break;
+
+            case 20:
+              _context.prev = 20;
+              _context.t1 = _context['catch'](11);
+
+              console.error(_context.t1);
+
+            case 23:
+
+              this.likeNum = this.photo.likes;
+
+            case 24:
+            case 'end':
+              return _context.stop();
+          }
+        }
+      }, _callee, this, [[0, 8], [11, 20]]);
+    }));
+
+    function created() {
+      return _ref.apply(this, arguments);
+    }
+
+    return created;
+  }(),
+
+  methods: {
+    likeToggle: function likeToggle() {
+      var _this = this;
+
+      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post('/api/photos/like/toggle', {
+        screen_name: user_screen_name,
+        api_token: user_api_token,
+        photo_id: this.photo.p_id,
+        csrfToken: window.Laravel.csrfToken
+      }).then(function (response) {
+        if (_this.isLiked == true) {
+          _this.isLiked = false;
+          _this.likeNum = _this.likeNum - 1;
+        } else {
+          _this.isLiked = true;
+          _this.likeNum = _this.likeNum + 1;
+        }
+      }).catch(function (error) {
+        console.log(error.response);
+      });
+    }
+  }
+
+});
+
+/***/ }),
+/* 75 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "post has-background-black-ter has-text-light" },
+    [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "post-header" }, [
+          _c("div", { staticClass: "post-header-left is-size-7" }, [
+            _c(
+              "p",
+              [
+                _c(
+                  "router-link",
+                  { attrs: { to: "/user/" + _vm.photo.screen_name } },
+                  [
+                    _c("img", {
+                      attrs: {
+                        src: "https://bulma.io/images/placeholders/128x128.png"
+                      }
+                    })
+                  ]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "p",
+              [
+                _c(
+                  "router-link",
+                  { attrs: { to: "/user/" + _vm.photo.screen_name } },
+                  [_c("strong", [_vm._v(_vm._s(_vm.photo.name))])]
+                ),
+                _vm._v(
+                  "(@" +
+                    _vm._s(_vm.photo.screen_name) +
+                    ") at " +
+                    _vm._s(_vm.photo.p_location)
+                )
+              ],
+              1
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "post-contents",
+            staticStyle: { margin: "0 auto" },
+            on: {
+              click: function($event) {
+                _vm.showModal = true
+              }
+            }
+          },
+          [
+            _c("img", {
+              attrs: { src: "/storage/photo/" + _vm.photo.path },
+              on: {
+                click: function($event) {
+                  _vm.showModal = true
+                }
+              }
+            })
+          ]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "post-footer" }, [
+          _c("p", { staticClass: "post-title" }, [
+            _c("strong", { staticClass: "has-text-light" }, [
+              _vm._v(_vm._s(_vm.photo.title))
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "post-right" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "button is-light",
+                class: { "is-danger": _vm.isLiked },
+                on: { click: _vm.likeToggle }
+              },
+              [
+                _c("i", { staticClass: "fas fa-heart" }),
+                _vm._v(" "),
+                _c("span", { staticClass: "likenum" }, [
+                  _vm._v(_vm._s(_vm.likeNum))
+                ])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "info" }, [
+            _c("p", { staticClass: "is-size-7 has-text-grey-lighter" }, [
+              _vm._v(_vm._s(_vm.photo.p_created_at))
+            ]),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c(
+              "p",
+              [
+                _c("i", { staticClass: "fas fa-user fa-fw" }),
+                _vm._v(" "),
+                _c(
+                  "router-link",
+                  { attrs: { to: "/user/" + _vm.photo.screen_name } },
+                  [_vm._v(_vm._s(_vm.photo.name))]
+                ),
+                _vm._v("(@" + _vm._s(_vm.photo.screen_name) + ")")
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c("p", [
+              _c("i", { staticClass: "fas fa-tag fa-fw" }),
+              _vm._v(" "),
+              _c("span", { staticClass: "tag is-dark" }, [
+                _vm._v(_vm._s(_vm.photo.c_name))
+              ])
+            ]),
+            _vm._v(" "),
+            _c("p", [
+              _c("i", { staticClass: "fas fa-map-marker fa-fw" }),
+              _vm._v(" " + _vm._s(_vm.photo.p_location))
+            ]),
+            _vm._v(" "),
+            _c("p", [
+              _c("i", { staticClass: "fas fa-camera fa-fw" }),
+              _vm._v(" " + _vm._s(_vm.photo.camera))
+            ]),
+            _vm._v(" "),
+            _c("p", [
+              _c("i", { staticClass: "far fa-dot-circle fa-fw" }),
+              _vm._v(" " + _vm._s(_vm.photo.lens))
+            ]),
+            _vm._v(" "),
+            _c("p", [
+              _vm._v(
+                _vm._s(_vm.photo.focal_length) +
+                  "mm " +
+                  _vm._s(_vm.photo.speed) +
+                  " F" +
+                  _vm._s(_vm.photo.iris) +
+                  " ISO" +
+                  _vm._s(_vm.photo.iso)
+              )
+            ]),
+            _vm._v(" "),
+            _c("h3", [_vm._v("コメント")]),
+            _vm._v(" "),
+            _vm._m(1)
+          ])
+        ])
+      ])
+    ]
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "button is-light" }, [
+      _c("i", { staticClass: "fas fa-share-alt" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "field" }, [
+      _c("p", { staticClass: "control has-icons-left has-icons-right" }, [
+        _c("input", {
+          staticClass: "input has-background-dark has-text-light",
+          attrs: { placeholder: "コメントを追加" }
+        }),
+        _vm._v(" "),
+        _c("span", { staticClass: "icon is-small is-left" }, [
+          _c("i", { staticClass: "fas fa-comment" })
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-681d1a08", module.exports)
+  }
+}
+
+/***/ }),
+/* 76 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
