@@ -22,10 +22,22 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(['middleware' => CheckApiToken::class], function(){
   Route::post('/users/follow/toggle', 'UserController@toggleFollow');
   Route::post('/photos/like/toggle', 'PhotoController@toggleLike');
+  Route::post('/photos/uploadtest', function(Request $request){
+    try {
+      print("SUCCESS!!\nPhoto \"".$request->input('title')."\" was uploaded!");
+      print("\nFile is \"".$request->file('photofile')."\".\n");
+      print(json_encode($request->input())."\n");
+      print(json_encode(exif_read_data($request->file('photofile'))));
+    } catch (\Exception $e) {
+      print(json_decode($e));
+    }
+
+  });
 });
 
 Route::get('/users/follow/check/{screen_name}/{opponent_screen_name}', 'UserController@checkFollow');
 Route::get('/photos/like/check/{screen_name}/{photo_id}', 'PhotoController@checkLike');
+Route::get('/categories', 'CategoryController@index');
 
 
 // 認証は面倒なので一旦省略

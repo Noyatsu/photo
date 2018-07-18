@@ -14,18 +14,33 @@ class UserController extends Controller
 {
   /**
    * APIトークン生成
-   * @return [type] [description]
+   * @return string apiToken
    */
   static public function generateApiToken()
   {
     $user = Auth::user();
-    $apiToken = Hash::make($user->id + time());
+    $apiToken = Hash::make($user->id . time());
 
     //APIトークンをdatabaseに格納
     $user->api_token = $apiToken;
     $user->save();
 
     return $apiToken;
+  }
+
+  /**
+   * APIトークンリセット
+   * @return void
+   */
+  static public function resetApiToken()
+  {
+    $user = Auth::user();
+
+    //APIトークンをdatabaseに格納
+    $user->api_token = null;
+    $user->save();
+
+    return;
   }
 
   /**
@@ -82,11 +97,11 @@ class UserController extends Controller
     $user = User::firstOrNew(['screen_name' => $screen_name]);
     $opponent = User::firstOrNew(['screen_name' => $opponent_screen_name]);
     if(Follow::select()->where(['user_id' => $user->id, 'follow_user_id' => $opponent->id])->exists()) {
-      $follow = Follow::firstOrNew(['user_id' => $user->id, 'follow_user_id' => $opponent->id, 'updated_at' => date('Y/m/d H:i:s'), 'created_at' => date('Y/m/d H:i:s')]);
+      $follow = Follow::firstOrNew(['user_id' => $user->id, 'follow_user_id' => $opponent->id]);
       $follow->delete();
     }
     else {
-      Follow::insert(['user_id' => $user->id, 'follow_user_id' => $opponent->id]);
+      Follow::insert(['user_id' => $user->id, 'follow_user_id' => $opponent->id, 'updated_at' => date('Y/m/d H:i:s'), 'created_at' => date('Y/m/d H:i:s')]);
     }
   }
 
