@@ -14,7 +14,7 @@ window.Vue = require('vue');
 Vue.use(VueRouter);
 
 // vue-routerのインスタンス化、オプションroutesでアクセスされるパスとその時に表示するComponentを指定
-const router = new VueRouter({
+let router = new VueRouter({
     mode: 'history',
     routes: [
         { path: '/home', component: require('./components/Home.vue') },
@@ -42,7 +42,7 @@ const app = new Vue({
   el: '#app',
   data: {
     scrollY: 0,
-    global: true,
+    is_global: false,
     tabnavs: [
       { cls: 'fas fa-home', isActive: false, name: 'timeline'},
       { cls: 'fas fa-search', isActive: false, name: 'search' },
@@ -50,8 +50,5 @@ const app = new Vue({
       { cls: 'fas fa-heart', isActive:false, name: 'like' },
       { cls: 'fas fa-user-circle', isActive:false, name: 'profile' }
     ]
-  },
-  methods: {
-
   }
 });

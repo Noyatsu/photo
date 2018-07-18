@@ -21,8 +21,11 @@
 <body>
   <div id="app">
     <nav class="m-navbar has-background-white-ter">
-      <a class="m-navbar-item" href="{{ url('/') }}">
+      <a class="m-navbar-item" href="/home" v-if="is_global">
         {{ config('app.name') }}
+      </a>
+      <a class="m-navbar-item" onclick="javascript:window.history.back(-1);return false;" v-if="!is_global">
+        <i class="fas fa-chevron-left"></i>
       </a>
       <!-- Authentication Links -->
       @guest

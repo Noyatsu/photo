@@ -57,6 +57,8 @@ export default{
     }
   },
   async created() {
+    app.is_global = false;
+
     //写真を取得
     try {
       let res = await axios.get('/api/photos/get/'+this.$route.params.id);
