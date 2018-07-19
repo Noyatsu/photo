@@ -25,7 +25,6 @@ export default {
   methods: {
   },
   async created() {
-    app.is_global = true;
     try {
       let res = await axios.get('/api/photos/');
       this.photos_list = res.data;

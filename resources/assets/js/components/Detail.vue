@@ -1,41 +1,44 @@
 <template>
-  <div class="post has-background-black-ter has-text-light">
-    <div class="container">
-      <div class="post-header">
-        <div class="post-header-left is-size-7">
-          <p><router-link v-bind:to="'/user/' + photo.screen_name"><img src="https://bulma.io/images/placeholders/128x128.png"></router-link></p>
-          <p><router-link v-bind:to="'/user/' + photo.screen_name"><strong>{{ photo.name }}</strong></router-link>(@{{photo.screen_name}}) at {{ photo.p_location }}</p>
+  <div>
+    <back-button></back-button>
+    <div class="post has-background-black-ter has-text-light">
+      <div class="container">
+        <div class="post-header">
+          <div class="post-header-left is-size-7">
+            <p><router-link v-bind:to="'/user/' + photo.screen_name"><img src="https://bulma.io/images/placeholders/128x128.png"></router-link></p>
+            <p><router-link v-bind:to="'/user/' + photo.screen_name"><strong>{{ photo.name }}</strong></router-link>(@{{photo.screen_name}}) at {{ photo.p_location }}</p>
+          </div>
         </div>
-      </div>
-      <div class="post-contents" style="margin: 0 auto;" @click="showModal = true">
-        <img v-bind:src="'/storage/photo/' + photo.path" @click="showModal = true">
-      </div>
-      <div class="post-footer">
-        <p class="post-title"><strong class="has-text-light">{{ photo.title }}</strong></p>
-        <div class="post-right">
-          <a class="button is-light"><i class="fas fa-share-alt"></i></a>
-          <a class="button is-light" @click="likeToggle" v-bind:class="{ 'is-danger': isLiked }">
-            <i class="fas fa-heart"></i>
-            <span class="likenum">{{ likeNum }}</span>
-          </a>
+        <div class="post-contents" style="margin: 0 auto;" @click="showModal = true">
+          <img v-bind:src="'/storage/photo/' + photo.path" @click="showModal = true">
         </div>
-        <div class="info">
-          <p class="is-size-7 has-text-grey-lighter">{{ photo.p_created_at }}</p>
-          <br>
-          <p><i class="fas fa-user fa-fw"></i> <router-link v-bind:to="'/user/' + photo.screen_name">{{ photo.name }}</router-link>(@{{photo.screen_name}})</p>
-          <p><i class="fas fa-tag fa-fw"></i> <span class="tag is-dark">{{ photo.c_name }}</span></p>
-          <p><i class="fas fa-map-marker fa-fw"></i> {{ photo.p_location }}</p>
-          <p><i class="fas fa-camera fa-fw"></i> {{ photo.camera }}</p>
-          <p><i class="far fa-dot-circle fa-fw"></i> {{ photo.lens }}</p>
-          <p>{{ photo.focal_length }}mm {{ photo.speed }} F{{ photo.iris }} ISO{{ photo.iso }}</p>
-          <h3>コメント</h3>
-          <div class="field">
-            <p class="control has-icons-left has-icons-right">
-              <input class="input has-background-dark has-text-light" placeholder="コメントを追加">
-              <span class="icon is-small is-left">
-                <i class="fas fa-comment"></i>
-              </span>
-            </p>
+        <div class="post-footer">
+          <p class="post-title"><strong class="has-text-light">{{ photo.title }}</strong></p>
+          <div class="post-right">
+            <a class="button is-light"><i class="fas fa-share-alt"></i></a>
+            <a class="button is-light" @click="likeToggle" v-bind:class="{ 'is-danger': isLiked }">
+              <i class="fas fa-heart"></i>
+              <span class="likenum">{{ likeNum }}</span>
+            </a>
+          </div>
+          <div class="info">
+            <p class="is-size-7 has-text-grey-lighter">{{ photo.p_created_at }}</p>
+            <br>
+            <p><i class="fas fa-user fa-fw"></i> <router-link v-bind:to="'/user/' + photo.screen_name">{{ photo.name }}</router-link>(@{{photo.screen_name}})</p>
+            <p><i class="fas fa-tag fa-fw"></i> <span class="tag is-dark">{{ photo.c_name }}</span></p>
+            <p><i class="fas fa-map-marker fa-fw"></i> {{ photo.p_location }}</p>
+            <p><i class="fas fa-camera fa-fw"></i> {{ photo.camera }}</p>
+            <p><i class="far fa-dot-circle fa-fw"></i> {{ photo.lens }}</p>
+            <p>{{ photo.focal_length }}mm {{ photo.speed }} F{{ photo.iris }} ISO{{ photo.iso }}</p>
+            <h3>コメント</h3>
+            <div class="field">
+              <p class="control has-icons-left has-icons-right">
+                <input class="input has-background-dark has-text-light" placeholder="コメントを追加">
+                <span class="icon is-small is-left">
+                  <i class="fas fa-comment"></i>
+                </span>
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -45,9 +48,12 @@
 
 <script>
 import axios from 'axios';
+import BackButton from './parts/BackButton.vue';
 
 export default{
-  name: 'post-component',
+  components: {
+    'back-button': BackButton
+  },
   data: function () {
     return {
       photo: [],
@@ -57,8 +63,6 @@ export default{
     }
   },
   async created() {
-    app.is_global = false;
-
     //写真を取得
     try {
       let res = await axios.get('/api/photos/get/'+this.$route.params.id);
@@ -103,11 +107,8 @@ export default{
       .catch(error => {
         console.log(error.response)
       });
-
-
     }
   }
-
 }
 </script>
 <style scoped lang="scss">
@@ -116,6 +117,7 @@ export default{
 }
 .post {
   padding-top: 1rem;
+  padding-bottom: 3rem;
   .post-header {
 
     height: 2rem;
