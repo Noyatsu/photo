@@ -1,0 +1,109 @@
+body {
+  box-sizing: border-box;
+}
+
+
+/*navbar*/
+body {
+  padding-top: 3.25rem;
+  padding-bottom: 45px;
+}
+
+.m-navbar {
+  padding:0.5rem;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right : 0px;
+  z-index: 999;
+  border-bottom: solid 1px hsl(0, 0%, 86%);
+}
+
+.m-navbar-item {
+  color: #4a4a4a;
+  display: inline-block;
+  line-height: 1.5;
+  padding: 0.5rem 0.75rem;
+  position: relative;
+}
+
+.m-navbar .m-navbar-left {
+  display: inline-block;
+  position: absolute;
+  left: 0.5rem;
+  top: 0.5rem;
+}
+
+.m-navbar .m-navbar-right {
+  display: inline-block;
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+}
+
+/*tab*/
+.m-tab {
+  display: inline-block;
+  width: 20%;
+  height: 45px;
+  line-height: 45px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+  color: #4a4a4a;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.m-tab-bar .router-link-exact-active {
+  color: #565656;
+  border-bottom: solid 2px #565656;
+}
+
+.m-tab-bar {
+  position: fixed;
+  z-index: 999;
+  font-size:0;
+  border-top: solid 1px hsl(0, 0%, 86%);
+  top: 0;
+  left: 150px;
+  right: 150px;
+}
+
+.m-tab-contents {
+  padding-bottom: 50px;
+}
+
+@media (max-width: 767px) {
+  .m-tab {
+    background-color: hsl(0, 0%, 96%);
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  .m-tab-bar .router-link-exact-active{
+    background-color: #565656;
+    color: #ffffff;
+  }
+  .m-tab-bar {
+    position: fixed;
+    top:auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
+img, router-view{
+    background-image: url("/storage/gload.gif");
+    background-repeat: no-repeat;
+    background-position: center center;
+}

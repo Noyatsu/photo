@@ -19,14 +19,16 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('screen_name')->unique();
             $table->string('name');
-            $table->string('location');
-            $table->string('description');
-            $table->string('url');
-            $table->string('time_zone');
-            $table->string('lang');
-            $table->string('verified');
-            $table->string('icon');
-            $table->string('background');
+            $table->string('location')->nullable();
+            $table->string('description')->nullable();
+            $table->string('url')->nullable();
+            $table->string('time_zone')->nullable();
+            $table->string('lang')->nullable();
+            $table->string('verified')->nullable();
+            $table->string('api_token')->nullable();
+            $table->string('icon')->default('default.png');
+            $table->string('background')->nullable();
+            $table->string('remember_token')->nullable();
             $table->timestamps();
         });
     }
