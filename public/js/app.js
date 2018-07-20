@@ -18734,7 +18734,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/*tab*/\n.is_selected[data-v-22ef5402] {\r\n  border-bottom: solid 3px hsl(217, 71%, 53%);\n}\n.tab-contents[data-v-22ef5402] {\r\n  margin-top: 1rem;\n}\n.photoarea[data-v-22ef5402] {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -ms-flex-wrap: wrap;\r\n      flex-wrap: wrap;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\n}\n.photo[data-v-22ef5402] {\r\n  height: 150px;\r\n  width: 150px;\r\n  background-color: hsl(217, 71%, 53%);\r\n  background-image: url(\"/storage/photo/1.JPG\");\r\n  background-position: center;\r\n  background-repeat: no-repeat;\r\n  background-size: cover;\r\n  text-align: center;\r\n  margin: 1rem;\r\n  color: white;\r\n  line-height: 150px;\n}\r\n\r\n/*profile*/\n.m-profile[data-v-22ef5402] {\r\n  text-align: center;\r\n  margin: 0 auto;\n}\n.m-profile-img[data-v-22ef5402] {\r\n  height: 256px;\r\n  margin-bottom: 52px;\r\n  position: relative;\n}\n.m-profile figure[data-v-22ef5402] {\r\n  position: absolute;\r\n  bottom: -48px;\r\n  left: 50%;\r\n  margin-left: -48px;\n}\n.m-profile img[data-v-22ef5402] {\r\n  border: solid 2px white;\r\n  border-radius:100px;\n}\n@media (max-width: 767px) {\n.m-profile-img[data-v-22ef5402] {\r\n    height: 128px;\r\n    margin-bottom: 52px;\r\n    position: relative;\n}\n.m-profile figure[data-v-22ef5402] {\r\n    position: absolute;\r\n    bottom: -48px;\r\n    left: 50%;\r\n    margin-left: -48px;\n}\n.m-profile img[data-v-22ef5402] {\r\n    border: solid 2px white;\r\n    border-radius:100px;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/*tab*/\n.is_selected[data-v-22ef5402] {\r\n  border-bottom: solid 3px hsl(217, 71%, 53%);\n}\n.tab-contents[data-v-22ef5402] {\r\n  margin-top: 1rem;\n}\n.photoarea[data-v-22ef5402] {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -ms-flex-wrap: wrap;\r\n      flex-wrap: wrap;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\n}\n.photo[data-v-22ef5402] {\r\n  height: 150px;\r\n  width: 150px;\r\n  background-color: hsl(217, 71%, 53%);\r\n  background-image: url(\"/storage/photo/1.JPG\");\r\n  background-position: center;\r\n  background-repeat: no-repeat;\r\n  background-size: cover;\r\n  text-align: center;\r\n  margin: 1rem;\r\n  color: white;\r\n  line-height: 150px;\n}\n.is_round img[data-v-22ef5402]{\r\n  border-radius: 100px;\n}\r\n\r\n/*profile*/\n.m-profile[data-v-22ef5402] {\r\n  text-align: center;\r\n  margin: 0 auto;\n}\n.m-profile-img[data-v-22ef5402] {\r\n  height: 256px;\r\n  margin-bottom: 52px;\r\n  position: relative;\n}\n.m-profile figure[data-v-22ef5402] {\r\n  position: absolute;\r\n  bottom: -48px;\r\n  left: 50%;\r\n  margin-left: -48px;\n}\n.m-profile img[data-v-22ef5402] {\r\n  border: solid 2px white;\r\n  border-radius:100px;\n}\n@media (max-width: 767px) {\n.m-profile-img[data-v-22ef5402] {\r\n    height: 128px;\r\n    margin-bottom: 52px;\r\n    position: relative;\n}\n.m-profile figure[data-v-22ef5402] {\r\n    position: absolute;\r\n    bottom: -48px;\r\n    left: 50%;\r\n    margin-left: -48px;\n}\n.m-profile img[data-v-22ef5402] {\r\n    border: solid 2px white;\r\n    border-radius:100px;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -18842,33 +18842,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -18879,6 +18852,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
   data: function data() {
     return {
       user_data: [],
+      follow_list: [],
       isMine: false,
       isFollow: false,
       tab: 1
@@ -18968,21 +18942,28 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                 if (_res.data == true) {
                   this.isFollow = true;
                 }
-                _context2.next = 29;
-                break;
+                _context2.next = 26;
+                return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/users/follow/list/' + this.user_data.screen_name);
 
               case 26:
-                _context2.prev = 26;
+                _res = _context2.sent;
+
+                this.follow_list = _res.data;
+                _context2.next = 33;
+                break;
+
+              case 30:
+                _context2.prev = 30;
                 _context2.t1 = _context2['catch'](18);
 
                 console.error(_context2.t1);
 
-              case 29:
+              case 33:
               case 'end':
                 return _context2.stop();
             }
           }
-        }, _callee2, this, [[0, 15], [18, 26]]);
+        }, _callee2, this, [[0, 15], [18, 30]]);
       }));
 
       function created_method(_x) {
@@ -19095,6 +19076,10 @@ var render = function() {
               ])
             : _vm._e(),
           _vm._v(" "),
+          _c("p", { staticClass: "is-size-7 has-text-grey-light" }, [
+            _vm._v("2人にウォッチされています")
+          ]),
+          _vm._v(" "),
           _vm._m(2)
         ])
       ]),
@@ -19173,7 +19158,52 @@ var render = function() {
         : _vm._e(),
       _vm._v(" "),
       _vm.tab == 2
-        ? _c("div", [_vm._m(3), _vm._v(" "), _vm._m(4), _vm._v(" "), _vm._m(5)])
+        ? _c(
+            "div",
+            _vm._l(_vm.follow_list, function(f_user) {
+              return _c(
+                "div",
+                { staticClass: "card" },
+                [
+                  _c(
+                    "router-link",
+                    { attrs: { to: "/user/" + f_user.screen_name } },
+                    [
+                      _c("div", { staticClass: "card-content" }, [
+                        _c("div", { staticClass: "media" }, [
+                          _c("div", { staticClass: "media-left" }, [
+                            _c(
+                              "figure",
+                              { staticClass: "image is-48x48 is_round" },
+                              [
+                                _c("img", {
+                                  attrs: {
+                                    src: "/storage/icon/" + f_user.icon,
+                                    alt: ""
+                                  }
+                                })
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "media-content" }, [
+                            _c("p", { staticClass: "title is-4" }, [
+                              _vm._v(_vm._s(f_user.name))
+                            ]),
+                            _vm._v(" "),
+                            _c("p", { staticClass: "subtitle is-6" }, [
+                              _vm._v("@" + _vm._s(f_user.screen_name))
+                            ])
+                          ])
+                        ])
+                      ])
+                    ]
+                  )
+                ],
+                1
+              )
+            })
+          )
         : _vm._e(),
       _vm._v(" "),
       _vm.tab == 3
@@ -19226,87 +19256,6 @@ var staticRenderFns = [
     return _c("p", { staticClass: "is-size-7 has-text-grey-light" }, [
       _c("time", [_vm._v("2018/4/1")]),
       _vm._v("に登録")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card" }, [
-      _c("div", { staticClass: "card-content" }, [
-        _c("div", { staticClass: "media" }, [
-          _c("div", { staticClass: "media-left" }, [
-            _c("figure", { staticClass: "image is-48x48" }, [
-              _c("img", {
-                attrs: {
-                  src: "https://bulma.io/images/placeholders/96x96.png",
-                  alt: "Placeholder image"
-                }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "media-content" }, [
-            _c("p", { staticClass: "title is-4" }, [_vm._v("John Smith")]),
-            _vm._v(" "),
-            _c("p", { staticClass: "subtitle is-6" }, [_vm._v("@johnsmith")])
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card" }, [
-      _c("div", { staticClass: "card-content" }, [
-        _c("div", { staticClass: "media" }, [
-          _c("div", { staticClass: "media-left" }, [
-            _c("figure", { staticClass: "image is-48x48" }, [
-              _c("img", {
-                attrs: {
-                  src: "https://bulma.io/images/placeholders/96x96.png",
-                  alt: "Placeholder image"
-                }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "media-content" }, [
-            _c("p", { staticClass: "title is-4" }, [_vm._v("John Smith")]),
-            _vm._v(" "),
-            _c("p", { staticClass: "subtitle is-6" }, [_vm._v("@johnsmith")])
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card" }, [
-      _c("div", { staticClass: "card-content" }, [
-        _c("div", { staticClass: "media" }, [
-          _c("div", { staticClass: "media-left" }, [
-            _c("figure", { staticClass: "image is-48x48" }, [
-              _c("img", {
-                attrs: {
-                  src: "https://bulma.io/images/placeholders/96x96.png",
-                  alt: "Placeholder image"
-                }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "media-content" }, [
-            _c("p", { staticClass: "title is-4" }, [_vm._v("John Smith")]),
-            _vm._v(" "),
-            _c("p", { staticClass: "subtitle is-6" }, [_vm._v("@johnsmith")])
-          ])
-        ])
-      ])
     ])
   }
 ]

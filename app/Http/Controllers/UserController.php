@@ -7,7 +7,8 @@ use App\Follow;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
-use \Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class UserController extends Controller
@@ -43,17 +44,7 @@ class UserController extends Controller
     return;
   }
 
-  /**
-  * プロフィール表示
-  *
-  * @param  string screen_name
-  * @return Response
-  */
-  public function showUser()
-  {
-    $user = Auth::user();
-    return view('user.profile', ['user' => $user]);
-  }
+
   /**
   * 指定ユーザーのプロフィール表示
   *
@@ -115,6 +106,19 @@ class UserController extends Controller
     else {
       return 'false';
     }
+  }
+
+  /**
+   * スクリーンネームからフォローしている人一覧を取得
+   * @param  str $screen_name スクリーンネーム
+   */
+  public function getFollows($screen_name)
+  {
+    $user = User::firstOrNew(['screen_name' => $screen_name]);
+    return response(DB::table('follows','users')
+      ->join('users','follows.follow_user_id','=','users.id')
+      ->where(['follows.user_id' => $user->id])
+      ->get());
   }
 
 

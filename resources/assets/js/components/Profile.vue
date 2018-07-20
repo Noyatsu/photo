@@ -27,6 +27,7 @@
             </a>
           </p>
 
+          <p class="is-size-7 has-text-grey-light">2人にウォッチされています</p>
           <p class="is-size-7 has-text-grey-light"><time>2018/4/1</time>に登録</p>
         </div>
       </div>
@@ -50,50 +51,22 @@
         <div class="photo">10</div>
       </div>
       <div v-if="tab==2">
-        <div class="card">
-          <div class="card-content">
-            <div class="media">
-              <div class="media-left">
-                <figure class="image is-48x48">
-                  <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                </figure>
-              </div>
-              <div class="media-content">
-                <p class="title is-4">John Smith</p>
-                <p class="subtitle is-6">@johnsmith</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-content">
-            <div class="media">
-              <div class="media-left">
-                <figure class="image is-48x48">
-                  <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                </figure>
-              </div>
-              <div class="media-content">
-                <p class="title is-4">John Smith</p>
-                <p class="subtitle is-6">@johnsmith</p>
+        <div class="card" v-for="f_user in follow_list">
+          <router-link v-bind:to="'/user/' + f_user.screen_name">
+            <div class="card-content">
+              <div class="media">
+                <div class="media-left">
+                  <figure class="image is-48x48 is_round">
+                    <img v-bind:src="'/storage/icon/' + f_user.icon" alt="">
+                  </figure>
+                </div>
+                <div class="media-content">
+                  <p class="title is-4">{{ f_user.name }}</p>
+                  <p class="subtitle is-6">@{{ f_user.screen_name }}</p>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-content">
-            <div class="media">
-              <div class="media-left">
-                <figure class="image is-48x48">
-                  <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                </figure>
-              </div>
-              <div class="media-content">
-                <p class="title is-4">John Smith</p>
-                <p class="subtitle is-6">@johnsmith</p>
-              </div>
-            </div>
-          </div>
+          </router-link>
         </div>
       </div>
       <div class="photoarea" v-if="tab==3">
@@ -122,6 +95,7 @@ export default {
   data() {
     return {
       user_data: [],
+      follow_list: [],
       isMine: false,
       isFollow: false,
       tab: 1
@@ -135,6 +109,7 @@ export default {
   },
   methods: {
     created_method: async function(screen_name) {
+      //ユーザデータ
       try {
         let res;
         if (this.$route.params.screen_name == undefined) {
@@ -148,13 +123,15 @@ export default {
       } catch (e) {
         console.error(e)
       }
-
+      //フォローチェック・情報
       try {
         let res;
         res = await axios.get('/api/users/follow/check/' + user_screen_name + '/' + this.user_data.screen_name);
         if(res.data==true) {
           this.isFollow = true;
         }
+        res = await axios.get('/api/users/follow/list/' + this.user_data.screen_name);
+        this.follow_list = res.data;
       } catch (e) {
         console.error(e)
       }
@@ -216,6 +193,10 @@ export default {
   margin: 1rem;
   color: white;
   line-height: 150px;
+}
+
+.is_round img{
+  border-radius: 100px;
 }
 
 /*profile*/
