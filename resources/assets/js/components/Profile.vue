@@ -31,10 +31,84 @@
         </div>
       </div>
       <footer class="card-footer has-text-centered">
-        <a href="#" class="card-footer-item has-text-grey">投稿<br>2</a>
-        <a href="#" class="card-footer-item has-text-grey">ウォッチ<br>10</a>
-        <a href="#" class="card-footer-item has-text-grey">いいね<br>202</a>
+        <a href="#" class="card-footer-item has-text-grey" v-bind:class="{is_selected: tab==1}" v-on:click="tab=1">投稿<br>2</a>
+        <a href="#" class="card-footer-item has-text-grey" v-bind:class="{is_selected: tab==2}" v-on:click="tab=2">ウォッチ<br>10</a>
+        <a href="#" class="card-footer-item has-text-grey" v-bind:class="{is_selected: tab==3}" v-on:click="tab=3">いいね<br>202</a>
       </footer>
+    </div>
+    <div class="tab-contents">
+      <div class="photoarea" v-if="tab==1">
+        <div class="photo">1</div>
+        <div class="photo">2</div>
+        <div class="photo">3</div>
+        <div class="photo">4</div>
+        <div class="photo">5</div>
+        <div class="photo">6</div>
+        <div class="photo">7</div>
+        <div class="photo">8</div>
+        <div class="photo">9</div>
+        <div class="photo">10</div>
+      </div>
+      <div v-if="tab==2">
+        <div class="card">
+          <div class="card-content">
+            <div class="media">
+              <div class="media-left">
+                <figure class="image is-48x48">
+                  <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+                </figure>
+              </div>
+              <div class="media-content">
+                <p class="title is-4">John Smith</p>
+                <p class="subtitle is-6">@johnsmith</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-content">
+            <div class="media">
+              <div class="media-left">
+                <figure class="image is-48x48">
+                  <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+                </figure>
+              </div>
+              <div class="media-content">
+                <p class="title is-4">John Smith</p>
+                <p class="subtitle is-6">@johnsmith</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-content">
+            <div class="media">
+              <div class="media-left">
+                <figure class="image is-48x48">
+                  <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+                </figure>
+              </div>
+              <div class="media-content">
+                <p class="title is-4">John Smith</p>
+                <p class="subtitle is-6">@johnsmith</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="photoarea" v-if="tab==3">
+        <div class="photo">1</div>
+        <div class="photo">2</div>
+        <div class="photo">3</div>
+        <div class="photo">4</div>
+        <div class="photo">5</div>
+        <div class="photo">6</div>
+        <div class="photo">7</div>
+        <div class="photo">8</div>
+        <div class="photo">9</div>
+        <div class="photo">10</div>
+      </div>
+
     </div>
   </div>
 </template>
@@ -49,7 +123,8 @@ export default {
     return {
       user_data: [],
       isMine: false,
-      isFollow: false
+      isFollow: false,
+      tab: 1
     };
   },
   components: {
@@ -114,6 +189,35 @@ export default {
 </script>
 
 <style scoped>
+/*tab*/
+.is_selected {
+  border-bottom: solid 3px hsl(217, 71%, 53%);
+}
+
+.tab-contents {
+  margin-top: 1rem;
+}
+
+.photoarea {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.photo {
+  height: 150px;
+  width: 150px;
+  background-color: hsl(217, 71%, 53%);
+  background-image: url("/storage/photo/1.JPG");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  margin: 1rem;
+  color: white;
+  line-height: 150px;
+}
+
 /*profile*/
 .m-profile {
   text-align: center;
