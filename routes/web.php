@@ -25,4 +25,8 @@ Route::group(['middleware' => 'auth'], function(){
   //UserController
   Route::get('/user', 'HomeController@index');
   Route::get('/user/{screen_name}', 'HomeController@index');
+
+  //PhotoController
+  Route::get('/photo/{id}', 'HomeController@index');
+
 });

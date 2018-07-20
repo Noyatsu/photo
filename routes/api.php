@@ -45,3 +45,4 @@ Route::get('/users/{screen_name}', 'UserController@userInfo');
 Route::get('/users/follow/status/{screen_name}', 'UserController@statusFollow');
 
 Route::get('/photos', 'PhotoController@index');
+Route::get('/photos/get/{id}', 'PhotoController@get');

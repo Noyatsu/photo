@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <div class="card">
       <div class="m-profile">
         <div class="m-profile-img has-background-link" v-bind:style="{ 'background-image': 'url(/storage/photo/' + user_data.background + ')', 'background-position':'center center', 'background-size': 'cover' }">

@@ -97,6 +97,19 @@ class PhotoController extends Controller
   }
 
   /**
+   * 写真1枚の情報をゲット
+   * @param  int $id 写真のid
+   * @return [type]     [description]
+   */
+  public function get($id)
+  {
+    return response(
+      Photo::select('photos.location as p_location', 'photos.created_at as p_created_at', 'photos.id as p_id', 'photos.*', 'users.*', 'categories.name as c_name')
+      ->join('users','photos.user_id','=','users.id')->join('categories','categories.id','=','photos.category_id')->where('photos.id', $id)->get()
+    );
+  }
+
+  /**
    * いいね/アンいいねのトグル
    */
   public function toggleLike(Request $request)

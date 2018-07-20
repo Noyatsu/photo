@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <post-component v-for="photo in photos_list" :photo="photo" :key="photo.p_id"></post-component>
   </div>
 </template>

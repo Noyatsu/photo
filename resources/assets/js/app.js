@@ -14,7 +14,7 @@ window.Vue = require('vue');
 Vue.use(VueRouter);
 
 // vue-routerのインスタンス化、オプションroutesでアクセスされるパスとその時に表示するComponentを指定
-const router = new VueRouter({
+let router = new VueRouter({
     mode: 'history',
     routes: [
         { path: '/home', component: require('./components/Home.vue') },
@@ -22,6 +22,8 @@ const router = new VueRouter({
         { path: '/home/upload', component: require('./components/Upload.vue') },
         { path: '/home/like', component: require('./components/Like.vue') },
         { path: '/home/profile', component: require('./components/Profile.vue') },
+
+        { path: '/photo/:id', component: require('./components/Detail.vue') },
 
         { path: '/user/' + user_screen_name,  redirect: '/home/profile' },
         { path: '/user/:screen_name', component: require('./components/Profile.vue') },
@@ -40,6 +42,7 @@ const app = new Vue({
   el: '#app',
   data: {
     scrollY: 0,
+    is_global: false,
     tabnavs: [
       { cls: 'fas fa-home', isActive: false, name: 'timeline'},
       { cls: 'fas fa-search', isActive: false, name: 'search' },
@@ -47,13 +50,5 @@ const app = new Vue({
       { cls: 'fas fa-heart', isActive:false, name: 'like' },
       { cls: 'fas fa-user-circle', isActive:false, name: 'profile' }
     ]
-  },
-  methods: {
-    setTab: function (index) {
-      for (let i = 0; i < 5; i++) {
-        this.tabnavs[i].isActive = false;
-      }
-      this.tabnavs[index].isActive = true;
-    }
   }
 });
