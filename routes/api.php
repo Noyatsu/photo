@@ -42,6 +42,7 @@ Route::get('/categories', 'CategoryController@index');
 
 // 認証は面倒なので一旦省略
 Route::get('/users/{screen_name}', 'UserController@userInfo');
+Route::get('/users/follow/list/{screen_name}', 'UserController@getFollows');
 Route::get('/users/follow/status/{screen_name}', 'UserController@statusFollow');
 
 Route::get('/photos', 'PhotoController@index');
