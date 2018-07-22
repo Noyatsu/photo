@@ -27,28 +27,23 @@
             </a>
           </p>
 
-          <p class="is-size-7 has-text-grey-light">2人にウォッチされています</p>
+          <p class="is-size-7 has-text-grey-light">{{ user_data.follower }}人にウォッチされています</p>
           <p class="is-size-7 has-text-grey-light"><time>2018/4/1</time>に登録</p>
         </div>
       </div>
       <footer class="card-footer has-text-centered">
-        <a href="#" class="card-footer-item has-text-grey" v-bind:class="{is_selected: tab==1}" v-on:click="tab=1">投稿<br>2</a>
-        <a href="#" class="card-footer-item has-text-grey" v-bind:class="{is_selected: tab==2}" v-on:click="tab=2">ウォッチ<br>10</a>
-        <a href="#" class="card-footer-item has-text-grey" v-bind:class="{is_selected: tab==3}" v-on:click="tab=3">いいね<br>202</a>
+        <a href="#" class="card-footer-item has-text-grey" v-bind:class="{is_selected: tab==1}" v-on:click="tab=1">投稿<br>{{ photo_list.length }}</a>
+        <a href="#" class="card-footer-item has-text-grey" v-bind:class="{is_selected: tab==2}" v-on:click="tab=2">ウォッチ<br>{{ follow_list.length }}</a>
+        <a href="#" class="card-footer-item has-text-grey" v-bind:class="{is_selected: tab==3}" v-on:click="tab=3">いいね<br>{{ like_list.length }}</a>
       </footer>
     </div>
     <div class="tab-contents">
       <div class="photoarea" v-if="tab==1">
-        <div class="photo">1</div>
-        <div class="photo">2</div>
-        <div class="photo">3</div>
-        <div class="photo">4</div>
-        <div class="photo">5</div>
-        <div class="photo">6</div>
-        <div class="photo">7</div>
-        <div class="photo">8</div>
-        <div class="photo">9</div>
-        <div class="photo">10</div>
+        <div v-for="photo in photo_list">
+          <router-link v-bind:to="'/photo/' + photo.id">
+            <div class="photo" v-bind:style="'background-image: url(/storage/photo/' + photo.path+');'"></div>
+          </router-link>
+        </div>
       </div>
       <div v-if="tab==2">
         <div class="card" v-for="f_user in follow_list">
@@ -70,16 +65,11 @@
         </div>
       </div>
       <div class="photoarea" v-if="tab==3">
-        <div class="photo">1</div>
-        <div class="photo">2</div>
-        <div class="photo">3</div>
-        <div class="photo">4</div>
-        <div class="photo">5</div>
-        <div class="photo">6</div>
-        <div class="photo">7</div>
-        <div class="photo">8</div>
-        <div class="photo">9</div>
-        <div class="photo">10</div>
+        <div v-for="photo in like_list">
+          <router-link v-bind:to="'/photo/' + photo.id">
+            <div class="photo" v-bind:style="'background-image: url(/storage/photo/' + photo.path+');'"></div>
+          </router-link>
+        </div>
       </div>
 
     </div>
@@ -96,6 +86,8 @@ export default {
     return {
       user_data: [],
       follow_list: [],
+      photo_list: [],
+      like_list: [],
       isMine: false,
       isFollow: false,
       tab: 1
@@ -132,6 +124,12 @@ export default {
         }
         res = await axios.get('/api/users/follow/list/' + this.user_data.screen_name);
         this.follow_list = res.data;
+
+        res = await axios.get('/api/users/photo/' + this.user_data.screen_name);
+        this.photo_list = res.data;
+
+        res = await axios.get('/api/users/likephoto/' + this.user_data.screen_name);
+        this.like_list = res.data;
       } catch (e) {
         console.error(e)
       }
