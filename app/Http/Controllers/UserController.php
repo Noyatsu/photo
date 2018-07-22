@@ -4,18 +4,21 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Follow;
+use App\Like;
+use App\Photo;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
-use \Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class UserController extends Controller
 {
   /**
-   * APIトークン生成
-   * @return string apiToken
-   */
+  * APIトークン生成
+  * @return string apiToken
+  */
   static public function generateApiToken()
   {
     $user = Auth::user();
@@ -29,9 +32,9 @@ class UserController extends Controller
   }
 
   /**
-   * APIトークンリセット
-   * @return void
-   */
+  * APIトークンリセット
+  * @return void
+  */
   static public function resetApiToken()
   {
     $user = Auth::user();
@@ -43,17 +46,7 @@ class UserController extends Controller
     return;
   }
 
-  /**
-  * プロフィール表示
-  *
-  * @param  string screen_name
-  * @return Response
-  */
-  public function showUser()
-  {
-    $user = Auth::user();
-    return view('user.profile', ['user' => $user]);
-  }
+
   /**
   * 指定ユーザーのプロフィール表示
   *
@@ -78,18 +71,20 @@ class UserController extends Controller
   }
 
   /**
-   * ユーザ情報のJSONを返す
-   * @param  string $screen_name スクリーンネーム
-   * @return json              ユーザ情報
-   */
+  * ユーザ情報のJSONを返す
+  * @param  string $screen_name スクリーンネーム
+  * @return json              ユーザ情報
+  */
   public function userInfo($screen_name)
   {
-    return response(User::firstOrNew(['screen_name' => $screen_name]));
+    $data = User::firstOrNew(['screen_name' => $screen_name]);
+    $data['follower'] = Follow::select()->where(['follow_user_id' => $data->id ])->count();
+    return response($data);
   }
 
   /**
-   * フォロー/アンフォローのトグル
-   */
+  * フォロー/アンフォローのトグル
+  */
   public function toggleFollow(Request $request)
   {
     $screen_name = $request->input('screen_name');
@@ -117,5 +112,45 @@ class UserController extends Controller
     }
   }
 
+  /**
+  * スクリーンネームからフォローしている人一覧を取得
+  * @param  str $screen_name スクリーンネーム
+  */
+  public function getFollows($screen_name)
+  {
+    $user = User::firstOrNew(['screen_name' => $screen_name]);
+    return response(DB::table('follows','users')
+    ->join('users','follows.follow_user_id','=','users.id')
+    ->where(['follows.user_id' => $user->id])
+    ->get());
+  }
+
+  /**
+  * ユーザのスクリーンネームから写真を取得
+  * @param  string $screen_name スクリーンネーム
+  * @return json              JSONdata
+  */
+  public function getPhotosByUser($screen_name)
+  {
+    $user = User::firstOrNew(['screen_name' => $screen_name]);
+    return response(User::select('users.*', 'photos.*')
+    ->join('photos', 'users.id', '=', 'photos.user_id')
+    ->where(['photos.user_id' => $user->id])
+    ->get());
+  }
+
+  /**
+  * ユーザのスクリーンネームからいいねした写真を取得
+  * @param  string $screen_name スクリーンネーム
+  * @return json              JSONdata
+  */
+  public function getLikePhotosByUser($screen_name)
+  {
+    $user = User::firstOrNew(['screen_name' => $screen_name]);
+    return response(Photo::select('likes.*', 'photos.*')
+    ->join('likes', 'photos.id', '=', 'likes.photo_id')
+    ->where(['likes.user_id' => $user->id])
+    ->get());
+  }
 
 }

@@ -8,7 +8,7 @@
     </div>
     <router-link v-bind:to="'/photo/'+photo.p_id">
       <div class="post-contents" style="margin: 0 auto;">
-        <img v-bind:src="'/storage/photo/' + photo.path" >
+        <img v-bind:src="'/storage/' + photo.path" >
       </div>
     </router-link>
     <div class="post-footer">

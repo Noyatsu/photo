@@ -16,6 +16,7 @@ class PhotosTableSeeder extends Seeder
             'category_id' => 1,
             'title' => 'THE BLUE',
             'path' => '1.JPG',
+            'description' => '空と花畑の境界がわからなくなりますね。',
             'location' => 'Hitachi Kaihin Park',
             'camera' => 'Fujifilm X10',
             'lens' => 'Fujifilm X18-200mm f3.5-5.6 IS STM',
