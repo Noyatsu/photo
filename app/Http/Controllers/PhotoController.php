@@ -6,6 +6,9 @@ use App\Photo;
 use App\Like;
 use App\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use DB;
+use Image;
 
 class PhotoController extends Controller
 {
@@ -48,7 +51,43 @@ class PhotoController extends Controller
   */
   public function store(Request $request)
   {
-    //
+    $filename = $request->file('photofile')->store('');
+    Image::make($request->file('photofile'))->resize(1920, null, function ($constraint) {
+      $constraint->aspectRatio();
+    })->save('storage/s'.$filename, 100);
+    if ($exif = exif_read_data($request->file('photofile'))) {
+      $camera = $exif['Model'];
+      $lens = NULL;
+      if (isset($exif['LensModel'])) {
+        $lens = $exif['LensModel'];
+      }
+      if (isset($exif['Lens'])) {
+        $lens = $exif['Lens'];
+      }
+      $focal_length = $exif['FocalLength'];
+      $speed = $exif['ExposureTime'];
+      $iris = $exif['FNumber'];
+      $iso = $exif['ISOSpeedRatings'];
+    }
+    var_dump($exif);
+
+    // ここにデータベースに追加するやつ書く
+    DB::table('photos')->insert(
+      [
+        'user_id' => User::firstOrNew(['screen_name' => $request->input('screen_name')])->id, 
+        'category_id' => $request->input('category'),
+        'title' => $request->input('title'),
+        'path' => $filename,
+        'location' => $request->input('location'),
+        'tags' => $request->input('tags'),
+        'camera' => $camera,
+        'lens' => $lens,
+        'focal_length' => $focal_length,
+        'speed' => $speed,
+        'iris' => $iris,
+        'iso' => $iso
+      ]
+    );
   }
 
   /**

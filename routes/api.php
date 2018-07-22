@@ -22,7 +22,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(['middleware' => CheckApiToken::class], function(){
   Route::post('/users/follow/toggle', 'UserController@toggleFollow');
   Route::post('/photos/like/toggle', 'PhotoController@toggleLike');
-  Route::post('/photos/uploadtest', function(Request $request){
+  Route::post('/photos/upload', function(Request $request){
     try {
       print("SUCCESS!!\nPhoto \"".$request->input('title')."\" was uploaded!");
       print("\nFile is \"".$request->file('photofile')."\".\n");
@@ -48,4 +48,6 @@ Route::get('/users/photo/{screen_name}', 'UserController@getPhotosByUser');
 Route::get('/users/likephoto/{screen_name}', 'UserController@getLikePhotosByUser');
 
 Route::get('/photos', 'PhotoController@index');
+Route::post('/photos/upload', 'PhotoController@store');
 Route::get('/photos/get/{id}', 'PhotoController@get');
+
