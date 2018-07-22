@@ -18425,7 +18425,37 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _vm._m(5),
+        _c("div", { staticClass: "field is-horizontal" }, [
+          _vm._m(5),
+          _vm._v(" "),
+          _c("div", { staticClass: "field-body" }, [
+            _c("div", { staticClass: "field" }, [
+              _c("div", { staticClass: "control" }, [
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.description,
+                      expression: "description"
+                    }
+                  ],
+                  staticClass: "textarea",
+                  attrs: { name: "description", placeholder: "説明" },
+                  domProps: { value: _vm.description },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.description = $event.target.value
+                    }
+                  }
+                })
+              ])
+            ])
+          ])
+        ]),
         _vm._v(" "),
         _c("div", { staticClass: "field is-horizontal" }, [
           _vm._m(6),
@@ -18549,21 +18579,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "field is-horizontal" }, [
-      _c("div", { staticClass: "field-label is-normal" }, [
-        _c("label", { staticClass: "label" })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "field-body" }, [
-        _c("div", { staticClass: "field" }, [
-          _c("div", { staticClass: "control" }, [
-            _c("textarea", {
-              staticClass: "textarea",
-              attrs: { name: "description", placeholder: "説明" }
-            })
-          ])
-        ])
-      ])
+    return _c("div", { staticClass: "field-label is-normal" }, [
+      _c("label", { staticClass: "label" })
     ])
   },
   function() {
@@ -19427,6 +19444,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
 
 
 
@@ -19831,6 +19849,8 @@ var render = function() {
                       _vm._s(_vm.photo.iso)
                   )
                 ]),
+                _vm._v(" "),
+                _c("p", [_vm._v(_vm._s(_vm.photo.p_description))]),
                 _vm._v(" "),
                 _c("h3", [_vm._v("コメント")]),
                 _vm._v(" "),
