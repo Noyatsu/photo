@@ -1,5 +1,5 @@
 <template>
-  <section class="section">
+  <section class="container section">
     <div class="notification is-info" v-if="upload_mes">
       {{ upload_mes }}
     </div>
