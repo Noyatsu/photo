@@ -18734,7 +18734,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/*tab*/\n.is_selected[data-v-22ef5402] {\r\n  border-bottom: solid 3px hsl(217, 71%, 53%);\n}\n.tab-contents[data-v-22ef5402] {\r\n  margin-top: 1rem;\n}\n.photoarea[data-v-22ef5402] {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -ms-flex-wrap: wrap;\r\n      flex-wrap: wrap;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\n}\n.photo[data-v-22ef5402] {\r\n  height: 150px;\r\n  width: 150px;\r\n  background-color: hsl(217, 71%, 53%);\r\n  background-image: url(\"/storage/photo/1.JPG\");\r\n  background-position: center;\r\n  background-repeat: no-repeat;\r\n  background-size: cover;\r\n  text-align: center;\r\n  margin: 1rem;\r\n  color: white;\r\n  line-height: 150px;\n}\n.is_round img[data-v-22ef5402]{\r\n  border-radius: 100px;\n}\r\n\r\n/*profile*/\n.m-profile[data-v-22ef5402] {\r\n  text-align: center;\r\n  margin: 0 auto;\n}\n.m-profile-img[data-v-22ef5402] {\r\n  height: 256px;\r\n  margin-bottom: 52px;\r\n  position: relative;\n}\n.m-profile figure[data-v-22ef5402] {\r\n  position: absolute;\r\n  bottom: -48px;\r\n  left: 50%;\r\n  margin-left: -48px;\n}\n.m-profile img[data-v-22ef5402] {\r\n  border: solid 2px white;\r\n  border-radius:100px;\n}\n@media (max-width: 767px) {\n.m-profile-img[data-v-22ef5402] {\r\n    height: 128px;\r\n    margin-bottom: 52px;\r\n    position: relative;\n}\n.m-profile figure[data-v-22ef5402] {\r\n    position: absolute;\r\n    bottom: -48px;\r\n    left: 50%;\r\n    margin-left: -48px;\n}\n.m-profile img[data-v-22ef5402] {\r\n    border: solid 2px white;\r\n    border-radius:100px;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/*tab*/\n.is_selected[data-v-22ef5402] {\r\n  border-bottom: solid 3px hsl(217, 71%, 53%);\n}\n.tab-contents[data-v-22ef5402] {\r\n  margin-top: 1rem;\n}\n.photoarea[data-v-22ef5402] {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -ms-flex-wrap: wrap;\r\n      flex-wrap: wrap;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\n}\n.photo[data-v-22ef5402] {\r\n  height: 150px;\r\n  width: 150px;\r\n  background-color: hsl(217, 71%, 53%);\r\n  background-image: url(\"/storage/photo/1.JPG\");\r\n  background-position: center;\r\n  background-repeat: no-repeat;\r\n  background-size: cover;\r\n  text-align: center;\r\n  margin: 1rem;\r\n  color: white;\r\n  line-height: 150px;\n}\n.is_round img[data-v-22ef5402]{\r\n  border-radius: 100px;\n}\r\n\r\n/*profile*/\n.m-profile[data-v-22ef5402] {\r\n  text-align: center;\r\n  margin: 0 auto;\n}\n.m-profile-img[data-v-22ef5402] {\r\n  height: 256px;\r\n  margin-bottom: 52px;\r\n  position: relative;\n}\n.m-profile figure[data-v-22ef5402] {\r\n  position: absolute;\r\n  bottom: -48px;\r\n  left: 50%;\r\n  margin-left: -48px;\n}\n.m-profile img[data-v-22ef5402] {\r\n  border: solid 2px white;\r\n  border-radius:100px;\n}\n@media (max-width: 767px) {\n.m-profile-img[data-v-22ef5402] {\r\n    height: 128px;\r\n    margin-bottom: 52px;\r\n    position: relative;\n}\n.m-profile figure[data-v-22ef5402] {\r\n    position: absolute;\r\n    bottom: -48px;\r\n    left: 50%;\r\n    margin-left: -48px;\n}\n.m-profile img[data-v-22ef5402] {\r\n    border: solid 2px white;\r\n    border-radius:100px;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -18832,11 +18832,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
-//
-//
-//
-//
-//
 
 
 
@@ -18849,6 +18844,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
       user_data: [],
       follow_list: [],
       photo_list: [],
+      like_list: [],
       isMine: false,
       isFollow: false,
       tab: 1
@@ -18953,21 +18949,29 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                 _res = _context2.sent;
 
                 this.photo_list = _res.data;
-                _context2.next = 37;
-                break;
+
+                _context2.next = 34;
+                return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/users/likephoto/' + this.user_data.screen_name);
 
               case 34:
-                _context2.prev = 34;
+                _res = _context2.sent;
+
+                this.like_list = _res.data;
+                _context2.next = 41;
+                break;
+
+              case 38:
+                _context2.prev = 38;
                 _context2.t1 = _context2['catch'](18);
 
                 console.error(_context2.t1);
 
-              case 37:
+              case 41:
               case 'end':
                 return _context2.stop();
             }
           }
-        }, _callee2, this, [[0, 15], [18, 34]]);
+        }, _callee2, this, [[0, 15], [18, 38]]);
       }));
 
       function created_method(_x) {
@@ -19211,27 +19215,27 @@ var render = function() {
         : _vm._e(),
       _vm._v(" "),
       _vm.tab == 3
-        ? _c("div", { staticClass: "photoarea" }, [
-            _c("div", { staticClass: "photo" }, [_vm._v("1")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "photo" }, [_vm._v("2")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "photo" }, [_vm._v("3")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "photo" }, [_vm._v("4")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "photo" }, [_vm._v("5")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "photo" }, [_vm._v("6")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "photo" }, [_vm._v("7")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "photo" }, [_vm._v("8")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "photo" }, [_vm._v("9")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "photo" }, [_vm._v("10")])
-          ])
+        ? _c(
+            "div",
+            { staticClass: "photoarea" },
+            _vm._l(_vm.like_list, function(photo) {
+              return _c(
+                "div",
+                [
+                  _c("router-link", { attrs: { to: "/photo/" + photo.id } }, [
+                    _c("div", {
+                      staticClass: "photo",
+                      style:
+                        "background-image: url(/storage/photo/" +
+                        photo.path +
+                        ");"
+                    })
+                  ])
+                ],
+                1
+              )
+            })
+          )
         : _vm._e()
     ])
   ])
