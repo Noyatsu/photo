@@ -39,16 +39,11 @@
     </div>
     <div class="tab-contents">
       <div class="photoarea" v-if="tab==1">
-        <div class="photo">1</div>
-        <div class="photo">2</div>
-        <div class="photo">3</div>
-        <div class="photo">4</div>
-        <div class="photo">5</div>
-        <div class="photo">6</div>
-        <div class="photo">7</div>
-        <div class="photo">8</div>
-        <div class="photo">9</div>
-        <div class="photo">10</div>
+        <div v-for="photo in photo_list">
+          <router-link v-bind:to="'/photo/' + photo.id">
+            <div class="photo" v-bind:style="'background-image: url(/storage/photo/' + photo.path+');'"></div>
+          </router-link>
+        </div>
       </div>
       <div v-if="tab==2">
         <div class="card" v-for="f_user in follow_list">
@@ -96,6 +91,7 @@ export default {
     return {
       user_data: [],
       follow_list: [],
+      photo_list: [],
       isMine: false,
       isFollow: false,
       tab: 1
@@ -132,6 +128,9 @@ export default {
         }
         res = await axios.get('/api/users/follow/list/' + this.user_data.screen_name);
         this.follow_list = res.data;
+
+        res = await axios.get('/api/users/photo/' + this.user_data.screen_name);
+        this.photo_list = res.data;
       } catch (e) {
         console.error(e)
       }

@@ -121,5 +121,19 @@ class UserController extends Controller
       ->get());
   }
 
+  /**
+   * ユーザのスクリーンネームから写真を取得
+   * @param  string $screen_name スクリーンネーム
+   * @return json              JSONdata
+   */
+  public function getPhotosByUser($screen_name)
+  {
+    $user = User::firstOrNew(['screen_name' => $screen_name]);
+    return response(User::select('users.*', 'photos.*')
+      ->join('photos', 'users.id', '=', 'photos.user_id')
+      ->where(['photos.user_id' => $user->id])
+      ->get());
+  }
+
 
 }
