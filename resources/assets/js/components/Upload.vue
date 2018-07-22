@@ -135,7 +135,7 @@ export default {
         data.append('screen_name', user_screen_name);
         data.append('api_token', user_api_token);
         //axiosでサーバーに送信
-        axios.post('/api/photos/uploadtest',data)
+        axios.post('/api/photos/upload',data)
         .then((response) => {
           console.log(response.data);
           this.upload_mes = "アップロードに成功しました!";
