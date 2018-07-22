@@ -19105,7 +19105,7 @@ var render = function() {
               }
             }
           },
-          [_vm._v("投稿"), _c("br"), _vm._v("2")]
+          [_vm._v("投稿"), _c("br"), _vm._v(_vm._s(_vm.photo_list.length))]
         ),
         _vm._v(" "),
         _c(
@@ -19120,7 +19120,7 @@ var render = function() {
               }
             }
           },
-          [_vm._v("ウォッチ"), _c("br"), _vm._v("10")]
+          [_vm._v("ウォッチ"), _c("br"), _vm._v(_vm._s(_vm.follow_list.length))]
         ),
         _vm._v(" "),
         _c(
@@ -19135,7 +19135,7 @@ var render = function() {
               }
             }
           },
-          [_vm._v("いいね"), _c("br"), _vm._v("202")]
+          [_vm._v("いいね"), _c("br"), _vm._v(_vm._s(_vm.like_list.length))]
         )
       ])
     ]),

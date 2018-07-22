@@ -32,9 +32,9 @@
         </div>
       </div>
       <footer class="card-footer has-text-centered">
-        <a href="#" class="card-footer-item has-text-grey" v-bind:class="{is_selected: tab==1}" v-on:click="tab=1">投稿<br>2</a>
-        <a href="#" class="card-footer-item has-text-grey" v-bind:class="{is_selected: tab==2}" v-on:click="tab=2">ウォッチ<br>10</a>
-        <a href="#" class="card-footer-item has-text-grey" v-bind:class="{is_selected: tab==3}" v-on:click="tab=3">いいね<br>202</a>
+        <a href="#" class="card-footer-item has-text-grey" v-bind:class="{is_selected: tab==1}" v-on:click="tab=1">投稿<br>{{ photo_list.length }}</a>
+        <a href="#" class="card-footer-item has-text-grey" v-bind:class="{is_selected: tab==2}" v-on:click="tab=2">ウォッチ<br>{{ follow_list.length }}</a>
+        <a href="#" class="card-footer-item has-text-grey" v-bind:class="{is_selected: tab==3}" v-on:click="tab=3">いいね<br>{{ like_list.length }}</a>
       </footer>
     </div>
     <div class="tab-contents">
