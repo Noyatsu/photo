@@ -41,7 +41,7 @@
       <div class="photoarea" v-if="tab==1">
         <div v-for="photo in photo_list">
           <router-link v-bind:to="'/photo/' + photo.id">
-            <div class="photo" v-bind:style="'background-image: url(/storage/photo/' + photo.path+');'"></div>
+            <div class="photo" v-bind:style="'background-image: url(/storage/' + photo.path+');'"></div>
           </router-link>
         </div>
       </div>
@@ -67,7 +67,7 @@
       <div class="photoarea" v-if="tab==3">
         <div v-for="photo in like_list">
           <router-link v-bind:to="'/photo/' + photo.id">
-            <div class="photo" v-bind:style="'background-image: url(/storage/photo/' + photo.path+');'"></div>
+            <div class="photo" v-bind:style="'background-image: url(/storage/' + photo.path+');'"></div>
           </router-link>
         </div>
       </div>

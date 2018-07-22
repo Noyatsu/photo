@@ -10,7 +10,7 @@
           </div>
         </div>
         <div class="post-contents" style="margin: 0 auto;" @click="showModal = true">
-          <img v-bind:src="'/storage/photo/' + photo.path" @click="showModal = true">
+          <img v-bind:src="'/storage/' + photo.path" @click="showModal = true">
         </div>
         <div class="post-footer">
           <p class="post-title"><strong class="has-text-light">{{ photo.title }}</strong></p>
