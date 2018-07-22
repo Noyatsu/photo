@@ -30,6 +30,7 @@
             <p><i class="fas fa-camera fa-fw"></i> {{ photo.camera }}</p>
             <p><i class="far fa-dot-circle fa-fw"></i> {{ photo.lens }}</p>
             <p>{{ photo.focal_length }}mm {{ photo.speed }} F{{ photo.iris }} ISO{{ photo.iso }}</p>
+            <p>{{ photo.p_description }}</p>
             <h3>コメント</h3>
             <div class="field">
               <p class="control has-icons-left has-icons-right">

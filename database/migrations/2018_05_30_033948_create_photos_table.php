@@ -23,6 +23,7 @@ class CreatePhotosTable extends Migration
             $table->string('tags')->nullable();
             $table->unsignedInteger('views')->default(0);
             $table->unsignedInteger('likes')->default(0);
+            $table->string('description')->nullable();
             $table->double('points')->default(0);
             $table->string('camera')->nullable();
             $table->string('lens')->nullable();

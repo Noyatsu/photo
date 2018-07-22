@@ -58,7 +58,7 @@
       <div class="field-body">
         <div class="field">
           <div class="control">
-            <textarea class="textarea" name="description" placeholder="説明"></textarea>
+            <textarea class="textarea" name="description" v-model="description" placeholder="説明"></textarea>
           </div>
         </div>
       </div>
