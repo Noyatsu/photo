@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
+use Image;
 
 class PhotoController extends Controller
 {
@@ -51,6 +52,9 @@ class PhotoController extends Controller
   public function store(Request $request)
   {
     $filename = $request->file('photofile')->store('');
+    Image::make($request->file('photofile'))->resize(1920, null, function ($constraint) {
+      $constraint->aspectRatio();
+    })->save('storage/s'.$filename, 100);
     if ($exif = exif_read_data($request->file('photofile'))) {
       $camera = $exif['Model'];
       $lens = NULL;
