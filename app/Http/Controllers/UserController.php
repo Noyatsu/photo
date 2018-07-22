@@ -77,7 +77,9 @@ class UserController extends Controller
   */
   public function userInfo($screen_name)
   {
-    return response(User::firstOrNew(['screen_name' => $screen_name]));
+    $data = User::firstOrNew(['screen_name' => $screen_name]);
+    $data['follower'] = Follow::select()->where(['follow_user_id' => $data->id ])->count();
+    return response($data);
   }
 
   /**

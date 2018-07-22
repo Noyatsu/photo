@@ -19085,7 +19085,7 @@ var render = function() {
             : _vm._e(),
           _vm._v(" "),
           _c("p", { staticClass: "is-size-7 has-text-grey-light" }, [
-            _vm._v("2人にウォッチされています")
+            _vm._v(_vm._s(_vm.user_data.follower) + "人にウォッチされています")
           ]),
           _vm._v(" "),
           _vm._m(2)

@@ -27,7 +27,7 @@
             </a>
           </p>
 
-          <p class="is-size-7 has-text-grey-light">2人にウォッチされています</p>
+          <p class="is-size-7 has-text-grey-light">{{ user_data.follower }}人にウォッチされています</p>
           <p class="is-size-7 has-text-grey-light"><time>2018/4/1</time>に登録</p>
         </div>
       </div>
