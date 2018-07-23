@@ -26,8 +26,14 @@ export default {
   },
   async created() {
     try {
-      let res = await axios.get('/api/photos/');
-      this.photos_list = res.data;
+      let tl_res = await axios.get('/api/users/timeline/' + user_screen_name);
+      let my_res = await axios.get('/api/users/photo/' + user_screen_name);
+      this.photos_list = tl_res.data.concat(my_res.data);
+      this.photos_list.sort(function(a,b){
+        if(a.p_id > b.p_id) return -1;
+        if(a.p_id < b.p_id) return 1;
+        return 0;
+      });
     } catch (e) {
       console.error(e)
     }

@@ -3,7 +3,7 @@
     <div class="post-header">
       <div class="post-header-left is-size-7">
         <p><router-link v-bind:to="'/user/' + photo.screen_name"><img src="https://bulma.io/images/placeholders/128x128.png"></router-link></p>
-        <p><router-link v-bind:to="'/user/' + photo.screen_name"><strong>{{ photo.name }}</strong></router-link>(@{{photo.screen_name}}) at {{ photo.p_location }}</p>
+        <p><router-link v-bind:to="'/user/' + photo.screen_name"><strong>{{ photo.name }}</strong></router-link>(@{{photo.screen_name}}) <span v-if="photo.p_location">at {{ photo.p_location }}</span></p>
       </div>
     </div>
     <router-link v-bind:to="'/photo/'+photo.p_id">
@@ -45,7 +45,6 @@ export default{
       if(res.data==true) {
         this.isLiked = true;
       }
-      console.log(res);
 
     } catch (e) {
       console.error(e);

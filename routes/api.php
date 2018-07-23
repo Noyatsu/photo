@@ -46,8 +46,8 @@ Route::get('/users/follow/list/{screen_name}', 'UserController@getFollows');
 Route::get('/users/follow/status/{screen_name}', 'UserController@statusFollow');
 Route::get('/users/photo/{screen_name}', 'UserController@getPhotosByUser');
 Route::get('/users/likephoto/{screen_name}', 'UserController@getLikePhotosByUser');
+Route::get('/users/timeline/{screen_name}', 'UserController@getTimelineByUser');
 
 Route::get('/photos', 'PhotoController@index');
 Route::post('/photos/upload', 'PhotoController@store');
 Route::get('/photos/get/{id}', 'PhotoController@get');
-
