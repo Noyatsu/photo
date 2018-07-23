@@ -1,3 +1,9 @@
+# PhotoClub(仮)
+写真好きな人のためのSNSです。現在鋭意開発中。
+
+以下、LaravelのRead meです。
+
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
