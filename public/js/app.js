@@ -20145,7 +20145,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.photo[data-v-0fef60c9] {\n  position: relative;\n  height: 150px;\n  width: 150px;\n  background-color: #3273dc;\n  background-image: url(\"/storage/photo/1.JPG\");\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  text-align: center;\n  margin: 1rem;\n  color: white;\n  line-height: 150px;\n}\n.photo_title[data-v-0fef60c9] {\n  position: absolute;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  height: 2.5rem;\n  background: -webkit-linear-gradient(bottom, #000, transparent);\n  background-color: linear-gradient(to top, #000, transparent);\n  line-height: 1;\n  color: #fff;\n  overflow: hidden;\n  white-space: nowrap;\n}\n", ""]);
+exports.push([module.i, "\n.photo[data-v-0fef60c9] {\n  position: relative;\n  height: 180px;\n  width: 320px;\n  background-color: #3273dc;\n  background-image: url(\"/storage/photo/1.JPG\");\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  text-align: center;\n  margin: 0.2rem;\n  color: white;\n  line-height: 150px;\n}\n@media (max-width: 767px) {\n.photo[data-v-0fef60c9] {\n    height: 150px;\n    width: 150px;\n    margin: 0.5rem;\n}\n}\n.photo_title[data-v-0fef60c9] {\n  position: absolute;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  height: 2.5rem;\n  background: -webkit-linear-gradient(bottom, #000, transparent);\n  background-color: linear-gradient(to top, #000, transparent);\n  line-height: 1;\n  color: #fff;\n  overflow: hidden;\n  white-space: nowrap;\n}\n", ""]);
 
 // exports
 

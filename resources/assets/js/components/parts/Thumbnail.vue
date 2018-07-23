@@ -25,17 +25,25 @@ export default{
 <style scoped lang="scss">
 .photo {
   position: relative;
-  height: 150px;
-  width: 150px;
+  height: 180px;
+  width: 320px;
   background-color: hsl(217, 71%, 53%);
   background-image: url("/storage/photo/1.JPG");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   text-align: center;
-  margin: 1rem;
+  margin: 0.2rem;
   color: white;
   line-height: 150px;
+}
+@media (max-width: 767px) {
+  .photo {
+    height: 150px;
+    width: 150px;
+    margin: 0.5rem;
+
+  }
 }
 .photo_title {
   position: absolute;
