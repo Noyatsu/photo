@@ -26,9 +26,9 @@
             <br>
             <p><i class="fas fa-user fa-fw"></i> <router-link v-bind:to="'/user/' + photo.screen_name">{{ photo.name }}</router-link>(@{{photo.screen_name}})</p>
             <p><i class="fas fa-tag fa-fw"></i> <span class="tag is-dark">{{ photo.c_name }}</span></p>
-            <p><i class="fas fa-map-marker fa-fw"></i> {{ photo.p_location }}</p>
-            <p><i class="fas fa-camera fa-fw"></i> {{ photo.camera }}</p>
-            <p><i class="far fa-dot-circle fa-fw"></i> {{ photo.lens }}</p>
+            <p v-if="photo.p_location"><i class="fas fa-map-marker fa-fw"></i> {{ photo.p_location }}</p>
+            <p v-if="photo.camera"><i class="fas fa-camera fa-fw"></i> {{ photo.camera }}</p>
+            <p v-if="photo.lens"><i class="far fa-dot-circle fa-fw"></i> {{ photo.lens }}</p>
             <p>{{ photo.focal_length }}mm {{ photo.speed }} F{{ photo.iris }} ISO{{ photo.iso }}</p>
             <p>{{ photo.p_description }}</p>
             <h3>コメント</h3>
@@ -68,7 +68,6 @@ export default{
     try {
       let res = await axios.get('/api/photos/get/'+this.$route.params.id);
       this.photo = res.data[0];
-      console.log(res.data);
     } catch (e) {
       console.error(e)
     }
@@ -79,7 +78,6 @@ export default{
       if(res.data==true) {
         this.isLiked = true;
       }
-      console.log(res);
 
     } catch (e) {
       console.error(e);

@@ -10,6 +10,9 @@ import VueRouter from 'vue-router'
 
 //require('./bootstrap');
 
+import axios from 'axios';
+import ThumbComponent from './components/parts/Thumbnail.vue';
+
 window.Vue = require('vue');
 Vue.use(VueRouter);
 

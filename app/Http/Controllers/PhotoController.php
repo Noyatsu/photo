@@ -29,7 +29,10 @@ class PhotoController extends Controller
   {
     return response(
       Photo::select('photos.location as p_location', 'photos.description as p_description', 'photos.created_at as p_created_at', 'photos.id as p_id', 'photos.*', 'users.*', 'categories.name as c_name')
-      ->join('users','photos.user_id','=','users.id')->join('categories','categories.id','=','photos.category_id')->orderBy('photos.id', 'desc')->get()
+      ->join('users','photos.user_id','=','users.id')
+      ->join('categories','categories.id','=','photos.category_id')
+      ->orderBy('photos.id', 'desc')
+      ->get()
     );
   }
 

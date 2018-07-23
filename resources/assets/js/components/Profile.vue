@@ -2,7 +2,7 @@
   <div class="container">
     <div class="card">
       <div class="m-profile">
-        <div class="m-profile-img has-background-link" v-bind:style="{ 'background-image': 'url(/storage/photo/' + user_data.background + ')', 'background-position':'center center', 'background-size': 'cover' }">
+        <div class="m-profile-img has-background-link" v-bind:style="{ 'background-image': 'url(/storage/' + user_data.background + ')', 'background-position':'center center', 'background-size': 'cover' }">
           <figure class="image is-96x96">
             <img v-bind:src="'/storage/icon/' + user_data.icon">
           </figure>
@@ -39,11 +39,7 @@
     </div>
     <div class="tab-contents">
       <div class="photoarea" v-if="tab==1">
-        <div v-for="photo in photo_list">
-          <router-link v-bind:to="'/photo/' + photo.id">
-            <div class="photo" v-bind:style="'background-image: url(/storage/' + photo.path+');'"></div>
-          </router-link>
-        </div>
+        <thumb-component v-for="photo in photo_list" :photo="photo" :key="photo.p_id"></thumb-component>
       </div>
       <div v-if="tab==2">
         <div class="card" v-for="f_user in follow_list">
@@ -65,11 +61,7 @@
         </div>
       </div>
       <div class="photoarea" v-if="tab==3">
-        <div v-for="photo in like_list">
-          <router-link v-bind:to="'/photo/' + photo.id">
-            <div class="photo" v-bind:style="'background-image: url(/storage/' + photo.path+');'"></div>
-          </router-link>
-        </div>
+        <thumb-component v-for="photo in like_list" :photo="photo" :key="photo.p_id"></thumb-component>
       </div>
 
     </div>
@@ -80,6 +72,8 @@ import axios from 'axios';
 
 //子コンポネート
 import PostComponent from './parts/Post.vue';
+import ThumbComponent from './parts/Thumbnail.vue';
+
 
 export default {
   data() {
@@ -94,7 +88,8 @@ export default {
     };
   },
   components: {
-    'post-component': PostComponent
+    'post-component': PostComponent,
+    'thumb-component': ThumbComponent
   },
   async created() {
     this.created_method(this.$route.params.screen_name);
@@ -110,6 +105,7 @@ export default {
         }
         else {
           res = await axios.get('/api/users/' + screen_name);
+          this.isMine = false;
         }
         this.user_data = res.data;
       } catch (e) {
@@ -177,20 +173,6 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-}
-
-.photo {
-  height: 150px;
-  width: 150px;
-  background-color: hsl(217, 71%, 53%);
-  background-image: url("/storage/photo/1.JPG");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  text-align: center;
-  margin: 1rem;
-  color: white;
-  line-height: 150px;
 }
 
 .is_round img{

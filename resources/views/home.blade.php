@@ -38,9 +38,6 @@
           </div>
           <div class="dropdown-menu" id="dropdown-menu3" role="menu">
             <div class="dropdown-content">
-              <a class="nav-link navbar-item" href="/user">
-                {{ Auth::user()->name }}のプロフィール
-              </a>
               <a class="nav-link navbar-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 {{ __('Logout') }}
               </a>

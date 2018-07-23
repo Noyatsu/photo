@@ -9,7 +9,6 @@
     </div>
   </div>
 </div>
-
 <section class="section">
   <div class="container">
     <h1 class="title">こだわりの写真をシェア！</h1>
