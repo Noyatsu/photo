@@ -52,26 +52,25 @@ class PhotoController extends Controller
   public function store(Request $request)
   {
     $filename = $request->file('photofile')->store('');
-    Image::make($request->file('photofile'))->resize(1920, null, function ($constraint) {
-      $constraint->aspectRatio();
-    })->save('storage/s'.$filename, 100);
-    if ($exif = exif_read_data($request->file('photofile'))) {
-      $camera = $exif['Model'];
-      $lens = NULL;
-      if (isset($exif['LensModel'])) {
-        $lens = $exif['LensModel'];
-      }
-      if (isset($exif['Lens'])) {
-        $lens = $exif['Lens'];
-      }
-      $focal_length = $exif['FocalLength'];
-      $speed = $exif['ExposureTime'];
-      $iris = $exif['FNumber'];
-      $iso = $exif['ISOSpeedRatings'];
+    $image = Image::make($request->file('photofile'));
+    $width = $image->width();
+    if ($width > 1920) {
+      $image->resize(1920, null, function ($constraint) {
+        $constraint->aspectRatio();
+      })->save('storage/s'.$filename);
+    } else {
+      $image->save('storage/s'.$filename);
     }
-    var_dump($exif);
+    if ($exif = exif_read_data($request->file('photofile'))) {
+      $camera = (isset($exif['Model'])) ? $exif['Model'] : NULL;
+      $lens = (isset($exif['LensModel'])) ? $exif['LensModel'] : NULL;
+      $lens = (isset($exif['Lens'])) ? $exif['Lens'] : NULL;
+      $focal_length = (isset($exif['FocalLength'])) ? $exif['FocalLength'] : NULL;
+      $speed = (isset($exif['ExposureTime'])) ? $exif['ExposureTime'] : NULL;
+      $iris = (isset($exif['FNumber'])) ? $exif['FNumber'] : NULL;
+      $iso = (isset($exif['ISOSpeedRatings'])) ? $exif['ISOSpeedRatings'] : NULL;
+    }
 
-    // ここにデータベースに追加するやつ書く
     DB::table('photos')->insert(
       [
         'user_id' => User::firstOrNew(['screen_name' => $request->input('screen_name')])->id,
