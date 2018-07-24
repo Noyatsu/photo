@@ -1,12 +1,11 @@
-body {
-  box-sizing: border-box;
-}
+
 
 
 /*navbar*/
 body {
   padding-top: 3.25rem;
   padding-bottom: 0px;
+  box-sizing: border-box;
 }
 
 @media (max-width: 767px) {

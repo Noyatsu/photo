@@ -162,13 +162,13 @@ class UserController extends Controller
   public function getTimelineByUser($screen_name)
   {
     $user = User::firstOrNew(['screen_name' => $screen_name]);
-    $photos = Photo::select('photos.location as p_location', 'photos.description as p_description', 'photos.created_at as p_created_at', 'photos.id as p_id', 'follows.*', 'photos.*', 'users.*')
+    $photos = Photo::select('photos.location as p_location', 'photos.description as p_description', 'photos.created_at as p_created_at', 'photos.id as p_id', 'photos.*', 'users.*')
     ->where(['follows.user_id' => $user->id])
     ->join('follows', 'photos.user_id', '=', 'follows.follow_user_id')
     ->join('users', 'photos.user_id', '=', 'users.id');
 
     return response(
-      Photo::select('photos.location as p_location', 'photos.description as p_description', 'photos.created_at as p_created_at', 'photos.id as p_id', 'follows.*', 'photos.*', 'users.*')
+      Photo::select('photos.location as p_location', 'photos.description as p_description', 'photos.created_at as p_created_at', 'photos.id as p_id', 'photos.*', 'users.*')
       ->where(['photos.user_id' => $user->id])
       ->join('follows', 'photos.user_id', '=', 'follows.follow_user_id')
       ->join('users', 'photos.user_id', '=', 'users.id')
