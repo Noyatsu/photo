@@ -184,7 +184,5 @@ class UserController extends Controller
     $itemsForCurrentPage = array_slice($photos, $offSet, $paginate, true);
     $results = new \Illuminate\Pagination\LengthAwarePaginator($itemsForCurrentPage, count($photos), $paginate, $page);
     return response($results);
-
-
   }
 }

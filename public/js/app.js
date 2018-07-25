@@ -16628,9 +16628,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
-//
-//
-//
 
 
 
@@ -16641,12 +16638,12 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
   data: function data() {
     return {
       photos_list: [],
-      page: 0,
-      limit: 10,
-      items: [],
+      page: 2,
       scrollTop: 0,
       scrollHeight: 0,
-      scrollPosition: 0
+      scrollPosition: 0,
+      is_fetching: false,
+      is_last: false
     };
   },
 
@@ -16656,28 +16653,55 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
   methods: {
     fetch: function () {
       var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
-        var _items;
+        var _this = this;
 
-        var items;
+        var tl_res, i;
         return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
-                return api(this.page, this.limit);
+                _context.prev = 0;
 
-              case 2:
-                items = _context.sent;
+                if (this.is_fetching) {
+                  _context.next = 7;
+                  break;
+                }
 
-                (_items = this.items).push.apply(_items, _toConsumableArray(items));
-                this.page++;
+                this.is_fetching = true;
+                _context.next = 5;
+                return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/users/timeline/' + user_screen_name + '?page=' + String(this.page));
 
               case 5:
+                tl_res = _context.sent;
+
+                if (this.page - 1 != tl_res.data.last_page) {
+                  for (i = tl_res.data.from - 1; i < tl_res.data.to; i++) {
+                    this.photos_list.push(tl_res.data.data[i]);
+                  }
+                  this.page++;
+                  setTimeout(function () {
+                    _this.is_fetching = false;
+                  }, 500);
+                } else {
+                  this.is_last = true;
+                }
+
+              case 7:
+                _context.next = 12;
+                break;
+
+              case 9:
+                _context.prev = 9;
+                _context.t0 = _context['catch'](0);
+
+                console.error(_context.t0);
+
+              case 12:
               case 'end':
                 return _context.stop();
             }
           }
-        }, _callee, this);
+        }, _callee, this, [[0, 9]]);
       }));
 
       function fetch() {
@@ -16688,17 +16712,17 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
     }(),
 
     startWatchingScroll: function startWatchingScroll() {
-      var _this = this;
+      var _this2 = this;
 
       var self = this;
       window.addEventListener('scroll', function () {
         //スクロール一番下で次読み込み
-        _this.scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
-        _this.scrollHeight = document.body.scrollHeight || document.documentElement.scrollHeight;
-        _this.scrollPosition = window.innerHeight + _this.scrollTop;
-        if (_this.scrollHeight - _this.scrollPosition <= 1) {
+        _this2.scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+        _this2.scrollHeight = document.body.scrollHeight || document.documentElement.scrollHeight;
+        _this2.scrollPosition = window.innerHeight + _this2.scrollTop;
+        if (_this2.scrollHeight - _this2.scrollPosition <= 1) {
           //スクロールの位置が下部に来た場合
-          _this.fetch();
+          _this2.fetch();
         };
       });
     }
@@ -16718,27 +16742,25 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             case 3:
               tl_res = _context2.sent;
 
-              console.log(tl_res);
-              this.photos_list = tl_res.data;
-              _context2.next = 11;
+              this.photos_list = tl_res.data.data;
+              _context2.next = 10;
               break;
 
-            case 8:
-              _context2.prev = 8;
+            case 7:
+              _context2.prev = 7;
               _context2.t0 = _context2['catch'](0);
 
               console.error(_context2.t0);
 
-            case 11:
+            case 10:
               this.startWatchingScroll();
-              console.log("hey");
 
-            case 13:
+            case 11:
             case 'end':
               return _context2.stop();
           }
         }
-      }, _callee2, this, [[0, 8]]);
+      }, _callee2, this, [[0, 7]]);
     }));
 
     function created() {
@@ -17834,30 +17856,29 @@ var render = function() {
           })
         }),
         _vm._v(" "),
-        _vm._l(_vm.items, function(item) {
-          return _c("div", { staticClass: "item-card" }, [
-            _c("div", { staticClass: "thumbnail" }),
-            _vm._v(" "),
-            _c("h3", { staticClass: "title" }, [_vm._v(_vm._s(item.title))])
-          ])
-        }),
+        !_vm.is_last
+          ? _c("div", { staticClass: "notification has-text-centered" }, [
+              _c("i", { staticClass: "far fa-smile" }),
+              _vm._v("読み込み中")
+            ])
+          : _vm._e(),
         _vm._v(" "),
-        _vm._m(0)
+        _vm.is_last
+          ? _c(
+              "div",
+              { staticClass: "notification has-text-centered is-info" },
+              [
+                _c("i", { staticClass: "far fa-kiss-wink-heart" }),
+                _vm._v("コンテンツは以上です")
+              ]
+            )
+          : _vm._e()
       ],
       2
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "loading" }, [
-      _c("p", [_vm._v("Now loading......")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

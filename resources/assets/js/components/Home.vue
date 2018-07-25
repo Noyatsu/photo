@@ -2,11 +2,8 @@
   <div>
     <div class="container">
       <post-component v-for="photo in photos_list" :photo="photo" :key="photo.p_id"></post-component>
-      <div v-for="item in items" class="item-card">
-        <div class="thumbnail"></div>
-        <h3 class="title">{{ item.title }}</h3>
-      </div>
-      <div class="loading"><p>Now loading......</p></div>
+      <div class="notification has-text-centered" v-if="!is_last"><i class="far fa-smile"></i>読み込み中</div>
+      <div class="notification has-text-centered is-info" v-if="is_last"><i class="far fa-kiss-wink-heart"></i>コンテンツは以上です</div>
     </div>
   </div>
 </template>
@@ -21,12 +18,12 @@ export default {
   data() {
     return {
       photos_list: [],
-      page: 0,
-      limit: 10,
-      items: [],
+      page: 2,
       scrollTop: 0,
       scrollHeight: 0,
-      scrollPosition: 0
+      scrollPosition: 0,
+      is_fetching: false,
+      is_last: false
     };
   },
   components: {
@@ -34,9 +31,26 @@ export default {
   },
   methods: {
     async fetch () {
-      const items = await api(this.page, this.limit);
-      this.items.push(...items);
-      this.page++;
+      try {
+        if(!this.is_fetching) {
+          this.is_fetching = true;
+          let tl_res = await axios.get('/api/users/timeline/' + user_screen_name + '?page=' + String(this.page));
+          if(this.page-1 != tl_res.data.last_page) {
+            for(var i = tl_res.data.from-1; i<tl_res.data.to; i++) {
+              this.photos_list.push(tl_res.data.data[i]);
+            }
+            this.page++;
+            setTimeout(() => {
+              this.is_fetching = false;
+            }, 500);
+          }
+          else {
+            this.is_last = true;
+          }
+        }
+      } catch (e) {
+        console.error(e)
+      }
     },
     startWatchingScroll: function () {
       var self = this;
@@ -56,13 +70,11 @@ export default {
   async created() {
     try {
       let tl_res = await axios.get('/api/users/timeline/' + user_screen_name);
-      console.log(tl_res);
-      this.photos_list = tl_res.data;
+      this.photos_list = tl_res.data.data;
     } catch (e) {
       console.error(e)
     }
     this.startWatchingScroll();
-    console.log("hey");
   }
 }
 
