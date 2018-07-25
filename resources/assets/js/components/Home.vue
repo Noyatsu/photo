@@ -56,6 +56,7 @@ export default {
   async created() {
     try {
       let tl_res = await axios.get('/api/users/timeline/' + user_screen_name);
+      console.log(tl_res);
       this.photos_list = tl_res.data;
     } catch (e) {
       console.error(e)

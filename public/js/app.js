@@ -16718,26 +16718,27 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             case 3:
               tl_res = _context2.sent;
 
+              console.log(tl_res);
               this.photos_list = tl_res.data;
-              _context2.next = 10;
+              _context2.next = 11;
               break;
 
-            case 7:
-              _context2.prev = 7;
+            case 8:
+              _context2.prev = 8;
               _context2.t0 = _context2['catch'](0);
 
               console.error(_context2.t0);
 
-            case 10:
+            case 11:
               this.startWatchingScroll();
               console.log("hey");
 
-            case 12:
+            case 13:
             case 'end':
               return _context2.stop();
           }
         }
-      }, _callee2, this, [[0, 7]]);
+      }, _callee2, this, [[0, 8]]);
     }));
 
     function created() {
