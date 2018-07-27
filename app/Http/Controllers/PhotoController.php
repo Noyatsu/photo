@@ -6,6 +6,7 @@ use App\Photo;
 use App\Like;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\Controller;
 use DB;
 use Image;
@@ -54,15 +55,23 @@ class PhotoController extends Controller
   */
   public function store(Request $request)
   {
+    ini_set('display_errors', "On");
+    ini_set('memory_limit', '512M');
     $filename = $request->file('photofile')->store('');
     Image::make($request->file('photofile'))->resize(1920, null, function ($constraint) {
       $constraint->aspectRatio();
     })->save('storage/s'.$filename, 100);
     if ($exif = exif_read_data($request->file('photofile'))) {
-      $camera = $exif['Model'];
+      $camera = NULL;
+      if (isset($exif['Model'])) {
+        $camera = $exif['Model'];
+      }
       $lens = NULL;
       if (isset($exif['LensModel'])) {
         $lens = $exif['LensModel'];
+      }
+      else if (isset($exif['UndefinedTag:0xA434'])) {
+        $lens = $exif['UndefinedTag:0xA434'];
       }
       if (isset($exif['Lens'])) {
         $lens = $exif['Lens'];
@@ -186,5 +195,29 @@ class PhotoController extends Controller
     else {
       return 'false';
     }
+  }
+
+  /**
+   * フリーワード検索
+   * @param  Request $request リクエスト
+   * @return Response           json
+   */
+  public function freewordSearch()
+  {
+    $words = Input::get('words');
+    $words = explode(' ', $words);
+
+    //クエリ
+    $q = Photo::select('photos.location as p_location', 'photos.description as p_description', 'photos.created_at as p_created_at', 'photos.id as p_id', 'photos.*');
+    $q->join('users', 'photos.user_id', '=', 'users.id');
+    if($words) {
+      foreach($words as $word) {
+        $q->where(function ($query) use ($word) {
+          $query->where('photos.title', 'LIKE', '%'.$word.'%')
+                ->orWhere('photos.location', 'LIKE', '%'.$word.'%');
+        });
+      }
+    }
+    return response($q->get());
   }
 }

@@ -142,8 +142,8 @@ export default {
           this.is_uploading = false;
         })
         .catch((error) => {
-          console.log(error);
-          this.upload_mes = "アップロードに失敗しました…("+error+")";
+          console.log(error.response);
+          this.upload_mes = "アップロードに失敗しました…("+error+" "+error.response.data+")";
           this.is_uploading = false;
         })
       }
