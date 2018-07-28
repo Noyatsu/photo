@@ -51,3 +51,5 @@ Route::get('/users/timeline/{screen_name}', 'UserController@getTimelineByUser');
 Route::get('/photos', 'PhotoController@index');
 Route::post('/photos/upload', 'PhotoController@store');
 Route::get('/photos/get/{id}', 'PhotoController@get');
+
+Route::get('/search/freeword', 'PhotoController@freewordSearch');

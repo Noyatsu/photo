@@ -18,20 +18,31 @@ Vue.use(VueRouter);
 
 // vue-routerのインスタンス化、オプションroutesでアクセスされるパスとその時に表示するComponentを指定
 let router = new VueRouter({
-    mode: 'history',
-    routes: [
-        { path: '/home', component: require('./components/Home.vue') },
-        { path: '/home/search', component: require('./components/Search.vue') },
-        { path: '/home/upload', component: require('./components/Upload.vue') },
-        { path: '/home/like', component: require('./components/Like.vue') },
-        { path: '/home/profile', component: require('./components/Profile.vue') },
+  mode: 'history',
+  routes: [
+    { path: '/home', component: require('./components/Home.vue') },
+    { path: '/home/search', component: require('./components/Search.vue') },
+    { path: '/home/upload', component: require('./components/Upload.vue') },
+    { path: '/home/like', component: require('./components/Like.vue') },
+    { path: '/home/profile', component: require('./components/Profile.vue') },
 
-        { path: '/photo/:id', component: require('./components/Detail.vue') },
+    { path: '/photo/:id', component: require('./components/Detail.vue') },
 
-        { path: '/user/' + user_screen_name,  redirect: '/home/profile' },
-        { path: '/user/:screen_name', component: require('./components/Profile.vue') },
+    { path: '/user/' + user_screen_name,  redirect: '/home/profile' },
+    { path: '/user/:screen_name', component: require('./components/Profile.vue') },
 
-    ]
+    { path: '/search',  redirect: '/home/search' },
+    { path: '/search/freeword', redirect: '/home/search' },
+    { path: '/search/freeword/:words', component: require('./components/search/Freeword.vue') },
+
+  ],
+  scrollBehavior (to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { x: 0, y: 0 }
+    }
+  }
 });
 
 /**

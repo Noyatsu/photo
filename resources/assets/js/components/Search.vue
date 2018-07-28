@@ -1,11 +1,15 @@
 <template>
   <div>
-    <div class="notification">
-      <div class="control has-icons-left has-icons-right">
-        <input class="input is-rounded" type="text" placeholder="検索">
-        <span class="icon is-small is-left">
-          <i class="fas fa-search"></i>
-        </span>
+    <div class="s-area has-background-light">
+      <div class="field has-addons">
+        <div class="control is-expanded">
+          <input class="input" type="text" placeholder="検索.." v-model="query_text">
+        </div>
+        <div class="control">
+          <a class="button is-info" v-on:click="fw_search">
+            <i class="fas fa-search"></i>
+          </a>
+        </div>
       </div>
     </div>
     <div class="container">
@@ -26,10 +30,14 @@ export default {
   data() {
     return {
       photo_list: [],
+      query_text: "",
       loading: false
     };
   },
   methods: {
+    fw_search: function() {
+      this.$router.push('/search/freeword/' + this.query_text);
+    }
   },
   components: {
     'thumb-component': ThumbComponent
@@ -37,7 +45,7 @@ export default {
   async created() {
     try {
       let res = await axios.get('/api/photos/');
-      this.photo_list = res.data;
+      this.photo_list = res.data.data;
     } catch (e) {
       console.error(e)
     }
@@ -48,6 +56,10 @@ export default {
 </script>
 
 <style scoped>
+.s-area {
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
 /*tab*/
 .is_selected {
   border-bottom: solid 3px hsl(217, 71%, 53%);

@@ -50,16 +50,16 @@
       </div>
       @endguest
     </nav>
-      <div class="m-tab-bar">
-        <router-link class="m-tab" to='/home' tag="div"><i class="fas fa-home"></i></router-link>
-        <router-link class="m-tab" to='/home/search' tag="div"><i class="fas fa-search"></i></router-link>
-        <router-link class="m-tab" to='/home/upload' tag="div"><i class="far fa-plus-square"></i></router-link>
-        <router-link class="m-tab" to='/home/like' tag="div"><i class="fas fa-heart"></i></router-link>
-        <router-link class="m-tab" to='/home/profile' tag="div"><i class="fas fa-user-circle"></i></router-link>
-      </div>
-      <transition name="fade" mode="out-in">
-        <router-view></router-view>
-      </transition>
+    <div class="m-tab-bar">
+      <router-link class="m-tab" to='/home' tag="div"><i class="fas fa-home"></i></router-link>
+      <router-link class="m-tab" to='/home/search' tag="div"><i class="fas fa-search"></i></router-link>
+      <router-link class="m-tab" to='/home/upload' tag="div"><i class="far fa-plus-square"></i></router-link>
+      <router-link class="m-tab" to='/home/like' tag="div"><i class="fas fa-heart"></i></router-link>
+      <router-link class="m-tab" to='/home/profile' tag="div"><i class="fas fa-user-circle"></i></router-link>
+    </div>
+    <transition name="fade" mode="out-in">
+      <router-view></router-view>
+    </transition>
   </div>
 </body>
 <script src="{{ mix('js/app.js') }}"></script>
