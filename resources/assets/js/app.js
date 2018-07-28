@@ -31,6 +31,10 @@ let router = new VueRouter({
     { path: '/user/' + user_screen_name,  redirect: '/home/profile' },
     { path: '/user/:screen_name', component: require('./components/Profile.vue') },
 
+    { path: '/search',  redirect: '/home/search' },
+    { path: '/search/freeword', redirect: '/home/search' },
+    { path: '/search/freeword/:words', component: require('./components/search/Freeword.vue') },
+
   ],
   scrollBehavior (to, from, savedPosition) {
     if (savedPosition) {

@@ -29,4 +29,6 @@ Route::group(['middleware' => 'auth'], function(){
   //PhotoController
   Route::get('/photo/{id}', 'HomeController@index');
 
+  Route::get('/search/{any}', 'HomeController@index')->where('any', '.*');
+
 });
