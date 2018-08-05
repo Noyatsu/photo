@@ -6,6 +6,7 @@ use App\Photo;
 use App\Like;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\Controller;
 use DB;
 use Image;
@@ -29,7 +30,10 @@ class PhotoController extends Controller
   {
     return response(
       Photo::select('photos.location as p_location', 'photos.description as p_description', 'photos.created_at as p_created_at', 'photos.id as p_id', 'photos.*', 'users.*', 'categories.name as c_name')
-      ->join('users','photos.user_id','=','users.id')->join('categories','categories.id','=','photos.category_id')->orderBy('photos.id', 'desc')->get()
+      ->join('users','photos.user_id','=','users.id')
+      ->join('categories','categories.id','=','photos.category_id')
+      ->orderBy('photos.id', 'desc')
+      ->paginate(6)
     );
   }
 
@@ -51,23 +55,45 @@ class PhotoController extends Controller
   */
   public function store(Request $request)
   {
+    ini_set('display_errors', "On");
+    ini_set('memory_limit', '512M');
     $filename = $request->file('photofile')->store('');
     Image::make($request->file('photofile'))->resize(1920, null, function ($constraint) {
       $constraint->aspectRatio();
     })->save('storage/s'.$filename, 100);
     if ($exif = exif_read_data($request->file('photofile'))) {
-      $camera = $exif['Model'];
+      $camera = NULL;
+      if (isset($exif['Model'])) {
+        $camera = $exif['Model'];
+      }
+
       $lens = NULL;
       if (isset($exif['LensModel'])) {
         $lens = $exif['LensModel'];
       }
+      else if (isset($exif['UndefinedTag:0xA434'])) {
+        $lens = $exif['UndefinedTag:0xA434'];
+      }
       if (isset($exif['Lens'])) {
         $lens = $exif['Lens'];
       }
-      $focal_length = $exif['FocalLength'];
-      $speed = $exif['ExposureTime'];
-      $iris = $exif['FNumber'];
-      $iso = $exif['ISOSpeedRatings'];
+
+      $focal_length = NULL;
+      if (isset($exif['FocalLength'])) {
+        $focal_length = $exif['FocalLength'];
+      }
+      $speed = NULL;
+      if (isset($exif['ExposureTime'])) {
+        $speed = $exif['ExposureTime'];
+      }
+      $iris = NULL;
+      if (isset($exif['FNumber'])) {
+        $iris = $exif['FNumber'];
+      }
+      $iso = NULL;
+      if (isset($exif['ISOSpeedRatings'])) {
+        $iso = $exif['ISOSpeedRatings'];
+      }
     }
     var_dump($exif);
 
@@ -139,10 +165,10 @@ class PhotoController extends Controller
   }
 
   /**
-   * 写真1枚の情報をゲット
-   * @param  int $id 写真のid
-   * @return [type]     [description]
-   */
+  * 写真1枚の情報をゲット
+  * @param  int $id 写真のid
+  * @return [type]     [description]
+  */
   public function get($id)
   {
     return response(
@@ -152,8 +178,8 @@ class PhotoController extends Controller
   }
 
   /**
-   * いいね/アンいいねのトグル
-   */
+  * いいね/アンいいねのトグル
+  */
   public function toggleLike(Request $request)
   {
     $screen_name = $request->input('screen_name');
@@ -183,5 +209,37 @@ class PhotoController extends Controller
     else {
       return 'false';
     }
+  }
+
+  /**
+  * フリーワード検索
+  * @param  Request $request リクエスト
+  * @return Response           json
+  */
+  public function freewordSearch()
+  {
+    $words = Input::get('words');
+    $words = explode(' ', $words);
+
+    //クエリ
+    $q = Photo::select('photos.location as p_location', 'photos.description as p_description', 'photos.created_at as p_created_at', 'photos.id as p_id', 'photos.*', 'users.screen_name');
+    $q->join('users', 'photos.user_id', '=', 'users.id');
+    $q->join('categories', 'photos.category_id', '=', 'categories.id');
+    if($words) {
+      foreach($words as $word) {
+        $q->where(function ($query) use ($word) {
+          $query->where('photos.title', 'LIKE', '%'.$word.'%')
+          ->orWhere('photos.location', 'LIKE', '%'.$word.'%')
+          ->orWhere('photos.tags', 'LIKE', '%'.$word.'%')
+          ->orWhere('photos.camera', 'LIKE', '%'.$word.'%')
+          ->orWhere('photos.lens', 'LIKE', '%'.$word.'%')
+          ->orWhere('photos.description', 'LIKE', '%'.$word.'%')
+          ->orWhere('users.screen_name', 'LIKE', '%'.$word.'%')
+          ->orWhere('users.name', 'LIKE', '%'.$word.'%')
+          ->orderBy('photos.id', 'desc');
+        });
+      }
+    }
+    return response($q->paginate(6));
   }
 }
