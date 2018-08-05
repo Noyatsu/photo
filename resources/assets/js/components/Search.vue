@@ -3,7 +3,7 @@
     <div class="s-area has-background-light">
       <div class="field has-addons">
         <div class="control is-expanded">
-          <input class="input" type="text" placeholder="検索.." v-model="query_text">
+          <input class="input" type="text" placeholder="検索.." v-on:keyup.enter="fw_search" v-model="query_text">
         </div>
         <div class="control">
           <a class="button is-info" v-on:click="fw_search">
@@ -12,7 +12,7 @@
         </div>
       </div>
     </div>
-    <div class="container">
+    <div class="container has-text-centered">
       <h1 class="title">最近の投稿</h1>
       <div class="photoarea">
         <thumb-component v-for="photo in photo_list" :photo="photo" :key="photo.p_id"></thumb-component>

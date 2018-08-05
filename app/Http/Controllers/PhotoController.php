@@ -235,6 +235,7 @@ class PhotoController extends Controller
           ->orWhere('photos.lens', 'LIKE', '%'.$word.'%')
           ->orWhere('photos.description', 'LIKE', '%'.$word.'%')
           ->orWhere('users.screen_name', 'LIKE', '%'.$word.'%')
+          ->orWhere('users.name', 'LIKE', '%'.$word.'%')
           ->orderBy('photos.id', 'desc');
         });
       }
