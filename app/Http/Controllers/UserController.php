@@ -7,6 +7,8 @@ use App\Follow;
 use App\Like;
 use App\Photo;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -133,10 +135,29 @@ class UserController extends Controller
   public function getPhotosByUser($screen_name)
   {
     $user = User::firstOrNew(['screen_name' => $screen_name]);
-    return response(User::select('users.*', 'photos.*')
+    return response(User::select('photos.location as p_location', 'photos.description as p_description', 'photos.created_at as p_created_at', 'photos.id as p_id', 'users.*', 'photos.*')
     ->join('photos', 'users.id', '=', 'photos.user_id')
     ->where(['photos.user_id' => $user->id])
     ->get());
+  }
+
+  /**
+  * ユーザ検索
+  * @param  string $query 検索クエリ
+  * @return json              JSONdata
+  */
+  public function searchUser()
+  {
+    $words = Input::get('words');
+    $words = explode(' ', $words);
+    $query = $words[0];
+
+    $q = User::select('users.*');
+    $q->where('name', 'LIKE', '%'.$query.'%');
+    $q->orwhere('screen_name', 'LIKE', '%'.$query.'%');
+    $q->orwhere('description', 'LIKE', '%'.$query.'%');
+    $q->orderBy('id', 'desc');
+    return response($q->get());
   }
 
   /**
@@ -147,10 +168,40 @@ class UserController extends Controller
   public function getLikePhotosByUser($screen_name)
   {
     $user = User::firstOrNew(['screen_name' => $screen_name]);
-    return response(Photo::select('likes.*', 'photos.*')
+    return response(Photo::select('photos.location as p_location', 'photos.description as p_description', 'photos.created_at as p_created_at', 'photos.id as p_id', 'likes.*', 'photos.*', 'users.*')
     ->join('likes', 'photos.id', '=', 'likes.photo_id')
+    ->join('users', 'photos.user_id', '=', 'users.id')
     ->where(['likes.user_id' => $user->id])
     ->get());
   }
 
+  /**
+  * ユーザのスクリーンネームからタイムラインを取得
+  * @param  string $screen_name スクリーンネーム
+  * @return json              JSONdata
+  */
+  public function getTimelineByUser($screen_name)
+  {
+    $paginate = 3;
+    $page = Input::get('page', 1);
+
+    $user = User::firstOrNew(['screen_name' => $screen_name]);
+    $f_photos = Photo::select('photos.location as p_location', 'photos.description as p_description', 'photos.created_at as p_created_at', 'photos.id as p_id', 'photos.*', 'users.*')
+    ->where(['follows.user_id' => $user->id])
+    ->join('follows', 'photos.user_id', '=', 'follows.follow_user_id')
+    ->join('users', 'photos.user_id', '=', 'users.id');
+
+    $photos = Photo::select('photos.location as p_location', 'photos.description as p_description', 'photos.created_at as p_created_at', 'photos.id as p_id', 'photos.*', 'users.*')
+    ->where(['photos.user_id' => $user->id])
+    ->join('follows', 'photos.user_id', '=', 'follows.follow_user_id')
+    ->join('users', 'photos.user_id', '=', 'users.id')
+    ->union($f_photos)
+    ->orderBy('p_id', 'desc')
+    ->get();
+    $photos = $photos->toArray();
+    $offSet = ($page * $paginate) - $paginate;
+    $itemsForCurrentPage = array_slice($photos, $offSet, $paginate, true);
+    $results = new \Illuminate\Pagination\LengthAwarePaginator($itemsForCurrentPage, count($photos), $paginate, $page);
+    return response($results);
+  }
 }

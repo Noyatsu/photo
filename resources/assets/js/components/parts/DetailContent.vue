@@ -1,23 +1,17 @@
 <template>
-  <div>
-    <!--<div class="modal" v-if="showModal">
-      <div class="closeBtn"><i class="far fa-times-circle"></i></div>
-      <detail-content v-bind:photo="photo"></detail-content>
-    </div>-->
-    <div class="post">
+  <div class="post has-background-black-ter has-text-light">
+    <div class="container">
       <div class="post-header">
         <div class="post-header-left is-size-7">
           <p><router-link v-bind:to="'/user/' + photo.screen_name"><img src="https://bulma.io/images/placeholders/128x128.png"></router-link></p>
           <p><router-link v-bind:to="'/user/' + photo.screen_name"><strong>{{ photo.name }}</strong></router-link>(@{{photo.screen_name}}) <span v-if="photo.p_location">at {{ photo.p_location }}</span></p>
         </div>
       </div>
-      <router-link v-bind:to="'/photo/'+photo.p_id">
-        <div class="post-contents" style="margin: 0 auto;">
-          <img v-bind:src="'/storage/' + photo.path" >
-        </div>
-      </router-link>
+      <div class="post-contents" style="margin: 0 auto;" @click="showModal = true">
+        <img v-bind:src="'/storage/' + photo.path" @click="showModal = true">
+      </div>
       <div class="post-footer">
-        <p class="post-title"><strong>{{ photo.title }}</strong></p>
+        <p class="post-title"><strong class="has-text-light">{{ photo.title }}</strong></p>
         <div class="post-right">
           <a class="button is-light"><i class="fas fa-share-alt"></i></a>
           <a class="button is-light" @click="likeToggle" v-bind:class="{ 'is-danger': isLiked }">
@@ -25,27 +19,44 @@
             <span class="likenum">{{ likeNum }}</span>
           </a>
         </div>
-        <p class="is-size-7 has-text-grey">{{ photo.p_created_at }}</p>
+        <div class="info">
+          <p class="is-size-7 has-text-grey-lighter">{{ photo.p_created_at }}</p>
+          <br>
+          <p><i class="fas fa-user fa-fw"></i> <router-link v-bind:to="'/user/' + photo.screen_name">{{ photo.name }}</router-link>(@{{photo.screen_name}})</p>
+          <p><i class="fas fa-tag fa-fw"></i>
+            <span class="tag is-light">{{ photo.c_name }}</span>
+            <span class="tag is-dark" v-for="tag in tags">{{ tag }}</span>
+          </p>
+          <p v-if="photo.p_location"><i class="fas fa-map-marker fa-fw"></i> {{ photo.p_location }}</p>
+          <p v-if="photo.camera"><i class="fas fa-camera fa-fw"></i> {{ photo.camera }}</p>
+          <p v-if="photo.lens"><i class="far fa-dot-circle fa-fw"></i> {{ photo.lens }}</p>
+          <p v-if="photo.focal_length"><i class="fas fa-sliders-h fa-fw"></i> {{ photo.focal_length }}mm {{ photo.speed }} F{{ photo.iris }} ISO{{ photo.iso }}</p>
+          <p>{{ photo.p_description }}</p>
+          <h3>コメント</h3>
+          <div class="field">
+            <p class="control has-icons-left has-icons-right">
+              <input class="input has-background-dark has-text-light" placeholder="コメントを追加">
+              <span class="icon is-small is-left">
+                <i class="fas fa-comment"></i>
+              </span>
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
-
 <script>
 import axios from 'axios';
-import DetailContent from './DetailContent.vue';
 
 export default{
-  components: {
-    'detail-content': DetailContent
-  },
-  name: 'post-component',
   props: [ 'photo' ],
   data: function () {
     return {
       showModal: false,
       isLiked: false,
-      likeNum: 0
+      likeNum: 0,
+      tags: []
     }
   },
   async created() {
@@ -61,6 +72,10 @@ export default{
     }
 
     this.likeNum = this.photo.likes;
+    const tags_str = this.photo.tags;
+    if(tags_str != '') {
+      this.tags = tags_str.split(',');
+    }
   },
   methods: {
     likeToggle: function() {
@@ -83,11 +98,8 @@ export default{
       .catch(error => {
         console.log(error.response)
       });
-
-
     }
   }
-
 }
 </script>
 <style scoped lang="scss">
@@ -95,9 +107,10 @@ export default{
   margin-left: 0.5rem;
 }
 .post {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 3rem;
   .post-header {
+
     height: 2rem;
     position: relative;
     margin-bottom: 0.2em;
@@ -131,18 +144,12 @@ export default{
   }
   .post-contents {
     margin-top: 0.25rem;
-    background-color: #202020;
     text-align: center;
+
     img {
-      display: inline-block;
-      max-width: 800px;
-    }
-    @media (max-width: 800px) {
-      img {
-        display: block;
-        width: 100%;
-        max-width: none;
-      }
+      display: block;
+      width: 100%;
+      max-width: none;
     }
   }
   .post-footer {
@@ -161,29 +168,15 @@ export default{
   }
 }
 
-.modal {
-  z-index: 10000;
-  position: fixed;
-  top: 0px;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: block;
-  overflow-y: scroll;
+.info {
+  line-height: 1.8;
 }
-
-.closeBtn {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  color: white;
-  padding: 1rem;
-  font-size: 2;
-  z-index: 100000;
+.tag {
+  margin-right: 2px;
 }
 
 a strong{
-  color: #000000;
+  color: white;
 }
 
 a {
