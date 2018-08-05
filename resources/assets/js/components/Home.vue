@@ -1,10 +1,10 @@
 <template>
   <div>
-      <div class="container">
-        <post-component v-for="photo in photos_list" :photo="photo" :key="photo.p_id"></post-component>
-        <div class="notification has-text-centered" v-if="!is_last"><i class="far fa-smile"></i>読み込み中</div>
-        <div class="notification has-text-centered is-info" v-if="is_last"><i class="far fa-kiss-wink-heart"></i>コンテンツは以上です</div>
-      </div>
+    <div class="container">
+      <post-component v-for="photo in photos_list" :photo="photo" :key="photo.p_id"></post-component>
+      <div class="notification has-text-centered" v-if="!is_last"><i class="far fa-smile"></i>読み込み中</div>
+      <div class="notification has-text-centered is-info" v-if="is_last"><i class="far fa-kiss-wink-heart"></i>コンテンツは以上です</div>
+    </div>
   </div>
 </template>
 
@@ -15,6 +15,7 @@ import axios from 'axios';
 import PostComponent from './parts/Post.vue';
 
 export default {
+  name: 'timeline',
   data() {
     return {
       photos_list: [],

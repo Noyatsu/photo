@@ -12,7 +12,7 @@
         </div>
       </div>
     </div>
-    <div class="container">
+    <div class="container has-text-centered">
       <h1 class="title">最近の投稿</h1>
       <div class="photoarea">
         <thumb-component v-for="photo in photo_list" :photo="photo" :key="photo.p_id"></thumb-component>

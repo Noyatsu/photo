@@ -1,6 +1,15 @@
 <template>
   <div>
     <div class="s-area has-background-light">
+      <div class="tabs is-centered">
+        <ul>
+          <li class="is-active"><a>フリーワード</a></li>
+          <li><a>ユーザ</a></li>
+          <li><a>場所</a></li>
+          <li><a>タグ</a></li>
+          <li><a>カメラ・レンズ</a></li>
+        </ul>
+      </div>
       <div class="field has-addons">
         <div class="control is-expanded">
           <input class="input" type="text" v-model:value="query_text" v-on:keyup.enter="fw_search" placeholder="検索..">
