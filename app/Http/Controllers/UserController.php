@@ -142,6 +142,25 @@ class UserController extends Controller
   }
 
   /**
+  * ユーザ検索
+  * @param  string $query 検索クエリ
+  * @return json              JSONdata
+  */
+  public function searchUser()
+  {
+    $words = Input::get('words');
+    $words = explode(' ', $words);
+    $query = $words[0];
+
+    $q = User::select('users.*');
+    $q->where('name', 'LIKE', '%'.$query.'%');
+    $q->orwhere('screen_name', 'LIKE', '%'.$query.'%');
+    $q->orwhere('description', 'LIKE', '%'.$query.'%');
+    $q->orderBy('id', 'desc');
+    return response($q->get());
+  }
+
+  /**
   * ユーザのスクリーンネームからいいねした写真を取得
   * @param  string $screen_name スクリーンネーム
   * @return json              JSONdata

@@ -53,3 +53,4 @@ Route::post('/photos/upload', 'PhotoController@store');
 Route::get('/photos/get/{id}', 'PhotoController@get');
 
 Route::get('/search/freeword', 'PhotoController@freewordSearch');
+Route::get('/search/user', 'UserController@searchUser');
