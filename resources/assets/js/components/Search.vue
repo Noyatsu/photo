@@ -3,7 +3,7 @@
     <div class="s-area has-background-light">
       <div class="field has-addons">
         <div class="control is-expanded">
-          <input class="input" type="text" placeholder="検索.." v-model="query_text">
+          <input class="input" type="text" placeholder="検索.." v-on:keyup.enter="fw_search" v-model="query_text">
         </div>
         <div class="control">
           <a class="button is-info" v-on:click="fw_search">

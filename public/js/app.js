@@ -18095,6 +18095,15 @@ var render = function() {
             attrs: { type: "text", placeholder: "検索.." },
             domProps: { value: _vm.query_text },
             on: {
+              keyup: function($event) {
+                if (
+                  !("button" in $event) &&
+                  _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+                ) {
+                  return null
+                }
+                return _vm.fw_search($event)
+              },
               input: function($event) {
                 if ($event.target.composing) {
                   return
