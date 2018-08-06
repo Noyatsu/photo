@@ -60,10 +60,10 @@ class PhotoController extends Controller
         $filename = $request->file('photofile')->store('');
         Image::make($request->file('photofile'))->resize(1920, null, function ($constraint) {
             $constraint->aspectRatio();
-        })->save('storage/'.$filename, 80);
+        })->save('storage/'.$filename, 100);
         Image::make($request->file('photofile'))->resize(320, null, function ($constraint) {
           $constraint->aspectRatio();
-        })->save('storage/thumb/'.$filename, 80);
+        })->save('storage/thumb/'.$filename, 100);
         if ($exif = exif_read_data($request->file('photofile'))) {
             $camera = null;
             if (isset($exif['Model'])) {
