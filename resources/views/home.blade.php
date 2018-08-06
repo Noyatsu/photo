@@ -3,7 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" type="image/png" href="/images/icons/icon-72x72.png" sizes="72x72">
+  <link rel="icon" type="image/png" href="/images/icons/icon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/images/icons/icon-192x192.png" sizes="192x192">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icons/icon-72x72.png" sizes="72x72">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icons/icon-96x96.png" sizes="96x96">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icons/icon-192x192.png" sizes="192x192">
+
+  <script>
+  // service workerが有効なら、service-worker.js を登録します
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js').then(function() { console.log('Service Worker Registered'); });
+  }
+  </script>
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <title>Photo Club</title>
@@ -38,9 +54,6 @@
           </div>
           <div class="dropdown-menu" id="dropdown-menu3" role="menu">
             <div class="dropdown-content">
-              <a class="nav-link navbar-item" href="/user">
-                {{ Auth::user()->name }}のプロフィール
-              </a>
               <a class="nav-link navbar-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 {{ __('Logout') }}
               </a>
@@ -53,16 +66,16 @@
       </div>
       @endguest
     </nav>
-      <div class="m-tab-bar">
-        <router-link class="m-tab" to='/home' tag="div"><i class="fas fa-home"></i></router-link>
-        <router-link class="m-tab" to='/home/search' tag="div"><i class="fas fa-search"></i></router-link>
-        <router-link class="m-tab" to='/home/upload' tag="div"><i class="far fa-plus-square"></i></router-link>
-        <router-link class="m-tab" to='/home/like' tag="div"><i class="fas fa-heart"></i></router-link>
-        <router-link class="m-tab" to='/home/profile' tag="div"><i class="fas fa-user-circle"></i></router-link>
-      </div>
-      <transition name="fade" mode="out-in">
-        <router-view></router-view>
-      </transition>
+    <div class="m-tab-bar">
+      <router-link class="m-tab" to='/home' tag="div"><i class="fas fa-home"></i></router-link>
+      <router-link class="m-tab" to='/home/search' tag="div"><i class="fas fa-search"></i></router-link>
+      <router-link class="m-tab" to='/home/upload' tag="div"><i class="far fa-plus-square"></i></router-link>
+      <router-link class="m-tab" to='/home/like' tag="div"><i class="fas fa-heart"></i></router-link>
+      <router-link class="m-tab" to='/home/profile' tag="div"><i class="fas fa-user-circle"></i></router-link>
+    </div>
+    <transition name="fade" mode="out-in">
+      <router-view></router-view>
+    </transition>
   </div>
 </body>
 <script src="{{ mix('js/app.js') }}"></script>

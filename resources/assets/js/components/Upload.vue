@@ -43,7 +43,7 @@
           </div> -->
 
           <p class="control is-expanded has-icons-left">
-            <input class="input" type="text" name="tag" v-model="tag" placeholder="タグ(コンマ(,)区切り)">
+            <input class="input" type="text" name="tags" v-model="tags" placeholder="タグ(コンマ(,)区切り)">
             <span class="icon is-small is-left">
               <i class="fas fa-tag"></i>
             </span>
@@ -114,7 +114,7 @@ export default {
       files: [],
       title: 'Untitled',
       location: '',
-      tag: '',
+      tags: '',
       description: '',
       category: '1'
     };
@@ -128,7 +128,7 @@ export default {
         let data = new FormData;
         data.append('title', this.title);
         data.append('location', this.location);
-        data.append('tag', this.tag);
+        data.append('tags', this.tags);
         data.append('description', this.description);
         data.append('category', this.category);
         data.append('photofile', this.files[0]);
@@ -142,8 +142,8 @@ export default {
           this.is_uploading = false;
         })
         .catch((error) => {
-          console.log(error);
-          this.upload_mes = "アップロードに失敗しました…("+error+")";
+          console.log(error.response);
+          this.upload_mes = "アップロードに失敗しました…("+error+" "+error.response.data+")";
           this.is_uploading = false;
         })
       }
