@@ -1,7 +1,7 @@
 <template>
   <div v-on:mouseover="hovered = true" v-on:mouseleave="hovered = false">
     <router-link v-bind:to="'/photo/' + photo.p_id">
-      <div class="photo" v-bind:style="'background-image: url(/storage/' + photo.path+');'">
+      <div class="photo" v-bind:style="'background-image: url(/storage/thumb/' + photo.path+');'">
         <transition name="fade">
           <div class="photo_title" v-if="hovered">{{ photo.title }}<br><span class="is-size-7">by @{{ photo.screen_name }}</span></div>
         </transition>
