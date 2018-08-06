@@ -35,49 +35,6 @@ class PhotoController extends Controller
       ->orderBy('photos.id', 'desc')
       ->paginate(6)
     );
-<<<<<<< HEAD
-  }
-
-  /**
-  * Show the form for creating a new resource.
-  *
-  * @return \Illuminate\Http\Response
-  */
-  public function create()
-  {
-    //
-  }
-
-  /**
-  * Store a newly created resource in storage.
-  *
-  * @param  \Illuminate\Http\Request  $request
-  * @return \Illuminate\Http\Response
-  */
-  public function store(Request $request)
-  {
-    $filename = $request->file('photofile')->store('');
-    $image = Image::make($request->file('photofile'));
-    $width = $image->width();
-    if ($width > 1920) {
-      $image->resize(1920, null, function ($constraint) {
-        $constraint->aspectRatio();
-      })->save('storage/s'.$filename);
-    } else {
-      $image->save('storage/s'.$filename);
-    }
-    if ($exif = exif_read_data($request->file('photofile'))) {
-      $camera = (isset($exif['Model'])) ? $exif['Model'] : NULL;
-      $lens = (isset($exif['LensModel'])) ? $exif['LensModel'] : NULL;
-      $lens = (isset($exif['Lens'])) ? $exif['Lens'] : NULL;
-      $focal_length = (isset($exif['FocalLength'])) ? $exif['FocalLength'] : NULL;
-      $speed = (isset($exif['ExposureTime'])) ? $exif['ExposureTime'] : NULL;
-      $iris = (isset($exif['FNumber'])) ? $exif['FNumber'] : NULL;
-      $iso = (isset($exif['ISOSpeedRatings'])) ? $exif['ISOSpeedRatings'] : NULL;
-    }
-
-    DB::table('photos')->insert(
-=======
     }
 
     /**
@@ -103,7 +60,10 @@ class PhotoController extends Controller
         $filename = $request->file('photofile')->store('');
         Image::make($request->file('photofile'))->resize(1920, null, function ($constraint) {
             $constraint->aspectRatio();
-        })->save('storage/s'.$filename, 100);
+        })->save('storage/'.$filename, 80);
+        Image::make($request->file('photofile'))->resize(300, null, function ($constraint) {
+          $constraint->aspectRatio();
+        })->save('storage/thumb/'.$filename, 50);
         if ($exif = exif_read_data($request->file('photofile'))) {
             $camera = null;
             if (isset($exif['Model'])) {
@@ -141,7 +101,6 @@ class PhotoController extends Controller
 
         // ここにデータベースに追加するやつ書く
         DB::table('photos')->insert(
->>>>>>> develop
       [
         'user_id' => User::firstOrNew(['screen_name' => $request->input('screen_name')])->id,
         'category_id' => $request->input('category'),
