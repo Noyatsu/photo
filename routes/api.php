@@ -40,7 +40,6 @@ Route::get('/photos/like/check/{screen_name}/{photo_id}', 'PhotoController@check
 Route::get('/categories', 'CategoryController@index');
 
 
-// 認証は面倒なので一旦省略
 Route::get('/users/{screen_name}', 'UserController@userInfo');
 Route::get('/users/follow/list/{screen_name}', 'UserController@getFollows');
 Route::get('/users/follow/status/{screen_name}', 'UserController@statusFollow');
@@ -54,3 +53,5 @@ Route::get('/photos/get/{id}', 'PhotoController@get');
 
 Route::get('/search/freeword', 'PhotoController@freewordSearch');
 Route::get('/search/user', 'UserController@searchUser');
+
+Route::get('/webapi/geocode', 'WebApiController@geocode');
