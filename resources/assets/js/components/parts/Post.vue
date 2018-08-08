@@ -10,7 +10,10 @@
       <div class="post-header">
         <div class="post-header-left is-size-7">
           <p><router-link v-bind:to="'/user/' + photo.screen_name"><img src="https://bulma.io/images/placeholders/128x128.png"></router-link></p>
-          <p><router-link v-bind:to="'/user/' + photo.screen_name"><strong>{{ photo.name }}</strong></router-link>(@{{photo.screen_name}}) <span v-if="photo.p_location">at {{ photo.p_location }}</span></p>
+          <p>
+            <router-link v-bind:to="'/user/' + photo.screen_name"><strong>{{ photo.name }}</strong></router-link>(@{{photo.screen_name}})
+            <br><span v-if="photo.p_location" class="has-text-grey is-size-8">{{ photo.location_name ? photo.location_name : photo.p_location }}</span>
+          </p>
         </div>
       </div>
       <div class="post-contents" style="margin: 0 auto; cursor: pointer;" v-on:click="modalToggle()">
@@ -113,6 +116,7 @@ export default{
     position: relative;
     margin-bottom: 0.2em;
 
+
     .post-header-left {
       display: inline-block;
       position: absolute;
@@ -123,7 +127,8 @@ export default{
         display: inline-block;
         vertical-align: middle;
         height: 2rem;
-        line-height: 2rem;
+        line-height: 1rem;
+        overflow: hidden;
       }
       p img {
         width: 2rem;
@@ -175,21 +180,29 @@ export default{
 .modal {
   z-index: 10000;
   position: fixed;
-  top: 0px;
+  top: 57px;
   bottom: 0;
   left: 0;
   right: 0;
   display: block;
   overflow-y: scroll;
 }
-
 .closeBtn {
   position: fixed;
-  top: 3px;
+  top: 60px;
   right: 3px;
   color: white;
   padding: 1rem;
   z-index: 100000;
+}
+@media (max-width: 800px) {
+  .modal {
+    top: 0;
+    bottom: 45px;
+  }
+  .closeBtn {
+    top: 3px;
+  }
 }
 
 a strong{
@@ -198,5 +211,9 @@ a strong{
 
 a {
   color: white;
+}
+
+.is-size-8 {
+  font-size: 75%;
 }
 </style>

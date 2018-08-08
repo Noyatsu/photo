@@ -7,7 +7,7 @@
       <apdarea @send-file="sendFile"></apdarea>
       <div class="field is-horizontal">
         <div class="field-label is-normal">
-          <label class="label">情報</label>
+          <label class="label" v-on:click="printdata()">情報</label>
         </div>
         <div class="field-body">
           <div class="field">
@@ -18,16 +18,13 @@
               </span>
             </p>
           </div>
-          <div class="field has-addons">
+          <div class="field">
             <p class="control is-expanded has-icons-left has-icons-right">
-              <input class="input" name="location" v-model="location" placeholder="撮影場所" autocomplete="off" readonly>
+              <input id="txtbox" ref="txtbox" class="input" name="location" placeholder="撮影場所">
               <span class="icon is-small is-left">
                 <i class="fas fa-map-marker"></i>
               </span>
             </p>
-            <div class="control">
-              <a class="button is-info" v-on:click="locationModal = true">位置情報を追加</a>
-            </div>
           </div>
         </div>
       </div>
@@ -101,39 +98,11 @@
       </div>
     </div>
   </form>
-
-
-  <!-- modal -->
-  <transition name="fade">
-    <div class="modal" v-if="locationModal">
-      <div class="modal-background" v-on:click="locationModal=false"></div>
-      <div class="modal-card">
-        <header class="modal-card-head">
-          <p class="modal-card-title">位置情報を追加</p>
-          <button class="delete" aria-label="close" v-on:click="locationModal=false"></button>
-        </header>
-        <section class="modal-card-body">
-          <!-- Content ... -->
-          <div class="field has-addons">
-            <p class="control is-expanded">
-              <input class="input" type="text" placeholder="位置情報を検索" v-model="locationQuery">
-            </p>
-            <p class="control"><a class="button" v-on:click="searchLocation(locationQuery)">検索</a></p>
-          </div>
-        </section>
-        <footer class="modal-card-foot">
-          <button class="button" v-on:click="locationModal=false">閉じる</button>
-        </footer>
-      </div>
-    </div>
-  </transition>
-  <!-- endModal -->
 </section>
 </template>
 
 <script>
 import axios from 'axios';
-import VueJsonp from 'vue-jsonp'
 const upd_area = require('./parts/UploadArea');
 
 export default {
@@ -144,13 +113,10 @@ export default {
       categories: [],
       files: [],
       title: '',
-      location: '',
       tags: '',
       description: '',
       category: '1',
-      locationModal: false,
-      locationQuery: '',
-      locationList: []
+      autocomplete: ''
     };
   },
   methods: {
@@ -159,9 +125,16 @@ export default {
       if(undefined != this.files[0]) {
         this.is_uploading = true;
         this.upload_mes = "ファイルをアップロード中です…";
+        let place = this.autocomplete.getPlace();
         let data = new FormData;
+        var txtbox = document.getElementById('txtbox');
         data.append('title', this.title ? this.title : 'Untitled');
-        data.append('location', this.location);
+        data.append('location', txtbox.value);
+        if(typeof(place) != "undefined") {
+          data.append('location_name', place.name);
+          data.append('location_address', place.formatted_address);
+          data.append('location_point', place.geometry.location.lat() + ',' + place.geometry.location.lng());
+        }
         data.append('tags', this.tags);
         data.append('description', this.description);
         data.append('category', this.category);
@@ -189,30 +162,6 @@ export default {
     sendFile(files) {
       this.files = files;
       this.upload_mes = "";
-    },
-    searchLocation(query) {
-      const requestUrl = 'https://map.yahooapis.jp/geocode/V1/geoCoder'
-      + '?appid=' + 'dj00aiZpPXVYcUxBZmxYZXBuNCZzPWNvbnN1bWVyc2VjcmV0Jng9M2M-'
-      + '&query=' + query
-      + '&recursive=true'
-      + '&output=jsonp'
-      + '&callback=callback';
-
-      let target = document.createElement('script');
-      target.charset = 'utf-8';
-      target.src = requestUrl;
-      document.body.appendChild(target);
-
-
-      //検索結果を取得
-      this.$jsonp(requestUrl)
-      .then(response => {
-        this.locationList = response;
-        console.log(this.locationList);
-      })
-      .catch(response => {
-        console.error(responce);
-      });
     }
   },
   async created() {
@@ -223,6 +172,13 @@ export default {
     } catch (e) {
       console.error(e)
     }
+  },
+  mounted() {
+    var txtbox = document.getElementById('txtbox');
+    this.autocomplete = new google.maps.places.Autocomplete(
+      txtbox,
+      {types: ['establishment', 'geocode']}
+    );
   },
   components:{
     //コンポーネントを登録する！

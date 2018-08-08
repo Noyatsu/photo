@@ -5,20 +5,27 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 /**
- * WebApiのラッパークラス
- */
+* WebApiのラッパークラス
+*/
 class WebApiController extends Controller
 {
-    static public function geocode(Request $request)
-    {
-      $url = 'https://map.yahooapis.jp/geocode/V1/geoCoder'
-      . http_build_query($request->all());
-      $json = file_get_contents($url);
-    }
+  static public function geocode(Request $request)
+  {
+    print (self::WebApiAccess('https://map.yahooapis.jp/geocode/cont/V1/contentsGeoCoder', $request));
+  }
 
-    static private function WebApiAccess($url, $request)
-    {
-      $url = $url . '?' . http_build_query($request->all());
-      return(file_get_contents($url));
-    }
+  static private function WebApiAccess($url, $request)
+  {
+    $context = stream_context_create(
+      [
+        "http"=>
+        [
+          "ignore_errors"=>true,
+          "protocol_version" => "1.1"
+        ]
+      ]
+    );
+    $url = $url . '?' . urldecode(http_build_query($request->all()));
+    return(file_get_contents($url, false, $context));
+  }
 }

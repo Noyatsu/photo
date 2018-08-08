@@ -17883,7 +17883,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.likenum[data-v-33cd90d3] {\n  margin-left: 0.5rem;\n}\n.post[data-v-33cd90d3] {\n  padding-top: 1rem;\n  padding-bottom: 1rem;\n  min-height: 100%;\n}\n.post .post-header[data-v-33cd90d3] {\n    height: 2rem;\n    position: relative;\n    margin-bottom: 0.2em;\n}\n.post .post-header .post-header-left[data-v-33cd90d3] {\n      display: inline-block;\n      position: absolute;\n      left: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-header .post-header-left p[data-v-33cd90d3] {\n        display: inline-block;\n        vertical-align: middle;\n        height: 2rem;\n        line-height: 2rem;\n}\n.post .post-header .post-header-left p img[data-v-33cd90d3] {\n        width: 2rem;\n        height: 2rem;\n        margin-right: 0.2rem;\n        border-radius: 100%;\n}\n.post .post-header .post-header-right[data-v-33cd90d3] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-contents[data-v-33cd90d3] {\n    margin-top: 0.25rem;\n    background-color: #202020;\n    text-align: center;\n}\n.post .post-contents img[data-v-33cd90d3] {\n      display: inline-block;\n      max-width: 800px;\n}\n@media (max-width: 800px) {\n.post .post-contents img[data-v-33cd90d3] {\n        display: block;\n        width: 100%;\n        max-width: none;\n}\n}\n.post .post-footer[data-v-33cd90d3] {\n    position: relative;\n    margin-left: 0.5rem;\n    margin-top: 0rem;\n}\n.post .post-footer .post-right[data-v-33cd90d3] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0.2rem;\n      bottom: 0;\n}\n.modal[data-v-33cd90d3] {\n  z-index: 10000;\n  position: fixed;\n  top: 0px;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  display: block;\n  overflow-y: scroll;\n}\n.closeBtn[data-v-33cd90d3] {\n  position: fixed;\n  top: 3px;\n  right: 3px;\n  color: white;\n  padding: 1rem;\n  z-index: 100000;\n}\na strong[data-v-33cd90d3] {\n  color: #000000;\n}\na[data-v-33cd90d3] {\n  color: white;\n}\n", ""]);
+exports.push([module.i, "\n.likenum[data-v-33cd90d3] {\n  margin-left: 0.5rem;\n}\n.post[data-v-33cd90d3] {\n  padding-top: 1rem;\n  padding-bottom: 1rem;\n  min-height: 100%;\n}\n.post .post-header[data-v-33cd90d3] {\n    height: 2rem;\n    position: relative;\n    margin-bottom: 0.2em;\n}\n.post .post-header .post-header-left[data-v-33cd90d3] {\n      display: inline-block;\n      position: absolute;\n      left: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-header .post-header-left p[data-v-33cd90d3] {\n        display: inline-block;\n        vertical-align: middle;\n        height: 2rem;\n        line-height: 1rem;\n        overflow: hidden;\n}\n.post .post-header .post-header-left p img[data-v-33cd90d3] {\n        width: 2rem;\n        height: 2rem;\n        margin-right: 0.2rem;\n        border-radius: 100%;\n}\n.post .post-header .post-header-right[data-v-33cd90d3] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-contents[data-v-33cd90d3] {\n    margin-top: 0.25rem;\n    background-color: #202020;\n    text-align: center;\n}\n.post .post-contents img[data-v-33cd90d3] {\n      display: inline-block;\n      max-width: 800px;\n}\n@media (max-width: 800px) {\n.post .post-contents img[data-v-33cd90d3] {\n        display: block;\n        width: 100%;\n        max-width: none;\n}\n}\n.post .post-footer[data-v-33cd90d3] {\n    position: relative;\n    margin-left: 0.5rem;\n    margin-top: 0rem;\n}\n.post .post-footer .post-right[data-v-33cd90d3] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0.2rem;\n      bottom: 0;\n}\n.modal[data-v-33cd90d3] {\n  z-index: 10000;\n  position: fixed;\n  top: 57px;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  display: block;\n  overflow-y: scroll;\n}\n.closeBtn[data-v-33cd90d3] {\n  position: fixed;\n  top: 60px;\n  right: 3px;\n  color: white;\n  padding: 1rem;\n  z-index: 100000;\n}\n@media (max-width: 800px) {\n.modal[data-v-33cd90d3] {\n    top: 0;\n    bottom: 45px;\n}\n.closeBtn[data-v-33cd90d3] {\n    top: 3px;\n}\n}\na strong[data-v-33cd90d3] {\n  color: #000000;\n}\na[data-v-33cd90d3] {\n  color: white;\n}\n.is-size-8[data-v-33cd90d3] {\n  font-size: 75%;\n}\n", ""]);
 
 // exports
 
@@ -17904,6 +17904,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
+//
+//
+//
 //
 //
 //
@@ -18139,6 +18142,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
 
 
 
@@ -18270,10 +18274,7 @@ var render = function() {
                   { attrs: { to: "/user/" + _vm.photo.screen_name } },
                   [_c("strong", [_vm._v(_vm._s(_vm.photo.name))])]
                 ),
-                _vm._v("(@" + _vm._s(_vm.photo.screen_name) + ") "),
-                _vm.photo.p_location
-                  ? _c("span", [_vm._v("at " + _vm._s(_vm.photo.p_location))])
-                  : _vm._e()
+                _vm._v("(@" + _vm._s(_vm.photo.screen_name) + ")")
               ],
               1
             )
@@ -18370,10 +18371,28 @@ var render = function() {
               2
             ),
             _vm._v(" "),
+            _vm.photo.filming_date
+              ? _c("p", [
+                  _c("i", { staticClass: "fas fa-calendar-alt fa-fw" }),
+                  _vm._v(" " + _vm._s(_vm.photo.filming_date))
+                ])
+              : _vm._e(),
+            _vm._v(" "),
             _vm.photo.p_location
               ? _c("p", [
                   _c("i", { staticClass: "fas fa-map-marker fa-fw" }),
-                  _vm._v(" " + _vm._s(_vm.photo.p_location))
+                  _vm._v(
+                    _vm._s(
+                      _vm.photo.location_name
+                        ? _vm.photo.location_name
+                        : _vm.photo.p_location
+                    )
+                  ),
+                  _vm.photo.location_address
+                    ? _c("span", [
+                        _vm._v("(" + _vm._s(_vm.photo.location_address) + ")")
+                      ])
+                    : _vm._e()
                 ])
               : _vm._e(),
             _vm._v(" "),
@@ -18397,11 +18416,11 @@ var render = function() {
                   _vm._v(
                     " " +
                       _vm._s(_vm.photo.focal_length) +
-                      "mm " +
+                      "mm, " +
                       _vm._s(_vm.photo.speed) +
-                      " F" +
+                      ", F" +
                       _vm._s(_vm.photo.iris) +
-                      " ISO" +
+                      ", ISO" +
                       _vm._s(_vm.photo.iso)
                   )
                 ])
@@ -18527,9 +18546,18 @@ var render = function() {
                   { attrs: { to: "/user/" + _vm.photo.screen_name } },
                   [_c("strong", [_vm._v(_vm._s(_vm.photo.name))])]
                 ),
-                _vm._v("(@" + _vm._s(_vm.photo.screen_name) + ") "),
+                _vm._v("(@" + _vm._s(_vm.photo.screen_name) + ")\n          "),
+                _c("br"),
                 _vm.photo.p_location
-                  ? _c("span", [_vm._v("at " + _vm._s(_vm.photo.p_location))])
+                  ? _c("span", { staticClass: "has-text-grey is-size-8" }, [
+                      _vm._v(
+                        _vm._s(
+                          _vm.photo.location_name
+                            ? _vm.photo.location_name
+                            : _vm.photo.p_location
+                        )
+                      )
+                    ])
                   : _vm._e()
               ],
               1
@@ -19038,8 +19066,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_jsonp__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_jsonp___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue_jsonp__);
 
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
@@ -19147,37 +19173,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
 
 
 var upd_area = __webpack_require__(73);
@@ -19190,13 +19185,10 @@ var upd_area = __webpack_require__(73);
       categories: [],
       files: [],
       title: '',
-      location: '',
       tags: '',
       description: '',
       category: '1',
-      locationModal: false,
-      locationQuery: '',
-      locationList: []
+      autocomplete: ''
     };
   },
 
@@ -19208,9 +19200,16 @@ var upd_area = __webpack_require__(73);
       if (undefined != this.files[0]) {
         this.is_uploading = true;
         this.upload_mes = "ファイルをアップロード中です…";
+        var place = this.autocomplete.getPlace();
         var data = new FormData();
+        var txtbox = document.getElementById('txtbox');
         data.append('title', this.title ? this.title : 'Untitled');
-        data.append('location', this.location);
+        data.append('location', txtbox.value);
+        if (typeof place != "undefined") {
+          data.append('location_name', place.name);
+          data.append('location_address', place.formatted_address);
+          data.append('location_point', place.geometry.location.lat() + ',' + place.geometry.location.lng());
+        }
         data.append('tags', this.tags);
         data.append('description', this.description);
         data.append('category', this.category);
@@ -19236,24 +19235,6 @@ var upd_area = __webpack_require__(73);
     sendFile: function sendFile(files) {
       this.files = files;
       this.upload_mes = "";
-    },
-    searchLocation: function searchLocation(query) {
-      var _this2 = this;
-
-      var requestUrl = 'https://map.yahooapis.jp/geocode/V1/geoCoder' + '?appid=' + 'dj00aiZpPXVYcUxBZmxYZXBuNCZzPWNvbnN1bWVyc2VjcmV0Jng9M2M-' + '&query=' + query + '&recursive=true' + '&output=jsonp' + '&callback=callback';
-
-      var target = document.createElement('script');
-      target.charset = 'utf-8';
-      target.src = requestUrl;
-      document.body.appendChild(target);
-
-      //検索結果を取得
-      this.$jsonp(requestUrl).then(function (response) {
-        _this2.locationList = response;
-        console.log(_this2.locationList);
-      }).catch(function (response) {
-        console.error(responce);
-      });
     }
   },
   created: function () {
@@ -19294,6 +19275,10 @@ var upd_area = __webpack_require__(73);
 
     return created;
   }(),
+  mounted: function mounted() {
+    var txtbox = document.getElementById('txtbox');
+    this.autocomplete = new google.maps.places.Autocomplete(txtbox, { types: ['establishment', 'geocode'] });
+  },
 
   components: {
     //コンポーネントを登録する！
@@ -19564,363 +19549,240 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "section",
-    { staticClass: "container section" },
-    [
-      _vm.upload_mes
-        ? _c("div", { staticClass: "notification is-info" }, [
-            _vm._v("\n      " + _vm._s(_vm.upload_mes) + "\n    ")
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _c(
-        "form",
-        [
-          _c("apdarea", { on: { "send-file": _vm.sendFile } }),
+  return _c("section", { staticClass: "container section" }, [
+    _vm.upload_mes
+      ? _c("div", { staticClass: "notification is-info" }, [
+          _vm._v("\n      " + _vm._s(_vm.upload_mes) + "\n    ")
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _c(
+      "form",
+      [
+        _c("apdarea", { on: { "send-file": _vm.sendFile } }),
+        _vm._v(" "),
+        _c("div", { staticClass: "field is-horizontal" }, [
+          _c("div", { staticClass: "field-label is-normal" }, [
+            _c(
+              "label",
+              {
+                staticClass: "label",
+                on: {
+                  click: function($event) {
+                    _vm.printdata()
+                  }
+                }
+              },
+              [_vm._v("情報")]
+            )
+          ]),
           _vm._v(" "),
-          _c("div", { staticClass: "field is-horizontal" }, [
-            _vm._m(0),
-            _vm._v(" "),
-            _c("div", { staticClass: "field-body" }, [
-              _c("div", { staticClass: "field" }, [
-                _c("p", { staticClass: "control is-expanded has-icons-left" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.title,
-                        expression: "title"
+          _c("div", { staticClass: "field-body" }, [
+            _c("div", { staticClass: "field" }, [
+              _c("p", { staticClass: "control is-expanded has-icons-left" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.title,
+                      expression: "title"
+                    }
+                  ],
+                  staticClass: "input",
+                  attrs: {
+                    type: "text",
+                    name: "title",
+                    placeholder: "タイトル"
+                  },
+                  domProps: { value: _vm.title },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
                       }
-                    ],
+                      _vm.title = $event.target.value
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _vm._m(0)
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "field" }, [
+              _c(
+                "p",
+                {
+                  staticClass:
+                    "control is-expanded has-icons-left has-icons-right"
+                },
+                [
+                  _c("input", {
+                    ref: "txtbox",
                     staticClass: "input",
                     attrs: {
-                      type: "text",
-                      name: "title",
-                      placeholder: "タイトル"
-                    },
-                    domProps: { value: _vm.title },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.title = $event.target.value
-                      }
+                      id: "txtbox",
+                      name: "location",
+                      placeholder: "撮影場所"
                     }
                   }),
                   _vm._v(" "),
                   _vm._m(1)
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "field has-addons" }, [
-                _c(
-                  "p",
-                  {
-                    staticClass:
-                      "control is-expanded has-icons-left has-icons-right"
+                ]
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "field is-horizontal" }, [
+          _vm._m(2),
+          _vm._v(" "),
+          _c("div", { staticClass: "field-body" }, [
+            _c("div", { staticClass: "field" }, [
+              _c("p", { staticClass: "control is-expanded has-icons-left" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.tags,
+                      expression: "tags"
+                    }
+                  ],
+                  staticClass: "input",
+                  attrs: {
+                    type: "text",
+                    name: "tags",
+                    placeholder: "タグ(コンマ(,)区切り)"
                   },
-                  [
-                    _c("input", {
+                  domProps: { value: _vm.tags },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.tags = $event.target.value
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _vm._m(3)
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "field is-horizontal" }, [
+          _vm._m(4),
+          _vm._v(" "),
+          _c("div", { staticClass: "field-body" }, [
+            _c("div", { staticClass: "field" }, [
+              _c("div", { staticClass: "control" }, [
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.description,
+                      expression: "description"
+                    }
+                  ],
+                  staticClass: "textarea",
+                  attrs: { name: "description", placeholder: "説明" },
+                  domProps: { value: _vm.description },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.description = $event.target.value
+                    }
+                  }
+                })
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "field is-horizontal" }, [
+          _vm._m(5),
+          _vm._v(" "),
+          _c("div", { staticClass: "field-body" }, [
+            _c("div", { staticClass: "field is-narrow" }, [
+              _c("div", { staticClass: "control" }, [
+                _c("div", { staticClass: "select is-fullwidth" }, [
+                  _c(
+                    "select",
+                    {
                       directives: [
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.location,
-                          expression: "location"
+                          value: _vm.category,
+                          expression: "category"
                         }
                       ],
-                      staticClass: "input",
-                      attrs: {
-                        name: "location",
-                        placeholder: "撮影場所",
-                        autocomplete: "off",
-                        readonly: ""
-                      },
-                      domProps: { value: _vm.location },
+                      attrs: { name: "category" },
                       on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.location = $event.target.value
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _vm._m(2)
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "control" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "button is-info",
-                      on: {
-                        click: function($event) {
-                          _vm.locationModal = true
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.category = $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
                         }
                       }
                     },
-                    [_vm._v("位置情報を追加")]
+                    _vm._l(_vm.categories, function(category) {
+                      return _c(
+                        "option",
+                        { domProps: { value: category.id } },
+                        [_vm._v(_vm._s(category.name))]
+                      )
+                    })
                   )
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "field is-horizontal" }, [
-            _vm._m(3),
-            _vm._v(" "),
-            _c("div", { staticClass: "field-body" }, [
-              _c("div", { staticClass: "field" }, [
-                _c("p", { staticClass: "control is-expanded has-icons-left" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.tags,
-                        expression: "tags"
-                      }
-                    ],
-                    staticClass: "input",
-                    attrs: {
-                      type: "text",
-                      name: "tags",
-                      placeholder: "タグ(コンマ(,)区切り)"
-                    },
-                    domProps: { value: _vm.tags },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.tags = $event.target.value
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _vm._m(4)
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "field is-horizontal" }, [
-            _vm._m(5),
-            _vm._v(" "),
-            _c("div", { staticClass: "field-body" }, [
-              _c("div", { staticClass: "field" }, [
-                _c("div", { staticClass: "control" }, [
-                  _c("textarea", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.description,
-                        expression: "description"
-                      }
-                    ],
-                    staticClass: "textarea",
-                    attrs: { name: "description", placeholder: "説明" },
-                    domProps: { value: _vm.description },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.description = $event.target.value
-                      }
-                    }
-                  })
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "field is-horizontal" }, [
-            _vm._m(6),
-            _vm._v(" "),
-            _c("div", { staticClass: "field-body" }, [
-              _c("div", { staticClass: "field is-narrow" }, [
-                _c("div", { staticClass: "control" }, [
-                  _c("div", { staticClass: "select is-fullwidth" }, [
-                    _c(
-                      "select",
-                      {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.category,
-                            expression: "category"
-                          }
-                        ],
-                        attrs: { name: "category" },
-                        on: {
-                          change: function($event) {
-                            var $$selectedVal = Array.prototype.filter
-                              .call($event.target.options, function(o) {
-                                return o.selected
-                              })
-                              .map(function(o) {
-                                var val = "_value" in o ? o._value : o.value
-                                return val
-                              })
-                            _vm.category = $event.target.multiple
-                              ? $$selectedVal
-                              : $$selectedVal[0]
-                          }
-                        }
-                      },
-                      _vm._l(_vm.categories, function(category) {
-                        return _c(
-                          "option",
-                          { domProps: { value: category.id } },
-                          [_vm._v(_vm._s(category.name))]
-                        )
-                      })
-                    )
-                  ])
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "field is-horizontal" }, [
-            _c("div", { staticClass: "field-label" }),
-            _vm._v(" "),
-            _c("div", { staticClass: "field-body" }, [
-              _c("div", { staticClass: "field" }, [
-                _c("div", { staticClass: "control" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "button is-info",
-                      attrs: { type: "button", disabled: _vm.is_uploading },
-                      on: { click: _vm.onSubmit }
-                    },
-                    [_vm._m(7), _vm._v(" "), _c("p", [_vm._v("アップロード")])]
-                  ),
-                  _vm._v(" "),
-                  _vm.is_uploading
-                    ? _c("img", { attrs: { src: "/storage/gload.gif" } })
-                    : _vm._e()
                 ])
               ])
             ])
           ])
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c("transition", { attrs: { name: "fade" } }, [
-        _vm.locationModal
-          ? _c("div", { staticClass: "modal" }, [
-              _c("div", {
-                staticClass: "modal-background",
-                on: {
-                  click: function($event) {
-                    _vm.locationModal = false
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "modal-card" }, [
-                _c("header", { staticClass: "modal-card-head" }, [
-                  _c("p", { staticClass: "modal-card-title" }, [
-                    _vm._v("位置情報を追加")
-                  ]),
-                  _vm._v(" "),
-                  _c("button", {
-                    staticClass: "delete",
-                    attrs: { "aria-label": "close" },
-                    on: {
-                      click: function($event) {
-                        _vm.locationModal = false
-                      }
-                    }
-                  })
-                ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "field is-horizontal" }, [
+          _c("div", { staticClass: "field-label" }),
+          _vm._v(" "),
+          _c("div", { staticClass: "field-body" }, [
+            _c("div", { staticClass: "field" }, [
+              _c("div", { staticClass: "control" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "button is-info",
+                    attrs: { type: "button", disabled: _vm.is_uploading },
+                    on: { click: _vm.onSubmit }
+                  },
+                  [_vm._m(6), _vm._v(" "), _c("p", [_vm._v("アップロード")])]
+                ),
                 _vm._v(" "),
-                _c("section", { staticClass: "modal-card-body" }, [
-                  _c("div", { staticClass: "field has-addons" }, [
-                    _c("p", { staticClass: "control is-expanded" }, [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.locationQuery,
-                            expression: "locationQuery"
-                          }
-                        ],
-                        staticClass: "input",
-                        attrs: { type: "text", placeholder: "位置情報を検索" },
-                        domProps: { value: _vm.locationQuery },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.locationQuery = $event.target.value
-                          }
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "control" }, [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "button",
-                          on: {
-                            click: function($event) {
-                              _vm.searchLocation(_vm.locationQuery)
-                            }
-                          }
-                        },
-                        [_vm._v("検索")]
-                      )
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("footer", { staticClass: "modal-card-foot" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "button",
-                      on: {
-                        click: function($event) {
-                          _vm.locationModal = false
-                        }
-                      }
-                    },
-                    [_vm._v("閉じる")]
-                  )
-                ])
+                _vm.is_uploading
+                  ? _c("img", { attrs: { src: "/storage/gload.gif" } })
+                  : _vm._e()
               ])
             ])
-          : _vm._e()
-      ])
-    ],
-    1
-  )
+          ])
+        ])
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "field-label is-normal" }, [
-      _c("label", { staticClass: "label" }, [_vm._v("情報")])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
