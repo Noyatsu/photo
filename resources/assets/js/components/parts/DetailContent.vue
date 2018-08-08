@@ -72,7 +72,7 @@ export default{
     }
 
     this.likeNum = this.photo.likes;
-    const tags_str = this.photo.tags;
+    const tags_str = this.photo.tags || '';
     if(tags_str != '') {
       this.tags = tags_str.split(',');
     }
@@ -94,10 +94,12 @@ export default{
           this.isLiked = true;
           this.likeNum = this.likeNum + 1;
         }
+        this.$emit('toggleLike');
       })
       .catch(error => {
         console.log(error.response)
       });
+
     }
   }
 }

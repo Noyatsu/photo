@@ -1,9 +1,11 @@
 <template>
   <div>
-    <!--<div class="modal" v-if="showModal">
-      <div class="closeBtn"><i class="far fa-times-circle"></i></div>
-      <detail-content v-bind:photo="photo"></detail-content>
-    </div>-->
+    <transition name="fade">
+      <div class="modal" v-if="showModal">
+        <div class="closeBtn" v-on:click="modalToggle()"><i class="far fa-times-circle fa-lg"></i></div>
+        <detail-content v-bind:photo="photo" v-on:toggleLike="likeToggleData()"></detail-content>
+      </div>
+    </transition>
     <div class="post">
       <div class="post-header">
         <div class="post-header-left is-size-7">
@@ -11,13 +13,11 @@
           <p><router-link v-bind:to="'/user/' + photo.screen_name"><strong>{{ photo.name }}</strong></router-link>(@{{photo.screen_name}}) <span v-if="photo.p_location">at {{ photo.p_location }}</span></p>
         </div>
       </div>
-      <router-link v-bind:to="'/photo/'+photo.p_id">
-        <div class="post-contents" style="margin: 0 auto;">
-          <img v-bind:src="'/storage/' + photo.path" >
-        </div>
-      </router-link>
+      <div class="post-contents" style="margin: 0 auto; cursor: pointer;" v-on:click="modalToggle()">
+        <img v-bind:src="'/storage/' + photo.path" >
+      </div>
       <div class="post-footer">
-        <p class="post-title"><strong>{{ photo.title }}</strong></p>
+        <p class="post-title" v-on:click="showModal=true"><strong>{{ photo.title }}</strong></p>
         <div class="post-right">
           <a class="button is-light"><i class="fas fa-share-alt"></i></a>
           <a class="button is-light" @click="likeToggle" v-bind:class="{ 'is-danger': isLiked }">
@@ -71,20 +71,30 @@ export default{
         csrfToken: window.Laravel.csrfToken
       })
       .then(response => {
-        if(this.isLiked == true){
-          this.isLiked = false;
-          this.likeNum = this.likeNum - 1;
-        }
-        else {
-          this.isLiked = true;
-          this.likeNum = this.likeNum + 1;
-        }
+        this.likeToggleData();
       })
       .catch(error => {
         console.log(error.response)
       });
-
-
+    },
+    likeToggleData: function() {
+      if(this.isLiked == true){
+        this.isLiked = false;
+        this.likeNum = this.likeNum - 1;
+      }
+      else {
+        this.isLiked = true;
+        this.likeNum = this.likeNum + 1;
+      }
+    },
+    modalToggle: function() {
+      if(this.showModal) {
+        window.history.back();
+      }
+      else {
+        history.pushState('', '', "/photo/" + this.photo.p_id);
+      }
+      this.showModal = !this.showModal;
     }
   }
 
@@ -95,8 +105,9 @@ export default{
   margin-left: 0.5rem;
 }
 .post {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  min-height: 100%;
   .post-header {
     height: 2rem;
     position: relative;
@@ -174,11 +185,10 @@ export default{
 
 .closeBtn {
   position: fixed;
-  top: 20px;
-  right: 20px;
+  top: 3px;
+  right: 3px;
   color: white;
   padding: 1rem;
-  font-size: 2;
   z-index: 100000;
 }
 
