@@ -7,7 +7,7 @@
       <apdarea @send-file="sendFile"></apdarea>
       <div class="field is-horizontal">
         <div class="field-label is-normal">
-          <label class="label">情報</label>
+          <label class="label" v-on:click="printdata()">情報</label>
         </div>
         <div class="field-body">
           <div class="field">
@@ -20,7 +20,7 @@
           </div>
           <div class="field">
             <p class="control is-expanded has-icons-left has-icons-right">
-              <input class="input" name="location" v-model="location" placeholder="撮影場所">
+              <input id="txtbox" ref="txtbox" class="input" name="location" placeholder="撮影場所">
               <span class="icon is-small is-left">
                 <i class="fas fa-map-marker"></i>
               </span>
@@ -112,11 +112,11 @@ export default {
       upload_mes: '',
       categories: [],
       files: [],
-      title: 'Untitled',
-      location: '',
+      title: '',
       tags: '',
       description: '',
-      category: '1'
+      category: '1',
+      autocomplete: ''
     };
   },
   methods: {
@@ -125,9 +125,16 @@ export default {
       if(undefined != this.files[0]) {
         this.is_uploading = true;
         this.upload_mes = "ファイルをアップロード中です…";
+        let place = this.autocomplete.getPlace();
         let data = new FormData;
-        data.append('title', this.title);
-        data.append('location', this.location);
+        var txtbox = document.getElementById('txtbox');
+        data.append('title', this.title ? this.title : 'Untitled');
+        data.append('location', txtbox.value);
+        if(typeof(place) != "undefined") {
+          data.append('location_name', place.name);
+          data.append('location_address', place.formatted_address);
+          data.append('location_point', place.geometry.location.lat() + ',' + place.geometry.location.lng());
+        }
         data.append('tags', this.tags);
         data.append('description', this.description);
         data.append('category', this.category);
@@ -152,7 +159,7 @@ export default {
       }
     },
     //子コンポネートからファイルを受け取り
-    sendFile(files){
+    sendFile(files) {
       this.files = files;
       this.upload_mes = "";
     }
@@ -166,6 +173,13 @@ export default {
       console.error(e)
     }
   },
+  mounted() {
+    var txtbox = document.getElementById('txtbox');
+    this.autocomplete = new google.maps.places.Autocomplete(
+      txtbox,
+      {types: ['establishment', 'geocode']}
+    );
+  },
   components:{
     //コンポーネントを登録する！
     'apdarea':upd_area
@@ -173,3 +187,22 @@ export default {
 }
 
 </script>
+<style scoped>
+.modal {
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: block;
+}
+.modal-card {
+  top: 30px;
+  bottom: 30px;
+  width: 90vw;
+}
+.modal-card-body {
+  overflow-y: scroll;
+}
+</style>

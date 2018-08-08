@@ -136,6 +136,7 @@ class UserController extends Controller
         return response(User::select('photos.location as p_location', 'photos.description as p_description', 'photos.created_at as p_created_at', 'photos.id as p_id', 'users.*', 'photos.*')
     ->join('photos', 'users.id', '=', 'photos.user_id')
     ->where(['photos.user_id' => $user->id])
+    ->orderBy('photos.id', 'desc')
     ->get());
     }
 
@@ -184,15 +185,17 @@ class UserController extends Controller
         $page = Input::get('page', 1);
 
         $user = User::firstOrNew(['screen_name' => $screen_name]);
-        $f_photos = Photo::select('photos.location as p_location', 'photos.description as p_description', 'photos.created_at as p_created_at', 'photos.id as p_id', 'photos.*', 'users.*')
+        $f_photos = Photo::select('photos.location as p_location', 'photos.description as p_description', 'photos.created_at as p_created_at', 'photos.id as p_id', 'photos.*', 'users.*', 'categories.name as c_name')
     ->where(['follows.user_id' => $user->id])
     ->join('follows', 'photos.user_id', '=', 'follows.follow_user_id')
-    ->join('users', 'photos.user_id', '=', 'users.id');
-
-        $photos = Photo::select('photos.location as p_location', 'photos.description as p_description', 'photos.created_at as p_created_at', 'photos.id as p_id', 'photos.*', 'users.*')
-    ->where(['photos.user_id' => $user->id])
-    ->join('follows', 'photos.user_id', '=', 'follows.follow_user_id')
     ->join('users', 'photos.user_id', '=', 'users.id')
+    ->join('categories', 'photos.category_id', '=', 'categories.id');
+
+
+        $photos = Photo::select('photos.location as p_location', 'photos.description as p_description', 'photos.created_at as p_created_at', 'photos.id as p_id', 'photos.*', 'users.*', 'categories.name as c_name')
+    ->where(['photos.user_id' => $user->id])
+    ->join('users', 'photos.user_id', '=', 'users.id')
+    ->join('categories', 'photos.category_id', '=', 'categories.id')
     ->union($f_photos)
     ->orderBy('p_id', 'desc')
     ->get();

@@ -65,6 +65,11 @@ class PhotoController extends Controller
           $constraint->aspectRatio();
         })->save('storage/thumb/'.$filename, 100);
         if ($exif = exif_read_data($request->file('photofile'))) {
+            $filming_date = null;
+            if(isset($exif['DateTime'])) {
+              $filming_date = $exif['DateTime'];
+            }
+
             $camera = null;
             if (isset($exif['Model'])) {
                 $camera = $exif['Model'];
@@ -107,8 +112,12 @@ class PhotoController extends Controller
         'title' => $request->input('title'),
         'path' => $filename,
         'location' => $request->input('location'),
+        'location_name' => $request->input('location_name'),
+        'location_address' => $request->input('location_address'),
+        'location_point' => $request->input('location_point'),
         'tags' => $request->input('tags'),
         'description' => $request->input('description'),
+        'filming_date' => $filming_date,
         'camera' => $camera,
         'lens' => $lens,
         'focal_length' => $focal_length,

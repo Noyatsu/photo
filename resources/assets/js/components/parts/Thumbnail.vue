@@ -28,7 +28,6 @@ export default{
   height: 180px;
   width: 320px;
   background-color: hsl(217, 71%, 53%);
-  background-image: url("/storage/photo/1.JPG");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -39,9 +38,9 @@ export default{
 }
 @media (max-width: 767px) {
   .photo {
-    height: 150px;
-    width: 150px;
-    margin: 0.5rem;
+    height: 100px;
+    width: 100px;
+    margin: 0.01rem;
 
   }
 }

@@ -4,7 +4,7 @@
       <div class="post-header">
         <div class="post-header-left is-size-7">
           <p><router-link v-bind:to="'/user/' + photo.screen_name"><img src="https://bulma.io/images/placeholders/128x128.png"></router-link></p>
-          <p><router-link v-bind:to="'/user/' + photo.screen_name"><strong>{{ photo.name }}</strong></router-link>(@{{photo.screen_name}}) <span v-if="photo.p_location">at {{ photo.p_location }}</span></p>
+          <p><router-link v-bind:to="'/user/' + photo.screen_name"><strong>{{ photo.name }}</strong></router-link>(@{{photo.screen_name}})</p>
         </div>
       </div>
       <div class="post-contents" style="margin: 0 auto;" @click="showModal = true">
@@ -27,10 +27,11 @@
             <span class="tag is-light">{{ photo.c_name }}</span>
             <span class="tag is-dark" v-for="tag in tags">{{ tag }}</span>
           </p>
-          <p v-if="photo.p_location"><i class="fas fa-map-marker fa-fw"></i> {{ photo.p_location }}</p>
+          <p v-if="photo.filming_date"><i class="fas fa-calendar-alt fa-fw"></i> {{ photo.filming_date }}</p>
+          <p v-if="photo.p_location"><i class="fas fa-map-marker fa-fw"></i>{{ photo.location_name ? photo.location_name : photo.p_location }}<span v-if="photo.location_address">({{photo.location_address}})</span></p>
           <p v-if="photo.camera"><i class="fas fa-camera fa-fw"></i> {{ photo.camera }}</p>
           <p v-if="photo.lens"><i class="far fa-dot-circle fa-fw"></i> {{ photo.lens }}</p>
-          <p v-if="photo.focal_length"><i class="fas fa-sliders-h fa-fw"></i> {{ photo.focal_length }}mm {{ photo.speed }} F{{ photo.iris }} ISO{{ photo.iso }}</p>
+          <p v-if="photo.focal_length"><i class="fas fa-sliders-h fa-fw"></i> {{ photo.focal_length }}mm, {{ photo.speed }}, F{{ photo.iris }}, ISO{{ photo.iso }}</p>
           <p>{{ photo.p_description }}</p>
           <h3>コメント</h3>
           <div class="field">
@@ -72,7 +73,7 @@ export default{
     }
 
     this.likeNum = this.photo.likes;
-    const tags_str = this.photo.tags;
+    const tags_str = this.photo.tags || '';
     if(tags_str != '') {
       this.tags = tags_str.split(',');
     }
@@ -94,10 +95,12 @@ export default{
           this.isLiked = true;
           this.likeNum = this.likeNum + 1;
         }
+        this.$emit('toggleLike');
       })
       .catch(error => {
         console.log(error.response)
       });
+
     }
   }
 }

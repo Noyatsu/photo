@@ -7,7 +7,6 @@
 // vueとvue-routerの定義
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-
 //require('./bootstrap');
 
 import axios from 'axios';
