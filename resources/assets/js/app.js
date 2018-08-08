@@ -7,7 +7,6 @@
 // vueとvue-routerの定義
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import VueJsonp from 'vue-jsonp'
 //require('./bootstrap');
 
 import axios from 'axios';
@@ -15,7 +14,6 @@ import ThumbComponent from './components/parts/Thumbnail.vue';
 
 window.Vue = require('vue');
 Vue.use(VueRouter);
-Vue.use(VueJsonp)
 
 // vue-routerのインスタンス化、オプションroutesでアクセスされるパスとその時に表示するComponentを指定
 let router = new VueRouter({

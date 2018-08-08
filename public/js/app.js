@@ -12144,202 +12144,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 11 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;;(function(root, factory) {
-  if (true) {
-    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
-				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
-				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-  } else if (typeof exports === 'object') {
-    module.exports = factory();
-  } else {
-    root.vueJsonp = factory();
-  }
-}(this, function() {
-/**
- * Vue Jsonp By LancerComet at 16:35, 2016.10.17.
- * # Carry Your World #
- *
- * @author: LancerComet
- * @license: MIT
- */
-
-var _timeout = null
-
-var vueJsonp = {
-  install: function (Vue, options) {
-    Vue.jsonp = jsonp
-    Vue.prototype.$jsonp = jsonp
-
-    if (typeof options === 'number') {
-      _timeout = options
-    }
-  }
-}
-
-/**
- * JSONP function.
- * @param { String } url Target URL address.
- * @param { Object } params Querying params object.
- * @param { Number } timeout Timeout setting (ms).
- *
- * @example
- *   Vue.jsonp('/url', {
- *     callbackQuery: ''
- *     callbackName: '',
- *     name: 'LancerComet',
- *     age: 26
- *   }, 1000)
- */
-function jsonp (url, params, timeout) {
-  params = params || {}
-  timeout = timeout || _timeout
-
-  return new Promise(function (resolve, reject) {
-    if (typeof url !== 'string') {
-      throw new Error('[Vue.jsonp] Type of param "url" is not string.')
-    }
-
-    var callbackQuery = params.callbackQuery || 'callback'
-    var callbackName = params.callbackName || 'jsonp_' + randomStr()
-
-    params[callbackQuery] = callbackName
-
-    // Remove callbackQuery and callbackName.
-    delete params.callbackQuery
-    delete params.callbackName
-
-    // Convert params to querying str.
-    var queryStrs = []
-    Object.keys(params).forEach(function (queryName) {
-      queryStrs = queryStrs.concat(formatParams(queryName, params[queryName]))
-    })
-
-    var queryStr = flatten(queryStrs).join('&')
-
-    // Timeout timer.
-    var timeoutTimer = null
-
-    // Setup timeout.
-    if (typeof timeout === 'number') {
-      timeoutTimer = setTimeout(function () {
-        removeErrorListener()
-        headNode.removeChild(paddingScript)
-        delete window[callbackName]
-        reject({ statusText: 'Request Timeout', status: 408 })
-      }, timeout)
-    }
-
-    // Create global function.
-    window[callbackName] = function (json) {
-      clearTimeout(timeoutTimer)
-      removeErrorListener()
-      headNode.removeChild(paddingScript)
-      resolve(json)
-      delete window[callbackName]
-    }
-
-    // Create script element.
-    var headNode = document.querySelector('head')
-    var paddingScript = document.createElement('script')
-
-    // Add error listener.
-    paddingScript.addEventListener('error', onError)
-
-    // Append to head element.
-    paddingScript.src = url + (/\?/.test(url) ? '&' : '?') + queryStr
-    headNode.appendChild(paddingScript)
-
-    /**
-     * Padding script on-error event.
-     * @param {Event} event
-     */
-    function onError (event) {
-      removeErrorListener()
-      clearTimeout(timeoutTimer)
-      reject({
-        status: 400,
-        statusText: 'Bad Request'
-      })
-    }
-
-    /**
-     * Remove on-error event listener.
-     */
-    function removeErrorListener () {
-      paddingScript.removeEventListener('error', onError)
-    }
-  })
-
-}
-
-/**
- * Generate random string.
- * @return { String }
- */
-function randomStr () {
-  return (Math.floor(Math.random() * 100000) * Date.now()).toString(16)
-}
-
-/**
- * Format params into querying string.
- * @param {{}}
- * @return {string[]}
- */
-function formatParams (queryName, value) {
-  queryName = queryName.replace(/=/g, '')
-  var result = []
-
-  switch (value.constructor) {
-    case String:
-    case Number:
-    case Boolean:
-      result.push(encodeURIComponent(queryName) + '=' + encodeURIComponent(value))
-      break
-
-    case Array:
-      value.forEach(function (item) {
-        result = result.concat(formatParams(queryName + '[]=', item))
-      })
-      break
-
-    case Object:
-      Object.keys(value).forEach(function (key) {
-        var item = value[key]
-        result = result.concat(formatParams(queryName + '[' + key + ']', item))
-      })
-      break
-  }
-
-  return result
-}
-
-/**
- * Flat querys.
- *
- * @param {any} array
- * @returns
- */
-function flatten (array) {
-  var querys = []
-  array.forEach(function (item) {
-    if (typeof item === 'string') {
-      querys.push(item)
-    } else {
-      querys = querys.concat(flatten(item))
-    }
-  })
-  return querys
-}
-
-return vueJsonp;
-}));
-
-
-/***/ }),
+/* 11 */,
 /* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12824,12 +12629,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_jsonp__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_jsonp___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue_jsonp__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_axios__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_parts_Thumbnail_vue__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_parts_Thumbnail_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_parts_Thumbnail_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_parts_Thumbnail_vue__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_parts_Thumbnail_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_parts_Thumbnail_vue__);
 /**
 * First we will load all of this project's JavaScript dependencies which
 * includes Vue and other libraries. It is a great starting point when
@@ -12839,7 +12642,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 // vueとvue-routerの定義
 
 
-
 //require('./bootstrap');
 
 
@@ -12847,7 +12649,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 window.Vue = __webpack_require__(9);
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_vue_jsonp___default.a);
 
 // vue-routerのインスタンス化、オプションroutesでアクセスされるパスとその時に表示するComponentを指定
 var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
