@@ -7,8 +7,8 @@
           <p><router-link v-bind:to="'/user/' + photo.screen_name"><strong>{{ photo.name }}</strong></router-link>(@{{photo.screen_name}})</p>
         </div>
       </div>
-      <div class="post-contents" style="margin: 0 auto;" @click="showModal = true">
-        <img v-bind:src="'/storage/' + photo.path" @click="showModal = true">
+      <div ref="imgbox" class="post-contents" style="margin: 0 auto;" @click="showModal = true">
+        <img ref="img" v-bind:src="'/storage/' + photo.path" @click="showModal = true" @touchstart="touch_start()" @touchend="touch_end()" v-bind:class="scaled ? 'zoom' : ''">
       </div>
       <div class="post-footer">
         <p class="post-title"><strong class="has-text-light">{{ photo.title }}</strong></p>
@@ -57,7 +57,10 @@ export default{
       showModal: false,
       isLiked: false,
       likeNum: 0,
-      tags: []
+      tags: [],
+      scaled: false,
+      imgWidth: 0,
+      imgHeight: 0
     }
   },
   async created() {
@@ -77,8 +80,23 @@ export default{
     if(tags_str != '') {
       this.tags = tags_str.split(',');
     }
+
+
   },
   methods: {
+    touch_start: function(e) {
+      let img = this.$refs.img;
+      let imgbox = this.$refs.imgbox;
+      img.style.width="200%";
+      imgbox.scrollLeft = event.changedTouches[0].pageX;
+      //imgbox.scrollLeft = 50;
+
+    },
+    touch_end: function() {
+      let img = this.$refs.img;
+      let imgbox = this.$refs.imgbox;
+      img.style.width="100%";
+    },
     likeToggle: function() {
       axios.post('/api/photos/like/toggle', {
         screen_name: user_screen_name,
@@ -148,6 +166,11 @@ export default{
   .post-contents {
     margin-top: 0.25rem;
     text-align: center;
+    overflow-x: inherit;
+    @media (max-width: 800px) {
+      overflow-x: scroll;
+      max-height: 70vh;
+    }
 
     img {
       display: block;

@@ -17684,7 +17684,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.likenum[data-v-33cd90d3] {\n  margin-left: 0.5rem;\n}\n.post[data-v-33cd90d3] {\n  padding-top: 1rem;\n  padding-bottom: 1rem;\n  min-height: 100%;\n}\n.post .post-header[data-v-33cd90d3] {\n    height: 2rem;\n    position: relative;\n    margin-bottom: 0.2em;\n}\n.post .post-header .post-header-left[data-v-33cd90d3] {\n      display: inline-block;\n      position: absolute;\n      left: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-header .post-header-left p[data-v-33cd90d3] {\n        display: inline-block;\n        vertical-align: middle;\n        height: 2rem;\n        line-height: 1rem;\n        overflow: hidden;\n}\n.post .post-header .post-header-left p img[data-v-33cd90d3] {\n        width: 2rem;\n        height: 2rem;\n        margin-right: 0.2rem;\n        border-radius: 100%;\n}\n.post .post-header .post-header-right[data-v-33cd90d3] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-contents[data-v-33cd90d3] {\n    margin-top: 0.25rem;\n    background-color: #202020;\n    text-align: center;\n}\n.post .post-contents img[data-v-33cd90d3] {\n      display: inline-block;\n      max-width: 800px;\n}\n@media (max-width: 800px) {\n.post .post-contents img[data-v-33cd90d3] {\n        display: block;\n        width: 100%;\n        max-width: none;\n}\n}\n.post .post-footer[data-v-33cd90d3] {\n    position: relative;\n    margin-left: 0.5rem;\n    margin-top: 0rem;\n}\n.post .post-footer .post-right[data-v-33cd90d3] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0.2rem;\n      bottom: 0;\n}\n.modal[data-v-33cd90d3] {\n  z-index: 10000;\n  position: fixed;\n  top: 57px;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  display: block;\n  overflow-y: scroll;\n}\n.closeBtn[data-v-33cd90d3] {\n  position: fixed;\n  top: 60px;\n  right: 3px;\n  color: white;\n  padding: 1rem;\n  z-index: 100000;\n}\n@media (max-width: 800px) {\n.modal[data-v-33cd90d3] {\n    top: 0;\n    bottom: 45px;\n}\n.closeBtn[data-v-33cd90d3] {\n    top: 3px;\n}\n}\na strong[data-v-33cd90d3] {\n  color: #000000;\n}\na[data-v-33cd90d3] {\n  color: white;\n}\n.is-size-8[data-v-33cd90d3] {\n  font-size: 75%;\n}\n", ""]);
+exports.push([module.i, "\n.likenum[data-v-33cd90d3] {\n  margin-left: 0.5rem;\n}\n.post[data-v-33cd90d3] {\n  padding-top: 1rem;\n  padding-bottom: 1rem;\n  min-height: 100%;\n}\n.post .post-header[data-v-33cd90d3] {\n    height: 2rem;\n    position: relative;\n    margin-bottom: 0.2em;\n}\n.post .post-header .post-header-left[data-v-33cd90d3] {\n      display: inline-block;\n      position: absolute;\n      left: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-header .post-header-left p[data-v-33cd90d3] {\n        display: inline-block;\n        vertical-align: middle;\n        height: 2rem;\n        line-height: 1rem;\n        overflow: hidden;\n}\n.post .post-header .post-header-left p img[data-v-33cd90d3] {\n        width: 2rem;\n        height: 2rem;\n        margin-right: 0.2rem;\n        border-radius: 100%;\n}\n.post .post-header .post-header-right[data-v-33cd90d3] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-contents[data-v-33cd90d3] {\n    margin-top: 0.25rem;\n    background-color: #101010;\n    text-align: center;\n}\n.post .post-contents img[data-v-33cd90d3] {\n      display: inline-block;\n      max-width: 800px;\n}\n@media (max-width: 800px) {\n.post .post-contents img[data-v-33cd90d3] {\n        display: block;\n        width: 100%;\n        max-width: none;\n}\n}\n.post .post-footer[data-v-33cd90d3] {\n    position: relative;\n    margin-left: 0.5rem;\n    margin-top: 0rem;\n}\n.post .post-footer .post-right[data-v-33cd90d3] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0.2rem;\n      bottom: 0;\n}\n.modal[data-v-33cd90d3] {\n  z-index: 10000;\n  position: fixed;\n  top: 57px;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  display: block;\n  overflow-y: scroll;\n}\n.closeBtn[data-v-33cd90d3] {\n  position: fixed;\n  top: 60px;\n  right: 3px;\n  color: white;\n  padding: 1rem;\n  z-index: 100000;\n}\n@media (max-width: 800px) {\n.modal[data-v-33cd90d3] {\n    top: 0;\n    bottom: 45px;\n}\n.closeBtn[data-v-33cd90d3] {\n    top: 3px;\n}\n}\na strong[data-v-33cd90d3] {\n  color: #000000;\n}\na[data-v-33cd90d3] {\n  color: white;\n}\n.is-size-8[data-v-33cd90d3] {\n  font-size: 75%;\n}\n", ""]);
 
 // exports
 
@@ -17876,7 +17876,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.likenum[data-v-18bb2376] {\n  margin-left: 0.5rem;\n}\n.post[data-v-18bb2376] {\n  padding-top: 1rem;\n  padding-bottom: 3rem;\n}\n.post .post-header[data-v-18bb2376] {\n    height: 2rem;\n    position: relative;\n    margin-bottom: 0.2em;\n}\n.post .post-header .post-header-left[data-v-18bb2376] {\n      display: inline-block;\n      position: absolute;\n      left: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-header .post-header-left p[data-v-18bb2376] {\n        display: inline-block;\n        vertical-align: middle;\n        height: 2rem;\n        line-height: 2rem;\n}\n.post .post-header .post-header-left p img[data-v-18bb2376] {\n        width: 2rem;\n        height: 2rem;\n        margin-right: 0.2rem;\n        border-radius: 100%;\n}\n.post .post-header .post-header-right[data-v-18bb2376] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-contents[data-v-18bb2376] {\n    margin-top: 0.25rem;\n    text-align: center;\n}\n.post .post-contents img[data-v-18bb2376] {\n      display: block;\n      width: 100%;\n      max-width: none;\n}\n.post .post-footer[data-v-18bb2376] {\n    position: relative;\n    margin-left: 0.5rem;\n    margin-top: 0rem;\n}\n.post .post-footer .post-right[data-v-18bb2376] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0.2rem;\n      bottom: 0;\n}\n.info[data-v-18bb2376] {\n  line-height: 1.8;\n}\n.tag[data-v-18bb2376] {\n  margin-right: 2px;\n}\na strong[data-v-18bb2376] {\n  color: white;\n}\na[data-v-18bb2376] {\n  color: white;\n}\n", ""]);
+exports.push([module.i, "\n.likenum[data-v-18bb2376] {\n  margin-left: 0.5rem;\n}\n.post[data-v-18bb2376] {\n  padding-top: 1rem;\n  padding-bottom: 3rem;\n}\n.post .post-header[data-v-18bb2376] {\n    height: 2rem;\n    position: relative;\n    margin-bottom: 0.2em;\n}\n.post .post-header .post-header-left[data-v-18bb2376] {\n      display: inline-block;\n      position: absolute;\n      left: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-header .post-header-left p[data-v-18bb2376] {\n        display: inline-block;\n        vertical-align: middle;\n        height: 2rem;\n        line-height: 2rem;\n}\n.post .post-header .post-header-left p img[data-v-18bb2376] {\n        width: 2rem;\n        height: 2rem;\n        margin-right: 0.2rem;\n        border-radius: 100%;\n}\n.post .post-header .post-header-right[data-v-18bb2376] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-contents[data-v-18bb2376] {\n    margin-top: 0.25rem;\n    text-align: center;\n    overflow-x: inherit;\n}\n@media (max-width: 800px) {\n.post .post-contents[data-v-18bb2376] {\n        overflow-x: scroll;\n        max-height: 70vh;\n}\n}\n.post .post-contents img[data-v-18bb2376] {\n      display: block;\n      width: 100%;\n      max-width: none;\n}\n.post .post-footer[data-v-18bb2376] {\n    position: relative;\n    margin-left: 0.5rem;\n    margin-top: 0rem;\n}\n.post .post-footer .post-right[data-v-18bb2376] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0.2rem;\n      bottom: 0;\n}\n.info[data-v-18bb2376] {\n  line-height: 1.8;\n}\n.tag[data-v-18bb2376] {\n  margin-right: 2px;\n}\na strong[data-v-18bb2376] {\n  color: white;\n}\na[data-v-18bb2376] {\n  color: white;\n}\n", ""]);
 
 // exports
 
@@ -17954,7 +17954,10 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
       showModal: false,
       isLiked: false,
       likeNum: 0,
-      tags: []
+      tags: [],
+      scaled: false,
+      imgWidth: 0,
+      imgHeight: 0
     };
   },
   created: function () {
@@ -18010,6 +18013,18 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
   }(),
 
   methods: {
+    touch_start: function touch_start(e) {
+      var img = this.$refs.img;
+      var imgbox = this.$refs.imgbox;
+      img.style.width = "200%";
+      imgbox.scrollLeft = event.changedTouches[0].pageX;
+      //imgbox.scrollLeft = 50;
+    },
+    touch_end: function touch_end() {
+      var img = this.$refs.img;
+      var imgbox = this.$refs.imgbox;
+      img.style.width = "100%";
+    },
     likeToggle: function likeToggle() {
       var _this = this;
 
@@ -18085,6 +18100,7 @@ var render = function() {
         _c(
           "div",
           {
+            ref: "imgbox",
             staticClass: "post-contents",
             staticStyle: { margin: "0 auto" },
             on: {
@@ -18095,10 +18111,18 @@ var render = function() {
           },
           [
             _c("img", {
+              ref: "img",
+              class: _vm.scaled ? "zoom" : "",
               attrs: { src: "/storage/" + _vm.photo.path },
               on: {
                 click: function($event) {
                   _vm.showModal = true
+                },
+                touchstart: function($event) {
+                  _vm.touch_start()
+                },
+                touchend: function($event) {
+                  _vm.touch_end()
                 }
               }
             })
@@ -18285,7 +18309,7 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("transition", { attrs: { name: "fade" } }, [
+      _c("transition", { attrs: { name: "fadeup" } }, [
         _vm.showModal
           ? _c(
               "div",

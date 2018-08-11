@@ -1,6 +1,6 @@
 <template>
   <div>
-    <transition name="fade">
+    <transition name="fadeup">
       <div class="modal" v-if="showModal">
         <div class="closeBtn" v-on:click="modalToggle()"><i class="far fa-times-circle fa-lg"></i></div>
         <detail-content v-bind:photo="photo" v-on:toggleLike="likeToggleData()"></detail-content>
@@ -147,7 +147,7 @@ export default{
   }
   .post-contents {
     margin-top: 0.25rem;
-    background-color: #202020;
+    background-color: #101010;
     text-align: center;
     img {
       display: inline-block;

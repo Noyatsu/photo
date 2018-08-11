@@ -32,7 +32,9 @@
   };
   const user_api_token = "{{ $api_token }}";
   const user_screen_name = "{{ Auth::user()->screen_name }}";
+
   </script>
+
 </head>
 <body>
   <div id="app">
@@ -46,13 +48,13 @@
       <a class="m-navbar-item" href="{{ route('register') }}">{{ __('Register') }}</a>
       @else
       <div class="m-navbar-right">
-        <div class="dropdown is-hoverable is-right">
+        <div class="dropdown is-right">
           <div class="dropdown-trigger">
-            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu3">
+            <button id="dropdown-btn" class="button" aria-haspopup="true">
               <span>...</span>
             </button>
           </div>
-          <div class="dropdown-menu" id="dropdown-menu3" role="menu">
+          <div class="dropdown-menu" id="dropdown-menu" role="menu">
             <div class="dropdown-content">
               <a class="nav-link navbar-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 {{ __('Logout') }}
@@ -80,5 +82,19 @@
   <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyAItrDehXl9lF8abSCqiYuP9onCHY7gs7M&libraries=places"></script>
 </body>
 <script src="{{ mix('js/app.js') }}"></script>
+<script>
+let is_dropdown = false;
+document.getElementById("dropdown-btn").onclick = function() {
+  let dropdown = document.getElementById('dropdown-menu');
+  if(is_dropdown) {
+    is_dropdown = false;
+    dropdown.style.display ="none";
+  }
+  else {
+    is_dropdown = true;
+    dropdown.style.display ="block";
+  }
+};
+</script>
 <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
 </html>
