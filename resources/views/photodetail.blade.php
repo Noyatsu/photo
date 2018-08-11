@@ -6,6 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <!--<meta name="twitter:site" content="@ユーザー名" /> -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://photo.noyatsu.club/photo/{{ $photo->p_id }}" />
+  <meta property="og:title" content="{{ $photo->title }} by {{ $photo->name }}" />
+  <meta property="og:description" content="{{ $photo->p_description }}" />
+  <meta property="og:image" content="https://photo.noyatsu.club/storage/thumb/{{ $photo->path }}" />
+  <meta property="og:site_name" content="PhotoClub">
+
   <link rel="manifest" href="/manifest.json">
   <link rel="icon" type="image/png" href="/images/icons/icon-72x72.png" sizes="72x72">
   <link rel="icon" type="image/png" href="/images/icons/icon-96x96.png" sizes="96x96">
@@ -36,5 +46,5 @@
   </script>
 
 </head>
- @include('layouts/home-main')
+@include('layouts/home-main')
 </html>

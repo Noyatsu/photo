@@ -2,8 +2,11 @@
   <div>
     <transition name="fadeup">
       <div class="modal" v-if="showModal">
+        <div class="slidearea has-background-black-ter"></div>
         <div class="closeBtn" v-on:click="modalToggle()"><i class="far fa-times-circle fa-lg"></i></div>
-        <detail-content v-bind:photo="photo" v-on:toggleLike="likeToggleData()"></detail-content>
+        <div class="scrollarea">
+          <detail-content v-bind:photo="photo" v-on:toggleLike="likeToggleData()"></detail-content>
+        </div>
       </div>
     </transition>
     <div class="post">
@@ -104,6 +107,11 @@ export default{
 }
 </script>
 <style scoped lang="scss">
+.slidearea {
+  margin-top: 2.5px;
+  height: 35px;
+  border-radius: 10px 10px 0px 0px;
+}
 .likenum {
   margin-left: 0.5rem;
 }
@@ -152,6 +160,7 @@ export default{
     img {
       display: inline-block;
       max-width: 800px;
+      max-height: 80vh;
     }
     @media (max-width: 800px) {
       img {
@@ -178,7 +187,7 @@ export default{
 }
 
 .modal {
-  z-index: 10000;
+  z-index: 1000;
   position: fixed;
   top: 57px;
   bottom: 0;

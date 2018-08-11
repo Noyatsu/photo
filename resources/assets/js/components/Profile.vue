@@ -12,7 +12,7 @@
           <p class="is-size-7 has-text-grey-light">@<span>{{ user_data.screen_name }}</span></p>
           <p>{{ user_data.description }}</p>
 
-          <p v-if="!isMine">
+          <p v-if="!isMine && is_logined">
             <a class="button is-info is-outlined" @click="followToggle" v-if="!isFollow">
               <span class="icon">
                 <i class="fas fa-user-plus"></i>
@@ -69,7 +69,8 @@ export default {
       like_list: [],
       isMine: false,
       isFollow: false,
-      tab: 1
+      tab: 1,
+      is_logined: false
     };
   },
   components: {
@@ -78,6 +79,7 @@ export default {
     'user-list-item-component': UserListItemComponent
   },
   async created() {
+    this.is_logined = (user_screen_name == "") ? false : true;
     this.created_method(this.$route.params.screen_name);
   },
   methods: {
@@ -100,9 +102,11 @@ export default {
       //フォローチェック・情報
       try {
         let res;
-        res = await axios.get('/api/users/follow/check/' + user_screen_name + '/' + this.user_data.screen_name);
-        if(res.data==true) {
-          this.isFollow = true;
+        if (this.is_logined) {
+          res = await axios.get('/api/users/follow/check/' + user_screen_name + '/' + this.user_data.screen_name);
+          if(res.data==true) {
+            this.isFollow = true;
+          }
         }
         res = await axios.get('/api/users/follow/list/' + this.user_data.screen_name);
         this.follow_list = res.data;

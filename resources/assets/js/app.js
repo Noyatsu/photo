@@ -58,6 +58,7 @@ const app = new Vue({
   data: {
     scrollY: 0,
     is_global: false,
+    is_logined: false,
     tabnavs: [
       { cls: 'fas fa-home', isActive: false, name: 'timeline'},
       { cls: 'fas fa-search', isActive: false, name: 'search' },
@@ -65,5 +66,9 @@ const app = new Vue({
       { cls: 'fas fa-heart', isActive:false, name: 'like' },
       { cls: 'fas fa-user-circle', isActive:false, name: 'profile' }
     ]
+  },
+  created: function() {
+    this.is_logined = (user_screen_name == "") ? false : true;
+
   }
 });

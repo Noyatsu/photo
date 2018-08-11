@@ -68,7 +68,7 @@ body {
 
 .m-tab-bar {
   position: fixed;
-  z-index: 999;
+  z-index: 9990;
   font-size:0;
   border-top: solid 1px hsl(0, 0%, 86%);
   top: 0;
@@ -109,12 +109,11 @@ body {
 }
 
 .fadeup-enter-active, .fadeup-leave-active {
-  transition: all .5s;
+  transition: all .5s ease-out;
 }
 .fadeup-enter, .fadeup-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
-  transform: translateY(30px);
-  transform: scale(0.8);
+  transform: translateY(100vh);
 }
 
 img, router-view{

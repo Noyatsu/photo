@@ -6,7 +6,7 @@
     <div class="hero_bg"></div>
     <div class="container">
       <h1 class="title has-text-light">Photo Club</h1>
-      <h2 class="subtitle has-text-light">こだわりの写真をシェアしよう。</h2>
+      <h2 class="subtitle has-text-light">こだわりの写真をシェアしようぜ。</h2>
     </div>
   </div>
 </div>

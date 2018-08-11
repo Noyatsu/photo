@@ -8,7 +8,7 @@
         </div>
       </div>
       <div ref="imgbox" class="post-contents" style="margin: 0 auto;" @click="showModal = true">
-        <img ref="img" v-bind:src="'/storage/' + photo.path" @click="showModal = true" @touchstart="touch_start()" @touchend="touch_end()" v-bind:class="scaled ? 'zoom' : ''">
+        <img ref="img" v-bind:src="'/storage/' + photo.path" @click="showModal = true" @touchstart="touch_start()" @touchend="touch_end()">
       </div>
       <div class="post-footer">
         <p class="post-title"><strong class="has-text-light">{{ photo.title }}</strong></p>
@@ -60,28 +60,31 @@ export default{
       tags: [],
       scaled: false,
       imgWidth: 0,
-      imgHeight: 0
+      imgHeight: 0,
+      is_logined: false
     }
   },
-  async created() {
-    try {
-      let res;
-      res = await axios.get('/api/photos/like/check/' + user_screen_name + '/' + this.photo.p_id);
-      if(res.data==true) {
-        this.isLiked = true;
-      }
+  created() {
+    this.is_logined = (user_screen_name == "") ? false : true;
 
-    } catch (e) {
-      console.error(e);
+    if(this.is_logined) {
+      try {
+        let res;
+        res = axios.get('/api/photos/like/check/' + user_screen_name + '/' + this.photo.p_id);
+        if(res.data==true) {
+          this.isLiked = true;
+        }
+
+      } catch (e) {
+        console.error(e);
+      }
     }
 
-    this.likeNum = this.photo.likes;
     const tags_str = this.photo.tags || '';
     if(tags_str != '') {
       this.tags = tags_str.split(',');
     }
-
-
+    this.likeNum = this.photo.likes;
   },
   methods: {
     touch_start: function(e) {
@@ -98,27 +101,28 @@ export default{
       img.style.width="100%";
     },
     likeToggle: function() {
-      axios.post('/api/photos/like/toggle', {
-        screen_name: user_screen_name,
-        api_token: user_api_token,
-        photo_id: this.photo.p_id,
-        csrfToken: window.Laravel.csrfToken
-      })
-      .then(response => {
-        if(this.isLiked == true){
-          this.isLiked = false;
-          this.likeNum = this.likeNum - 1;
-        }
-        else {
-          this.isLiked = true;
-          this.likeNum = this.likeNum + 1;
-        }
-        this.$emit('toggleLike');
-      })
-      .catch(error => {
-        console.log(error.response)
-      });
-
+      if(this.is_logined){
+        axios.post('/api/photos/like/toggle', {
+          screen_name: user_screen_name,
+          api_token: user_api_token,
+          photo_id: this.photo.p_id,
+          csrfToken: window.Laravel.csrfToken
+        })
+        .then(response => {
+          if(this.isLiked == true){
+            this.isLiked = false;
+            this.likeNum = this.likeNum - 1;
+          }
+          else {
+            this.isLiked = true;
+            this.likeNum = this.likeNum + 1;
+          }
+          this.$emit('toggleLike');
+        })
+        .catch(error => {
+          console.log(error.response)
+        });
+      }
     }
   }
 }

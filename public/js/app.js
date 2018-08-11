@@ -12674,7 +12674,11 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
   data: {
     scrollY: 0,
     is_global: false,
+    is_logined: false,
     tabnavs: [{ cls: 'fas fa-home', isActive: false, name: 'timeline' }, { cls: 'fas fa-search', isActive: false, name: 'search' }, { cls: 'far fa-plus-square', isActive: false, name: 'upload' }, { cls: 'fas fa-heart', isActive: false, name: 'like' }, { cls: 'fas fa-user-circle', isActive: false, name: 'profile' }]
+  },
+  created: function created() {
+    this.is_logined = user_screen_name == "" ? false : true;
   }
 });
 
@@ -17684,7 +17688,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.likenum[data-v-33cd90d3] {\n  margin-left: 0.5rem;\n}\n.post[data-v-33cd90d3] {\n  padding-top: 1rem;\n  padding-bottom: 1rem;\n  min-height: 100%;\n}\n.post .post-header[data-v-33cd90d3] {\n    height: 2rem;\n    position: relative;\n    margin-bottom: 0.2em;\n}\n.post .post-header .post-header-left[data-v-33cd90d3] {\n      display: inline-block;\n      position: absolute;\n      left: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-header .post-header-left p[data-v-33cd90d3] {\n        display: inline-block;\n        vertical-align: middle;\n        height: 2rem;\n        line-height: 1rem;\n        overflow: hidden;\n}\n.post .post-header .post-header-left p img[data-v-33cd90d3] {\n        width: 2rem;\n        height: 2rem;\n        margin-right: 0.2rem;\n        border-radius: 100%;\n}\n.post .post-header .post-header-right[data-v-33cd90d3] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-contents[data-v-33cd90d3] {\n    margin-top: 0.25rem;\n    background-color: #101010;\n    text-align: center;\n}\n.post .post-contents img[data-v-33cd90d3] {\n      display: inline-block;\n      max-width: 800px;\n}\n@media (max-width: 800px) {\n.post .post-contents img[data-v-33cd90d3] {\n        display: block;\n        width: 100%;\n        max-width: none;\n}\n}\n.post .post-footer[data-v-33cd90d3] {\n    position: relative;\n    margin-left: 0.5rem;\n    margin-top: 0rem;\n}\n.post .post-footer .post-right[data-v-33cd90d3] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0.2rem;\n      bottom: 0;\n}\n.modal[data-v-33cd90d3] {\n  z-index: 10000;\n  position: fixed;\n  top: 57px;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  display: block;\n  overflow-y: scroll;\n}\n.closeBtn[data-v-33cd90d3] {\n  position: fixed;\n  top: 60px;\n  right: 3px;\n  color: white;\n  padding: 1rem;\n  z-index: 100000;\n}\n@media (max-width: 800px) {\n.modal[data-v-33cd90d3] {\n    top: 0;\n    bottom: 45px;\n}\n.closeBtn[data-v-33cd90d3] {\n    top: 3px;\n}\n}\na strong[data-v-33cd90d3] {\n  color: #000000;\n}\na[data-v-33cd90d3] {\n  color: white;\n}\n.is-size-8[data-v-33cd90d3] {\n  font-size: 75%;\n}\n", ""]);
+exports.push([module.i, "\n.slidearea[data-v-33cd90d3] {\n  margin-top: 2.5px;\n  height: 35px;\n  border-radius: 10px 10px 0px 0px;\n}\n.likenum[data-v-33cd90d3] {\n  margin-left: 0.5rem;\n}\n.post[data-v-33cd90d3] {\n  padding-top: 1rem;\n  padding-bottom: 1rem;\n  min-height: 100%;\n}\n.post .post-header[data-v-33cd90d3] {\n    height: 2rem;\n    position: relative;\n    margin-bottom: 0.2em;\n}\n.post .post-header .post-header-left[data-v-33cd90d3] {\n      display: inline-block;\n      position: absolute;\n      left: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-header .post-header-left p[data-v-33cd90d3] {\n        display: inline-block;\n        vertical-align: middle;\n        height: 2rem;\n        line-height: 1rem;\n        overflow: hidden;\n}\n.post .post-header .post-header-left p img[data-v-33cd90d3] {\n        width: 2rem;\n        height: 2rem;\n        margin-right: 0.2rem;\n        border-radius: 100%;\n}\n.post .post-header .post-header-right[data-v-33cd90d3] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-contents[data-v-33cd90d3] {\n    margin-top: 0.25rem;\n    background-color: #101010;\n    text-align: center;\n}\n.post .post-contents img[data-v-33cd90d3] {\n      display: inline-block;\n      max-width: 800px;\n      max-height: 80vh;\n}\n@media (max-width: 800px) {\n.post .post-contents img[data-v-33cd90d3] {\n        display: block;\n        width: 100%;\n        max-width: none;\n}\n}\n.post .post-footer[data-v-33cd90d3] {\n    position: relative;\n    margin-left: 0.5rem;\n    margin-top: 0rem;\n}\n.post .post-footer .post-right[data-v-33cd90d3] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0.2rem;\n      bottom: 0;\n}\n.modal[data-v-33cd90d3] {\n  z-index: 1000;\n  position: fixed;\n  top: 57px;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  display: block;\n  overflow-y: scroll;\n}\n.closeBtn[data-v-33cd90d3] {\n  position: fixed;\n  top: 60px;\n  right: 3px;\n  color: white;\n  padding: 1rem;\n  z-index: 100000;\n}\n@media (max-width: 800px) {\n.modal[data-v-33cd90d3] {\n    top: 0;\n    bottom: 45px;\n}\n.closeBtn[data-v-33cd90d3] {\n    top: 3px;\n}\n}\na strong[data-v-33cd90d3] {\n  color: #000000;\n}\na[data-v-33cd90d3] {\n  color: white;\n}\n.is-size-8[data-v-33cd90d3] {\n  font-size: 75%;\n}\n", ""]);
 
 // exports
 
@@ -17705,6 +17709,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
+//
+//
+//
 //
 //
 //
@@ -17887,14 +17894,8 @@ exports.push([module.i, "\n.likenum[data-v-18bb2376] {\n  margin-left: 0.5rem;\n
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
-
-
-function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
-
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 //
 //
 //
@@ -17957,60 +17958,31 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
       tags: [],
       scaled: false,
       imgWidth: 0,
-      imgHeight: 0
+      imgHeight: 0,
+      is_logined: false
     };
   },
-  created: function () {
-    var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
-      var res, tags_str;
-      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              _context.prev = 0;
-              res = void 0;
-              _context.next = 4;
-              return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/photos/like/check/' + user_screen_name + '/' + this.photo.p_id);
+  created: function created() {
+    this.is_logined = user_screen_name == "" ? false : true;
 
-            case 4:
-              res = _context.sent;
-
-              if (res.data == true) {
-                this.isLiked = true;
-              }
-
-              _context.next = 11;
-              break;
-
-            case 8:
-              _context.prev = 8;
-              _context.t0 = _context['catch'](0);
-
-              console.error(_context.t0);
-
-            case 11:
-
-              this.likeNum = this.photo.likes;
-              tags_str = this.photo.tags || '';
-
-              if (tags_str != '') {
-                this.tags = tags_str.split(',');
-              }
-
-            case 14:
-            case 'end':
-              return _context.stop();
-          }
+    if (this.is_logined) {
+      try {
+        var res = void 0;
+        res = __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/api/photos/like/check/' + user_screen_name + '/' + this.photo.p_id);
+        if (res.data == true) {
+          this.isLiked = true;
         }
-      }, _callee, this, [[0, 8]]);
-    }));
-
-    function created() {
-      return _ref.apply(this, arguments);
+      } catch (e) {
+        console.error(e);
+      }
     }
 
-    return created;
-  }(),
+    var tags_str = this.photo.tags || '';
+    if (tags_str != '') {
+      this.tags = tags_str.split(',');
+    }
+    this.likeNum = this.photo.likes;
+  },
 
   methods: {
     touch_start: function touch_start(e) {
@@ -18028,23 +18000,25 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
     likeToggle: function likeToggle() {
       var _this = this;
 
-      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post('/api/photos/like/toggle', {
-        screen_name: user_screen_name,
-        api_token: user_api_token,
-        photo_id: this.photo.p_id,
-        csrfToken: window.Laravel.csrfToken
-      }).then(function (response) {
-        if (_this.isLiked == true) {
-          _this.isLiked = false;
-          _this.likeNum = _this.likeNum - 1;
-        } else {
-          _this.isLiked = true;
-          _this.likeNum = _this.likeNum + 1;
-        }
-        _this.$emit('toggleLike');
-      }).catch(function (error) {
-        console.log(error.response);
-      });
+      if (this.is_logined) {
+        __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/api/photos/like/toggle', {
+          screen_name: user_screen_name,
+          api_token: user_api_token,
+          photo_id: this.photo.p_id,
+          csrfToken: window.Laravel.csrfToken
+        }).then(function (response) {
+          if (_this.isLiked == true) {
+            _this.isLiked = false;
+            _this.likeNum = _this.likeNum - 1;
+          } else {
+            _this.isLiked = true;
+            _this.likeNum = _this.likeNum + 1;
+          }
+          _this.$emit('toggleLike');
+        }).catch(function (error) {
+          console.log(error.response);
+        });
+      }
     }
   }
 });
@@ -18112,7 +18086,6 @@ var render = function() {
           [
             _c("img", {
               ref: "img",
-              class: _vm.scaled ? "zoom" : "",
               attrs: { src: "/storage/" + _vm.photo.path },
               on: {
                 click: function($event) {
@@ -18311,34 +18284,38 @@ var render = function() {
     [
       _c("transition", { attrs: { name: "fadeup" } }, [
         _vm.showModal
-          ? _c(
-              "div",
-              { staticClass: "modal" },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass: "closeBtn",
-                    on: {
-                      click: function($event) {
-                        _vm.modalToggle()
-                      }
-                    }
-                  },
-                  [_c("i", { staticClass: "far fa-times-circle fa-lg" })]
-                ),
-                _vm._v(" "),
-                _c("detail-content", {
-                  attrs: { photo: _vm.photo },
+          ? _c("div", { staticClass: "modal" }, [
+              _c("div", { staticClass: "slidearea has-background-black-ter" }),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "closeBtn",
                   on: {
-                    toggleLike: function($event) {
-                      _vm.likeToggleData()
+                    click: function($event) {
+                      _vm.modalToggle()
                     }
                   }
-                })
-              ],
-              1
-            )
+                },
+                [_c("i", { staticClass: "far fa-times-circle fa-lg" })]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "scrollarea" },
+                [
+                  _c("detail-content", {
+                    attrs: { photo: _vm.photo },
+                    on: {
+                      toggleLike: function($event) {
+                        _vm.likeToggleData()
+                      }
+                    }
+                  })
+                ],
+                1
+              )
+            ])
           : _vm._e()
       ]),
       _vm._v(" "),
@@ -19816,7 +19793,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/*tab*/\n.is_selected[data-v-22ef5402] {\r\n  border-bottom: solid 3px hsl(217, 71%, 53%);\n}\n.tab-contents[data-v-22ef5402] {\r\n  margin-top: 1rem;\n}\n.photoarea[data-v-22ef5402] {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -ms-flex-wrap: wrap;\r\n      flex-wrap: wrap;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\n}\n.is_round img[data-v-22ef5402]{\r\n  border-radius: 100px;\n}\r\n\r\n/*profile*/\n.m-profile[data-v-22ef5402] {\r\n  text-align: center;\r\n  margin: 0 auto;\n}\n.m-profile-img[data-v-22ef5402] {\r\n  height: 256px;\r\n  margin-bottom: 52px;\r\n  position: relative;\n}\n.m-profile figure[data-v-22ef5402] {\r\n  position: absolute;\r\n  bottom: -48px;\r\n  left: 50%;\r\n  margin-left: -48px;\n}\n.m-profile img[data-v-22ef5402] {\r\n  border: solid 2px white;\r\n  border-radius:100px;\n}\n@media (max-width: 767px) {\n.m-profile-img[data-v-22ef5402] {\r\n    height: 128px;\r\n    margin-bottom: 52px;\r\n    position: relative;\n}\n.m-profile figure[data-v-22ef5402] {\r\n    position: absolute;\r\n    bottom: -48px;\r\n    left: 50%;\r\n    margin-left: -48px;\n}\n.m-profile img[data-v-22ef5402] {\r\n    border: solid 2px white;\r\n    border-radius:100px;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/*tab*/\n.is_selected[data-v-22ef5402] {\r\n  border-bottom: solid 3px hsl(217, 71%, 53%);\n}\n.tab-contents[data-v-22ef5402] {\r\n  margin-top: 1rem;\n}\n.photoarea[data-v-22ef5402] {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -ms-flex-wrap: wrap;\r\n      flex-wrap: wrap;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\n}\n.is_round img[data-v-22ef5402]{\r\n  border-radius: 100px;\n}\r\n\r\n/*profile*/\n.m-profile[data-v-22ef5402] {\r\n  text-align: center;\r\n  margin: 0 auto;\n}\n.m-profile-img[data-v-22ef5402] {\r\n  height: 256px;\r\n  margin-bottom: 52px;\r\n  position: relative;\n}\n.m-profile figure[data-v-22ef5402] {\r\n  position: absolute;\r\n  bottom: -48px;\r\n  left: 50%;\r\n  margin-left: -48px;\n}\n.m-profile img[data-v-22ef5402] {\r\n  border: solid 2px white;\r\n  border-radius:100px;\n}\n@media (max-width: 767px) {\n.m-profile-img[data-v-22ef5402] {\r\n    height: 128px;\r\n    margin-bottom: 52px;\r\n    position: relative;\n}\n.m-profile figure[data-v-22ef5402] {\r\n    position: absolute;\r\n    bottom: -48px;\r\n    left: 50%;\r\n    margin-left: -48px;\n}\n.m-profile img[data-v-22ef5402] {\r\n    border: solid 2px white;\r\n    border-radius:100px;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -19911,7 +19888,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
       like_list: [],
       isMine: false,
       isFollow: false,
-      tab: 1
+      tab: 1,
+      is_logined: false
     };
   },
 
@@ -19926,9 +19904,10 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
+              this.is_logined = user_screen_name == "" ? false : true;
               this.created_method(this.$route.params.screen_name);
 
-            case 1:
+            case 2:
             case 'end':
               return _context.stop();
           }
@@ -19993,53 +19972,61 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
               case 19:
                 _context2.prev = 19;
                 _res = void 0;
-                _context2.next = 23;
+
+                if (!this.is_logined) {
+                  _context2.next = 26;
+                  break;
+                }
+
+                _context2.next = 24;
                 return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/users/follow/check/' + user_screen_name + '/' + this.user_data.screen_name);
 
-              case 23:
+              case 24:
                 _res = _context2.sent;
 
                 if (_res.data == true) {
                   this.isFollow = true;
                 }
-                _context2.next = 27;
+
+              case 26:
+                _context2.next = 28;
                 return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/users/follow/list/' + this.user_data.screen_name);
 
-              case 27:
+              case 28:
                 _res = _context2.sent;
 
                 this.follow_list = _res.data;
 
-                _context2.next = 31;
+                _context2.next = 32;
                 return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/users/photo/' + this.user_data.screen_name);
 
-              case 31:
+              case 32:
                 _res = _context2.sent;
 
                 this.photo_list = _res.data;
 
-                _context2.next = 35;
+                _context2.next = 36;
                 return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/users/likephoto/' + this.user_data.screen_name);
 
-              case 35:
+              case 36:
                 _res = _context2.sent;
 
                 this.like_list = _res.data;
-                _context2.next = 42;
+                _context2.next = 43;
                 break;
 
-              case 39:
-                _context2.prev = 39;
+              case 40:
+                _context2.prev = 40;
                 _context2.t1 = _context2['catch'](19);
 
                 console.error(_context2.t1);
 
-              case 42:
+              case 43:
               case 'end':
                 return _context2.stop();
             }
           }
-        }, _callee2, this, [[0, 16], [19, 39]]);
+        }, _callee2, this, [[0, 16], [19, 40]]);
       }));
 
       function created_method(_x) {
@@ -20203,7 +20190,7 @@ var render = function() {
           _vm._v(" "),
           _c("p", [_vm._v(_vm._s(_vm.user_data.description))]),
           _vm._v(" "),
-          !_vm.isMine
+          !_vm.isMine && _vm.is_logined
             ? _c("p", [
                 !_vm.isFollow
                   ? _c(
@@ -20452,67 +20439,42 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
     return {
       photo: [],
       isLiked: false,
-      likeNum: 0
+      is_logined: false
     };
   },
   created: function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
-      var res, _res;
-
+      var res;
       return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              _context.prev = 0;
-              _context.next = 3;
+              this.is_logined = user_screen_name == "" ? false : true;
+
+              //写真を取得
+              _context.prev = 1;
+              _context.next = 4;
               return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/photos/get/' + this.$route.params.id);
 
-            case 3:
+            case 4:
               res = _context.sent;
 
               this.photo = res.data[0];
-              _context.next = 10;
+              _context.next = 11;
               break;
 
-            case 7:
-              _context.prev = 7;
-              _context.t0 = _context['catch'](0);
+            case 8:
+              _context.prev = 8;
+              _context.t0 = _context['catch'](1);
 
               console.error(_context.t0);
 
-            case 10:
-              console.log(this.photo);
-              _context.prev = 11;
-              _res = void 0;
-              _context.next = 15;
-              return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/photos/like/check/' + user_screen_name + '/' + this.photo.p_id);
-
-            case 15:
-              _res = _context.sent;
-
-              if (_res.data == true) {
-                this.isLiked = true;
-              }
-
-              _context.next = 22;
-              break;
-
-            case 19:
-              _context.prev = 19;
-              _context.t1 = _context['catch'](11);
-
-              console.error(_context.t1);
-
-            case 22:
-
-              this.likeNum = this.photo.likes;
-
-            case 23:
+            case 11:
             case 'end':
               return _context.stop();
           }
         }
-      }, _callee, this, [[0, 7], [11, 19]]);
+      }, _callee, this, [[1, 8]]);
     }));
 
     function created() {
@@ -20667,7 +20629,7 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("back-button"),
+      _vm.is_logined ? _c("back-button") : _vm._e(),
       _vm._v(" "),
       _c("detail-content", { attrs: { photo: _vm.photo } })
     ],
