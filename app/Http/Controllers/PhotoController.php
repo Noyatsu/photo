@@ -58,22 +58,15 @@ class PhotoController extends Controller
         ini_set('display_errors', "On");
         ini_set('memory_limit', '512M');
         $filename = $request->file('photofile')->store('');
-        Image::make($request->file('photofile'))->resize(1920, null, function ($constraint) {
+        Image::make($request->file('photofile'))->orientate()->resize(1920, null, function ($constraint) {
             $constraint->aspectRatio();
         })->save('storage/'.$filename, 100);
-        Image::make($request->file('photofile'))->resize(320, null, function ($constraint) {
+        Image::make($request->file('photofile'))->orientate()->resize(320, null, function ($constraint) {
           $constraint->aspectRatio();
         })->save('storage/thumb/'.$filename, 100);
         if ($exif = exif_read_data($request->file('photofile'))) {
-            $filming_date = null;
-            if(isset($exif['DateTime'])) {
-              $filming_date = $exif['DateTime'];
-            }
-
-            $camera = null;
-            if (isset($exif['Model'])) {
-                $camera = $exif['Model'];
-            }
+            $filming_date = isset($exif['DateTime']) ? $exif['DateTime'] : null;
+            $camera = isset($exif['Model']) ? $exif['Model'] : null;
 
             $lens = null;
             if (isset($exif['LensModel'])) {
@@ -85,22 +78,10 @@ class PhotoController extends Controller
                 $lens = $exif['Lens'];
             }
 
-            $focal_length = null;
-            if (isset($exif['FocalLength'])) {
-                $focal_length = $exif['FocalLength'];
-            }
-            $speed = null;
-            if (isset($exif['ExposureTime'])) {
-                $speed = $exif['ExposureTime'];
-            }
-            $iris = null;
-            if (isset($exif['FNumber'])) {
-                $iris = $exif['FNumber'];
-            }
-            $iso = null;
-            if (isset($exif['ISOSpeedRatings'])) {
-                $iso = $exif['ISOSpeedRatings'];
-            }
+            $focal_length = isset($exif['FocalLength']) ? $exif['FocalLength'] : null;
+            $speed = isset($exif['ExposureTime']) ? $exif['ExposureTime'] : null;
+            $iris = isset($exif['FNumber']) ? $exif['FNumber'] : null;
+            $iso = isset($exif['ISOSpeedRatings']) ? $exif['ISOSpeedRatings'] : null;
         }
         var_dump($exif);
 
