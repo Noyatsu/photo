@@ -15,6 +15,8 @@ import ThumbComponent from './components/parts/Thumbnail.vue';
 window.Vue = require('vue');
 Vue.use(VueRouter);
 
+window.EXIF = require('exif-js');
+
 // vue-routerのインスタンス化、オプションroutesでアクセスされるパスとその時に表示するComponentを指定
 let router = new VueRouter({
   mode: 'history',

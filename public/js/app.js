@@ -802,7 +802,7 @@ module.exports = __webpack_require__(25);
 /* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(52);
+module.exports = __webpack_require__(53);
 
 
 /***/ }),
@@ -824,7 +824,7 @@ var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = "data-v-0fef60c9"
+var __vue_scopeId__ = "data-v-fe4ff5d4"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -835,7 +835,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\parts\\Thumbnail.vue"
+Component.options.__file = "resources/assets/js/components/parts/Thumbnail.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -844,9 +844,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-0fef60c9", Component.options)
+    hotAPI.createRecord("data-v-fe4ff5d4", Component.options)
   } else {
-    hotAPI.reload("data-v-0fef60c9", Component.options)
+    hotAPI.reload("data-v-fe4ff5d4", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -12418,19 +12418,19 @@ module.exports = Cancel;
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(54)
+  __webpack_require__(55)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(56)
+var __vue_script__ = __webpack_require__(57)
 /* template */
-var __vue_template__ = __webpack_require__(61)
+var __vue_template__ = __webpack_require__(62)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = "data-v-33cd90d3"
+var __vue_scopeId__ = "data-v-52d8b066"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -12441,7 +12441,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\parts\\Post.vue"
+Component.options.__file = "resources/assets/js/components/parts/Post.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -12450,9 +12450,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-33cd90d3", Component.options)
+    hotAPI.createRecord("data-v-52d8b066", Component.options)
   } else {
-    hotAPI.reload("data-v-33cd90d3", Component.options)
+    hotAPI.reload("data-v-52d8b066", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -12469,19 +12469,19 @@ module.exports = Component.exports
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(57)
+  __webpack_require__(58)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(59)
+var __vue_script__ = __webpack_require__(60)
 /* template */
-var __vue_template__ = __webpack_require__(60)
+var __vue_template__ = __webpack_require__(61)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = "data-v-18bb2376"
+var __vue_scopeId__ = "data-v-8853b7dc"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -12492,7 +12492,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\parts\\DetailContent.vue"
+Component.options.__file = "resources/assets/js/components/parts/DetailContent.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -12501,9 +12501,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-18bb2376", Component.options)
+    hotAPI.createRecord("data-v-8853b7dc", Component.options)
   } else {
-    hotAPI.reload("data-v-18bb2376", Component.options)
+    hotAPI.reload("data-v-8853b7dc", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -12520,19 +12520,19 @@ module.exports = Component.exports
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(80)
+  __webpack_require__(81)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(82)
+var __vue_script__ = __webpack_require__(83)
 /* template */
-var __vue_template__ = __webpack_require__(85)
+var __vue_template__ = __webpack_require__(86)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = "data-v-22ef5402"
+var __vue_scopeId__ = "data-v-4bdda942"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -12543,7 +12543,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\Profile.vue"
+Component.options.__file = "resources/assets/js/components/Profile.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -12552,9 +12552,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-22ef5402", Component.options)
+    hotAPI.createRecord("data-v-4bdda942", Component.options)
   } else {
-    hotAPI.reload("data-v-22ef5402", Component.options)
+    hotAPI.reload("data-v-4bdda942", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -12571,9 +12571,9 @@ module.exports = Component.exports
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(83)
+var __vue_script__ = __webpack_require__(84)
 /* template */
-var __vue_template__ = __webpack_require__(84)
+var __vue_template__ = __webpack_require__(85)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -12590,7 +12590,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\parts\\UserListItem.vue"
+Component.options.__file = "resources/assets/js/components/parts/UserListItem.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -12599,9 +12599,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-6b3c9622", Component.options)
+    hotAPI.createRecord("data-v-1b299182", Component.options)
   } else {
-    hotAPI.reload("data-v-6b3c9622", Component.options)
+    hotAPI.reload("data-v-1b299182", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -12616,7 +12616,7 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(21);
-module.exports = __webpack_require__(103);
+module.exports = __webpack_require__(104);
 
 
 /***/ }),
@@ -12649,10 +12649,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 window.Vue = __webpack_require__(9);
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
 
+window.EXIF = __webpack_require__(48);
+
 // vue-routerのインスタンス化、オプションroutesでアクセスされるパスとその時に表示するComponentを指定
 var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
   mode: 'history',
-  routes: [{ path: '/home', component: __webpack_require__(48) }, { path: '/home/search', component: __webpack_require__(63) }, { path: '/home/upload', component: __webpack_require__(68) }, { path: '/home/like', component: __webpack_require__(78) }, { path: '/home/profile', component: __webpack_require__(18) }, { path: '/photo/:id', component: __webpack_require__(86) }, { path: '/user/' + user_screen_name, redirect: '/home/profile' }, { path: '/user/:screen_name', component: __webpack_require__(18) }, { path: '/search', redirect: '/home/search' }, { path: '/search/freeword', redirect: '/home/search' }, { path: '/search/user', redirect: '/home/search' }, { path: '/search/freeword/:words', component: __webpack_require__(93) }, { path: '/search/user/:words', component: __webpack_require__(98) }],
+  routes: [{ path: '/home', component: __webpack_require__(49) }, { path: '/home/search', component: __webpack_require__(64) }, { path: '/home/upload', component: __webpack_require__(69) }, { path: '/home/like', component: __webpack_require__(79) }, { path: '/home/profile', component: __webpack_require__(18) }, { path: '/photo/:id', component: __webpack_require__(87) }, { path: '/user/' + user_screen_name, redirect: '/home/profile' }, { path: '/user/:screen_name', component: __webpack_require__(18) }, { path: '/search', redirect: '/home/search' }, { path: '/search/freeword', redirect: '/home/search' }, { path: '/search/user', redirect: '/home/search' }, { path: '/search/freeword/:words', component: __webpack_require__(94) }, { path: '/search/user/:words', component: __webpack_require__(99) }],
   scrollBehavior: function scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
       return savedPosition;
@@ -16464,13 +16466,13 @@ var content = __webpack_require__(44);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("0e128722", content, false, {});
+var update = __webpack_require__(3)("406b0050", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0fef60c9\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Thumbnail.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0fef60c9\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Thumbnail.vue");
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-fe4ff5d4\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Thumbnail.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-fe4ff5d4\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Thumbnail.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -16488,7 +16490,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.photo[data-v-0fef60c9] {\n  position: relative;\n  height: 180px;\n  width: 320px;\n  background-color: #3273dc;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  text-align: center;\n  margin: 0.2rem;\n  color: white;\n  line-height: 150px;\n}\n@media (max-width: 767px) {\n.photo[data-v-0fef60c9] {\n    height: 100px;\n    width: 100px;\n    margin: 0.01rem;\n}\n}\n.photo_title[data-v-0fef60c9] {\n  position: absolute;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  height: 2.5rem;\n  background: -webkit-linear-gradient(bottom, #000, transparent);\n  background-color: linear-gradient(to top, #000, transparent);\n  line-height: 1;\n  color: #fff;\n  overflow: hidden;\n  white-space: nowrap;\n}\n", ""]);
+exports.push([module.i, "\n.photo[data-v-fe4ff5d4] {\n  position: relative;\n  height: 180px;\n  width: 320px;\n  background-color: #3273dc;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  text-align: center;\n  margin: 0.2rem;\n  color: white;\n  line-height: 150px;\n}\n@media (max-width: 767px) {\n.photo[data-v-fe4ff5d4] {\n    height: 100px;\n    width: 100px;\n    margin: 0.01rem;\n}\n}\n.photo_title[data-v-fe4ff5d4] {\n  position: absolute;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  height: 2.5rem;\n  background: -webkit-linear-gradient(bottom, #000, transparent);\n  background-color: linear-gradient(to top, #000, transparent);\n  line-height: 1;\n  color: #fff;\n  overflow: hidden;\n  white-space: nowrap;\n}\n", ""]);
 
 // exports
 
@@ -16610,7 +16612,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-0fef60c9", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-fe4ff5d4", module.exports)
   }
 }
 
@@ -16618,22 +16620,1088 @@ if (false) {
 /* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function() {
+
+    var debug = false;
+
+    var root = this;
+
+    var EXIF = function(obj) {
+        if (obj instanceof EXIF) return obj;
+        if (!(this instanceof EXIF)) return new EXIF(obj);
+        this.EXIFwrapped = obj;
+    };
+
+    if (true) {
+        if (typeof module !== 'undefined' && module.exports) {
+            exports = module.exports = EXIF;
+        }
+        exports.EXIF = EXIF;
+    } else {
+        root.EXIF = EXIF;
+    }
+
+    var ExifTags = EXIF.Tags = {
+
+        // version tags
+        0x9000 : "ExifVersion",             // EXIF version
+        0xA000 : "FlashpixVersion",         // Flashpix format version
+
+        // colorspace tags
+        0xA001 : "ColorSpace",              // Color space information tag
+
+        // image configuration
+        0xA002 : "PixelXDimension",         // Valid width of meaningful image
+        0xA003 : "PixelYDimension",         // Valid height of meaningful image
+        0x9101 : "ComponentsConfiguration", // Information about channels
+        0x9102 : "CompressedBitsPerPixel",  // Compressed bits per pixel
+
+        // user information
+        0x927C : "MakerNote",               // Any desired information written by the manufacturer
+        0x9286 : "UserComment",             // Comments by user
+
+        // related file
+        0xA004 : "RelatedSoundFile",        // Name of related sound file
+
+        // date and time
+        0x9003 : "DateTimeOriginal",        // Date and time when the original image was generated
+        0x9004 : "DateTimeDigitized",       // Date and time when the image was stored digitally
+        0x9290 : "SubsecTime",              // Fractions of seconds for DateTime
+        0x9291 : "SubsecTimeOriginal",      // Fractions of seconds for DateTimeOriginal
+        0x9292 : "SubsecTimeDigitized",     // Fractions of seconds for DateTimeDigitized
+
+        // picture-taking conditions
+        0x829A : "ExposureTime",            // Exposure time (in seconds)
+        0x829D : "FNumber",                 // F number
+        0x8822 : "ExposureProgram",         // Exposure program
+        0x8824 : "SpectralSensitivity",     // Spectral sensitivity
+        0x8827 : "ISOSpeedRatings",         // ISO speed rating
+        0x8828 : "OECF",                    // Optoelectric conversion factor
+        0x9201 : "ShutterSpeedValue",       // Shutter speed
+        0x9202 : "ApertureValue",           // Lens aperture
+        0x9203 : "BrightnessValue",         // Value of brightness
+        0x9204 : "ExposureBias",            // Exposure bias
+        0x9205 : "MaxApertureValue",        // Smallest F number of lens
+        0x9206 : "SubjectDistance",         // Distance to subject in meters
+        0x9207 : "MeteringMode",            // Metering mode
+        0x9208 : "LightSource",             // Kind of light source
+        0x9209 : "Flash",                   // Flash status
+        0x9214 : "SubjectArea",             // Location and area of main subject
+        0x920A : "FocalLength",             // Focal length of the lens in mm
+        0xA20B : "FlashEnergy",             // Strobe energy in BCPS
+        0xA20C : "SpatialFrequencyResponse",    //
+        0xA20E : "FocalPlaneXResolution",   // Number of pixels in width direction per FocalPlaneResolutionUnit
+        0xA20F : "FocalPlaneYResolution",   // Number of pixels in height direction per FocalPlaneResolutionUnit
+        0xA210 : "FocalPlaneResolutionUnit",    // Unit for measuring FocalPlaneXResolution and FocalPlaneYResolution
+        0xA214 : "SubjectLocation",         // Location of subject in image
+        0xA215 : "ExposureIndex",           // Exposure index selected on camera
+        0xA217 : "SensingMethod",           // Image sensor type
+        0xA300 : "FileSource",              // Image source (3 == DSC)
+        0xA301 : "SceneType",               // Scene type (1 == directly photographed)
+        0xA302 : "CFAPattern",              // Color filter array geometric pattern
+        0xA401 : "CustomRendered",          // Special processing
+        0xA402 : "ExposureMode",            // Exposure mode
+        0xA403 : "WhiteBalance",            // 1 = auto white balance, 2 = manual
+        0xA404 : "DigitalZoomRation",       // Digital zoom ratio
+        0xA405 : "FocalLengthIn35mmFilm",   // Equivalent foacl length assuming 35mm film camera (in mm)
+        0xA406 : "SceneCaptureType",        // Type of scene
+        0xA407 : "GainControl",             // Degree of overall image gain adjustment
+        0xA408 : "Contrast",                // Direction of contrast processing applied by camera
+        0xA409 : "Saturation",              // Direction of saturation processing applied by camera
+        0xA40A : "Sharpness",               // Direction of sharpness processing applied by camera
+        0xA40B : "DeviceSettingDescription",    //
+        0xA40C : "SubjectDistanceRange",    // Distance to subject
+
+        // other tags
+        0xA005 : "InteroperabilityIFDPointer",
+        0xA420 : "ImageUniqueID"            // Identifier assigned uniquely to each image
+    };
+
+    var TiffTags = EXIF.TiffTags = {
+        0x0100 : "ImageWidth",
+        0x0101 : "ImageHeight",
+        0x8769 : "ExifIFDPointer",
+        0x8825 : "GPSInfoIFDPointer",
+        0xA005 : "InteroperabilityIFDPointer",
+        0x0102 : "BitsPerSample",
+        0x0103 : "Compression",
+        0x0106 : "PhotometricInterpretation",
+        0x0112 : "Orientation",
+        0x0115 : "SamplesPerPixel",
+        0x011C : "PlanarConfiguration",
+        0x0212 : "YCbCrSubSampling",
+        0x0213 : "YCbCrPositioning",
+        0x011A : "XResolution",
+        0x011B : "YResolution",
+        0x0128 : "ResolutionUnit",
+        0x0111 : "StripOffsets",
+        0x0116 : "RowsPerStrip",
+        0x0117 : "StripByteCounts",
+        0x0201 : "JPEGInterchangeFormat",
+        0x0202 : "JPEGInterchangeFormatLength",
+        0x012D : "TransferFunction",
+        0x013E : "WhitePoint",
+        0x013F : "PrimaryChromaticities",
+        0x0211 : "YCbCrCoefficients",
+        0x0214 : "ReferenceBlackWhite",
+        0x0132 : "DateTime",
+        0x010E : "ImageDescription",
+        0x010F : "Make",
+        0x0110 : "Model",
+        0x0131 : "Software",
+        0x013B : "Artist",
+        0x8298 : "Copyright"
+    };
+
+    var GPSTags = EXIF.GPSTags = {
+        0x0000 : "GPSVersionID",
+        0x0001 : "GPSLatitudeRef",
+        0x0002 : "GPSLatitude",
+        0x0003 : "GPSLongitudeRef",
+        0x0004 : "GPSLongitude",
+        0x0005 : "GPSAltitudeRef",
+        0x0006 : "GPSAltitude",
+        0x0007 : "GPSTimeStamp",
+        0x0008 : "GPSSatellites",
+        0x0009 : "GPSStatus",
+        0x000A : "GPSMeasureMode",
+        0x000B : "GPSDOP",
+        0x000C : "GPSSpeedRef",
+        0x000D : "GPSSpeed",
+        0x000E : "GPSTrackRef",
+        0x000F : "GPSTrack",
+        0x0010 : "GPSImgDirectionRef",
+        0x0011 : "GPSImgDirection",
+        0x0012 : "GPSMapDatum",
+        0x0013 : "GPSDestLatitudeRef",
+        0x0014 : "GPSDestLatitude",
+        0x0015 : "GPSDestLongitudeRef",
+        0x0016 : "GPSDestLongitude",
+        0x0017 : "GPSDestBearingRef",
+        0x0018 : "GPSDestBearing",
+        0x0019 : "GPSDestDistanceRef",
+        0x001A : "GPSDestDistance",
+        0x001B : "GPSProcessingMethod",
+        0x001C : "GPSAreaInformation",
+        0x001D : "GPSDateStamp",
+        0x001E : "GPSDifferential"
+    };
+
+     // EXIF 2.3 Spec
+    var IFD1Tags = EXIF.IFD1Tags = {
+        0x0100: "ImageWidth",
+        0x0101: "ImageHeight",
+        0x0102: "BitsPerSample",
+        0x0103: "Compression",
+        0x0106: "PhotometricInterpretation",
+        0x0111: "StripOffsets",
+        0x0112: "Orientation",
+        0x0115: "SamplesPerPixel",
+        0x0116: "RowsPerStrip",
+        0x0117: "StripByteCounts",
+        0x011A: "XResolution",
+        0x011B: "YResolution",
+        0x011C: "PlanarConfiguration",
+        0x0128: "ResolutionUnit",
+        0x0201: "JpegIFOffset",    // When image format is JPEG, this value show offset to JPEG data stored.(aka "ThumbnailOffset" or "JPEGInterchangeFormat")
+        0x0202: "JpegIFByteCount", // When image format is JPEG, this value shows data size of JPEG image (aka "ThumbnailLength" or "JPEGInterchangeFormatLength")
+        0x0211: "YCbCrCoefficients",
+        0x0212: "YCbCrSubSampling",
+        0x0213: "YCbCrPositioning",
+        0x0214: "ReferenceBlackWhite"
+    };
+
+    var StringValues = EXIF.StringValues = {
+        ExposureProgram : {
+            0 : "Not defined",
+            1 : "Manual",
+            2 : "Normal program",
+            3 : "Aperture priority",
+            4 : "Shutter priority",
+            5 : "Creative program",
+            6 : "Action program",
+            7 : "Portrait mode",
+            8 : "Landscape mode"
+        },
+        MeteringMode : {
+            0 : "Unknown",
+            1 : "Average",
+            2 : "CenterWeightedAverage",
+            3 : "Spot",
+            4 : "MultiSpot",
+            5 : "Pattern",
+            6 : "Partial",
+            255 : "Other"
+        },
+        LightSource : {
+            0 : "Unknown",
+            1 : "Daylight",
+            2 : "Fluorescent",
+            3 : "Tungsten (incandescent light)",
+            4 : "Flash",
+            9 : "Fine weather",
+            10 : "Cloudy weather",
+            11 : "Shade",
+            12 : "Daylight fluorescent (D 5700 - 7100K)",
+            13 : "Day white fluorescent (N 4600 - 5400K)",
+            14 : "Cool white fluorescent (W 3900 - 4500K)",
+            15 : "White fluorescent (WW 3200 - 3700K)",
+            17 : "Standard light A",
+            18 : "Standard light B",
+            19 : "Standard light C",
+            20 : "D55",
+            21 : "D65",
+            22 : "D75",
+            23 : "D50",
+            24 : "ISO studio tungsten",
+            255 : "Other"
+        },
+        Flash : {
+            0x0000 : "Flash did not fire",
+            0x0001 : "Flash fired",
+            0x0005 : "Strobe return light not detected",
+            0x0007 : "Strobe return light detected",
+            0x0009 : "Flash fired, compulsory flash mode",
+            0x000D : "Flash fired, compulsory flash mode, return light not detected",
+            0x000F : "Flash fired, compulsory flash mode, return light detected",
+            0x0010 : "Flash did not fire, compulsory flash mode",
+            0x0018 : "Flash did not fire, auto mode",
+            0x0019 : "Flash fired, auto mode",
+            0x001D : "Flash fired, auto mode, return light not detected",
+            0x001F : "Flash fired, auto mode, return light detected",
+            0x0020 : "No flash function",
+            0x0041 : "Flash fired, red-eye reduction mode",
+            0x0045 : "Flash fired, red-eye reduction mode, return light not detected",
+            0x0047 : "Flash fired, red-eye reduction mode, return light detected",
+            0x0049 : "Flash fired, compulsory flash mode, red-eye reduction mode",
+            0x004D : "Flash fired, compulsory flash mode, red-eye reduction mode, return light not detected",
+            0x004F : "Flash fired, compulsory flash mode, red-eye reduction mode, return light detected",
+            0x0059 : "Flash fired, auto mode, red-eye reduction mode",
+            0x005D : "Flash fired, auto mode, return light not detected, red-eye reduction mode",
+            0x005F : "Flash fired, auto mode, return light detected, red-eye reduction mode"
+        },
+        SensingMethod : {
+            1 : "Not defined",
+            2 : "One-chip color area sensor",
+            3 : "Two-chip color area sensor",
+            4 : "Three-chip color area sensor",
+            5 : "Color sequential area sensor",
+            7 : "Trilinear sensor",
+            8 : "Color sequential linear sensor"
+        },
+        SceneCaptureType : {
+            0 : "Standard",
+            1 : "Landscape",
+            2 : "Portrait",
+            3 : "Night scene"
+        },
+        SceneType : {
+            1 : "Directly photographed"
+        },
+        CustomRendered : {
+            0 : "Normal process",
+            1 : "Custom process"
+        },
+        WhiteBalance : {
+            0 : "Auto white balance",
+            1 : "Manual white balance"
+        },
+        GainControl : {
+            0 : "None",
+            1 : "Low gain up",
+            2 : "High gain up",
+            3 : "Low gain down",
+            4 : "High gain down"
+        },
+        Contrast : {
+            0 : "Normal",
+            1 : "Soft",
+            2 : "Hard"
+        },
+        Saturation : {
+            0 : "Normal",
+            1 : "Low saturation",
+            2 : "High saturation"
+        },
+        Sharpness : {
+            0 : "Normal",
+            1 : "Soft",
+            2 : "Hard"
+        },
+        SubjectDistanceRange : {
+            0 : "Unknown",
+            1 : "Macro",
+            2 : "Close view",
+            3 : "Distant view"
+        },
+        FileSource : {
+            3 : "DSC"
+        },
+
+        Components : {
+            0 : "",
+            1 : "Y",
+            2 : "Cb",
+            3 : "Cr",
+            4 : "R",
+            5 : "G",
+            6 : "B"
+        }
+    };
+
+    function addEvent(element, event, handler) {
+        if (element.addEventListener) {
+            element.addEventListener(event, handler, false);
+        } else if (element.attachEvent) {
+            element.attachEvent("on" + event, handler);
+        }
+    }
+
+    function imageHasData(img) {
+        return !!(img.exifdata);
+    }
+
+
+    function base64ToArrayBuffer(base64, contentType) {
+        contentType = contentType || base64.match(/^data\:([^\;]+)\;base64,/mi)[1] || ''; // e.g. 'data:image/jpeg;base64,...' => 'image/jpeg'
+        base64 = base64.replace(/^data\:([^\;]+)\;base64,/gmi, '');
+        var binary = atob(base64);
+        var len = binary.length;
+        var buffer = new ArrayBuffer(len);
+        var view = new Uint8Array(buffer);
+        for (var i = 0; i < len; i++) {
+            view[i] = binary.charCodeAt(i);
+        }
+        return buffer;
+    }
+
+    function objectURLToBlob(url, callback) {
+        var http = new XMLHttpRequest();
+        http.open("GET", url, true);
+        http.responseType = "blob";
+        http.onload = function(e) {
+            if (this.status == 200 || this.status === 0) {
+                callback(this.response);
+            }
+        };
+        http.send();
+    }
+
+    function getImageData(img, callback) {
+        function handleBinaryFile(binFile) {
+            var data = findEXIFinJPEG(binFile);
+            img.exifdata = data || {};
+            var iptcdata = findIPTCinJPEG(binFile);
+            img.iptcdata = iptcdata || {};
+            if (EXIF.isXmpEnabled) {
+               var xmpdata= findXMPinJPEG(binFile);
+               img.xmpdata = xmpdata || {};               
+            }
+            if (callback) {
+                callback.call(img);
+            }
+        }
+
+        if (img.src) {
+            if (/^data\:/i.test(img.src)) { // Data URI
+                var arrayBuffer = base64ToArrayBuffer(img.src);
+                handleBinaryFile(arrayBuffer);
+
+            } else if (/^blob\:/i.test(img.src)) { // Object URL
+                var fileReader = new FileReader();
+                fileReader.onload = function(e) {
+                    handleBinaryFile(e.target.result);
+                };
+                objectURLToBlob(img.src, function (blob) {
+                    fileReader.readAsArrayBuffer(blob);
+                });
+            } else {
+                var http = new XMLHttpRequest();
+                http.onload = function() {
+                    if (this.status == 200 || this.status === 0) {
+                        handleBinaryFile(http.response);
+                    } else {
+                        throw "Could not load image";
+                    }
+                    http = null;
+                };
+                http.open("GET", img.src, true);
+                http.responseType = "arraybuffer";
+                http.send(null);
+            }
+        } else if (self.FileReader && (img instanceof self.Blob || img instanceof self.File)) {
+            var fileReader = new FileReader();
+            fileReader.onload = function(e) {
+                if (debug) console.log("Got file of length " + e.target.result.byteLength);
+                handleBinaryFile(e.target.result);
+            };
+
+            fileReader.readAsArrayBuffer(img);
+        }
+    }
+
+    function findEXIFinJPEG(file) {
+        var dataView = new DataView(file);
+
+        if (debug) console.log("Got file of length " + file.byteLength);
+        if ((dataView.getUint8(0) != 0xFF) || (dataView.getUint8(1) != 0xD8)) {
+            if (debug) console.log("Not a valid JPEG");
+            return false; // not a valid jpeg
+        }
+
+        var offset = 2,
+            length = file.byteLength,
+            marker;
+
+        while (offset < length) {
+            if (dataView.getUint8(offset) != 0xFF) {
+                if (debug) console.log("Not a valid marker at offset " + offset + ", found: " + dataView.getUint8(offset));
+                return false; // not a valid marker, something is wrong
+            }
+
+            marker = dataView.getUint8(offset + 1);
+            if (debug) console.log(marker);
+
+            // we could implement handling for other markers here,
+            // but we're only looking for 0xFFE1 for EXIF data
+
+            if (marker == 225) {
+                if (debug) console.log("Found 0xFFE1 marker");
+
+                return readEXIFData(dataView, offset + 4, dataView.getUint16(offset + 2) - 2);
+
+                // offset += 2 + file.getShortAt(offset+2, true);
+
+            } else {
+                offset += 2 + dataView.getUint16(offset+2);
+            }
+
+        }
+
+    }
+
+    function findIPTCinJPEG(file) {
+        var dataView = new DataView(file);
+
+        if (debug) console.log("Got file of length " + file.byteLength);
+        if ((dataView.getUint8(0) != 0xFF) || (dataView.getUint8(1) != 0xD8)) {
+            if (debug) console.log("Not a valid JPEG");
+            return false; // not a valid jpeg
+        }
+
+        var offset = 2,
+            length = file.byteLength;
+
+
+        var isFieldSegmentStart = function(dataView, offset){
+            return (
+                dataView.getUint8(offset) === 0x38 &&
+                dataView.getUint8(offset+1) === 0x42 &&
+                dataView.getUint8(offset+2) === 0x49 &&
+                dataView.getUint8(offset+3) === 0x4D &&
+                dataView.getUint8(offset+4) === 0x04 &&
+                dataView.getUint8(offset+5) === 0x04
+            );
+        };
+
+        while (offset < length) {
+
+            if ( isFieldSegmentStart(dataView, offset )){
+
+                // Get the length of the name header (which is padded to an even number of bytes)
+                var nameHeaderLength = dataView.getUint8(offset+7);
+                if(nameHeaderLength % 2 !== 0) nameHeaderLength += 1;
+                // Check for pre photoshop 6 format
+                if(nameHeaderLength === 0) {
+                    // Always 4
+                    nameHeaderLength = 4;
+                }
+
+                var startOffset = offset + 8 + nameHeaderLength;
+                var sectionLength = dataView.getUint16(offset + 6 + nameHeaderLength);
+
+                return readIPTCData(file, startOffset, sectionLength);
+
+                break;
+
+            }
+
+
+            // Not the marker, continue searching
+            offset++;
+
+        }
+
+    }
+    var IptcFieldMap = {
+        0x78 : 'caption',
+        0x6E : 'credit',
+        0x19 : 'keywords',
+        0x37 : 'dateCreated',
+        0x50 : 'byline',
+        0x55 : 'bylineTitle',
+        0x7A : 'captionWriter',
+        0x69 : 'headline',
+        0x74 : 'copyright',
+        0x0F : 'category'
+    };
+    function readIPTCData(file, startOffset, sectionLength){
+        var dataView = new DataView(file);
+        var data = {};
+        var fieldValue, fieldName, dataSize, segmentType, segmentSize;
+        var segmentStartPos = startOffset;
+        while(segmentStartPos < startOffset+sectionLength) {
+            if(dataView.getUint8(segmentStartPos) === 0x1C && dataView.getUint8(segmentStartPos+1) === 0x02){
+                segmentType = dataView.getUint8(segmentStartPos+2);
+                if(segmentType in IptcFieldMap) {
+                    dataSize = dataView.getInt16(segmentStartPos+3);
+                    segmentSize = dataSize + 5;
+                    fieldName = IptcFieldMap[segmentType];
+                    fieldValue = getStringFromDB(dataView, segmentStartPos+5, dataSize);
+                    // Check if we already stored a value with this name
+                    if(data.hasOwnProperty(fieldName)) {
+                        // Value already stored with this name, create multivalue field
+                        if(data[fieldName] instanceof Array) {
+                            data[fieldName].push(fieldValue);
+                        }
+                        else {
+                            data[fieldName] = [data[fieldName], fieldValue];
+                        }
+                    }
+                    else {
+                        data[fieldName] = fieldValue;
+                    }
+                }
+
+            }
+            segmentStartPos++;
+        }
+        return data;
+    }
+
+
+
+    function readTags(file, tiffStart, dirStart, strings, bigEnd) {
+        var entries = file.getUint16(dirStart, !bigEnd),
+            tags = {},
+            entryOffset, tag,
+            i;
+
+        for (i=0;i<entries;i++) {
+            entryOffset = dirStart + i*12 + 2;
+            tag = strings[file.getUint16(entryOffset, !bigEnd)];
+            if (!tag && debug) console.log("Unknown tag: " + file.getUint16(entryOffset, !bigEnd));
+            tags[tag] = readTagValue(file, entryOffset, tiffStart, dirStart, bigEnd);
+        }
+        return tags;
+    }
+
+
+    function readTagValue(file, entryOffset, tiffStart, dirStart, bigEnd) {
+        var type = file.getUint16(entryOffset+2, !bigEnd),
+            numValues = file.getUint32(entryOffset+4, !bigEnd),
+            valueOffset = file.getUint32(entryOffset+8, !bigEnd) + tiffStart,
+            offset,
+            vals, val, n,
+            numerator, denominator;
+
+        switch (type) {
+            case 1: // byte, 8-bit unsigned int
+            case 7: // undefined, 8-bit byte, value depending on field
+                if (numValues == 1) {
+                    return file.getUint8(entryOffset + 8, !bigEnd);
+                } else {
+                    offset = numValues > 4 ? valueOffset : (entryOffset + 8);
+                    vals = [];
+                    for (n=0;n<numValues;n++) {
+                        vals[n] = file.getUint8(offset + n);
+                    }
+                    return vals;
+                }
+
+            case 2: // ascii, 8-bit byte
+                offset = numValues > 4 ? valueOffset : (entryOffset + 8);
+                return getStringFromDB(file, offset, numValues-1);
+
+            case 3: // short, 16 bit int
+                if (numValues == 1) {
+                    return file.getUint16(entryOffset + 8, !bigEnd);
+                } else {
+                    offset = numValues > 2 ? valueOffset : (entryOffset + 8);
+                    vals = [];
+                    for (n=0;n<numValues;n++) {
+                        vals[n] = file.getUint16(offset + 2*n, !bigEnd);
+                    }
+                    return vals;
+                }
+
+            case 4: // long, 32 bit int
+                if (numValues == 1) {
+                    return file.getUint32(entryOffset + 8, !bigEnd);
+                } else {
+                    vals = [];
+                    for (n=0;n<numValues;n++) {
+                        vals[n] = file.getUint32(valueOffset + 4*n, !bigEnd);
+                    }
+                    return vals;
+                }
+
+            case 5:    // rational = two long values, first is numerator, second is denominator
+                if (numValues == 1) {
+                    numerator = file.getUint32(valueOffset, !bigEnd);
+                    denominator = file.getUint32(valueOffset+4, !bigEnd);
+                    val = new Number(numerator / denominator);
+                    val.numerator = numerator;
+                    val.denominator = denominator;
+                    return val;
+                } else {
+                    vals = [];
+                    for (n=0;n<numValues;n++) {
+                        numerator = file.getUint32(valueOffset + 8*n, !bigEnd);
+                        denominator = file.getUint32(valueOffset+4 + 8*n, !bigEnd);
+                        vals[n] = new Number(numerator / denominator);
+                        vals[n].numerator = numerator;
+                        vals[n].denominator = denominator;
+                    }
+                    return vals;
+                }
+
+            case 9: // slong, 32 bit signed int
+                if (numValues == 1) {
+                    return file.getInt32(entryOffset + 8, !bigEnd);
+                } else {
+                    vals = [];
+                    for (n=0;n<numValues;n++) {
+                        vals[n] = file.getInt32(valueOffset + 4*n, !bigEnd);
+                    }
+                    return vals;
+                }
+
+            case 10: // signed rational, two slongs, first is numerator, second is denominator
+                if (numValues == 1) {
+                    return file.getInt32(valueOffset, !bigEnd) / file.getInt32(valueOffset+4, !bigEnd);
+                } else {
+                    vals = [];
+                    for (n=0;n<numValues;n++) {
+                        vals[n] = file.getInt32(valueOffset + 8*n, !bigEnd) / file.getInt32(valueOffset+4 + 8*n, !bigEnd);
+                    }
+                    return vals;
+                }
+        }
+    }
+
+    /**
+    * Given an IFD (Image File Directory) start offset
+    * returns an offset to next IFD or 0 if it's the last IFD.
+    */
+    function getNextIFDOffset(dataView, dirStart, bigEnd){
+        //the first 2bytes means the number of directory entries contains in this IFD
+        var entries = dataView.getUint16(dirStart, !bigEnd);
+
+        // After last directory entry, there is a 4bytes of data,
+        // it means an offset to next IFD.
+        // If its value is '0x00000000', it means this is the last IFD and there is no linked IFD.
+
+        return dataView.getUint32(dirStart + 2 + entries * 12, !bigEnd); // each entry is 12 bytes long
+    }
+
+    function readThumbnailImage(dataView, tiffStart, firstIFDOffset, bigEnd){
+        // get the IFD1 offset
+        var IFD1OffsetPointer = getNextIFDOffset(dataView, tiffStart+firstIFDOffset, bigEnd);
+
+        if (!IFD1OffsetPointer) {
+            // console.log('******** IFD1Offset is empty, image thumb not found ********');
+            return {};
+        }
+        else if (IFD1OffsetPointer > dataView.byteLength) { // this should not happen
+            // console.log('******** IFD1Offset is outside the bounds of the DataView ********');
+            return {};
+        }
+        // console.log('*******  thumbnail IFD offset (IFD1) is: %s', IFD1OffsetPointer);
+
+        var thumbTags = readTags(dataView, tiffStart, tiffStart + IFD1OffsetPointer, IFD1Tags, bigEnd)
+
+        // EXIF 2.3 specification for JPEG format thumbnail
+
+        // If the value of Compression(0x0103) Tag in IFD1 is '6', thumbnail image format is JPEG.
+        // Most of Exif image uses JPEG format for thumbnail. In that case, you can get offset of thumbnail
+        // by JpegIFOffset(0x0201) Tag in IFD1, size of thumbnail by JpegIFByteCount(0x0202) Tag.
+        // Data format is ordinary JPEG format, starts from 0xFFD8 and ends by 0xFFD9. It seems that
+        // JPEG format and 160x120pixels of size are recommended thumbnail format for Exif2.1 or later.
+
+        if (thumbTags['Compression']) {
+            // console.log('Thumbnail image found!');
+
+            switch (thumbTags['Compression']) {
+                case 6:
+                    // console.log('Thumbnail image format is JPEG');
+                    if (thumbTags.JpegIFOffset && thumbTags.JpegIFByteCount) {
+                    // extract the thumbnail
+                        var tOffset = tiffStart + thumbTags.JpegIFOffset;
+                        var tLength = thumbTags.JpegIFByteCount;
+                        thumbTags['blob'] = new Blob([new Uint8Array(dataView.buffer, tOffset, tLength)], {
+                            type: 'image/jpeg'
+                        });
+                    }
+                break;
+
+            case 1:
+                console.log("Thumbnail image format is TIFF, which is not implemented.");
+                break;
+            default:
+                console.log("Unknown thumbnail image format '%s'", thumbTags['Compression']);
+            }
+        }
+        else if (thumbTags['PhotometricInterpretation'] == 2) {
+            console.log("Thumbnail image format is RGB, which is not implemented.");
+        }
+        return thumbTags;
+    }
+
+    function getStringFromDB(buffer, start, length) {
+        var outstr = "";
+        for (n = start; n < start+length; n++) {
+            outstr += String.fromCharCode(buffer.getUint8(n));
+        }
+        return outstr;
+    }
+
+    function readEXIFData(file, start) {
+        if (getStringFromDB(file, start, 4) != "Exif") {
+            if (debug) console.log("Not valid EXIF data! " + getStringFromDB(file, start, 4));
+            return false;
+        }
+
+        var bigEnd,
+            tags, tag,
+            exifData, gpsData,
+            tiffOffset = start + 6;
+
+        // test for TIFF validity and endianness
+        if (file.getUint16(tiffOffset) == 0x4949) {
+            bigEnd = false;
+        } else if (file.getUint16(tiffOffset) == 0x4D4D) {
+            bigEnd = true;
+        } else {
+            if (debug) console.log("Not valid TIFF data! (no 0x4949 or 0x4D4D)");
+            return false;
+        }
+
+        if (file.getUint16(tiffOffset+2, !bigEnd) != 0x002A) {
+            if (debug) console.log("Not valid TIFF data! (no 0x002A)");
+            return false;
+        }
+
+        var firstIFDOffset = file.getUint32(tiffOffset+4, !bigEnd);
+
+        if (firstIFDOffset < 0x00000008) {
+            if (debug) console.log("Not valid TIFF data! (First offset less than 8)", file.getUint32(tiffOffset+4, !bigEnd));
+            return false;
+        }
+
+        tags = readTags(file, tiffOffset, tiffOffset + firstIFDOffset, TiffTags, bigEnd);
+
+        if (tags.ExifIFDPointer) {
+            exifData = readTags(file, tiffOffset, tiffOffset + tags.ExifIFDPointer, ExifTags, bigEnd);
+            for (tag in exifData) {
+                switch (tag) {
+                    case "LightSource" :
+                    case "Flash" :
+                    case "MeteringMode" :
+                    case "ExposureProgram" :
+                    case "SensingMethod" :
+                    case "SceneCaptureType" :
+                    case "SceneType" :
+                    case "CustomRendered" :
+                    case "WhiteBalance" :
+                    case "GainControl" :
+                    case "Contrast" :
+                    case "Saturation" :
+                    case "Sharpness" :
+                    case "SubjectDistanceRange" :
+                    case "FileSource" :
+                        exifData[tag] = StringValues[tag][exifData[tag]];
+                        break;
+
+                    case "ExifVersion" :
+                    case "FlashpixVersion" :
+                        exifData[tag] = String.fromCharCode(exifData[tag][0], exifData[tag][1], exifData[tag][2], exifData[tag][3]);
+                        break;
+
+                    case "ComponentsConfiguration" :
+                        exifData[tag] =
+                            StringValues.Components[exifData[tag][0]] +
+                            StringValues.Components[exifData[tag][1]] +
+                            StringValues.Components[exifData[tag][2]] +
+                            StringValues.Components[exifData[tag][3]];
+                        break;
+                }
+                tags[tag] = exifData[tag];
+            }
+        }
+
+        if (tags.GPSInfoIFDPointer) {
+            gpsData = readTags(file, tiffOffset, tiffOffset + tags.GPSInfoIFDPointer, GPSTags, bigEnd);
+            for (tag in gpsData) {
+                switch (tag) {
+                    case "GPSVersionID" :
+                        gpsData[tag] = gpsData[tag][0] +
+                            "." + gpsData[tag][1] +
+                            "." + gpsData[tag][2] +
+                            "." + gpsData[tag][3];
+                        break;
+                }
+                tags[tag] = gpsData[tag];
+            }
+        }
+
+        // extract thumbnail
+        tags['thumbnail'] = readThumbnailImage(file, tiffOffset, firstIFDOffset, bigEnd);
+
+        return tags;
+    }
+
+   function findXMPinJPEG(file) {
+
+        if (!('DOMParser' in self)) {
+            // console.warn('XML parsing not supported without DOMParser');
+            return;
+        }
+        var dataView = new DataView(file);
+
+        if (debug) console.log("Got file of length " + file.byteLength);
+        if ((dataView.getUint8(0) != 0xFF) || (dataView.getUint8(1) != 0xD8)) {
+           if (debug) console.log("Not a valid JPEG");
+           return false; // not a valid jpeg
+        }
+
+        var offset = 2,
+            length = file.byteLength,
+            dom = new DOMParser();
+
+        while (offset < (length-4)) {
+            if (getStringFromDB(dataView, offset, 4) == "http") {
+                var startOffset = offset - 1;
+                var sectionLength = dataView.getUint16(offset - 2) - 1;
+                var xmpString = getStringFromDB(dataView, startOffset, sectionLength)
+                var xmpEndIndex = xmpString.indexOf('xmpmeta>') + 8;
+                xmpString = xmpString.substring( xmpString.indexOf( '<x:xmpmeta' ), xmpEndIndex );
+
+                var indexOfXmp = xmpString.indexOf('x:xmpmeta') + 10
+                //Many custom written programs embed xmp/xml without any namespace. Following are some of them.
+                //Without these namespaces, XML is thought to be invalid by parsers
+                xmpString = xmpString.slice(0, indexOfXmp)
+                            + 'xmlns:Iptc4xmpCore="http://iptc.org/std/Iptc4xmpCore/1.0/xmlns/" '
+                            + 'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" '
+                            + 'xmlns:tiff="http://ns.adobe.com/tiff/1.0/" '
+                            + 'xmlns:plus="http://schemas.android.com/apk/lib/com.google.android.gms.plus" '
+                            + 'xmlns:ext="http://www.gettyimages.com/xsltExtension/1.0" '
+                            + 'xmlns:exif="http://ns.adobe.com/exif/1.0/" '
+                            + 'xmlns:stEvt="http://ns.adobe.com/xap/1.0/sType/ResourceEvent#" '
+                            + 'xmlns:stRef="http://ns.adobe.com/xap/1.0/sType/ResourceRef#" '
+                            + 'xmlns:crs="http://ns.adobe.com/camera-raw-settings/1.0/" '
+                            + 'xmlns:xapGImg="http://ns.adobe.com/xap/1.0/g/img/" '
+                            + 'xmlns:Iptc4xmpExt="http://iptc.org/std/Iptc4xmpExt/2008-02-29/" '
+                            + xmpString.slice(indexOfXmp)
+
+                var domDocument = dom.parseFromString( xmpString, 'text/xml' );
+                return xml2Object(domDocument);
+            } else{
+             offset++;
+            }
+        }
+    }
+
+    function xml2json(xml) {
+        var json = {};
+      
+        if (xml.nodeType == 1) { // element node
+          if (xml.attributes.length > 0) {
+            json['@attributes'] = {};
+            for (var j = 0; j < xml.attributes.length; j++) {
+              var attribute = xml.attributes.item(j);
+              json['@attributes'][attribute.nodeName] = attribute.nodeValue;
+            }
+          }
+        } else if (xml.nodeType == 3) { // text node
+          return xml.nodeValue;
+        }
+      
+        // deal with children
+        if (xml.hasChildNodes()) {
+          for(var i = 0; i < xml.childNodes.length; i++) {
+            var child = xml.childNodes.item(i);
+            var nodeName = child.nodeName;
+            if (json[nodeName] == null) {
+              json[nodeName] = xml2json(child);
+            } else {
+              if (json[nodeName].push == null) {
+                var old = json[nodeName];
+                json[nodeName] = [];
+                json[nodeName].push(old);
+              }
+              json[nodeName].push(xml2json(child));
+            }
+          }
+        }
+        
+        return json;
+    }
+
+    function xml2Object(xml) {
+        try {
+            var obj = {};
+            if (xml.children.length > 0) {
+              for (var i = 0; i < xml.children.length; i++) {
+                var item = xml.children.item(i);
+                var attributes = item.attributes;
+                for(var idx in attributes) {
+                    var itemAtt = attributes[idx];
+                    var dataKey = itemAtt.nodeName;
+                    var dataValue = itemAtt.nodeValue;
+
+                    if(dataKey !== undefined) {
+                        obj[dataKey] = dataValue;
+                    }
+                }
+                var nodeName = item.nodeName;
+
+                if (typeof (obj[nodeName]) == "undefined") {
+                  obj[nodeName] = xml2json(item);
+                } else {
+                  if (typeof (obj[nodeName].push) == "undefined") {
+                    var old = obj[nodeName];
+
+                    obj[nodeName] = [];
+                    obj[nodeName].push(old);
+                  }
+                  obj[nodeName].push(xml2json(item));
+                }
+              }
+            } else {
+              obj = xml.textContent;
+            }
+            return obj;
+          } catch (e) {
+              console.log(e.message);
+          }
+    }
+
+    EXIF.enableXmp = function() {
+        EXIF.isXmpEnabled = true;
+    }
+
+    EXIF.disableXmp = function() {
+        EXIF.isXmpEnabled = false;
+    }
+
+    EXIF.getData = function(img, callback) {
+        if (((self.Image && img instanceof self.Image)
+            || (self.HTMLImageElement && img instanceof self.HTMLImageElement))
+            && !img.complete)
+            return false;
+
+        if (!imageHasData(img)) {
+            getImageData(img, callback);
+        } else {
+            if (callback) {
+                callback.call(img);
+            }
+        }
+        return true;
+    }
+
+    EXIF.getTag = function(img, tag) {
+        if (!imageHasData(img)) return;
+        return img.exifdata[tag];
+    }
+    
+    EXIF.getIptcTag = function(img, tag) {
+        if (!imageHasData(img)) return;
+        return img.iptcdata[tag];
+    }
+
+    EXIF.getAllTags = function(img) {
+        if (!imageHasData(img)) return {};
+        var a,
+            data = img.exifdata,
+            tags = {};
+        for (a in data) {
+            if (data.hasOwnProperty(a)) {
+                tags[a] = data[a];
+            }
+        }
+        return tags;
+    }
+    
+    EXIF.getAllIptcTags = function(img) {
+        if (!imageHasData(img)) return {};
+        var a,
+            data = img.iptcdata,
+            tags = {};
+        for (a in data) {
+            if (data.hasOwnProperty(a)) {
+                tags[a] = data[a];
+            }
+        }
+        return tags;
+    }
+
+    EXIF.pretty = function(img) {
+        if (!imageHasData(img)) return "";
+        var a,
+            data = img.exifdata,
+            strPretty = "";
+        for (a in data) {
+            if (data.hasOwnProperty(a)) {
+                if (typeof data[a] == "object") {
+                    if (data[a] instanceof Number) {
+                        strPretty += a + " : " + data[a] + " [" + data[a].numerator + "/" + data[a].denominator + "]\r\n";
+                    } else {
+                        strPretty += a + " : [" + data[a].length + " values]\r\n";
+                    }
+                } else {
+                    strPretty += a + " : " + data[a] + "\r\n";
+                }
+            }
+        }
+        return strPretty;
+    }
+
+    EXIF.readFromBinaryFile = function(file) {
+        return findEXIFinJPEG(file);
+    }
+
+    if (true) {
+        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function() {
+            return EXIF;
+        }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+    }
+}.call(this));
+
+
+
+/***/ }),
+/* 49 */
+/***/ (function(module, exports, __webpack_require__) {
+
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(49)
+  __webpack_require__(50)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(51)
+var __vue_script__ = __webpack_require__(52)
 /* template */
-var __vue_template__ = __webpack_require__(62)
+var __vue_template__ = __webpack_require__(63)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = "data-v-85ef4954"
+var __vue_scopeId__ = "data-v-6707e3d4"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -16644,7 +17712,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\Home.vue"
+Component.options.__file = "resources/assets/js/components/Home.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -16653,9 +17721,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-85ef4954", Component.options)
+    hotAPI.createRecord("data-v-6707e3d4", Component.options)
   } else {
-    hotAPI.reload("data-v-85ef4954", Component.options)
+    hotAPI.reload("data-v-6707e3d4", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -16666,23 +17734,23 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(50);
+var content = __webpack_require__(51);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("1ea1b3e8", content, false, {});
+var update = __webpack_require__(3)("447a94f8", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-85ef4954\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Home.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-85ef4954\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Home.vue");
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6707e3d4\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Home.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6707e3d4\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Home.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -16692,7 +17760,7 @@ if(false) {
 }
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -16700,13 +17768,13 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.ovf[data-v-85ef4954] {\r\n  overflow-y: scroll;\r\n  height: calc(100vh - 60px);\n}\r\n", ""]);
+exports.push([module.i, "\n.ovf[data-v-6707e3d4] {\n  overflow-y: scroll;\n  height: calc(100vh - 60px);\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -16876,7 +17944,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 });
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -16901,7 +17969,7 @@ var oldRuntime = hadRuntime && g.regeneratorRuntime;
 // Force reevalutation of runtime.js.
 g.regeneratorRuntime = undefined;
 
-module.exports = __webpack_require__(53);
+module.exports = __webpack_require__(54);
 
 if (hadRuntime) {
   // Restore the original runtime.
@@ -16917,7 +17985,7 @@ if (hadRuntime) {
 
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, exports) {
 
 /**
@@ -17650,23 +18718,23 @@ if (hadRuntime) {
 
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(55);
+var content = __webpack_require__(56);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("0b5ab320", content, false, {});
+var update = __webpack_require__(3)("35ab957b", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-33cd90d3\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Post.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-33cd90d3\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Post.vue");
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-52d8b066\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Post.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-52d8b066\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Post.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -17676,7 +18744,7 @@ if(false) {
 }
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -17684,13 +18752,13 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.likenum[data-v-33cd90d3] {\n  margin-left: 0.5rem;\n}\n.post[data-v-33cd90d3] {\n  padding-top: 1rem;\n  padding-bottom: 1rem;\n  min-height: 100%;\n}\n.post .post-header[data-v-33cd90d3] {\n    height: 2rem;\n    position: relative;\n    margin-bottom: 0.2em;\n}\n.post .post-header .post-header-left[data-v-33cd90d3] {\n      display: inline-block;\n      position: absolute;\n      left: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-header .post-header-left p[data-v-33cd90d3] {\n        display: inline-block;\n        vertical-align: middle;\n        height: 2rem;\n        line-height: 1rem;\n        overflow: hidden;\n}\n.post .post-header .post-header-left p img[data-v-33cd90d3] {\n        width: 2rem;\n        height: 2rem;\n        margin-right: 0.2rem;\n        border-radius: 100%;\n}\n.post .post-header .post-header-right[data-v-33cd90d3] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-contents[data-v-33cd90d3] {\n    margin-top: 0.25rem;\n    background-color: #202020;\n    text-align: center;\n}\n.post .post-contents img[data-v-33cd90d3] {\n      display: inline-block;\n      max-width: 800px;\n}\n@media (max-width: 800px) {\n.post .post-contents img[data-v-33cd90d3] {\n        display: block;\n        width: 100%;\n        max-width: none;\n}\n}\n.post .post-footer[data-v-33cd90d3] {\n    position: relative;\n    margin-left: 0.5rem;\n    margin-top: 0rem;\n}\n.post .post-footer .post-right[data-v-33cd90d3] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0.2rem;\n      bottom: 0;\n}\n.modal[data-v-33cd90d3] {\n  z-index: 10000;\n  position: fixed;\n  top: 57px;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  display: block;\n  overflow-y: scroll;\n}\n.closeBtn[data-v-33cd90d3] {\n  position: fixed;\n  top: 60px;\n  right: 3px;\n  color: white;\n  padding: 1rem;\n  z-index: 100000;\n}\n@media (max-width: 800px) {\n.modal[data-v-33cd90d3] {\n    top: 0;\n    bottom: 45px;\n}\n.closeBtn[data-v-33cd90d3] {\n    top: 3px;\n}\n}\na strong[data-v-33cd90d3] {\n  color: #000000;\n}\na[data-v-33cd90d3] {\n  color: white;\n}\n.is-size-8[data-v-33cd90d3] {\n  font-size: 75%;\n}\n", ""]);
+exports.push([module.i, "\n.likenum[data-v-52d8b066] {\n  margin-left: 0.5rem;\n}\n.post[data-v-52d8b066] {\n  padding-top: 1rem;\n  padding-bottom: 1rem;\n  min-height: 100%;\n}\n.post .post-header[data-v-52d8b066] {\n    height: 2rem;\n    position: relative;\n    margin-bottom: 0.2em;\n}\n.post .post-header .post-header-left[data-v-52d8b066] {\n      display: inline-block;\n      position: absolute;\n      left: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-header .post-header-left p[data-v-52d8b066] {\n        display: inline-block;\n        vertical-align: middle;\n        height: 2rem;\n        line-height: 1rem;\n        overflow: hidden;\n}\n.post .post-header .post-header-left p img[data-v-52d8b066] {\n        width: 2rem;\n        height: 2rem;\n        margin-right: 0.2rem;\n        border-radius: 100%;\n}\n.post .post-header .post-header-right[data-v-52d8b066] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-contents[data-v-52d8b066] {\n    margin-top: 0.25rem;\n    background-color: #202020;\n    text-align: center;\n}\n.post .post-contents img[data-v-52d8b066] {\n      display: inline-block;\n      max-width: 800px;\n}\n@media (max-width: 800px) {\n.post .post-contents img[data-v-52d8b066] {\n        display: block;\n        width: 100%;\n        max-width: none;\n}\n}\n.post .post-footer[data-v-52d8b066] {\n    position: relative;\n    margin-left: 0.5rem;\n    margin-top: 0rem;\n}\n.post .post-footer .post-right[data-v-52d8b066] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0.2rem;\n      bottom: 0;\n}\n.modal[data-v-52d8b066] {\n  z-index: 10000;\n  position: fixed;\n  top: 57px;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  display: block;\n  overflow-y: scroll;\n}\n.closeBtn[data-v-52d8b066] {\n  position: fixed;\n  top: 60px;\n  right: 3px;\n  color: white;\n  padding: 1rem;\n  z-index: 100000;\n}\n@media (max-width: 800px) {\n.modal[data-v-52d8b066] {\n    top: 0;\n    bottom: 45px;\n}\n.closeBtn[data-v-52d8b066] {\n    top: 3px;\n}\n}\na strong[data-v-52d8b066] {\n  color: #000000;\n}\na[data-v-52d8b066] {\n  color: white;\n}\n.is-size-8[data-v-52d8b066] {\n  font-size: 75%;\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17842,23 +18910,23 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 });
 
 /***/ }),
-/* 57 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(58);
+var content = __webpack_require__(59);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("6144663c", content, false, {});
+var update = __webpack_require__(3)("ef705f0c", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-18bb2376\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./DetailContent.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-18bb2376\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./DetailContent.vue");
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-8853b7dc\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./DetailContent.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-8853b7dc\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/sass-loader/lib/loader.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./DetailContent.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -17868,7 +18936,7 @@ if(false) {
 }
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -17876,13 +18944,13 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.likenum[data-v-18bb2376] {\n  margin-left: 0.5rem;\n}\n.post[data-v-18bb2376] {\n  padding-top: 1rem;\n  padding-bottom: 3rem;\n}\n.post .post-header[data-v-18bb2376] {\n    height: 2rem;\n    position: relative;\n    margin-bottom: 0.2em;\n}\n.post .post-header .post-header-left[data-v-18bb2376] {\n      display: inline-block;\n      position: absolute;\n      left: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-header .post-header-left p[data-v-18bb2376] {\n        display: inline-block;\n        vertical-align: middle;\n        height: 2rem;\n        line-height: 2rem;\n}\n.post .post-header .post-header-left p img[data-v-18bb2376] {\n        width: 2rem;\n        height: 2rem;\n        margin-right: 0.2rem;\n        border-radius: 100%;\n}\n.post .post-header .post-header-right[data-v-18bb2376] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-contents[data-v-18bb2376] {\n    margin-top: 0.25rem;\n    text-align: center;\n}\n.post .post-contents img[data-v-18bb2376] {\n      display: block;\n      width: 100%;\n      max-width: none;\n}\n.post .post-footer[data-v-18bb2376] {\n    position: relative;\n    margin-left: 0.5rem;\n    margin-top: 0rem;\n}\n.post .post-footer .post-right[data-v-18bb2376] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0.2rem;\n      bottom: 0;\n}\n.info[data-v-18bb2376] {\n  line-height: 1.8;\n}\n.tag[data-v-18bb2376] {\n  margin-right: 2px;\n}\na strong[data-v-18bb2376] {\n  color: white;\n}\na[data-v-18bb2376] {\n  color: white;\n}\n", ""]);
+exports.push([module.i, "\n.likenum[data-v-8853b7dc] {\n  margin-left: 0.5rem;\n}\n.post[data-v-8853b7dc] {\n  padding-top: 1rem;\n  padding-bottom: 3rem;\n}\n.post .post-header[data-v-8853b7dc] {\n    height: 2rem;\n    position: relative;\n    margin-bottom: 0.2em;\n}\n.post .post-header .post-header-left[data-v-8853b7dc] {\n      display: inline-block;\n      position: absolute;\n      left: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-header .post-header-left p[data-v-8853b7dc] {\n        display: inline-block;\n        vertical-align: middle;\n        height: 2rem;\n        line-height: 2rem;\n}\n.post .post-header .post-header-left p img[data-v-8853b7dc] {\n        width: 2rem;\n        height: 2rem;\n        margin-right: 0.2rem;\n        border-radius: 100%;\n}\n.post .post-header .post-header-right[data-v-8853b7dc] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-contents[data-v-8853b7dc] {\n    margin-top: 0.25rem;\n    text-align: center;\n}\n.post .post-contents img[data-v-8853b7dc] {\n      display: block;\n      width: 100%;\n      max-width: none;\n}\n.post .post-footer[data-v-8853b7dc] {\n    position: relative;\n    margin-left: 0.5rem;\n    margin-top: 0rem;\n}\n.post .post-footer .post-right[data-v-8853b7dc] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0.2rem;\n      bottom: 0;\n}\n.info[data-v-8853b7dc] {\n  line-height: 1.8;\n}\n.tag[data-v-8853b7dc] {\n  margin-right: 2px;\n}\na strong[data-v-8853b7dc] {\n  color: white;\n}\na[data-v-8853b7dc] {\n  color: white;\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -18035,7 +19103,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 });
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -18270,12 +19338,12 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-18bb2376", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-8853b7dc", module.exports)
   }
 }
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -18438,12 +19506,12 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-33cd90d3", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-52d8b066", module.exports)
   }
 }
 
 /***/ }),
-/* 62 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -18490,30 +19558,30 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-85ef4954", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-6707e3d4", module.exports)
   }
 }
 
 /***/ }),
-/* 63 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(64)
+  __webpack_require__(65)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(66)
+var __vue_script__ = __webpack_require__(67)
 /* template */
-var __vue_template__ = __webpack_require__(67)
+var __vue_template__ = __webpack_require__(68)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = "data-v-7b88e3df"
+var __vue_scopeId__ = "data-v-7cdae69f"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -18524,7 +19592,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\Search.vue"
+Component.options.__file = "resources/assets/js/components/Search.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -18533,9 +19601,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-7b88e3df", Component.options)
+    hotAPI.createRecord("data-v-7cdae69f", Component.options)
   } else {
-    hotAPI.reload("data-v-7b88e3df", Component.options)
+    hotAPI.reload("data-v-7cdae69f", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -18546,23 +19614,23 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 64 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(65);
+var content = __webpack_require__(66);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("d5a710be", content, false, {});
+var update = __webpack_require__(3)("0772c475", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-7b88e3df\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Search.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-7b88e3df\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Search.vue");
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-7cdae69f\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Search.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-7cdae69f\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Search.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -18572,7 +19640,7 @@ if(false) {
 }
 
 /***/ }),
-/* 65 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -18580,13 +19648,13 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.s-area[data-v-7b88e3df] {\r\n  padding: 1.5rem;\r\n  margin-bottom: 1.5rem;\n}\r\n/*tab*/\n.is_selected[data-v-7b88e3df] {\r\n  border-bottom: solid 3px hsl(217, 71%, 53%);\n}\n.tab-contents[data-v-7b88e3df] {\r\n  margin-top: 1rem;\n}\n.photoarea[data-v-7b88e3df] {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -ms-flex-wrap: wrap;\r\n      flex-wrap: wrap;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\n}\n.photo[data-v-7b88e3df] {\r\n  height: 150px;\r\n  width: 150px;\r\n  background-color: hsl(217, 71%, 53%);\r\n  background-image: url(\"/storage/photo/1.JPG\");\r\n  background-position: center;\r\n  background-repeat: no-repeat;\r\n  background-size: cover;\r\n  text-align: center;\r\n  margin: 1rem;\r\n  color: white;\r\n  line-height: 150px;\n}\n.is_round img[data-v-7b88e3df]{\r\n  border-radius: 100px;\n}\r\n", ""]);
+exports.push([module.i, "\n.s-area[data-v-7cdae69f] {\n  padding: 1.5rem;\n  margin-bottom: 1.5rem;\n}\n/*tab*/\n.is_selected[data-v-7cdae69f] {\n  border-bottom: solid 3px hsl(217, 71%, 53%);\n}\n.tab-contents[data-v-7cdae69f] {\n  margin-top: 1rem;\n}\n.photoarea[data-v-7cdae69f] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n.photo[data-v-7cdae69f] {\n  height: 150px;\n  width: 150px;\n  background-color: hsl(217, 71%, 53%);\n  background-image: url(\"/storage/photo/1.JPG\");\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  text-align: center;\n  margin: 1rem;\n  color: white;\n  line-height: 150px;\n}\n.is_round img[data-v-7cdae69f]{\n  border-radius: 100px;\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 66 */
+/* 67 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -18687,7 +19755,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 });
 
 /***/ }),
-/* 67 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -18762,30 +19830,30 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-7b88e3df", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-7cdae69f", module.exports)
   }
 }
 
 /***/ }),
-/* 68 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(69)
+  __webpack_require__(70)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(71)
+var __vue_script__ = __webpack_require__(72)
 /* template */
-var __vue_template__ = __webpack_require__(77)
+var __vue_template__ = __webpack_require__(78)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = "data-v-d1369090"
+var __vue_scopeId__ = "data-v-ce928b10"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -18796,7 +19864,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\Upload.vue"
+Component.options.__file = "resources/assets/js/components/Upload.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -18805,9 +19873,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-d1369090", Component.options)
+    hotAPI.createRecord("data-v-ce928b10", Component.options)
   } else {
-    hotAPI.reload("data-v-d1369090", Component.options)
+    hotAPI.reload("data-v-ce928b10", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -18818,23 +19886,23 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 69 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(70);
+var content = __webpack_require__(71);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("3f188f10", content, false, {});
+var update = __webpack_require__(3)("868c79ec", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-d1369090\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Upload.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-d1369090\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Upload.vue");
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-ce928b10\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Upload.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-ce928b10\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Upload.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -18844,7 +19912,7 @@ if(false) {
 }
 
 /***/ }),
-/* 70 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -18852,13 +19920,13 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.modal[data-v-d1369090] {\r\n  z-index: 999;\r\n  position: fixed;\r\n  top: 0;\r\n  bottom: 0;\r\n  left: 0;\r\n  right: 0;\r\n  display: block;\n}\n.modal-card[data-v-d1369090] {\r\n  top: 30px;\r\n  bottom: 30px;\r\n  width: 90vw;\n}\n.modal-card-body[data-v-d1369090] {\r\n  overflow-y: scroll;\n}\r\n", ""]);
+exports.push([module.i, "\n.modal[data-v-ce928b10] {\n  z-index: 999;\n  position: fixed;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  display: block;\n}\n.modal-card[data-v-ce928b10] {\n  top: 30px;\n  bottom: 30px;\n  width: 90vw;\n}\n.modal-card-body[data-v-ce928b10] {\n  overflow-y: scroll;\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 71 */
+/* 72 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -18976,7 +20044,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 
 
-var upd_area = __webpack_require__(72);
+var upd_area = __webpack_require__(73);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -19088,25 +20156,25 @@ var upd_area = __webpack_require__(72);
 });
 
 /***/ }),
-/* 72 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(73)
+  __webpack_require__(74)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(75)
+var __vue_script__ = __webpack_require__(76)
 /* template */
-var __vue_template__ = __webpack_require__(76)
+var __vue_template__ = __webpack_require__(77)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = "data-v-40360b21"
+var __vue_scopeId__ = "data-v-273c1f18"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -19117,7 +20185,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\parts\\UploadArea.vue"
+Component.options.__file = "resources/assets/js/components/parts/UploadArea.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -19126,9 +20194,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-40360b21", Component.options)
+    hotAPI.createRecord("data-v-273c1f18", Component.options)
   } else {
-    hotAPI.reload("data-v-40360b21", Component.options)
+    hotAPI.reload("data-v-273c1f18", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -19139,23 +20207,23 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 73 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(74);
+var content = __webpack_require__(75);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("1cb1df4f", content, false, {});
+var update = __webpack_require__(3)("64bd7b43", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-40360b21\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./UploadArea.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-40360b21\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./UploadArea.vue");
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-273c1f18\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./UploadArea.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-273c1f18\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./UploadArea.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -19165,7 +20233,7 @@ if(false) {
 }
 
 /***/ }),
-/* 74 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -19173,17 +20241,18 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.updimg[data-v-40360b21] {\r\n  max-width: 200px;\n}\n.width100[data-v-40360b21] {\r\n  width: 100%;\n}\r\n", ""]);
+exports.push([module.i, "\n.updimg[data-v-273c1f18] {\n  max-width: 200px;\n}\n.width100[data-v-273c1f18] {\n  width: 100%;\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 75 */
+/* 76 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -19231,13 +20300,35 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       reader.onload = function (e) {
         _this.uploadedImage = e.target.result;
       };
+
+      var rotate = 0;
+      var orientation = void 0;
+      EXIF.getData(file, function () {
+        orientation = EXIF.getTag(this, "Orientation");
+        if (orientation) {
+          switch (orientation) {
+            case 3:
+              rotate = 180;
+              break;
+            case 6:
+              rotate = 90;
+              break;
+            case 8:
+              rotate = -90;
+              break;
+          }
+        }
+        var updimg = document.getElementById("updimg");
+        updimg.style.cssText = 'transform: rotate(' + rotate + 'deg); margin: 25px 0 15px;';
+      });
+
       this.path = reader.readAsDataURL(file);
     }
   }
 });
 
 /***/ }),
-/* 76 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -19315,7 +20406,7 @@ var render = function() {
                 }
               ],
               staticClass: "updimg",
-              attrs: { src: _vm.uploadedImage }
+              attrs: { src: _vm.uploadedImage, id: "updimg" }
             })
           ])
         ])
@@ -19338,12 +20429,12 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-40360b21", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-273c1f18", module.exports)
   }
 }
 
 /***/ }),
-/* 77 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -19646,12 +20737,12 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-d1369090", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-ce928b10", module.exports)
   }
 }
 
 /***/ }),
-/* 78 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
@@ -19659,7 +20750,7 @@ var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(79)
+var __vue_template__ = __webpack_require__(80)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -19676,7 +20767,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\Like.vue"
+Component.options.__file = "resources/assets/js/components/Like.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -19685,9 +20776,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-1bbdfa0e", Component.options)
+    hotAPI.createRecord("data-v-2b31acce", Component.options)
   } else {
-    hotAPI.reload("data-v-1bbdfa0e", Component.options)
+    hotAPI.reload("data-v-2b31acce", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -19698,7 +20789,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 79 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -19721,7 +20812,7 @@ var staticRenderFns = [
         _c("strong", [_vm._v("Blue")]),
         _vm._v("」をいいねしました．"),
         _c("br"),
-        _vm._v("\r\n  2018/4/28 14:29\r\n")
+        _vm._v("\n  2018/4/28 14:29\n")
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "notification" }, [
@@ -19732,7 +20823,7 @@ var staticRenderFns = [
         _c("strong", [_vm._v("Blue")]),
         _vm._v("」をいいねしました．"),
         _c("br"),
-        _vm._v("\r\n  2018/4/28 14:29\r\n")
+        _vm._v("\n  2018/4/28 14:29\n")
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "notification" }, [
@@ -19743,7 +20834,7 @@ var staticRenderFns = [
         _c("strong", [_vm._v("Blue")]),
         _vm._v("」をいいねしました．"),
         _c("br"),
-        _vm._v("\r\n  2018/4/28 14:29\r\n")
+        _vm._v("\n  2018/4/28 14:29\n")
       ])
     ])
   }
@@ -19753,28 +20844,28 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-1bbdfa0e", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-2b31acce", module.exports)
   }
 }
 
 /***/ }),
-/* 80 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(81);
+var content = __webpack_require__(82);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("eacc4658", content, false, {});
+var update = __webpack_require__(3)("87ebc7dc", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-22ef5402\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Profile.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-22ef5402\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Profile.vue");
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4bdda942\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Profile.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4bdda942\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Profile.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -19784,7 +20875,7 @@ if(false) {
 }
 
 /***/ }),
-/* 81 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -19792,13 +20883,13 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/*tab*/\n.is_selected[data-v-22ef5402] {\r\n  border-bottom: solid 3px hsl(217, 71%, 53%);\n}\n.tab-contents[data-v-22ef5402] {\r\n  margin-top: 1rem;\n}\n.photoarea[data-v-22ef5402] {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -ms-flex-wrap: wrap;\r\n      flex-wrap: wrap;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\n}\n.is_round img[data-v-22ef5402]{\r\n  border-radius: 100px;\n}\r\n\r\n/*profile*/\n.m-profile[data-v-22ef5402] {\r\n  text-align: center;\r\n  margin: 0 auto;\n}\n.m-profile-img[data-v-22ef5402] {\r\n  height: 256px;\r\n  margin-bottom: 52px;\r\n  position: relative;\n}\n.m-profile figure[data-v-22ef5402] {\r\n  position: absolute;\r\n  bottom: -48px;\r\n  left: 50%;\r\n  margin-left: -48px;\n}\n.m-profile img[data-v-22ef5402] {\r\n  border: solid 2px white;\r\n  border-radius:100px;\n}\n@media (max-width: 767px) {\n.m-profile-img[data-v-22ef5402] {\r\n    height: 128px;\r\n    margin-bottom: 52px;\r\n    position: relative;\n}\n.m-profile figure[data-v-22ef5402] {\r\n    position: absolute;\r\n    bottom: -48px;\r\n    left: 50%;\r\n    margin-left: -48px;\n}\n.m-profile img[data-v-22ef5402] {\r\n    border: solid 2px white;\r\n    border-radius:100px;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*tab*/\n.is_selected[data-v-4bdda942] {\n  border-bottom: solid 3px hsl(217, 71%, 53%);\n}\n.tab-contents[data-v-4bdda942] {\n  margin-top: 1rem;\n}\n.photoarea[data-v-4bdda942] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n.is_round img[data-v-4bdda942]{\n  border-radius: 100px;\n}\n\n/*profile*/\n.m-profile[data-v-4bdda942] {\n  text-align: center;\n  margin: 0 auto;\n}\n.m-profile-img[data-v-4bdda942] {\n  height: 256px;\n  margin-bottom: 52px;\n  position: relative;\n}\n.m-profile figure[data-v-4bdda942] {\n  position: absolute;\n  bottom: -48px;\n  left: 50%;\n  margin-left: -48px;\n}\n.m-profile img[data-v-4bdda942] {\n  border: solid 2px white;\n  border-radius:100px;\n}\n@media (max-width: 767px) {\n.m-profile-img[data-v-4bdda942] {\n    height: 128px;\n    margin-bottom: 52px;\n    position: relative;\n}\n.m-profile figure[data-v-4bdda942] {\n    position: absolute;\n    bottom: -48px;\n    left: 50%;\n    margin-left: -48px;\n}\n.m-profile img[data-v-4bdda942] {\n    border: solid 2px white;\n    border-radius:100px;\n}\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 82 */
+/* 83 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20051,7 +21142,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 });
 
 /***/ }),
-/* 83 */
+/* 84 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20083,7 +21174,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 84 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -20127,12 +21218,12 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-6b3c9622", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-1b299182", module.exports)
   }
 }
 
 /***/ }),
-/* 85 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -20338,20 +21429,20 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-22ef5402", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-4bdda942", module.exports)
   }
 }
 
 /***/ }),
-/* 86 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(87)
+var __vue_script__ = __webpack_require__(88)
 /* template */
-var __vue_template__ = __webpack_require__(92)
+var __vue_template__ = __webpack_require__(93)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -20368,7 +21459,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\Detail.vue"
+Component.options.__file = "resources/assets/js/components/Detail.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -20377,9 +21468,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-681d1a08", Component.options)
+    hotAPI.createRecord("data-v-696f1cc8", Component.options)
   } else {
-    hotAPI.reload("data-v-681d1a08", Component.options)
+    hotAPI.reload("data-v-696f1cc8", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -20390,7 +21481,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 87 */
+/* 88 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20399,7 +21490,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__parts_BackButton_vue__ = __webpack_require__(88);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__parts_BackButton_vue__ = __webpack_require__(89);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__parts_BackButton_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__parts_BackButton_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__parts_DetailContent_vue__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__parts_DetailContent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__parts_DetailContent_vue__);
@@ -20502,19 +21593,19 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 });
 
 /***/ }),
-/* 88 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(89)
+  __webpack_require__(90)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(91)
+var __vue_template__ = __webpack_require__(92)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -20531,7 +21622,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\parts\\BackButton.vue"
+Component.options.__file = "resources/assets/js/components/parts/BackButton.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -20540,9 +21631,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-5b57d26c", Component.options)
+    hotAPI.createRecord("data-v-0783b7bf", Component.options)
   } else {
-    hotAPI.reload("data-v-5b57d26c", Component.options)
+    hotAPI.reload("data-v-0783b7bf", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -20553,23 +21644,23 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 89 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(90);
+var content = __webpack_require__(91);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("68b00e6c", content, false, {});
+var update = __webpack_require__(3)("3eb91e6c", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-5b57d26c\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./BackButton.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-5b57d26c\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./BackButton.vue");
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0783b7bf\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./BackButton.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0783b7bf\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./BackButton.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -20579,7 +21670,7 @@ if(false) {
 }
 
 /***/ }),
-/* 90 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -20587,13 +21678,13 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.backarea {\r\n  position: fixed;\r\n  top: 0px;\r\n  left: 0px;\r\n  padding: 0.5rem;\r\n  width: 10rem;\r\n  line-height: 1.5;\r\n  z-index: 1000;\n}\r\n", ""]);
+exports.push([module.i, "\n.backarea {\n  position: fixed;\n  top: 0px;\n  left: 0px;\n  padding: 0.5rem;\n  width: 10rem;\n  line-height: 1.5;\n  z-index: 1000;\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 91 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -20628,12 +21719,12 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-5b57d26c", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-0783b7bf", module.exports)
   }
 }
 
 /***/ }),
-/* 92 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -20656,30 +21747,30 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-681d1a08", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-696f1cc8", module.exports)
   }
 }
 
 /***/ }),
-/* 93 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(94)
+  __webpack_require__(95)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(96)
+var __vue_script__ = __webpack_require__(97)
 /* template */
-var __vue_template__ = __webpack_require__(97)
+var __vue_template__ = __webpack_require__(98)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = "data-v-6b8bff7a"
+var __vue_scopeId__ = "data-v-0216f0d6"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -20690,7 +21781,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\search\\Freeword.vue"
+Component.options.__file = "resources/assets/js/components/search/Freeword.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -20699,9 +21790,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-6b8bff7a", Component.options)
+    hotAPI.createRecord("data-v-0216f0d6", Component.options)
   } else {
-    hotAPI.reload("data-v-6b8bff7a", Component.options)
+    hotAPI.reload("data-v-0216f0d6", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -20712,23 +21803,23 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 94 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(95);
+var content = __webpack_require__(96);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("ff70bd06", content, false, {});
+var update = __webpack_require__(3)("18e9622d", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6b8bff7a\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Freeword.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6b8bff7a\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Freeword.vue");
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0216f0d6\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Freeword.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0216f0d6\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Freeword.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -20738,7 +21829,7 @@ if(false) {
 }
 
 /***/ }),
-/* 95 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -20746,13 +21837,13 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.s-area[data-v-6b8bff7a] {\r\n  padding: 1.5rem;\r\n  margin-bottom: 1.5rem;\n}\r\n/*tab*/\n.is_selected[data-v-6b8bff7a] {\r\n  border-bottom: solid 3px hsl(217, 71%, 53%);\n}\n.tab-contents[data-v-6b8bff7a] {\r\n  margin-top: 1rem;\n}\n.photoarea[data-v-6b8bff7a] {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -ms-flex-wrap: wrap;\r\n      flex-wrap: wrap;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\n}\n.photo[data-v-6b8bff7a] {\r\n  height: 150px;\r\n  width: 150px;\r\n  background-color: hsl(217, 71%, 53%);\r\n  background-image: url(\"/storage/photo/1.JPG\");\r\n  background-position: center;\r\n  background-repeat: no-repeat;\r\n  background-size: cover;\r\n  text-align: center;\r\n  margin: 1rem;\r\n  color: white;\r\n  line-height: 150px;\n}\n.is_round img[data-v-6b8bff7a]{\r\n  border-radius: 100px;\n}\r\n", ""]);
+exports.push([module.i, "\n.s-area[data-v-0216f0d6] {\n  padding: 1.5rem;\n  margin-bottom: 1.5rem;\n}\n/*tab*/\n.is_selected[data-v-0216f0d6] {\n  border-bottom: solid 3px hsl(217, 71%, 53%);\n}\n.tab-contents[data-v-0216f0d6] {\n  margin-top: 1rem;\n}\n.photoarea[data-v-0216f0d6] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n.photo[data-v-0216f0d6] {\n  height: 150px;\n  width: 150px;\n  background-color: hsl(217, 71%, 53%);\n  background-image: url(\"/storage/photo/1.JPG\");\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  text-align: center;\n  margin: 1rem;\n  color: white;\n  line-height: 150px;\n}\n.is_round img[data-v-0216f0d6]{\n  border-radius: 100px;\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 96 */
+/* 97 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20904,7 +21995,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 });
 
 /***/ }),
-/* 97 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -21094,30 +22185,30 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-6b8bff7a", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-0216f0d6", module.exports)
   }
 }
 
 /***/ }),
-/* 98 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(99)
+  __webpack_require__(100)
 }
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(101)
+var __vue_script__ = __webpack_require__(102)
 /* template */
-var __vue_template__ = __webpack_require__(102)
+var __vue_template__ = __webpack_require__(103)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = "data-v-6a58d498"
+var __vue_scopeId__ = "data-v-0d9306ab"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -21128,7 +22219,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\search\\User.vue"
+Component.options.__file = "resources/assets/js/components/search/User.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -21137,9 +22228,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-6a58d498", Component.options)
+    hotAPI.createRecord("data-v-0d9306ab", Component.options)
   } else {
-    hotAPI.reload("data-v-6a58d498", Component.options)
+    hotAPI.reload("data-v-0d9306ab", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -21150,23 +22241,23 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 99 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(100);
+var content = __webpack_require__(101);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("0ccc8a20", content, false, {});
+var update = __webpack_require__(3)("69aeb4ca", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6a58d498\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./User.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6a58d498\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./User.vue");
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0d9306ab\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./User.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-0d9306ab\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./User.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -21176,7 +22267,7 @@ if(false) {
 }
 
 /***/ }),
-/* 100 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -21184,13 +22275,13 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.s-area[data-v-6a58d498] {\r\n  padding: 1.5rem;\r\n  margin-bottom: 1.5rem;\n}\r\n/*tab*/\n.is_selected[data-v-6a58d498] {\r\n  border-bottom: solid 3px hsl(217, 71%, 53%);\n}\n.tab-contents[data-v-6a58d498] {\r\n  margin-top: 1rem;\n}\n.photoarea[data-v-6a58d498] {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -ms-flex-wrap: wrap;\r\n      flex-wrap: wrap;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\n}\n.photo[data-v-6a58d498] {\r\n  height: 150px;\r\n  width: 150px;\r\n  background-color: hsl(217, 71%, 53%);\r\n  background-image: url(\"/storage/photo/1.JPG\");\r\n  background-position: center;\r\n  background-repeat: no-repeat;\r\n  background-size: cover;\r\n  text-align: center;\r\n  margin: 1rem;\r\n  color: white;\r\n  line-height: 150px;\n}\n.is_round img[data-v-6a58d498]{\r\n  border-radius: 100px;\n}\r\n", ""]);
+exports.push([module.i, "\n.s-area[data-v-0d9306ab] {\n  padding: 1.5rem;\n  margin-bottom: 1.5rem;\n}\n/*tab*/\n.is_selected[data-v-0d9306ab] {\n  border-bottom: solid 3px hsl(217, 71%, 53%);\n}\n.tab-contents[data-v-0d9306ab] {\n  margin-top: 1rem;\n}\n.photoarea[data-v-0d9306ab] {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n.photo[data-v-0d9306ab] {\n  height: 150px;\n  width: 150px;\n  background-color: hsl(217, 71%, 53%);\n  background-image: url(\"/storage/photo/1.JPG\");\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  text-align: center;\n  margin: 1rem;\n  color: white;\n  line-height: 150px;\n}\n.is_round img[data-v-0d9306ab]{\n  border-radius: 100px;\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 101 */
+/* 102 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -21327,7 +22418,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 });
 
 /***/ }),
-/* 102 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -21448,12 +22539,12 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-6a58d498", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-0d9306ab", module.exports)
   }
 }
 
 /***/ }),
-/* 103 */
+/* 104 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

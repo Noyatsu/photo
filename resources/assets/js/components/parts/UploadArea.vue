@@ -13,13 +13,14 @@
           <span class="file-label" v-show="uploadedImage">
             写真を変更
           </span>
-          <img v-show="uploadedImage" :src="uploadedImage" class="updimg">
+          <img v-show="uploadedImage" :src="uploadedImage" class="updimg" id="updimg">
         </span>
         <!--<span class="file-name width100">{{ uploadedImage }}</span>-->
       </label>
     </div>
   </div>
 </template>
+
 <script>
 export default {
   data() {
@@ -41,6 +42,28 @@ export default {
       reader.onload = (e) => {
         this.uploadedImage = e.target.result;
       };
+
+      let rotate = 0;
+      let orientation;
+      EXIF.getData(file, function() {
+        orientation = EXIF.getTag(this, "Orientation");
+        if (orientation) {
+          switch (orientation) {
+            case 3:
+              rotate = 180;
+              break;
+            case 6:
+              rotate = 90;
+              break;
+            case 8:
+              rotate = -90;
+              break;
+          } 
+        }
+        let updimg = document.getElementById("updimg");
+        updimg.style.cssText = `transform: rotate(${rotate}deg); margin: 25px 0 15px;`;
+      });
+
       this.path = reader.readAsDataURL(file);
     }
   }
