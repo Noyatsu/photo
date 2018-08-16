@@ -109,10 +109,10 @@ body {
 }
 
 .fadeup-enter-active, .fadeup-leave-active {
-  transition: all .5s ease-out;
+  transition: all .3s ease-out;
 }
 .fadeup-enter, .fadeup-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
+  opacity: 0.9;
   transform: translateY(100vh);
 }
 
