@@ -64,20 +64,18 @@ export default{
       is_logined: false
     }
   },
-  created() {
+  async created() {
     this.is_logined = (user_screen_name == "") ? false : true;
 
-    if(this.is_logined) {
-      try {
-        let res;
-        res = axios.get('/api/photos/like/check/' + user_screen_name + '/' + this.photo.p_id);
-        if(res.data==true) {
-          this.isLiked = true;
-        }
-
-      } catch (e) {
-        console.error(e);
+    try {
+      let res;
+      res = await axios.get('/api/photos/like/check/' + user_screen_name + '/' + this.photo.p_id);
+      if(res.data==true) {
+        this.isLiked = true;
       }
+
+    } catch (e) {
+      console.error(e);
     }
 
     const tags_str = this.photo.tags || '';

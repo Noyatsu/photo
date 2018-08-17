@@ -17976,8 +17976,14 @@ exports.push([module.i, "\n.likenum[data-v-18bb2376] {\n  margin-left: 0.5rem;\n
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
+
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
 //
 //
 //
@@ -18044,27 +18050,58 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       is_logined: false
     };
   },
-  created: function created() {
-    this.is_logined = user_screen_name == "" ? false : true;
+  created: function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
+      var res, tags_str;
+      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              this.is_logined = user_screen_name == "" ? false : true;
 
-    if (this.is_logined) {
-      try {
-        var res = void 0;
-        res = __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/api/photos/like/check/' + user_screen_name + '/' + this.photo.p_id);
-        if (res.data == true) {
-          this.isLiked = true;
+              _context.prev = 1;
+              res = void 0;
+              _context.next = 5;
+              return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/photos/like/check/' + user_screen_name + '/' + this.photo.p_id);
+
+            case 5:
+              res = _context.sent;
+
+              if (res.data == true) {
+                this.isLiked = true;
+              }
+
+              _context.next = 12;
+              break;
+
+            case 9:
+              _context.prev = 9;
+              _context.t0 = _context['catch'](1);
+
+              console.error(_context.t0);
+
+            case 12:
+              tags_str = this.photo.tags || '';
+
+              if (tags_str != '') {
+                this.tags = tags_str.split(',');
+              }
+              this.likeNum = this.photo.likes;
+
+            case 15:
+            case 'end':
+              return _context.stop();
+          }
         }
-      } catch (e) {
-        console.error(e);
-      }
+      }, _callee, this, [[1, 9]]);
+    }));
+
+    function created() {
+      return _ref.apply(this, arguments);
     }
 
-    var tags_str = this.photo.tags || '';
-    if (tags_str != '') {
-      this.tags = tags_str.split(',');
-    }
-    this.likeNum = this.photo.likes;
-  },
+    return created;
+  }(),
 
   methods: {
     touch_start: function touch_start() {
@@ -18083,7 +18120,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var _this = this;
 
       if (this.is_logined) {
-        __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/api/photos/like/toggle', {
+        __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post('/api/photos/like/toggle', {
           screen_name: user_screen_name,
           api_token: user_api_token,
           photo_id: this.photo.p_id,
