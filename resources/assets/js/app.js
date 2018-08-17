@@ -64,6 +64,9 @@ const app = new Vue({
     is_logined: false,
     is_loading: false,
     loading_msg: "読み込み中",
+    is_notification: false,
+    notification_msg: "こんにちは",
+    notification_type: "",
     tabnavs: [
       { cls: 'fas fa-home', isActive: false, name: 'timeline'},
       { cls: 'fas fa-search', isActive: false, name: 'search' },
@@ -76,6 +79,15 @@ const app = new Vue({
     tgl_loading: function(msg) {
       this.loading_msg = msg;
       this.is_loading = !this.is_loading;
+    },
+    show_notification: function(msg, type) {
+      this.notification_msg = msg;
+      this.notification_type = type;
+      this.is_notification = true;
+      const self = this;
+      setTimeout(function(){
+        self.is_notification = false;
+      }, 4000);
     }
   },
   created: function() {

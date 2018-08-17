@@ -1,5 +1,11 @@
 <body>
   <div id="app">
+    <transition name="fadedown">
+      <div class="notification m-notification" v-show="is_notification" v-bind:class="notification_type" style="display: none;">
+        <button class="delete" v-on:click="is_notification=false"></button>
+        @{{ notification_msg }}
+      </div>
+    </transition>
     <nav class="m-navbar has-background-white-ter">
       <a class="m-navbar-item" href="/home">
         {{ config('app.name') }}
@@ -16,7 +22,7 @@
               <i class="fas fa-ellipsis-h"></i>
             </button>
           </div>
-          <div class="dropdown-menu" id="dropdown-menu2" role="menu" v-if="is_displaydd" v-on:click="is_displaydd = !is_displaydd">
+          <div class="dropdown-menu" id="dropdown-menu2" role="menu" v-show="is_displaydd" v-on:click="is_displaydd = !is_displaydd" style="display: none;">
             <div class="dropdown-content">
               <router-link class="dropdown-item" to="/config">設定</router-link>
               <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -47,7 +53,8 @@
     </transition>
     <transition name="fade" mode="out-in">
       <div v-bind:class="{blur : is_loading}">
-        <router-view v-on:tglloading="tgl_loading($event)"></router-view>
+        <router-view v-on:tglloading="tgl_loading" v-on:shownotification="show_notification"></router-view>
+      </div>></router-view>
       </div>
     </transition>
   </div>

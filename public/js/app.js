@@ -12730,12 +12730,24 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
     is_logined: false,
     is_loading: false,
     loading_msg: "読み込み中",
+    is_notification: false,
+    notification_msg: "こんにちは",
+    notification_type: "",
     tabnavs: [{ cls: 'fas fa-home', isActive: false, name: 'timeline' }, { cls: 'fas fa-search', isActive: false, name: 'search' }, { cls: 'far fa-plus-square', isActive: false, name: 'upload' }, { cls: 'fas fa-heart', isActive: false, name: 'like' }, { cls: 'fas fa-user-circle', isActive: false, name: 'profile' }]
   },
   methods: {
     tgl_loading: function tgl_loading(msg) {
       this.loading_msg = msg;
       this.is_loading = !this.is_loading;
+    },
+    show_notification: function show_notification(msg, type) {
+      this.notification_msg = msg;
+      this.notification_type = type;
+      this.is_notification = true;
+      var self = this;
+      setTimeout(function () {
+        self.is_notification = false;
+      }, 4000);
     }
   },
   created: function created() {
@@ -18055,11 +18067,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
 
   methods: {
-    touch_start: function touch_start(e) {
+    touch_start: function touch_start() {
       var img = this.$refs.img;
       var imgbox = this.$refs.imgbox;
       img.style.width = "200%";
-      imgbox.scrollLeft = e.changedTouches[0].pageX;
+      imgbox.scrollLeft = event.changedTouches[0].pageX;
       //imgbox.scrollLeft = 50;
     },
     touch_end: function touch_end() {
@@ -19041,9 +19053,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
-//
-//
-//
 
 
 var upd_area = __webpack_require__(73);
@@ -19052,7 +19061,6 @@ var upd_area = __webpack_require__(73);
   data: function data() {
     return {
       is_uploading: false,
-      upload_mes: '',
       categories: [],
       files: [],
       title: '',
@@ -19072,7 +19080,6 @@ var upd_area = __webpack_require__(73);
         this.$emit('tglloading', 'アップロード中');
 
         this.is_uploading = true;
-        this.upload_mes = "ファイルをアップロード中です…";
         var place = this.autocomplete.getPlace();
         var data = new FormData();
         var txtbox = document.getElementById('txtbox');
@@ -19092,17 +19099,17 @@ var upd_area = __webpack_require__(73);
         //axiosでサーバーに送信
         __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post('/api/photos/upload', data).then(function (response) {
           console.log(response.data);
-          _this.upload_mes = "アップロードに成功しました!";
+          _this.$emit('shownotification', '写真の投稿に成功しました!', 'is-success');
           _this.is_uploading = false;
           _this.$emit('tglloading', 'アップロード中');
         }).catch(function (error) {
           console.log(error.response);
-          _this.upload_mes = "アップロードに失敗しました…(" + error + " " + error.response.data + ")";
+          _this.$emit('shownotification', "アップロードに失敗しました…(" + error + " " + error.response.data + ")", 'is-danger');
           _this.is_uploading = false;
           _this.$emit('tglloading', 'アップロード中');
         });
       } else {
-        this.upload_mes = "写真を選択してください!";
+        this.$emit('shownotification', 'ファイルを選択して下さい!', 'is-warning');
       }
     },
 
@@ -19425,12 +19432,6 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("section", { staticClass: "container section" }, [
-    _vm.upload_mes
-      ? _c("div", { staticClass: "notification is-info" }, [
-          _vm._v("\n      " + _vm._s(_vm.upload_mes) + "\n    ")
-        ])
-      : _vm._e(),
-    _vm._v(" "),
     _c(
       "form",
       [
@@ -20434,17 +20435,21 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(110)
+}
 var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = __webpack_require__(88)
 /* template */
-var __vue_template__ = __webpack_require__(92)
+var __vue_template__ = __webpack_require__(112)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-681d1a08"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -20644,34 +20649,7 @@ if (false) {
 }
 
 /***/ }),
-/* 92 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _vm.is_logined ? _c("back-button") : _vm._e(),
-      _vm._v(" "),
-      _c("detail-content", { attrs: { photo: _vm.photo } })
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-681d1a08", module.exports)
-  }
-}
-
-/***/ }),
+/* 92 */,
 /* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -21676,6 +21654,78 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 107 */,
+/* 108 */,
+/* 109 */,
+/* 110 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(111);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(4)("0de975fe", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-681d1a08\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Detail.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-681d1a08\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Detail.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 111 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(3)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.detailwindow[data-v-681d1a08]{\r\n  padding-top: 0.5rem;\r\n  min-height: calc( 100vh - 100px );\n}\r\n\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 112 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "has-background-black-ter detailwindow" },
+    [
+      _vm.is_logined ? _c("back-button") : _vm._e(),
+      _vm._v(" "),
+      _c("detail-content", { attrs: { photo: _vm.photo } })
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-681d1a08", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

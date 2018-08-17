@@ -1,8 +1,5 @@
 <template>
   <section class="container section">
-    <div class="notification is-info" v-if="upload_mes">
-      {{ upload_mes }}
-    </div>
     <form>
       <apdarea @send-file="sendFile"></apdarea>
       <div class="field is-horizontal">
@@ -109,7 +106,6 @@ export default {
   data() {
     return {
       is_uploading: false,
-      upload_mes: '',
       categories: [],
       files: [],
       title: '',
@@ -127,7 +123,6 @@ export default {
         this.$emit('tglloading', 'アップロード中');
 
         this.is_uploading = true;
-        this.upload_mes = "ファイルをアップロード中です…";
         let place = this.autocomplete.getPlace();
         let data = new FormData;
         var txtbox = document.getElementById('txtbox');
@@ -148,20 +143,20 @@ export default {
         axios.post('/api/photos/upload',data)
         .then((response) => {
           console.log(response.data);
-          this.upload_mes = "アップロードに成功しました!";
+          this.$emit('shownotification','写真の投稿に成功しました!','is-success')
           this.is_uploading = false;
           this.$emit('tglloading', 'アップロード中');
         })
         .catch((error) => {
           console.log(error.response);
-          this.upload_mes = "アップロードに失敗しました…("+error+" "+error.response.data+")";
+          this.$emit('shownotification',"アップロードに失敗しました…("+error+" "+error.response.data+")",'is-danger')
           this.is_uploading = false;
           this.$emit('tglloading', 'アップロード中');
         })
 
       }
       else {
-        this.upload_mes = "写真を選択してください!";
+        this.$emit('shownotification','ファイルを選択して下さい!','is-warning')
       }
     },
     //子コンポネートからファイルを受け取り

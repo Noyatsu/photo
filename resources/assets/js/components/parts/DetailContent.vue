@@ -87,11 +87,11 @@ export default{
     this.likeNum = this.photo.likes;
   },
   methods: {
-    touch_start: function(e) {
+    touch_start: function() {
       let img = this.$refs.img;
       let imgbox = this.$refs.imgbox;
-      img.style.width="200%";
-      imgbox.scrollLeft = e.changedTouches[0].pageX;
+      img.style.width = "200%";
+      imgbox.scrollLeft = event.changedTouches[0].pageX;
       //imgbox.scrollLeft = 50;
 
     },
