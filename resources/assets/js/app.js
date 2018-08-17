@@ -36,7 +36,9 @@ let router = new VueRouter({
     { path: '/search/freeword/:words', component: require('./components/search/Freeword.vue') },
     { path: '/search/user/:words', component: require('./components/search/User.vue') },
 
+    { path: '/config', component: require('./components/config.vue') },
   ],
+
   scrollBehavior (to, from, savedPosition) {
     if (savedPosition) {
       return savedPosition
@@ -58,7 +60,10 @@ const app = new Vue({
   data: {
     scrollY: 0,
     is_global: false,
+    is_displaydd: false,
     is_logined: false,
+    is_loading: false,
+    loading_msg: "読み込み中",
     tabnavs: [
       { cls: 'fas fa-home', isActive: false, name: 'timeline'},
       { cls: 'fas fa-search', isActive: false, name: 'search' },
@@ -66,6 +71,12 @@ const app = new Vue({
       { cls: 'fas fa-heart', isActive:false, name: 'like' },
       { cls: 'fas fa-user-circle', isActive:false, name: 'profile' }
     ]
+  },
+  methods: {
+    tgl_loading: function(msg) {
+      this.loading_msg = msg;
+      this.is_loading = !this.is_loading;
+    }
   },
   created: function() {
     this.is_logined = (user_screen_name == "") ? false : true;

@@ -122,7 +122,10 @@ export default {
   methods: {
     //ファイル送信処理
     onSubmit() {
+
       if(undefined != this.files[0]) {
+        this.$emit('tglloading', 'アップロード中');
+
         this.is_uploading = true;
         this.upload_mes = "ファイルをアップロード中です…";
         let place = this.autocomplete.getPlace();
@@ -147,12 +150,15 @@ export default {
           console.log(response.data);
           this.upload_mes = "アップロードに成功しました!";
           this.is_uploading = false;
+          this.$emit('tglloading', 'アップロード中');
         })
         .catch((error) => {
           console.log(error.response);
           this.upload_mes = "アップロードに失敗しました…("+error+" "+error.response.data+")";
           this.is_uploading = false;
+          this.$emit('tglloading', 'アップロード中');
         })
+
       }
       else {
         this.upload_mes = "写真を選択してください!";

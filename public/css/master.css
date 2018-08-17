@@ -121,3 +121,24 @@ img, router-view{
     background-repeat: no-repeat;
     background-position: center center;
 }
+
+.center-box{
+    position: fixed;
+    height: 150px;
+    width: 150px;
+    background: #efefef;
+    text-align: center;
+    top:calc(50% - 150px/2);
+    left:calc(50% - 150px/2);
+    line-height: 30px;
+    padding: 40px 0 40px 0;
+    z-index: 999999;
+    border-radius: 20px;
+    opacity: 0.7;
+    transition: all .3s ease;
+}
+
+.blur {
+  filter: blur(10px) grayscale(80%);
+  transition: all .3s ease;
+}

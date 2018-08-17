@@ -30,5 +30,7 @@ Route::group(['middleware' => 'auth'], function(){
   Route::get('/user', 'HomeController@index');
 
   Route::get('/search/{any}', 'HomeController@index')->where('any', '.*');
+  Route::get('/config', 'HomeController@index');
+  Route::get('/config/{any}', 'HomeController@index')->where('any', '.*');
 
 });

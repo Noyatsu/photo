@@ -10,16 +10,17 @@
       <a class="m-navbar-item" href="{{ route('register') }}">{{ __('Register') }}</a>
       @else
       <div class="m-navbar-right">
-        <div class="dropdown is-right">
+        <div class="dropdown is-active is-right">
           <div class="dropdown-trigger">
-            <button id="dropdown-btn" class="button" aria-haspopup="true">
-              <span>...</span>
+            <button v-on:click="is_displaydd = !is_displaydd" class="button" aria-haspopup="true" aria-controls="dropdown-menu2">
+              <i class="fas fa-ellipsis-h"></i>
             </button>
           </div>
-          <div class="dropdown-menu" id="dropdown-menu" role="menu">
+          <div class="dropdown-menu" id="dropdown-menu2" role="menu" v-if="is_displaydd" v-on:click="is_displaydd = !is_displaydd">
             <div class="dropdown-content">
-              <a class="nav-link navbar-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                {{ __('Logout') }}
+              <router-link class="dropdown-item" to="/config">設定</router-link>
+              <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                {{ __('ログアウト') }}
               </a>
               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
@@ -27,6 +28,7 @@
             </div>
           </div>
         </div>
+
       </div>
       @endguest
     </nav>
@@ -37,27 +39,19 @@
       <router-link class="m-tab" to='/home/like' tag="div"><i class="fas fa-heart"></i></router-link>
       <router-link class="m-tab" to='/home/profile' tag="div"><i class="fas fa-user-circle"></i></router-link>
     </div>
-    <!--<transition name="fade" mode="out-in">-->
-    <router-view></router-view>
-    <!--</transition>-->
+    <transition name="fade">
+      <div class="center-box" v-if="is_loading">
+        <i class="fas fa-circle-notch fa-spin fa-2x"></i>
+        <p v-text="loading_msg"></p>
+      </div>
+    </transition>
+    <transition name="fade" mode="out-in">
+      <div v-bind:class="{blur : is_loading}">
+        <router-view v-on:tglloading="tgl_loading($event)"></router-view>
+      </div>
+    </transition>
   </div>
   <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyAItrDehXl9lF8abSCqiYuP9onCHY7gs7M&libraries=places"></script>
 </body>
 <script src="{{ mix('js/app.js') }}"></script>
-<script>
-let is_dropdown = false;
-if (user_screen_name != '') {
-  document.getElementById("dropdown-btn").onclick = function() {
-    let dropdown = document.getElementById('dropdown-menu');
-    if(is_dropdown) {
-      is_dropdown = false;
-      dropdown.style.display ="none";
-    }
-    else {
-      is_dropdown = true;
-      dropdown.style.display ="block";
-    }
-  };
-}
-</script>
 <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>

@@ -79,6 +79,7 @@ export default {
     'user-list-item-component': UserListItemComponent
   },
   async created() {
+    this.$emit('tglloading', '読み込み中');
     this.is_logined = (user_screen_name == "") ? false : true;
     this.created_method(this.$route.params.screen_name);
   },
@@ -116,6 +117,8 @@ export default {
 
         res = await axios.get('/api/users/likephoto/' + this.user_data.screen_name);
         this.like_list = res.data;
+        this.$emit('tglloading', '読み込み中');
+
       } catch (e) {
         console.error(e)
       }
