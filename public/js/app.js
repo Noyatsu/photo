@@ -19904,7 +19904,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/*tab*/\n.is_selected[data-v-22ef5402] {\r\n  border-bottom: solid 3px hsl(217, 71%, 53%);\n}\n.tab-contents[data-v-22ef5402] {\r\n  margin-top: 1rem;\n}\n.photoarea[data-v-22ef5402] {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -ms-flex-wrap: wrap;\r\n      flex-wrap: wrap;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\n}\n.is_round img[data-v-22ef5402]{\r\n  border-radius: 100px;\n}\r\n\r\n/*profile*/\n.m-profile[data-v-22ef5402] {\r\n  text-align: center;\r\n  margin: 0 auto;\n}\n.m-profile-img[data-v-22ef5402] {\r\n  height: 256px;\r\n  margin-bottom: 52px;\r\n  position: relative;\n}\n.m-profile figure[data-v-22ef5402] {\r\n  position: absolute;\r\n  bottom: -48px;\r\n  left: 50%;\r\n  margin-left: -48px;\n}\n.m-profile img[data-v-22ef5402] {\r\n  border: solid 2px white;\r\n  border-radius:100px;\n}\n@media (max-width: 767px) {\n.m-profile-img[data-v-22ef5402] {\r\n    height: 128px;\r\n    margin-bottom: 52px;\r\n    position: relative;\n}\n.m-profile figure[data-v-22ef5402] {\r\n    position: absolute;\r\n    bottom: -48px;\r\n    left: 50%;\r\n    margin-left: -48px;\n}\n.m-profile img[data-v-22ef5402] {\r\n    border: solid 2px white;\r\n    border-radius:100px;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/*tab*/\n.is_selected[data-v-22ef5402] {\r\n  border-bottom: solid 3px hsl(217, 71%, 53%);\n}\n.tab-contents[data-v-22ef5402] {\r\n  margin-top: 1rem;\n}\n.photoarea[data-v-22ef5402] {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -ms-flex-wrap: wrap;\r\n      flex-wrap: wrap;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\n}\n.is_round img[data-v-22ef5402]{\r\n  border-radius: 100px;\n}\r\n\r\n/*profile*/\n.m-profile[data-v-22ef5402] {\r\n  text-align: center;\r\n  margin: 0 auto;\n}\n.m-profile-img[data-v-22ef5402] {\r\n  height: 256px;\r\n  margin-bottom: 52px;\r\n  position: relative;\n}\n.m-profile figure[data-v-22ef5402] {\r\n  position: absolute;\r\n  bottom: -48px;\r\n  left: 50%;\r\n  margin-left: -48px;\n}\n.m-profile img[data-v-22ef5402] {\r\n  border: solid 2px white;\r\n  border-radius:100px;\n}\n@media (max-width: 767px) {\n.m-profile-img[data-v-22ef5402] {\r\n    height: 128px;\r\n    margin-bottom: 52px;\r\n    position: relative;\n}\n.m-profile figure[data-v-22ef5402] {\r\n    position: absolute;\r\n    bottom: -48px;\r\n    left: 50%;\r\n    margin-left: -48px;\n}\n.m-profile img[data-v-22ef5402] {\r\n    border: solid 2px white;\r\n    border-radius:100px;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -20015,11 +20015,10 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              this.$emit('tglloading', '読み込み中');
               this.is_logined = user_screen_name == "" ? false : true;
               this.created_method(this.$route.params.screen_name);
 
-            case 3:
+            case 2:
             case 'end':
               return _context.stop();
           }
@@ -20043,104 +20042,108 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                _context2.prev = 0;
+                this.$emit('tglloading', '読み込み中');
+                //ユーザデータ
+                _context2.prev = 1;
                 res = void 0;
 
                 if (!(this.$route.params.screen_name == undefined)) {
-                  _context2.next = 9;
+                  _context2.next = 10;
                   break;
                 }
 
-                _context2.next = 5;
+                _context2.next = 6;
                 return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/users/' + user_screen_name);
 
-              case 5:
+              case 6:
                 res = _context2.sent;
 
                 this.isMine = true;
-                _context2.next = 13;
+                _context2.next = 14;
                 break;
 
-              case 9:
-                _context2.next = 11;
+              case 10:
+                _context2.next = 12;
                 return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/users/' + screen_name);
 
-              case 11:
+              case 12:
                 res = _context2.sent;
 
                 this.isMine = false;
 
-              case 13:
+              case 14:
                 this.user_data = res.data;
-                _context2.next = 19;
+                _context2.next = 20;
                 break;
 
-              case 16:
-                _context2.prev = 16;
-                _context2.t0 = _context2['catch'](0);
+              case 17:
+                _context2.prev = 17;
+                _context2.t0 = _context2['catch'](1);
 
                 console.error(_context2.t0);
 
-              case 19:
-                _context2.prev = 19;
+              case 20:
+                _context2.prev = 20;
                 _res = void 0;
 
                 if (!this.is_logined) {
-                  _context2.next = 26;
+                  _context2.next = 27;
                   break;
                 }
 
-                _context2.next = 24;
+                _context2.next = 25;
                 return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/users/follow/check/' + user_screen_name + '/' + this.user_data.screen_name);
 
-              case 24:
+              case 25:
                 _res = _context2.sent;
 
                 if (_res.data == true) {
                   this.isFollow = true;
                 }
 
-              case 26:
-                _context2.next = 28;
+              case 27:
+                _context2.next = 29;
                 return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/users/follow/list/' + this.user_data.screen_name);
 
-              case 28:
+              case 29:
                 _res = _context2.sent;
 
                 this.follow_list = _res.data;
 
-                _context2.next = 32;
+                _context2.next = 33;
                 return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/users/photo/' + this.user_data.screen_name);
 
-              case 32:
+              case 33:
                 _res = _context2.sent;
 
                 this.photo_list = _res.data;
 
-                _context2.next = 36;
+                _context2.next = 37;
                 return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/users/likephoto/' + this.user_data.screen_name);
 
-              case 36:
+              case 37:
                 _res = _context2.sent;
 
                 this.like_list = _res.data;
                 this.$emit('tglloading', '読み込み中');
 
-                _context2.next = 44;
+                _context2.next = 47;
                 break;
 
-              case 41:
-                _context2.prev = 41;
-                _context2.t1 = _context2['catch'](19);
+              case 42:
+                _context2.prev = 42;
+                _context2.t1 = _context2['catch'](20);
 
                 console.error(_context2.t1);
+                this.$emit('tglloading', '読み込み中');
+                this.$emit('shownotification', "エラーが発生しました…(" + _context2.t1 + " " + _context2.t1.response.data + ")", 'is-danger');
 
-              case 44:
+              case 47:
               case 'end':
                 return _context2.stop();
             }
           }
-        }, _callee2, this, [[0, 16], [19, 41]]);
+        }, _callee2, this, [[1, 17], [20, 42]]);
       }));
 
       function created_method(_x) {

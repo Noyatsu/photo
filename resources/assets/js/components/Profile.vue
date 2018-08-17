@@ -79,12 +79,12 @@ export default {
     'user-list-item-component': UserListItemComponent
   },
   async created() {
-    this.$emit('tglloading', '読み込み中');
     this.is_logined = (user_screen_name == "") ? false : true;
     this.created_method(this.$route.params.screen_name);
   },
   methods: {
     created_method: async function(screen_name) {
+      this.$emit('tglloading', '読み込み中');
       //ユーザデータ
       try {
         let res;
@@ -121,6 +121,9 @@ export default {
 
       } catch (e) {
         console.error(e)
+        this.$emit('tglloading', '読み込み中');
+        this.$emit('shownotification',"エラーが発生しました…("+e+" "+e.response.data+")",'is-danger')
+
       }
     },
     followToggle: function() {

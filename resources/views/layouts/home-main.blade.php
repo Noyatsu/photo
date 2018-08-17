@@ -51,10 +51,11 @@
         <p v-text="loading_msg"></p>
       </div>
     </transition>
+    <div class="block-box" v-if="is_loading"></div>
+
     <transition name="fade" mode="out-in">
       <div v-bind:class="{blur : is_loading}">
         <router-view v-on:tglloading="tgl_loading" v-on:shownotification="show_notification"></router-view>
-      </div>></router-view>
       </div>
     </transition>
   </div>
