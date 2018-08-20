@@ -5,7 +5,7 @@
     <h1 class="title">設定</h1>
     <div class="container">
       <h2 class="subtitle is-size-7">カスタマイズ</h2>
-      <a class="button is-medium is-fullwidth">プロフィール画面の編集</a>
+      <router-link class="button is-medium is-fullwidth" to="/config/profile">プロフィール画面の編集</router-link>
       <a class="button is-medium is-fullwidth">通知</a>
       <a class="button is-medium is-fullwidth">ブロックユーザ一覧</a>
       <br>

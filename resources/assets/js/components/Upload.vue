@@ -1,7 +1,9 @@
 <template>
   <section class="container section">
     <form>
-      <apdarea @send-file="sendFile"></apdarea>
+      <div class="pdg-btm">
+        <apdarea v-on:send-file="sendFile"></apdarea>
+      </div>
       <div class="field is-horizontal">
         <div class="field-label is-normal">
           <label class="label" v-on:click="printdata()">情報</label>
@@ -189,6 +191,9 @@ export default {
 
 </script>
 <style scoped>
+.pdg-btm {
+  padding-bottom: 2rem;
+}
 .modal {
   z-index: 999;
   position: fixed;

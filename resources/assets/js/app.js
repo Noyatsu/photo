@@ -37,6 +37,7 @@ let router = new VueRouter({
     { path: '/search/user/:words', component: require('./components/search/User.vue') },
 
     { path: '/config', component: require('./components/config.vue') },
+    { path: '/config/profile', component: require('./components/config/Profile.vue') },
   ],
 
   scrollBehavior (to, from, savedPosition) {

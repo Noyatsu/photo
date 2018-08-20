@@ -54,9 +54,13 @@
     <div class="block-box" v-if="is_loading"></div>
 
     <transition name="fade" mode="out-in">
-      <div v-bind:class="{blur : is_loading}">
-        <router-view v-on:tglloading="tgl_loading" v-on:shownotification="show_notification"></router-view>
-      </div>
+      <keep-alive>
+
+        <div v-bind:class="{blur : is_loading}">
+          <router-view v-on:tglloading="tgl_loading" v-on:shownotification="show_notification"></router-view>
+        </div>
+      </keep-alive>
+
     </transition>
   </div>
   <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyAItrDehXl9lF8abSCqiYuP9onCHY7gs7M&libraries=places"></script>
