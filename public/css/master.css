@@ -68,7 +68,7 @@ body {
 
 .m-tab-bar {
   position: fixed;
-  z-index: 999;
+  z-index: 9990;
   font-size:0;
   border-top: solid 1px hsl(0, 0%, 86%);
   top: 0;
@@ -108,8 +108,65 @@ body {
   opacity: 0;
 }
 
+.fadeup-enter-active, .fadeup-leave-active {
+  transition: all .3s ease-out;
+}
+.fadeup-enter, .fadeup-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0.9;
+  transform: translateY(100vh);
+}
+
+.fadedown-enter-active, .fadedown-leave-active {
+  transition: all .5s ease-out;
+}
+.fadedown-enter, .fadedown-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0.5;
+  transform: translateY(-100vh);
+}
+
 img, router-view{
     background-image: url("/storage/gload.gif");
     background-repeat: no-repeat;
     background-position: center center;
+}
+
+.center-box{
+    position: fixed;
+    height: 150px;
+    width: 150px;
+    background: #efefef;
+    text-align: center;
+    top:calc(50% - 150px/2);
+    left:calc(50% - 150px/2);
+    line-height: 30px;
+    padding: 40px 0 40px 0;
+    z-index: 999999;
+    border-radius: 20px;
+    opacity: 0.7;
+    transition: all .3s ease;
+}
+
+.block-box {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999998;
+}
+
+.blur {
+  filter: blur(10px) grayscale(80%);
+  transition: all .3s ease;
+}
+
+.m-notification {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  left: 1rem;
+  min-height: 2rem;
+  z-index: 999998;
+  display: block;
+  box-shadow: 0px 0px 50px 50px rgba(0,0,0,0.4);
 }

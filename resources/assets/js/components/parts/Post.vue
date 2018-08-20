@@ -1,9 +1,16 @@
 <template>
   <div>
-    <transition name="fade">
+    <transition name="fadeup">
       <div class="modal" v-if="showModal">
-        <div class="closeBtn" v-on:click="modalToggle()"><i class="far fa-times-circle fa-lg"></i></div>
-        <detail-content v-bind:photo="photo" v-on:toggleLike="likeToggleData()"></detail-content>
+        <div class="slidearea has-background-black-ter has-text-light" v-on:click="modalToggle()">
+          <!--<div class="slidemark has-background-grey">
+          </div>-->
+          <i class="fas fa-chevron-down fa-lg"></i>
+        </div>
+        <!--<div class="closeBtn" v-on:click="modalToggle()"><i class="far fa-times-circle fa-lg"></i></div>-->
+        <div class="scrollarea">
+          <detail-content v-bind:photo="photo" v-on:toggleLike="likeToggleData()"></detail-content>
+        </div>
       </div>
     </transition>
     <div class="post">
@@ -104,6 +111,29 @@ export default{
 }
 </script>
 <style scoped lang="scss">
+.slidemark {
+  height: 0.5rem;
+  width:3rem;
+  margin-top: 0.25rem;
+  border-radius: 0.25rem;
+  display: inline-block;
+}
+.scrollarea {
+  overflow-y: scroll;
+  position: absolute;
+  top: 2rem;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+}
+.slidearea {
+  margin-top: 2.5px;
+  height: 2rem;
+  border-radius: 2rem 2rem 0px 0px;
+  text-align: center;
+  cursor: pointer;
+}
 .likenum {
   margin-left: 0.5rem;
 }
@@ -147,11 +177,12 @@ export default{
   }
   .post-contents {
     margin-top: 0.25rem;
-    background-color: #202020;
+    background-color: #101010;
     text-align: center;
     img {
       display: inline-block;
       max-width: 800px;
+      max-height: 80vh;
     }
     @media (max-width: 800px) {
       img {
@@ -178,14 +209,13 @@ export default{
 }
 
 .modal {
-  z-index: 10000;
+  z-index: 1000;
   position: fixed;
-  top: 57px;
+  top: 56px;
   bottom: 0;
   left: 0;
   right: 0;
   display: block;
-  overflow-y: scroll;
 }
 .closeBtn {
   position: fixed;

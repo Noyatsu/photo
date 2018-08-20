@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <back-button></back-button>
+  <div class="has-background-black-ter detailwindow">
+    <back-button v-if="is_logined"></back-button>
     <detail-content v-bind:photo="photo"></detail-content>
   </div>
 </template>
@@ -19,10 +19,12 @@ export default{
     return {
       photo: [],
       isLiked: false,
-      likeNum: 0
+      is_logined: false
     }
   },
   async created() {
+    this.is_logined = (user_screen_name == "") ? false : true;
+
     //写真を取得
     try {
       let res = await axios.get('/api/photos/get/'+this.$route.params.id);
@@ -30,21 +32,16 @@ export default{
     } catch (e) {
       console.error(e)
     }
-    console.log(this.photo);
-    try {
-      let res;
-      res = await axios.get('/api/photos/like/check/' + user_screen_name + '/' + this.photo.p_id);
-      if(res.data==true) {
-        this.isLiked = true;
-      }
-
-    } catch (e) {
-      console.error(e);
-    }
-
-    this.likeNum = this.photo.likes;
   },
   methods: {
   }
 }
 </script>
+
+<style scoped>
+.detailwindow{
+  padding-top: 0.5rem;
+  min-height: calc( 100vh - 100px );
+}
+
+</style>

@@ -69,6 +69,8 @@ export default {
   },
 
   async created() {
+    this.$emit('tglloading', '読み込み中');
+
     try {
       let tl_res = await axios.get('/api/users/timeline/' + user_screen_name);
       this.photos_list = tl_res.data.data;
@@ -76,6 +78,9 @@ export default {
       console.error(e)
     }
     this.startWatchingScroll();
+  },
+  mounted () {
+    this.$emit('tglloading', '読み込み中');
   }
 }
 </script>

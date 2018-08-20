@@ -36,7 +36,10 @@ let router = new VueRouter({
     { path: '/search/freeword/:words', component: require('./components/search/Freeword.vue') },
     { path: '/search/user/:words', component: require('./components/search/User.vue') },
 
+    { path: '/config', component: require('./components/config.vue') },
+    { path: '/config/profile', component: require('./components/config/Profile.vue') },
   ],
+
   scrollBehavior (to, from, savedPosition) {
     if (savedPosition) {
       return savedPosition
@@ -58,6 +61,13 @@ const app = new Vue({
   data: {
     scrollY: 0,
     is_global: false,
+    is_displaydd: false,
+    is_logined: false,
+    is_loading: false,
+    loading_msg: "読み込み中",
+    is_notification: false,
+    notification_msg: "こんにちは",
+    notification_type: "",
     tabnavs: [
       { cls: 'fas fa-home', isActive: false, name: 'timeline'},
       { cls: 'fas fa-search', isActive: false, name: 'search' },
@@ -65,5 +75,24 @@ const app = new Vue({
       { cls: 'fas fa-heart', isActive:false, name: 'like' },
       { cls: 'fas fa-user-circle', isActive:false, name: 'profile' }
     ]
+  },
+  methods: {
+    tgl_loading: function(msg) {
+      this.loading_msg = msg;
+      this.is_loading = !this.is_loading;
+    },
+    show_notification: function(msg, type) {
+      this.notification_msg = msg;
+      this.notification_type = type;
+      this.is_notification = true;
+      const self = this;
+      setTimeout(function(){
+        self.is_notification = false;
+      }, 4000);
+    }
+  },
+  created: function() {
+    this.is_logined = (user_screen_name == "") ? false : true;
+
   }
 });
