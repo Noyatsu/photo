@@ -35,6 +35,9 @@ let router = new VueRouter({
     { path: '/search/user', redirect: '/home/search' },
     { path: '/search/freeword/:words', component: require('./components/search/Freeword.vue') },
     { path: '/search/user/:words', component: require('./components/search/User.vue') },
+    { path: '/search/location/:words', component: require('./components/search/Location.vue') },
+    { path: '/search/tag/:words', component: require('./components/search/Tag.vue') },
+    { path: '/search/lenscamera/:words', component: require('./components/search/LensCamera.vue') },
 
     { path: '/config', component: require('./components/config.vue') },
     { path: '/config/profile', component: require('./components/config/Profile.vue') },

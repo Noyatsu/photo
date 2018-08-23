@@ -244,11 +244,86 @@ class PhotoController extends Controller
           ->orWhere('photos.lens', 'LIKE', '%'.$word.'%')
           ->orWhere('photos.description', 'LIKE', '%'.$word.'%')
           ->orWhere('users.screen_name', 'LIKE', '%'.$word.'%')
-          ->orWhere('users.name', 'LIKE', '%'.$word.'%')
-          ->orderBy('photos.id', 'desc');
+          ->orWhere('users.name', 'LIKE', '%'.$word.'%');
                 });
             }
         }
-        return response($q->paginate(6));
+        return response($q->orderBy('photos.id', 'desc')->paginate(12));
+    }
+
+    /**
+    * 場所検索
+    * @param  Request $request リクエスト
+    * @return Response           json
+    */
+    public function locationSearch()
+    {
+        $words = Input::get('words');
+        $words = explode(' ', $words);
+
+        //クエリ
+        $q = Photo::select('photos.location as p_location', 'photos.description as p_description', 'photos.created_at as p_created_at', 'photos.id as p_id', 'photos.*', 'users.screen_name');
+        $q->join('users', 'photos.user_id', '=', 'users.id');
+        $q->join('categories', 'photos.category_id', '=', 'categories.id');
+        if ($words) {
+            foreach ($words as $word) {
+                $q->where(function ($query) use ($word) {
+                    $query->where('photos.location', 'LIKE', '%'.$word.'%')
+          ->orWhere('photos.location_name', 'LIKE', '%'.$word.'%')
+          ->orWhere('photos.location_address', 'LIKE', '%'.$word.'%')
+          ->orWhere('photos.location_point', 'LIKE', '%'.$word.'%');
+                });
+            }
+        }
+        return response($q->orderBy('photos.id', 'desc')->paginate(12));
+    }
+
+    /**
+    * タグ検索
+    * @param  Request $request リクエスト
+    * @return Response           json
+    */
+    public function tagSearch()
+    {
+        $words = Input::get('words');
+        $words = explode(' ', $words);
+
+        //クエリ
+        $q = Photo::select('photos.location as p_location', 'photos.description as p_description', 'photos.created_at as p_created_at', 'photos.id as p_id', 'photos.*', 'users.screen_name');
+        $q->join('users', 'photos.user_id', '=', 'users.id');
+        $q->join('categories', 'photos.category_id', '=', 'categories.id');
+        if ($words) {
+            foreach ($words as $word) {
+                $q->where(function ($query) use ($word) {
+                    $query->where('photos.tags', 'LIKE', '%'.$word.'%');
+                });
+            }
+        }
+        return response($q->orderBy('photos.id', 'desc')->paginate(12));
+    }
+
+    /**
+    * レンズ・カメラ検索
+    * @param  Request $request リクエスト
+    * @return Response           json
+    */
+    public function lensCameraSearch()
+    {
+        $words = Input::get('words');
+        $words = explode(' ', $words);
+
+        //クエリ
+        $q = Photo::select('photos.location as p_location', 'photos.description as p_description', 'photos.created_at as p_created_at', 'photos.id as p_id', 'photos.*', 'users.screen_name');
+        $q->join('users', 'photos.user_id', '=', 'users.id');
+        $q->join('categories', 'photos.category_id', '=', 'categories.id');
+        if ($words) {
+            foreach ($words as $word) {
+                $q->where(function ($query) use ($word) {
+                    $query->where('photos.lens', 'LIKE', '%'.$word.'%')
+                    ->orWhere('photos.camera', 'LIKE', '%'.$word.'%');
+                });
+            }
+        }
+        return response($q->orderBy('photos.id', 'desc')->paginate(12));
     }
 }

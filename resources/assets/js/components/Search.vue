@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     fw_search: function() {
-      this.$router.push('/search/freeword/' + this.query_text);
+      this.$router.push('/search/freeword/' + encodeURIComponent(this.query_text));
     }
   },
   components: {

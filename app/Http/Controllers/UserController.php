@@ -171,6 +171,7 @@ class UserController extends Controller
     ->join('likes', 'photos.id', '=', 'likes.photo_id')
     ->join('users', 'photos.user_id', '=', 'users.id')
     ->where(['likes.user_id' => $user->id])
+    ->orderBy('photos.id', 'desc')
     ->get());
     }
 

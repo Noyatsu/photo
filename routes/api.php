@@ -53,5 +53,8 @@ Route::get('/photos/get/{id}', 'PhotoController@get');
 
 Route::get('/search/freeword', 'PhotoController@freewordSearch');
 Route::get('/search/user', 'UserController@searchUser');
+Route::get('/search/location', 'PhotoController@locationSearch');
+Route::get('/search/tag', 'PhotoController@tagSearch');
+Route::get('/search/lenscamera', 'PhotoController@lensCameraSearch');
 
 Route::get('/webapi/geocode', 'WebApiController@geocode');

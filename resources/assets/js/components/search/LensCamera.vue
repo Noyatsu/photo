@@ -4,25 +4,36 @@
       <div class="tabs is-centered">
         <ul>
           <li><router-link v-bind:to="'/search/freeword/' + this.query_text">フリーワード</router-link></li>
-          <li class="is-active"><router-link v-bind:to="'/search/user/' + this.query_text">ユーザ</router-link></li>
+          <li><router-link v-bind:to="'/search/user/' + this.query_text">ユーザ</router-link></li>
           <li><router-link v-bind:to="'/search/location/' + this.query_text">場所</router-link></li>
           <li><router-link v-bind:to="'/search/tag/' + this.query_text">タグ</router-link></li>
-          <li><router-link v-bind:to="'/search/lenscamera/' + this.query_text">カメラ・レンズ</router-link></li>
+          <li class="is-active"><router-link v-bind:to="'/search/lenscamera/' + this.query_text">カメラ・レンズ</router-link></li>
         </ul>
       </div>
       <div class="field has-addons">
         <div class="control is-expanded">
-          <input class="input" type="text" v-model:value="query_text" v-on:keyup.enter="usr_search" placeholder="検索..">
+          <input class="input" type="text" v-model:value="query_text" v-on:keyup.enter="fw_search" placeholder="検索..">
         </div>
         <div class="control">
-          <a class="button is-info" v-on:click="usr_search">
+          <a class="button is-info" v-on:click="fw_search">
             <i class="fas fa-search"></i>
           </a>
         </div>
       </div>
     </div>
     <div class="container">
-      <user-list-item-component v-for="user in user_list" :user="user" :key="user.id"></user-list-item-component>
+      <div class="photoarea">
+        <thumb-component v-for="photo in photo_list.data" :photo="photo" :key="photo.p_id"></thumb-component>
+      </div>
+    </div>
+    <div class="container">
+      <p class="has-text-centered">{{ photo_list.current_page }} / {{ photo_list.last_page }}</p>
+      <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+        <a class="pagination-previous" v-if="page!=1" v-on:click="change_page(-1)">前ページ</a>
+        <a class="pagination-previous" v-if="page==1" disabled>前ページ</a>
+        <a class="pagination-next" v-if="page!=photo_list.last_page" v-on:click="change_page(1)">次ページ</a>
+        <a class="pagination-next" v-if="page==photo_list.last_page" disabled>次ページ</a>
+      </nav>
     </div>
   </div>
 </template>
@@ -30,32 +41,36 @@
 <script>
 import axios from 'axios';
 
-import UserListItemComponent from '../parts/UserListItem.vue';
+import ThumbComponent from '../parts/Thumbnail.vue';
 
 export default {
   data() {
     return {
-      user_list: [],
+      photo_list: [],
       query_text: "",
+      page: 1,
       loading: false
     };
   },
   methods: {
-    usr_search: function() {
-      this.$router.push('/search/user/' + encodeURIComponent(this.query_text));
+    fw_search: function() {
+      this.$router.push('/search/lenscamera/' + encodeURIComponent(this.query_text));
     },
     created_method:async function(query_text) {
       try {
-        let res = await axios.get('/api/search/user?words=' + encodeURIComponent(query_text));
-        this.user_list = res.data;
-        console.log(this.user_list);
+        let res = await axios.get('/api/search/lenscamera?words=' + encodeURIComponent(query_text) + '&page=' + this.page);
+        this.photo_list = res.data;
       } catch (e) {
         console.error(e)
       }
+    },
+    change_page(amount) {
+      this.page = this.page + amount;
+      this.created_method(this.query_text);
     }
   },
   components: {
-    'user-list-item-component': UserListItemComponent
+    'thumb-component': ThumbComponent
   },
   async created() {
     this.query_text = this.$route.params.words;

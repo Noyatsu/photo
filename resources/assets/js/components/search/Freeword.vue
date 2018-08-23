@@ -3,11 +3,11 @@
     <div class="s-area has-background-light">
       <div class="tabs is-centered">
         <ul>
-          <li class="is-active"><a>フリーワード</a></li>
+          <li class="is-active"><router-link v-bind:to="'/search/freeword/' + this.query_text">フリーワード</router-link></li>
           <li><router-link v-bind:to="'/search/user/' + this.query_text">ユーザ</router-link></li>
-          <li><a>場所</a></li>
-          <li><a>タグ</a></li>
-          <li><a>カメラ・レンズ</a></li>
+          <li><router-link v-bind:to="'/search/location/' + this.query_text">場所</router-link></li>
+          <li><router-link v-bind:to="'/search/tag/' + this.query_text">タグ</router-link></li>
+          <li><router-link v-bind:to="'/search/lenscamera/' + this.query_text">カメラ・レンズ</router-link></li>
         </ul>
       </div>
       <div class="field has-addons">
@@ -54,11 +54,11 @@ export default {
   },
   methods: {
     fw_search: function() {
-      this.$router.push('/search/freeword/' + this.query_text);
+      this.$router.push('/search/freeword/' + encodeURIComponent(this.query_text));
     },
     created_method:async function(query_text) {
       try {
-        let res = await axios.get('/api/search/freeword?words=' + query_text + '&page=' + this.page);
+        let res = await axios.get('/api/search/freeword?words=' + encodeURIComponent(query_text) + '&page=' + this.page);
         this.photo_list = res.data;
       } catch (e) {
         console.error(e)

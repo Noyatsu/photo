@@ -4,7 +4,7 @@
       <div class="post-header">
         <div class="post-header-left is-size-7">
           <p><router-link v-bind:to="'/user/' + photo.screen_name"><img src="https://bulma.io/images/placeholders/128x128.png"></router-link></p>
-          <p><router-link v-bind:to="'/user/' + photo.screen_name"><strong>{{ photo.name }}</strong></router-link>(@{{photo.screen_name}})</p>
+          <p><router-link v-bind:to="'/user/' + photo.screen_name"><strong>{{ photo.name }}</strong>(@{{photo.screen_name}})</router-link></p>
         </div>
       </div>
       <div ref="imgbox" class="post-contents" style="margin: 0 auto;" @click="showModal = true">
@@ -25,12 +25,14 @@
           <p><i class="fas fa-user fa-fw"></i> <router-link v-bind:to="'/user/' + photo.screen_name">{{ photo.name }}</router-link>(@{{photo.screen_name}})</p>
           <p><i class="fas fa-tag fa-fw"></i>
             <span class="tag is-light">{{ photo.c_name }}</span>
-            <span class="tag is-dark" v-for="tag in tags">{{ tag }}</span>
+            <span class="tag is-dark" v-for="tag in tags">
+              <router-link v-bind:to="'/search/tag/' + tag">{{ tag }}</router-link>
+            </span>
           </p>
           <p v-if="photo.filming_date"><i class="fas fa-calendar-alt fa-fw"></i> {{ photo.filming_date }}</p>
-          <p v-if="photo.p_location"><i class="fas fa-map-marker fa-fw"></i>{{ photo.location_name ? photo.location_name : photo.p_location }}<span v-if="photo.location_address">({{photo.location_address}})</span></p>
-          <p v-if="photo.camera"><i class="fas fa-camera fa-fw"></i> {{ photo.camera }}</p>
-          <p v-if="photo.lens"><i class="far fa-dot-circle fa-fw"></i> {{ photo.lens }}</p>
+          <p v-if="photo.p_location"><i class="fas fa-map-marker fa-fw"></i><router-link v-bind:to="'/search/location/' + encodeURIComponent(photo.p_location)">{{ photo.location_name ? photo.location_name : photo.p_location }}<span v-if="photo.location_address">({{photo.location_address}})</span></router-link></p>
+          <p v-if="photo.camera"><i class="fas fa-camera fa-fw"></i><router-link v-bind:to="'/search/lenscamera/' + encodeURIComponent(photo.camera)"> {{ photo.camera }}</router-link></p>
+          <p v-if="photo.lens"><i class="far fa-dot-circle fa-fw"></i><router-link v-bind:to="'/search/lenscamera/' + encodeURIComponent(photo.lens)"> {{ photo.lens }}</router-link></p>
           <p v-if="photo.focal_length"><i class="fas fa-sliders-h fa-fw"></i> {{ photo.focal_length }}mm, {{ photo.speed }}, F{{ photo.iris }}, ISO{{ photo.iso }}</p>
           <p>{{ photo.p_description }}</p>
           <h3>コメント</h3>
