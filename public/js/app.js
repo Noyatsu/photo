@@ -16789,7 +16789,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.likenum[data-v-18bb2376] {\n  margin-left: 0.5rem;\n}\n.post[data-v-18bb2376] {\n  padding-bottom: 3rem;\n}\n.post .post-header[data-v-18bb2376] {\n    height: 2rem;\n    position: relative;\n    margin-bottom: 0.2em;\n}\n.post .post-header .post-header-left[data-v-18bb2376] {\n      display: inline-block;\n      position: absolute;\n      left: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-header .post-header-left p[data-v-18bb2376] {\n        display: inline-block;\n        vertical-align: middle;\n        height: 2rem;\n        line-height: 2rem;\n}\n.post .post-header .post-header-left p img[data-v-18bb2376] {\n        width: 2rem;\n        height: 2rem;\n        margin-right: 0.2rem;\n        border-radius: 100%;\n}\n.post .post-header .post-header-right[data-v-18bb2376] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-contents[data-v-18bb2376] {\n    margin-top: 0.25rem;\n    text-align: center;\n    overflow-x: inherit;\n}\n@media (max-width: 800px) {\n.post .post-contents[data-v-18bb2376] {\n        overflow-x: scroll;\n        max-height: 70vh;\n}\n}\n.post .post-contents img[data-v-18bb2376] {\n      display: block;\n      width: 100%;\n      max-width: none;\n}\n.post .post-footer[data-v-18bb2376] {\n    position: relative;\n    margin-left: 0.5rem;\n    margin-top: 0rem;\n}\n.post .post-footer .post-right[data-v-18bb2376] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0.2rem;\n      bottom: 0;\n}\n.info[data-v-18bb2376] {\n  line-height: 1.8;\n}\n.tag[data-v-18bb2376] {\n  margin-right: 2px;\n}\na strong[data-v-18bb2376] {\n  color: white;\n}\na[data-v-18bb2376] {\n  color: white;\n}\n", ""]);
+exports.push([module.i, "\n.likenum[data-v-18bb2376] {\n  margin-left: 0.5rem;\n}\n.post[data-v-18bb2376] {\n  padding-bottom: 3rem;\n}\n.post .post-header[data-v-18bb2376] {\n    height: 2rem;\n    position: relative;\n    margin-bottom: 0.2em;\n}\n.post .post-header .post-header-left[data-v-18bb2376] {\n      display: inline-block;\n      position: absolute;\n      left: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-header .post-header-left p[data-v-18bb2376] {\n        display: inline-block;\n        vertical-align: middle;\n        height: 2rem;\n        line-height: 2rem;\n}\n.post .post-header .post-header-left p img[data-v-18bb2376] {\n        width: 2rem;\n        height: 2rem;\n        margin-right: 0.2rem;\n        border-radius: 100%;\n}\n.post .post-header .post-header-right[data-v-18bb2376] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-contents[data-v-18bb2376] {\n    margin-top: 0.25rem;\n    text-align: center;\n    overflow-x: inherit;\n    text-align: center;\n}\n@media (max-width: 800px) {\n.post .post-contents[data-v-18bb2376] {\n        overflow-x: scroll;\n}\n}\n.post .post-contents img[data-v-18bb2376] {\n      display: inline-block;\n      max-height: 80vh;\n}\n.post .post-footer[data-v-18bb2376] {\n    position: relative;\n    margin-left: 0.5rem;\n    margin-top: 0rem;\n}\n.post .post-footer .post-right[data-v-18bb2376] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0.2rem;\n      bottom: 0;\n}\n.info[data-v-18bb2376] {\n  line-height: 1.8;\n}\n.tag[data-v-18bb2376] {\n  margin-right: 2px;\n}\na strong[data-v-18bb2376] {\n  color: white;\n}\na[data-v-18bb2376] {\n  color: white;\n}\n", ""]);
 
 // exports
 
@@ -16863,7 +16863,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['photo'],
+  props: ['photo', 'photo_id'],
   data: function data() {
     return {
       showModal: false,
@@ -16876,7 +16876,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
       is_logined: false
     };
   },
-  created: function () {
+  mounted: function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
       var res, tags_str;
       return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
@@ -16892,6 +16892,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
             case 5:
               res = _context.sent;
+
 
               if (res.data == true) {
                 this.isLiked = true;
@@ -16922,11 +16923,11 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
       }, _callee, this, [[1, 9]]);
     }));
 
-    function created() {
+    function mounted() {
       return _ref.apply(this, arguments);
     }
 
-    return created;
+    return mounted;
   }(),
 
   methods: {
@@ -20739,6 +20740,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
   data: function data() {
     return {
       photo: [],
+      isShow: false,
       isLiked: false,
       is_logined: false
     };
@@ -20751,7 +20753,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
           switch (_context.prev = _context.next) {
             case 0:
               this.is_logined = user_screen_name == "" ? false : true;
-
               //写真を取得
               _context.prev = 1;
               _context.next = 4;
@@ -20761,21 +20762,22 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
               res = _context.sent;
 
               this.photo = res.data[0];
-              _context.next = 11;
+              this.isShow = true;
+              _context.next = 12;
               break;
 
-            case 8:
-              _context.prev = 8;
+            case 9:
+              _context.prev = 9;
               _context.t0 = _context['catch'](1);
 
               console.error(_context.t0);
 
-            case 11:
+            case 12:
             case 'end':
               return _context.stop();
           }
         }
-      }, _callee, this, [[1, 8]]);
+      }, _callee, this, [[1, 9]]);
     }));
 
     function created() {
@@ -20882,7 +20884,11 @@ var render = function() {
     [
       _vm.is_logined ? _c("back-button") : _vm._e(),
       _vm._v(" "),
-      _c("detail-content", { attrs: { photo: _vm.photo } })
+      _vm.isShow
+        ? _c("detail-content", {
+            attrs: { photo: _vm.photo, photo_id: _vm.$route.params.id }
+          })
+        : _vm._e()
     ],
     1
   )

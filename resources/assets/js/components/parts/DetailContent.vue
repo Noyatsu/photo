@@ -53,7 +53,7 @@
 import axios from 'axios';
 
 export default{
-  props: [ 'photo' ],
+  props: [ 'photo', 'photo_id' ],
   data: function () {
     return {
       showModal: false,
@@ -66,12 +66,13 @@ export default{
       is_logined: false
     }
   },
-  async created() {
+  async mounted() {
     this.is_logined = (user_screen_name == "") ? false : true;
 
     try {
       let res;
       res = await axios.get('/api/photos/like/check/' + user_screen_name + '/' + this.photo.p_id);
+
       if(res.data==true) {
         this.isLiked = true;
       }
@@ -85,6 +86,7 @@ export default{
       this.tags = tags_str.split(',');
     }
     this.likeNum = this.photo.likes;
+
   },
   methods: {
     touch_start: function() {
@@ -170,15 +172,13 @@ export default{
     margin-top: 0.25rem;
     text-align: center;
     overflow-x: inherit;
+    text-align: center;
     @media (max-width: 800px) {
       overflow-x: scroll;
-      max-height: 70vh;
     }
-
     img {
-      display: block;
-      width: 100%;
-      max-width: none;
+      display: inline-block;
+      max-height: 80vh;
     }
   }
   .post-footer {
