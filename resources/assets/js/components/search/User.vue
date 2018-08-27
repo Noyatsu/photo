@@ -1,5 +1,6 @@
 <template>
   <div>
+    <back-button></back-button>
     <div class="s-area has-background-light">
       <div class="tabs is-centered">
         <ul>
@@ -30,6 +31,7 @@
 <script>
 import axios from 'axios';
 
+import BackButton from '../parts/BackButton.vue';
 import UserListItemComponent from '../parts/UserListItem.vue';
 
 export default {
@@ -55,6 +57,7 @@ export default {
     }
   },
   components: {
+    'back-button': BackButton,
     'user-list-item-component': UserListItemComponent
   },
   async created() {

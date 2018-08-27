@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <back-button></back-button>
     <div class="card">
       <div class="m-profile">
         <div class="m-profile-img has-background-link">
@@ -31,8 +32,8 @@
 <script>
 import axios from 'axios';
 
+import BackButton from '../parts/BackButton.vue';
 import UploadArea from '../parts/UploadArea.vue';
-
 
 export default {
   data() {
@@ -47,6 +48,7 @@ export default {
     };
   },
   components: {
+    'back-button': BackButton,
     'upload-area': UploadArea
   },
   async created() {

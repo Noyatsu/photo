@@ -21057,8 +21057,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__parts_Thumbnail_vue__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__parts_Thumbnail_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__parts_Thumbnail_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__parts_BackButton_vue__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__parts_BackButton_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__parts_BackButton_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__parts_Thumbnail_vue__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__parts_Thumbnail_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__parts_Thumbnail_vue__);
 
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
@@ -21103,6 +21105,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
+
 
 
 
@@ -21166,7 +21170,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
     }
   },
   components: {
-    'thumb-component': __WEBPACK_IMPORTED_MODULE_2__parts_Thumbnail_vue___default.a
+    'back-button': __WEBPACK_IMPORTED_MODULE_2__parts_BackButton_vue___default.a,
+    'thumb-component': __WEBPACK_IMPORTED_MODULE_3__parts_Thumbnail_vue___default.a
   },
   created: function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
@@ -21207,199 +21212,208 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "s-area has-background-light" }, [
-      _c("div", { staticClass: "tabs is-centered" }, [
-        _c("ul", [
-          _c(
-            "li",
-            { staticClass: "is-active" },
-            [
-              _c(
-                "router-link",
-                { attrs: { to: "/search/freeword/" + this.query_text } },
-                [_c("i", { staticClass: "far fa-images" })]
-              )
-            ],
-            1
-          ),
+  return _c(
+    "div",
+    [
+      _c("back-button"),
+      _vm._v(" "),
+      _c("div", { staticClass: "s-area has-background-light" }, [
+        _c("div", { staticClass: "tabs is-centered" }, [
+          _c("ul", [
+            _c(
+              "li",
+              { staticClass: "is-active" },
+              [
+                _c(
+                  "router-link",
+                  { attrs: { to: "/search/freeword/" + this.query_text } },
+                  [_c("i", { staticClass: "far fa-images" })]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              [
+                _c(
+                  "router-link",
+                  { attrs: { to: "/search/user/" + this.query_text } },
+                  [_c("i", { staticClass: "fas fa-users" })]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              [
+                _c(
+                  "router-link",
+                  { attrs: { to: "/search/location/" + this.query_text } },
+                  [_c("i", { staticClass: "fas fa-map-marker" })]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              [
+                _c(
+                  "router-link",
+                  { attrs: { to: "/search/tag/" + this.query_text } },
+                  [_c("i", { staticClass: "fas fa-tags" })]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              [
+                _c(
+                  "router-link",
+                  { attrs: { to: "/search/lenscamera/" + this.query_text } },
+                  [
+                    _c("i", { staticClass: "fas fa-camera" }),
+                    _c("i", { staticClass: "far fa-dot-circle" })
+                  ]
+                )
+              ],
+              1
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "field has-addons" }, [
+          _c("div", { staticClass: "control is-expanded" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model:value",
+                  value: _vm.query_text,
+                  expression: "query_text",
+                  arg: "value"
+                }
+              ],
+              staticClass: "input",
+              attrs: { type: "text", placeholder: "検索.." },
+              domProps: { value: _vm.query_text },
+              on: {
+                keyup: function($event) {
+                  if (
+                    !("button" in $event) &&
+                    _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+                  ) {
+                    return null
+                  }
+                  return _vm.fw_search($event)
+                },
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.query_text = $event.target.value
+                }
+              }
+            })
+          ]),
           _vm._v(" "),
-          _c(
-            "li",
-            [
-              _c(
-                "router-link",
-                { attrs: { to: "/search/user/" + this.query_text } },
-                [_c("i", { staticClass: "fas fa-users" })]
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "li",
-            [
-              _c(
-                "router-link",
-                { attrs: { to: "/search/location/" + this.query_text } },
-                [_c("i", { staticClass: "fas fa-map-marker" })]
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "li",
-            [
-              _c(
-                "router-link",
-                { attrs: { to: "/search/tag/" + this.query_text } },
-                [_c("i", { staticClass: "fas fa-tags" })]
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "li",
-            [
-              _c(
-                "router-link",
-                { attrs: { to: "/search/lenscamera/" + this.query_text } },
-                [
-                  _c("i", { staticClass: "fas fa-camera" }),
-                  _c("i", { staticClass: "far fa-dot-circle" })
-                ]
-              )
-            ],
-            1
-          )
+          _c("div", { staticClass: "control" }, [
+            _c(
+              "a",
+              { staticClass: "button is-info", on: { click: _vm.fw_search } },
+              [_c("i", { staticClass: "fas fa-search" })]
+            )
+          ])
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "field has-addons" }, [
-        _c("div", { staticClass: "control is-expanded" }, [
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model:value",
-                value: _vm.query_text,
-                expression: "query_text",
-                arg: "value"
-              }
-            ],
-            staticClass: "input",
-            attrs: { type: "text", placeholder: "検索.." },
-            domProps: { value: _vm.query_text },
-            on: {
-              keyup: function($event) {
-                if (
-                  !("button" in $event) &&
-                  _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-                ) {
-                  return null
-                }
-                return _vm.fw_search($event)
-              },
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.query_text = $event.target.value
-              }
-            }
+      _c("div", { staticClass: "container" }, [
+        _c(
+          "div",
+          { staticClass: "photoarea" },
+          _vm._l(_vm.photo_list.data, function(photo) {
+            return _c("thumb-component", {
+              key: photo.p_id,
+              attrs: { photo: photo }
+            })
           })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "control" }, [
-          _c(
-            "a",
-            { staticClass: "button is-info", on: { click: _vm.fw_search } },
-            [_c("i", { staticClass: "fas fa-search" })]
-          )
-        ])
-      ])
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "container" }, [
-      _c(
-        "div",
-        { staticClass: "photoarea" },
-        _vm._l(_vm.photo_list.data, function(photo) {
-          return _c("thumb-component", {
-            key: photo.p_id,
-            attrs: { photo: photo }
-          })
-        })
-      )
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "container" }, [
-      _c("p", { staticClass: "has-text-centered" }, [
-        _vm._v(
-          _vm._s(_vm.photo_list.current_page) +
-            " / " +
-            _vm._s(_vm.photo_list.last_page)
         )
       ]),
       _vm._v(" "),
-      _c(
-        "nav",
-        {
-          staticClass: "pagination is-centered",
-          attrs: { role: "navigation", "aria-label": "pagination" }
-        },
-        [
-          _vm.page != 1
-            ? _c(
-                "a",
-                {
-                  staticClass: "pagination-previous",
-                  on: {
-                    click: function($event) {
-                      _vm.change_page(-1)
+      _c("div", { staticClass: "container" }, [
+        _c("p", { staticClass: "has-text-centered" }, [
+          _vm._v(
+            _vm._s(_vm.photo_list.current_page) +
+              " / " +
+              _vm._s(_vm.photo_list.last_page)
+          )
+        ]),
+        _vm._v(" "),
+        _c(
+          "nav",
+          {
+            staticClass: "pagination is-centered",
+            attrs: { role: "navigation", "aria-label": "pagination" }
+          },
+          [
+            _vm.page != 1
+              ? _c(
+                  "a",
+                  {
+                    staticClass: "pagination-previous",
+                    on: {
+                      click: function($event) {
+                        _vm.change_page(-1)
+                      }
                     }
-                  }
-                },
-                [_vm._v("前ページ")]
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.page == 1
-            ? _c(
-                "a",
-                { staticClass: "pagination-previous", attrs: { disabled: "" } },
-                [_vm._v("前ページ")]
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.page != _vm.photo_list.last_page
-            ? _c(
-                "a",
-                {
-                  staticClass: "pagination-next",
-                  on: {
-                    click: function($event) {
-                      _vm.change_page(1)
+                  },
+                  [_vm._v("前ページ")]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.page == 1
+              ? _c(
+                  "a",
+                  {
+                    staticClass: "pagination-previous",
+                    attrs: { disabled: "" }
+                  },
+                  [_vm._v("前ページ")]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.page != _vm.photo_list.last_page
+              ? _c(
+                  "a",
+                  {
+                    staticClass: "pagination-next",
+                    on: {
+                      click: function($event) {
+                        _vm.change_page(1)
+                      }
                     }
-                  }
-                },
-                [_vm._v("次ページ")]
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.page == _vm.photo_list.last_page
-            ? _c(
-                "a",
-                { staticClass: "pagination-next", attrs: { disabled: "" } },
-                [_vm._v("次ページ")]
-              )
-            : _vm._e()
-        ]
-      )
-    ])
-  ])
+                  },
+                  [_vm._v("次ページ")]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.page == _vm.photo_list.last_page
+              ? _c(
+                  "a",
+                  { staticClass: "pagination-next", attrs: { disabled: "" } },
+                  [_vm._v("次ページ")]
+                )
+              : _vm._e()
+          ]
+        )
+      ])
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -21512,8 +21526,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__parts_UserListItem_vue__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__parts_UserListItem_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__parts_UserListItem_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__parts_BackButton_vue__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__parts_BackButton_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__parts_BackButton_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__parts_UserListItem_vue__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__parts_UserListItem_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__parts_UserListItem_vue__);
 
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
@@ -21547,6 +21563,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
+
 
 
 
@@ -21606,7 +21624,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
     }()
   },
   components: {
-    'user-list-item-component': __WEBPACK_IMPORTED_MODULE_2__parts_UserListItem_vue___default.a
+    'back-button': __WEBPACK_IMPORTED_MODULE_2__parts_BackButton_vue___default.a,
+    'user-list-item-component': __WEBPACK_IMPORTED_MODULE_3__parts_UserListItem_vue___default.a
   },
   created: function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
@@ -21647,132 +21666,138 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "s-area has-background-light" }, [
-      _c("div", { staticClass: "tabs is-centered" }, [
-        _c("ul", [
-          _c(
-            "li",
-            [
-              _c(
-                "router-link",
-                { attrs: { to: "/search/freeword/" + this.query_text } },
-                [_c("i", { staticClass: "far fa-images" })]
-              )
-            ],
-            1
-          ),
+  return _c(
+    "div",
+    [
+      _c("back-button"),
+      _vm._v(" "),
+      _c("div", { staticClass: "s-area has-background-light" }, [
+        _c("div", { staticClass: "tabs is-centered" }, [
+          _c("ul", [
+            _c(
+              "li",
+              [
+                _c(
+                  "router-link",
+                  { attrs: { to: "/search/freeword/" + this.query_text } },
+                  [_c("i", { staticClass: "far fa-images" })]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              { staticClass: "is-active" },
+              [
+                _c(
+                  "router-link",
+                  { attrs: { to: "/search/user/" + this.query_text } },
+                  [_c("i", { staticClass: "fas fa-users" })]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              [
+                _c(
+                  "router-link",
+                  { attrs: { to: "/search/location/" + this.query_text } },
+                  [_c("i", { staticClass: "fas fa-map-marker" })]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              [
+                _c(
+                  "router-link",
+                  { attrs: { to: "/search/tag/" + this.query_text } },
+                  [_c("i", { staticClass: "fas fa-tags" })]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              [
+                _c(
+                  "router-link",
+                  { attrs: { to: "/search/lenscamera/" + this.query_text } },
+                  [
+                    _c("i", { staticClass: "fas fa-camera" }),
+                    _c("i", { staticClass: "far fa-dot-circle" })
+                  ]
+                )
+              ],
+              1
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "field has-addons" }, [
+          _c("div", { staticClass: "control is-expanded" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model:value",
+                  value: _vm.query_text,
+                  expression: "query_text",
+                  arg: "value"
+                }
+              ],
+              staticClass: "input",
+              attrs: { type: "text", placeholder: "検索.." },
+              domProps: { value: _vm.query_text },
+              on: {
+                keyup: function($event) {
+                  if (
+                    !("button" in $event) &&
+                    _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+                  ) {
+                    return null
+                  }
+                  return _vm.usr_search($event)
+                },
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.query_text = $event.target.value
+                }
+              }
+            })
+          ]),
           _vm._v(" "),
-          _c(
-            "li",
-            { staticClass: "is-active" },
-            [
-              _c(
-                "router-link",
-                { attrs: { to: "/search/user/" + this.query_text } },
-                [_c("i", { staticClass: "fas fa-users" })]
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "li",
-            [
-              _c(
-                "router-link",
-                { attrs: { to: "/search/location/" + this.query_text } },
-                [_c("i", { staticClass: "fas fa-map-marker" })]
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "li",
-            [
-              _c(
-                "router-link",
-                { attrs: { to: "/search/tag/" + this.query_text } },
-                [_c("i", { staticClass: "fas fa-tags" })]
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "li",
-            [
-              _c(
-                "router-link",
-                { attrs: { to: "/search/lenscamera/" + this.query_text } },
-                [
-                  _c("i", { staticClass: "fas fa-camera" }),
-                  _c("i", { staticClass: "far fa-dot-circle" })
-                ]
-              )
-            ],
-            1
-          )
+          _c("div", { staticClass: "control" }, [
+            _c(
+              "a",
+              { staticClass: "button is-info", on: { click: _vm.usr_search } },
+              [_c("i", { staticClass: "fas fa-search" })]
+            )
+          ])
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "field has-addons" }, [
-        _c("div", { staticClass: "control is-expanded" }, [
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model:value",
-                value: _vm.query_text,
-                expression: "query_text",
-                arg: "value"
-              }
-            ],
-            staticClass: "input",
-            attrs: { type: "text", placeholder: "検索.." },
-            domProps: { value: _vm.query_text },
-            on: {
-              keyup: function($event) {
-                if (
-                  !("button" in $event) &&
-                  _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-                ) {
-                  return null
-                }
-                return _vm.usr_search($event)
-              },
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.query_text = $event.target.value
-              }
-            }
+      _c(
+        "div",
+        { staticClass: "container" },
+        _vm._l(_vm.user_list, function(user) {
+          return _c("user-list-item-component", {
+            key: user.id,
+            attrs: { user: user }
           })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "control" }, [
-          _c(
-            "a",
-            { staticClass: "button is-info", on: { click: _vm.usr_search } },
-            [_c("i", { staticClass: "fas fa-search" })]
-          )
-        ])
-      ])
-    ]),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "container" },
-      _vm._l(_vm.user_list, function(user) {
-        return _c("user-list-item-component", {
-          key: user.id,
-          attrs: { user: user }
         })
-      })
-    )
-  ])
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -21885,8 +21910,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__parts_Thumbnail_vue__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__parts_Thumbnail_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__parts_Thumbnail_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__parts_BackButton_vue__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__parts_BackButton_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__parts_BackButton_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__parts_Thumbnail_vue__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__parts_Thumbnail_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__parts_Thumbnail_vue__);
 
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
@@ -21931,6 +21958,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
+
 
 
 
@@ -21994,7 +22023,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
     }
   },
   components: {
-    'thumb-component': __WEBPACK_IMPORTED_MODULE_2__parts_Thumbnail_vue___default.a
+    'back-button': __WEBPACK_IMPORTED_MODULE_2__parts_BackButton_vue___default.a,
+    'thumb-component': __WEBPACK_IMPORTED_MODULE_3__parts_Thumbnail_vue___default.a
   },
   created: function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
@@ -22035,199 +22065,208 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "s-area has-background-light" }, [
-      _c("div", { staticClass: "tabs is-centered" }, [
-        _c("ul", [
-          _c(
-            "li",
-            [
-              _c(
-                "router-link",
-                { attrs: { to: "/search/freeword/" + this.query_text } },
-                [_c("i", { staticClass: "far fa-images" })]
-              )
-            ],
-            1
-          ),
+  return _c(
+    "div",
+    [
+      _c("back-button"),
+      _vm._v(" "),
+      _c("div", { staticClass: "s-area has-background-light" }, [
+        _c("div", { staticClass: "tabs is-centered" }, [
+          _c("ul", [
+            _c(
+              "li",
+              [
+                _c(
+                  "router-link",
+                  { attrs: { to: "/search/freeword/" + this.query_text } },
+                  [_c("i", { staticClass: "far fa-images" })]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              [
+                _c(
+                  "router-link",
+                  { attrs: { to: "/search/user/" + this.query_text } },
+                  [_c("i", { staticClass: "fas fa-users" })]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              { staticClass: "is-active" },
+              [
+                _c(
+                  "router-link",
+                  { attrs: { to: "/search/location/" + this.query_text } },
+                  [_c("i", { staticClass: "fas fa-map-marker" })]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              [
+                _c(
+                  "router-link",
+                  { attrs: { to: "/search/tag/" + this.query_text } },
+                  [_c("i", { staticClass: "fas fa-tags" })]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              [
+                _c(
+                  "router-link",
+                  { attrs: { to: "/search/lenscamera/" + this.query_text } },
+                  [
+                    _c("i", { staticClass: "fas fa-camera" }),
+                    _c("i", { staticClass: "far fa-dot-circle" })
+                  ]
+                )
+              ],
+              1
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "field has-addons" }, [
+          _c("div", { staticClass: "control is-expanded" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model:value",
+                  value: _vm.query_text,
+                  expression: "query_text",
+                  arg: "value"
+                }
+              ],
+              staticClass: "input",
+              attrs: { type: "text", placeholder: "検索.." },
+              domProps: { value: _vm.query_text },
+              on: {
+                keyup: function($event) {
+                  if (
+                    !("button" in $event) &&
+                    _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+                  ) {
+                    return null
+                  }
+                  return _vm.fw_search($event)
+                },
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.query_text = $event.target.value
+                }
+              }
+            })
+          ]),
           _vm._v(" "),
-          _c(
-            "li",
-            [
-              _c(
-                "router-link",
-                { attrs: { to: "/search/user/" + this.query_text } },
-                [_c("i", { staticClass: "fas fa-users" })]
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "li",
-            { staticClass: "is-active" },
-            [
-              _c(
-                "router-link",
-                { attrs: { to: "/search/location/" + this.query_text } },
-                [_c("i", { staticClass: "fas fa-map-marker" })]
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "li",
-            [
-              _c(
-                "router-link",
-                { attrs: { to: "/search/tag/" + this.query_text } },
-                [_c("i", { staticClass: "fas fa-tags" })]
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "li",
-            [
-              _c(
-                "router-link",
-                { attrs: { to: "/search/lenscamera/" + this.query_text } },
-                [
-                  _c("i", { staticClass: "fas fa-camera" }),
-                  _c("i", { staticClass: "far fa-dot-circle" })
-                ]
-              )
-            ],
-            1
-          )
+          _c("div", { staticClass: "control" }, [
+            _c(
+              "a",
+              { staticClass: "button is-info", on: { click: _vm.fw_search } },
+              [_c("i", { staticClass: "fas fa-search" })]
+            )
+          ])
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "field has-addons" }, [
-        _c("div", { staticClass: "control is-expanded" }, [
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model:value",
-                value: _vm.query_text,
-                expression: "query_text",
-                arg: "value"
-              }
-            ],
-            staticClass: "input",
-            attrs: { type: "text", placeholder: "検索.." },
-            domProps: { value: _vm.query_text },
-            on: {
-              keyup: function($event) {
-                if (
-                  !("button" in $event) &&
-                  _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-                ) {
-                  return null
-                }
-                return _vm.fw_search($event)
-              },
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.query_text = $event.target.value
-              }
-            }
+      _c("div", { staticClass: "container" }, [
+        _c(
+          "div",
+          { staticClass: "photoarea" },
+          _vm._l(_vm.photo_list.data, function(photo) {
+            return _c("thumb-component", {
+              key: photo.p_id,
+              attrs: { photo: photo }
+            })
           })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "control" }, [
-          _c(
-            "a",
-            { staticClass: "button is-info", on: { click: _vm.fw_search } },
-            [_c("i", { staticClass: "fas fa-search" })]
-          )
-        ])
-      ])
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "container" }, [
-      _c(
-        "div",
-        { staticClass: "photoarea" },
-        _vm._l(_vm.photo_list.data, function(photo) {
-          return _c("thumb-component", {
-            key: photo.p_id,
-            attrs: { photo: photo }
-          })
-        })
-      )
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "container" }, [
-      _c("p", { staticClass: "has-text-centered" }, [
-        _vm._v(
-          _vm._s(_vm.photo_list.current_page) +
-            " / " +
-            _vm._s(_vm.photo_list.last_page)
         )
       ]),
       _vm._v(" "),
-      _c(
-        "nav",
-        {
-          staticClass: "pagination is-centered",
-          attrs: { role: "navigation", "aria-label": "pagination" }
-        },
-        [
-          _vm.page != 1
-            ? _c(
-                "a",
-                {
-                  staticClass: "pagination-previous",
-                  on: {
-                    click: function($event) {
-                      _vm.change_page(-1)
+      _c("div", { staticClass: "container" }, [
+        _c("p", { staticClass: "has-text-centered" }, [
+          _vm._v(
+            _vm._s(_vm.photo_list.current_page) +
+              " / " +
+              _vm._s(_vm.photo_list.last_page)
+          )
+        ]),
+        _vm._v(" "),
+        _c(
+          "nav",
+          {
+            staticClass: "pagination is-centered",
+            attrs: { role: "navigation", "aria-label": "pagination" }
+          },
+          [
+            _vm.page != 1
+              ? _c(
+                  "a",
+                  {
+                    staticClass: "pagination-previous",
+                    on: {
+                      click: function($event) {
+                        _vm.change_page(-1)
+                      }
                     }
-                  }
-                },
-                [_vm._v("前ページ")]
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.page == 1
-            ? _c(
-                "a",
-                { staticClass: "pagination-previous", attrs: { disabled: "" } },
-                [_vm._v("前ページ")]
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.page != _vm.photo_list.last_page
-            ? _c(
-                "a",
-                {
-                  staticClass: "pagination-next",
-                  on: {
-                    click: function($event) {
-                      _vm.change_page(1)
+                  },
+                  [_vm._v("前ページ")]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.page == 1
+              ? _c(
+                  "a",
+                  {
+                    staticClass: "pagination-previous",
+                    attrs: { disabled: "" }
+                  },
+                  [_vm._v("前ページ")]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.page != _vm.photo_list.last_page
+              ? _c(
+                  "a",
+                  {
+                    staticClass: "pagination-next",
+                    on: {
+                      click: function($event) {
+                        _vm.change_page(1)
+                      }
                     }
-                  }
-                },
-                [_vm._v("次ページ")]
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.page == _vm.photo_list.last_page
-            ? _c(
-                "a",
-                { staticClass: "pagination-next", attrs: { disabled: "" } },
-                [_vm._v("次ページ")]
-              )
-            : _vm._e()
-        ]
-      )
-    ])
-  ])
+                  },
+                  [_vm._v("次ページ")]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.page == _vm.photo_list.last_page
+              ? _c(
+                  "a",
+                  { staticClass: "pagination-next", attrs: { disabled: "" } },
+                  [_vm._v("次ページ")]
+                )
+              : _vm._e()
+          ]
+        )
+      ])
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -22340,8 +22379,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__parts_Thumbnail_vue__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__parts_Thumbnail_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__parts_Thumbnail_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__parts_BackButton_vue__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__parts_BackButton_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__parts_BackButton_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__parts_Thumbnail_vue__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__parts_Thumbnail_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__parts_Thumbnail_vue__);
 
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
@@ -22386,6 +22427,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
+
 
 
 
@@ -22449,7 +22492,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
     }
   },
   components: {
-    'thumb-component': __WEBPACK_IMPORTED_MODULE_2__parts_Thumbnail_vue___default.a
+    'back-button': __WEBPACK_IMPORTED_MODULE_2__parts_BackButton_vue___default.a,
+    'thumb-component': __WEBPACK_IMPORTED_MODULE_3__parts_Thumbnail_vue___default.a
   },
   created: function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
@@ -22490,199 +22534,208 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "s-area has-background-light" }, [
-      _c("div", { staticClass: "tabs is-centered" }, [
-        _c("ul", [
-          _c(
-            "li",
-            [
-              _c(
-                "router-link",
-                { attrs: { to: "/search/freeword/" + this.query_text } },
-                [_c("i", { staticClass: "far fa-images" })]
-              )
-            ],
-            1
-          ),
+  return _c(
+    "div",
+    [
+      _c("back-button"),
+      _vm._v(" "),
+      _c("div", { staticClass: "s-area has-background-light" }, [
+        _c("div", { staticClass: "tabs is-centered" }, [
+          _c("ul", [
+            _c(
+              "li",
+              [
+                _c(
+                  "router-link",
+                  { attrs: { to: "/search/freeword/" + this.query_text } },
+                  [_c("i", { staticClass: "far fa-images" })]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              [
+                _c(
+                  "router-link",
+                  { attrs: { to: "/search/user/" + this.query_text } },
+                  [_c("i", { staticClass: "fas fa-users" })]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              [
+                _c(
+                  "router-link",
+                  { attrs: { to: "/search/location/" + this.query_text } },
+                  [_c("i", { staticClass: "fas fa-map-marker" })]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              { staticClass: "is-active" },
+              [
+                _c(
+                  "router-link",
+                  { attrs: { to: "/search/tag/" + this.query_text } },
+                  [_c("i", { staticClass: "fas fa-tags" })]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              [
+                _c(
+                  "router-link",
+                  { attrs: { to: "/search/lenscamera/" + this.query_text } },
+                  [
+                    _c("i", { staticClass: "fas fa-camera" }),
+                    _c("i", { staticClass: "far fa-dot-circle" })
+                  ]
+                )
+              ],
+              1
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "field has-addons" }, [
+          _c("div", { staticClass: "control is-expanded" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model:value",
+                  value: _vm.query_text,
+                  expression: "query_text",
+                  arg: "value"
+                }
+              ],
+              staticClass: "input",
+              attrs: { type: "text", placeholder: "検索.." },
+              domProps: { value: _vm.query_text },
+              on: {
+                keyup: function($event) {
+                  if (
+                    !("button" in $event) &&
+                    _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+                  ) {
+                    return null
+                  }
+                  return _vm.fw_search($event)
+                },
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.query_text = $event.target.value
+                }
+              }
+            })
+          ]),
           _vm._v(" "),
-          _c(
-            "li",
-            [
-              _c(
-                "router-link",
-                { attrs: { to: "/search/user/" + this.query_text } },
-                [_c("i", { staticClass: "fas fa-users" })]
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "li",
-            [
-              _c(
-                "router-link",
-                { attrs: { to: "/search/location/" + this.query_text } },
-                [_c("i", { staticClass: "fas fa-map-marker" })]
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "li",
-            { staticClass: "is-active" },
-            [
-              _c(
-                "router-link",
-                { attrs: { to: "/search/tag/" + this.query_text } },
-                [_c("i", { staticClass: "fas fa-tags" })]
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "li",
-            [
-              _c(
-                "router-link",
-                { attrs: { to: "/search/lenscamera/" + this.query_text } },
-                [
-                  _c("i", { staticClass: "fas fa-camera" }),
-                  _c("i", { staticClass: "far fa-dot-circle" })
-                ]
-              )
-            ],
-            1
-          )
+          _c("div", { staticClass: "control" }, [
+            _c(
+              "a",
+              { staticClass: "button is-info", on: { click: _vm.fw_search } },
+              [_c("i", { staticClass: "fas fa-search" })]
+            )
+          ])
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "field has-addons" }, [
-        _c("div", { staticClass: "control is-expanded" }, [
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model:value",
-                value: _vm.query_text,
-                expression: "query_text",
-                arg: "value"
-              }
-            ],
-            staticClass: "input",
-            attrs: { type: "text", placeholder: "検索.." },
-            domProps: { value: _vm.query_text },
-            on: {
-              keyup: function($event) {
-                if (
-                  !("button" in $event) &&
-                  _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-                ) {
-                  return null
-                }
-                return _vm.fw_search($event)
-              },
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.query_text = $event.target.value
-              }
-            }
+      _c("div", { staticClass: "container" }, [
+        _c(
+          "div",
+          { staticClass: "photoarea" },
+          _vm._l(_vm.photo_list.data, function(photo) {
+            return _c("thumb-component", {
+              key: photo.p_id,
+              attrs: { photo: photo }
+            })
           })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "control" }, [
-          _c(
-            "a",
-            { staticClass: "button is-info", on: { click: _vm.fw_search } },
-            [_c("i", { staticClass: "fas fa-search" })]
-          )
-        ])
-      ])
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "container" }, [
-      _c(
-        "div",
-        { staticClass: "photoarea" },
-        _vm._l(_vm.photo_list.data, function(photo) {
-          return _c("thumb-component", {
-            key: photo.p_id,
-            attrs: { photo: photo }
-          })
-        })
-      )
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "container" }, [
-      _c("p", { staticClass: "has-text-centered" }, [
-        _vm._v(
-          _vm._s(_vm.photo_list.current_page) +
-            " / " +
-            _vm._s(_vm.photo_list.last_page)
         )
       ]),
       _vm._v(" "),
-      _c(
-        "nav",
-        {
-          staticClass: "pagination is-centered",
-          attrs: { role: "navigation", "aria-label": "pagination" }
-        },
-        [
-          _vm.page != 1
-            ? _c(
-                "a",
-                {
-                  staticClass: "pagination-previous",
-                  on: {
-                    click: function($event) {
-                      _vm.change_page(-1)
+      _c("div", { staticClass: "container" }, [
+        _c("p", { staticClass: "has-text-centered" }, [
+          _vm._v(
+            _vm._s(_vm.photo_list.current_page) +
+              " / " +
+              _vm._s(_vm.photo_list.last_page)
+          )
+        ]),
+        _vm._v(" "),
+        _c(
+          "nav",
+          {
+            staticClass: "pagination is-centered",
+            attrs: { role: "navigation", "aria-label": "pagination" }
+          },
+          [
+            _vm.page != 1
+              ? _c(
+                  "a",
+                  {
+                    staticClass: "pagination-previous",
+                    on: {
+                      click: function($event) {
+                        _vm.change_page(-1)
+                      }
                     }
-                  }
-                },
-                [_vm._v("前ページ")]
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.page == 1
-            ? _c(
-                "a",
-                { staticClass: "pagination-previous", attrs: { disabled: "" } },
-                [_vm._v("前ページ")]
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.page != _vm.photo_list.last_page
-            ? _c(
-                "a",
-                {
-                  staticClass: "pagination-next",
-                  on: {
-                    click: function($event) {
-                      _vm.change_page(1)
+                  },
+                  [_vm._v("前ページ")]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.page == 1
+              ? _c(
+                  "a",
+                  {
+                    staticClass: "pagination-previous",
+                    attrs: { disabled: "" }
+                  },
+                  [_vm._v("前ページ")]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.page != _vm.photo_list.last_page
+              ? _c(
+                  "a",
+                  {
+                    staticClass: "pagination-next",
+                    on: {
+                      click: function($event) {
+                        _vm.change_page(1)
+                      }
                     }
-                  }
-                },
-                [_vm._v("次ページ")]
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.page == _vm.photo_list.last_page
-            ? _c(
-                "a",
-                { staticClass: "pagination-next", attrs: { disabled: "" } },
-                [_vm._v("次ページ")]
-              )
-            : _vm._e()
-        ]
-      )
-    ])
-  ])
+                  },
+                  [_vm._v("次ページ")]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.page == _vm.photo_list.last_page
+              ? _c(
+                  "a",
+                  { staticClass: "pagination-next", attrs: { disabled: "" } },
+                  [_vm._v("次ページ")]
+                )
+              : _vm._e()
+          ]
+        )
+      ])
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -22795,8 +22848,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__parts_Thumbnail_vue__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__parts_Thumbnail_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__parts_Thumbnail_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__parts_BackButton_vue__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__parts_BackButton_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__parts_BackButton_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__parts_Thumbnail_vue__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__parts_Thumbnail_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__parts_Thumbnail_vue__);
 
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
@@ -22850,6 +22905,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
+
 
 
 
@@ -22922,7 +22979,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
     }
   },
   components: {
-    'thumb-component': __WEBPACK_IMPORTED_MODULE_2__parts_Thumbnail_vue___default.a
+    'back-button': __WEBPACK_IMPORTED_MODULE_2__parts_BackButton_vue___default.a,
+    'thumb-component': __WEBPACK_IMPORTED_MODULE_3__parts_Thumbnail_vue___default.a
   },
   created: function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
@@ -22963,213 +23021,222 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "s-area has-background-light" }, [
-      _c("div", { staticClass: "tabs is-centered" }, [
-        _c("ul", [
-          _c(
-            "li",
-            [
-              _c(
-                "router-link",
-                { attrs: { to: "/search/freeword/" + this.query_text } },
-                [_c("i", { staticClass: "far fa-images" })]
-              )
-            ],
-            1
-          ),
+  return _c(
+    "div",
+    [
+      _c("back-button"),
+      _vm._v(" "),
+      _c("div", { staticClass: "s-area has-background-light" }, [
+        _c("div", { staticClass: "tabs is-centered" }, [
+          _c("ul", [
+            _c(
+              "li",
+              [
+                _c(
+                  "router-link",
+                  { attrs: { to: "/search/freeword/" + this.query_text } },
+                  [_c("i", { staticClass: "far fa-images" })]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              [
+                _c(
+                  "router-link",
+                  { attrs: { to: "/search/user/" + this.query_text } },
+                  [_c("i", { staticClass: "fas fa-users" })]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              [
+                _c(
+                  "router-link",
+                  { attrs: { to: "/search/location/" + this.query_text } },
+                  [_c("i", { staticClass: "fas fa-map-marker" })]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              [
+                _c(
+                  "router-link",
+                  { attrs: { to: "/search/tag/" + this.query_text } },
+                  [_c("i", { staticClass: "fas fa-tags" })]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "li",
+              { staticClass: "is-active" },
+              [
+                _c(
+                  "router-link",
+                  { attrs: { to: "/search/lenscamera/" + this.query_text } },
+                  [
+                    _c("i", { staticClass: "fas fa-camera" }),
+                    _c("i", { staticClass: "far fa-dot-circle" })
+                  ]
+                )
+              ],
+              1
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "field has-addons" }, [
+          _c("div", { staticClass: "control is-expanded" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model:value",
+                  value: _vm.query_text,
+                  expression: "query_text",
+                  arg: "value"
+                }
+              ],
+              staticClass: "input",
+              attrs: { type: "text", placeholder: "検索.." },
+              domProps: { value: _vm.query_text },
+              on: {
+                keyup: function($event) {
+                  if (
+                    !("button" in $event) &&
+                    _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+                  ) {
+                    return null
+                  }
+                  return _vm.fw_search($event)
+                },
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.query_text = $event.target.value
+                }
+              }
+            })
+          ]),
           _vm._v(" "),
-          _c(
-            "li",
-            [
-              _c(
-                "router-link",
-                { attrs: { to: "/search/user/" + this.query_text } },
-                [_c("i", { staticClass: "fas fa-users" })]
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "li",
-            [
-              _c(
-                "router-link",
-                { attrs: { to: "/search/location/" + this.query_text } },
-                [_c("i", { staticClass: "fas fa-map-marker" })]
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "li",
-            [
-              _c(
-                "router-link",
-                { attrs: { to: "/search/tag/" + this.query_text } },
-                [_c("i", { staticClass: "fas fa-tags" })]
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "li",
-            { staticClass: "is-active" },
-            [
-              _c(
-                "router-link",
-                { attrs: { to: "/search/lenscamera/" + this.query_text } },
-                [
-                  _c("i", { staticClass: "fas fa-camera" }),
-                  _c("i", { staticClass: "far fa-dot-circle" })
-                ]
-              )
-            ],
-            1
-          )
+          _c("div", { staticClass: "control" }, [
+            _c(
+              "a",
+              { staticClass: "button is-info", on: { click: _vm.fw_search } },
+              [_c("i", { staticClass: "fas fa-search" })]
+            )
+          ])
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "field has-addons" }, [
-        _c("div", { staticClass: "control is-expanded" }, [
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model:value",
-                value: _vm.query_text,
-                expression: "query_text",
-                arg: "value"
-              }
-            ],
-            staticClass: "input",
-            attrs: { type: "text", placeholder: "検索.." },
-            domProps: { value: _vm.query_text },
-            on: {
-              keyup: function($event) {
-                if (
-                  !("button" in $event) &&
-                  _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-                ) {
-                  return null
-                }
-                return _vm.fw_search($event)
-              },
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.query_text = $event.target.value
-              }
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "control" }, [
-          _c(
-            "a",
-            { staticClass: "button is-info", on: { click: _vm.fw_search } },
-            [_c("i", { staticClass: "fas fa-search" })]
-          )
-        ])
-      ])
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "hero is-bold" }, [
-      _c("div", { staticClass: "hero-body" }, [
-        _c("div", { staticClass: "hero_bg" }),
-        _vm._v(" "),
-        _c("div", { staticClass: "container" }, [
-          _c("h1", { staticClass: "title has-text-light" }, [
-            _vm._v(_vm._s(_vm.query_text))
-          ]),
+      _c("div", { staticClass: "hero is-bold" }, [
+        _c("div", { staticClass: "hero-body" }, [
+          _c("div", { staticClass: "hero_bg" }),
           _vm._v(" "),
-          _c("h2", { staticClass: "subtitle has-text-light" })
+          _c("div", { staticClass: "container" }, [
+            _c("h1", { staticClass: "title has-text-light" }, [
+              _vm._v(_vm._s(_vm.query_text))
+            ]),
+            _vm._v(" "),
+            _c("h2", { staticClass: "subtitle has-text-light" })
+          ])
         ])
-      ])
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "container" }, [
-      _c(
-        "div",
-        { staticClass: "photoarea" },
-        _vm._l(_vm.photo_list.data, function(photo) {
-          return _c("thumb-component", {
-            key: photo.p_id,
-            attrs: { photo: photo }
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "container" }, [
+        _c(
+          "div",
+          { staticClass: "photoarea" },
+          _vm._l(_vm.photo_list.data, function(photo) {
+            return _c("thumb-component", {
+              key: photo.p_id,
+              attrs: { photo: photo }
+            })
           })
-        })
-      )
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "container" }, [
-      _c("p", { staticClass: "has-text-centered" }, [
-        _vm._v(
-          _vm._s(_vm.photo_list.current_page) +
-            " / " +
-            _vm._s(_vm.photo_list.last_page)
         )
       ]),
       _vm._v(" "),
-      _c(
-        "nav",
-        {
-          staticClass: "pagination is-centered",
-          attrs: { role: "navigation", "aria-label": "pagination" }
-        },
-        [
-          _vm.page != 1
-            ? _c(
-                "a",
-                {
-                  staticClass: "pagination-previous",
-                  on: {
-                    click: function($event) {
-                      _vm.change_page(-1)
+      _c("div", { staticClass: "container" }, [
+        _c("p", { staticClass: "has-text-centered" }, [
+          _vm._v(
+            _vm._s(_vm.photo_list.current_page) +
+              " / " +
+              _vm._s(_vm.photo_list.last_page)
+          )
+        ]),
+        _vm._v(" "),
+        _c(
+          "nav",
+          {
+            staticClass: "pagination is-centered",
+            attrs: { role: "navigation", "aria-label": "pagination" }
+          },
+          [
+            _vm.page != 1
+              ? _c(
+                  "a",
+                  {
+                    staticClass: "pagination-previous",
+                    on: {
+                      click: function($event) {
+                        _vm.change_page(-1)
+                      }
                     }
-                  }
-                },
-                [_vm._v("前ページ")]
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.page == 1
-            ? _c(
-                "a",
-                { staticClass: "pagination-previous", attrs: { disabled: "" } },
-                [_vm._v("前ページ")]
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.page != _vm.photo_list.last_page
-            ? _c(
-                "a",
-                {
-                  staticClass: "pagination-next",
-                  on: {
-                    click: function($event) {
-                      _vm.change_page(1)
+                  },
+                  [_vm._v("前ページ")]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.page == 1
+              ? _c(
+                  "a",
+                  {
+                    staticClass: "pagination-previous",
+                    attrs: { disabled: "" }
+                  },
+                  [_vm._v("前ページ")]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.page != _vm.photo_list.last_page
+              ? _c(
+                  "a",
+                  {
+                    staticClass: "pagination-next",
+                    on: {
+                      click: function($event) {
+                        _vm.change_page(1)
+                      }
                     }
-                  }
-                },
-                [_vm._v("次ページ")]
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.page == _vm.photo_list.last_page
-            ? _c(
-                "a",
-                { staticClass: "pagination-next", attrs: { disabled: "" } },
-                [_vm._v("次ページ")]
-              )
-            : _vm._e()
-        ]
-      )
-    ])
-  ])
+                  },
+                  [_vm._v("次ページ")]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.page == _vm.photo_list.last_page
+              ? _c(
+                  "a",
+                  { staticClass: "pagination-next", attrs: { disabled: "" } },
+                  [_vm._v("次ページ")]
+                )
+              : _vm._e()
+          ]
+        )
+      ])
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -23482,7 +23549,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/*tab*/\n.is_selected[data-v-5e031a86] {\r\n  border-bottom: solid 3px hsl(217, 71%, 53%);\n}\n.tab-contents[data-v-5e031a86] {\r\n  margin-top: 1rem;\n}\n.photoarea[data-v-5e031a86] {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -ms-flex-wrap: wrap;\r\n      flex-wrap: wrap;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\n}\n.flex[data-v-5e031a86] {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -ms-flex-wrap: wrap;\r\n      flex-wrap: wrap;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  padding-bottom: 1rem;\n}\r\n\r\n/*profile*/\n.m-profile[data-v-5e031a86] {\r\n  text-align: center;\r\n  margin: 0 auto;\n}\n.m-profile-img[data-v-5e031a86] {\r\n  height: 256px;\r\n  margin-bottom: 1rem;\r\n  position: relative;\n}\n.m-profile figure label[data-v-5e031a86]{\r\n  border: solid 2px white;\r\n  border-radius:100px;\r\n  font-size: 50%;\n}\n@media (max-width: 767px) {\n.m-profile-img[data-v-5e031a86] {\r\n    height: 128px;\r\n    margin-bottom: 1rem;\n}\n.m-profile figure[data-v-5e031a86] {\r\n    display: block;\n}\n.m-profile img[data-v-5e031a86] {\r\n    border: solid 2px white;\r\n    border-radius:100px;\n}\n}\nfooter[data-v-5e031a86] {\r\n  padding-top: 0.5rem;\r\n  padding-bottom: 0.5rem;\n}\r\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/*tab*/\n.is_selected[data-v-5e031a86] {\r\n  border-bottom: solid 3px hsl(217, 71%, 53%);\n}\n.tab-contents[data-v-5e031a86] {\r\n  margin-top: 1rem;\n}\n.photoarea[data-v-5e031a86] {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -ms-flex-wrap: wrap;\r\n      flex-wrap: wrap;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\n}\n.flex[data-v-5e031a86] {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -ms-flex-wrap: wrap;\r\n      flex-wrap: wrap;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  padding-bottom: 1rem;\n}\r\n\r\n/*profile*/\n.m-profile[data-v-5e031a86] {\r\n  text-align: center;\r\n  margin: 0 auto;\n}\n.m-profile-img[data-v-5e031a86] {\r\n  height: 256px;\r\n  margin-bottom: 1rem;\r\n  position: relative;\n}\n.m-profile figure label[data-v-5e031a86]{\r\n  border: solid 2px white;\r\n  border-radius:100px;\r\n  font-size: 50%;\n}\n@media (max-width: 767px) {\n.m-profile-img[data-v-5e031a86] {\r\n    height: 128px;\r\n    margin-bottom: 1rem;\n}\n.m-profile figure[data-v-5e031a86] {\r\n    display: block;\n}\n.m-profile img[data-v-5e031a86] {\r\n    border: solid 2px white;\r\n    border-radius:100px;\n}\n}\nfooter[data-v-5e031a86] {\r\n  padding-top: 0.5rem;\r\n  padding-bottom: 0.5rem;\n}\r\n", ""]);
 
 // exports
 
@@ -23497,8 +23564,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__parts_UploadArea_vue__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__parts_UploadArea_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__parts_UploadArea_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__parts_BackButton_vue__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__parts_BackButton_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__parts_BackButton_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__parts_UploadArea_vue__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__parts_UploadArea_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__parts_UploadArea_vue__);
 
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
@@ -23533,6 +23602,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
+
 
 
 
@@ -23552,7 +23623,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
   },
 
   components: {
-    'upload-area': __WEBPACK_IMPORTED_MODULE_2__parts_UploadArea_vue___default.a
+    'back-button': __WEBPACK_IMPORTED_MODULE_2__parts_BackButton_vue___default.a,
+    'upload-area': __WEBPACK_IMPORTED_MODULE_3__parts_UploadArea_vue___default.a
   },
   created: function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
@@ -23640,126 +23712,136 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "card" }, [
-      _c("div", { staticClass: "m-profile" }, [
-        _c(
-          "div",
-          { staticClass: "m-profile-img has-background-link" },
-          [
-            _c("upload-area", {
-              attrs: { beforephoto: _vm.user_data.background },
-              on: { "send-file": _vm.sendBackground }
-            })
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "flex" }, [
+  return _c(
+    "div",
+    { staticClass: "container" },
+    [
+      _c("back-button"),
+      _vm._v(" "),
+      _c("div", { staticClass: "card" }, [
+        _c("div", { staticClass: "m-profile" }, [
           _c(
-            "figure",
-            { staticClass: "image is-96x96 is-round" },
+            "div",
+            { staticClass: "m-profile-img has-background-link" },
             [
               _c("upload-area", {
-                attrs: { beforephoto: _vm.user_data.icon },
-                on: { "send-file": _vm.sendIcon }
+                attrs: { beforephoto: _vm.user_data.background },
+                on: { "send-file": _vm.sendBackground }
               })
             ],
             1
-          )
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.name,
-              expression: "name"
-            }
-          ],
-          staticClass: "has-text-centered input is-large",
-          attrs: { type: "text", placeholder: "表示名" },
-          domProps: { value: _vm.name },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.name = $event.target.value
-            }
-          }
-        }),
-        _vm._v(" "),
-        _c("p", { staticClass: "is-size-7 has-text-grey-light" }, [
-          _vm._v("@"),
-          _c("span", [_vm._v(_vm._s(_vm.user_data.screen_name))])
-        ]),
-        _vm._v(" "),
-        _c(
-          "textarea",
-          {
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "flex" }, [
+            _c(
+              "figure",
+              { staticClass: "image is-96x96 is-round" },
+              [
+                _c("upload-area", {
+                  attrs: { beforephoto: _vm.user_data.icon },
+                  on: { "send-file": _vm.sendIcon }
+                })
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
+          _c("input", {
             directives: [
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.description,
-                expression: "description"
+                value: _vm.name,
+                expression: "name"
               }
             ],
-            staticClass: "textarea",
-            attrs: { placeholder: "あなたを紹介する説明文" },
-            domProps: { value: _vm.description },
+            staticClass: "has-text-centered input is-large",
+            attrs: { type: "text", placeholder: "表示名" },
+            domProps: { value: _vm.name },
             on: {
               input: function($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.description = $event.target.value
+                _vm.name = $event.target.value
               }
             }
-          },
-          [_vm._v(_vm._s(_vm.user_data.description))]
-        ),
-        _vm._v(" "),
-        _c("br"),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
+          }),
+          _vm._v(" "),
+          _c("p", { staticClass: "is-size-7 has-text-grey-light" }, [
+            _vm._v("@"),
+            _c("span", [_vm._v(_vm._s(_vm.user_data.screen_name))])
+          ]),
+          _vm._v(" "),
+          _c(
+            "textarea",
             {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.location,
-              expression: "location"
-            }
-          ],
-          staticClass: "has-text-centered input",
-          attrs: { type: "text", placeholder: "場所" },
-          domProps: { value: _vm.location },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.description,
+                  expression: "description"
+                }
+              ],
+              staticClass: "textarea",
+              attrs: { placeholder: "あなたを紹介する説明文" },
+              domProps: { value: _vm.description },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.description = $event.target.value
+                }
               }
-              _vm.location = $event.target.value
+            },
+            [_vm._v(_vm._s(_vm.user_data.description))]
+          ),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.location,
+                expression: "location"
+              }
+            ],
+            staticClass: "has-text-centered input",
+            attrs: { type: "text", placeholder: "場所" },
+            domProps: { value: _vm.location },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.location = $event.target.value
+              }
             }
-          }
-        })
-      ]),
-      _vm._v(" "),
-      _c("footer", [
-        _c("div", { staticClass: "field is-grouped is-grouped-centered" }, [
-          _c("p", { staticClass: "control" }, [
-            _c(
-              "a",
-              { staticClass: "button is-primary", on: { click: _vm.onSubmit } },
-              [_vm._v("\n            保存\n          ")]
-            )
+          })
+        ]),
+        _vm._v(" "),
+        _c("footer", [
+          _c("div", { staticClass: "field is-grouped is-grouped-centered" }, [
+            _c("p", { staticClass: "control" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "button is-primary",
+                  on: { click: _vm.onSubmit }
+                },
+                [_vm._v("\n            保存\n          ")]
+              )
+            ])
           ])
         ])
       ])
-    ])
-  ])
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
