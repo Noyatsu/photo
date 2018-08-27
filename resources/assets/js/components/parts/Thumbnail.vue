@@ -38,8 +38,8 @@ export default{
 }
 @media (max-width: 767px) {
   .photo {
-    height: 100px;
-    width: 100px;
+    height: 32vw;
+    width: 32vw;
     margin: 0.01rem;
 
   }

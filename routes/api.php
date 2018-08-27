@@ -58,3 +58,4 @@ Route::get('/search/tag', 'PhotoController@tagSearch');
 Route::get('/search/lenscamera', 'PhotoController@lensCameraSearch');
 
 Route::get('/webapi/geocode', 'WebApiController@geocode');
+Route::get('/webapi/item', 'WebApiController@item');

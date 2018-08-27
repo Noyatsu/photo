@@ -21,6 +21,15 @@
         </div>
       </div>
     </div>
+    <div class="hero is-bold">
+      <div class="hero-body">
+        <div class="hero_bg"></div>
+        <div class="container">
+          <h1 class="title has-text-light">{{ query_text }}</h1>
+          <h2 class="subtitle has-text-light"></h2>
+        </div>
+      </div>
+    </div>
     <div class="container">
       <div class="photoarea">
         <thumb-component v-for="photo in photo_list.data" :photo="photo" :key="photo.p_id"></thumb-component>
@@ -47,6 +56,7 @@ export default {
   data() {
     return {
       photo_list: [],
+      item_data: [],
       query_text: "",
       page: 1,
       loading: false
@@ -60,6 +70,13 @@ export default {
       try {
         let res = await axios.get('/api/search/lenscamera?words=' + encodeURIComponent(query_text) + '&page=' + this.page);
         this.photo_list = res.data;
+        let res_item = await axios.get(
+          '/api/webapi/item?appid=dj00aiZpPXVYcUxBZmxYZXBuNCZzPWNvbnN1bWVyc2VjcmV0Jng9M2M-'
+        + '&query='+ encodeURIComponent(query_text)
+        + '&price_from=10000'
+      );
+        this.item_data = res_item.data.ResultSet[0].Result[0];
+        console.log(this.item_data);
       } catch (e) {
         console.error(e)
       }
@@ -89,7 +106,7 @@ export default {
 <style scoped>
 .s-area {
   padding: 1.5rem;
-  margin-bottom: 1.5rem;
+
 }
 /*tab*/
 .is_selected {
@@ -122,5 +139,24 @@ export default {
 
 .is_round img{
   border-radius: 100px;
+}
+
+.hero {
+  position: relative;
+  height: 150px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.hero_bg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: hsl(204, 10%, 53%);
+  background-image: linear-gradient(hsl(217, 10%, 53%),hsl(204, 10%, 53%));
 }
 </style>
