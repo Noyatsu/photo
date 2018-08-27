@@ -245,7 +245,7 @@ class PhotoController extends Controller
         $words = explode(' ', $words);
 
         //クエリ
-        $q = Photo::select('photos.location as p_location', 'photos.description as p_description', 'photos.created_at as p_created_at', 'photos.id as p_id', 'photos.*', 'users.screen_name');
+        $q = Photo::select('photos.location as p_location', 'photos.description as p_description', 'photos.created_at as p_created_at', 'photos.id as p_id', 'photos.*', 'users.screen_name', 'users.name', 'categories.name as c_name');
         $q->join('users', 'photos.user_id', '=', 'users.id');
         $q->join('categories', 'photos.category_id', '=', 'categories.id');
         if ($words) {
@@ -276,7 +276,7 @@ class PhotoController extends Controller
         $words = explode(' ', $words);
 
         //クエリ
-        $q = Photo::select('photos.location as p_location', 'photos.description as p_description', 'photos.created_at as p_created_at', 'photos.id as p_id', 'photos.*', 'users.screen_name');
+        $q = Photo::select('photos.location as p_location', 'photos.description as p_description', 'photos.created_at as p_created_at', 'photos.id as p_id', 'photos.*', 'users.screen_name', 'users.name', 'categories.name as c_name');
         $q->join('users', 'photos.user_id', '=', 'users.id');
         $q->join('categories', 'photos.category_id', '=', 'categories.id');
         if ($words) {
@@ -303,7 +303,7 @@ class PhotoController extends Controller
         $words = explode(' ', $words);
 
         //クエリ
-        $q = Photo::select('photos.location as p_location', 'photos.description as p_description', 'photos.created_at as p_created_at', 'photos.id as p_id', 'photos.*', 'users.screen_name');
+        $q = Photo::select('photos.location as p_location', 'photos.description as p_description', 'photos.created_at as p_created_at', 'photos.id as p_id', 'photos.*', 'users.screen_name', 'users.name', 'categories.name as c_name');
         $q->join('users', 'photos.user_id', '=', 'users.id');
         $q->join('categories', 'photos.category_id', '=', 'categories.id');
         if ($words) {
@@ -327,7 +327,7 @@ class PhotoController extends Controller
         $words = explode(' ', $words);
 
         //クエリ
-        $q = Photo::select('photos.location as p_location', 'photos.description as p_description', 'photos.created_at as p_created_at', 'photos.id as p_id', 'photos.*', 'users.screen_name');
+        $q = Photo::select('photos.location as p_location', 'photos.description as p_description', 'photos.created_at as p_created_at', 'photos.id as p_id', 'photos.*', 'users.screen_name', 'users.name', 'categories.name as c_name');
         $q->join('users', 'photos.user_id', '=', 'users.id');
         $q->join('categories', 'photos.category_id', '=', 'categories.id');
         if ($words) {

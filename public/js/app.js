@@ -16660,8 +16660,10 @@ module.exports = function listToStyles (parentId, list) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__DetailContent_vue__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__DetailContent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__DetailContent_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__DetailContent_vue__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__DetailContent_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__DetailContent_vue__);
 //
 //
 //
@@ -16690,12 +16692,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    'detail-content': __WEBPACK_IMPORTED_MODULE_0__DetailContent_vue___default.a
+    'detail-content': __WEBPACK_IMPORTED_MODULE_1__DetailContent_vue___default.a
   },
   name: 'thumb-component',
   props: ['photo'],
@@ -16711,7 +16714,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     likeToggle: function likeToggle() {
       var _this = this;
 
-      axios.post('/api/photos/like/toggle', {
+      __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/api/photos/like/toggle', {
         screen_name: user_screen_name,
         api_token: user_api_token,
         photo_id: this.photo.p_id,
@@ -16737,7 +16740,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       } else {
         try {
           var res = void 0;
-          res = axios.get('/api/photos/like/check/' + user_screen_name + '/' + this.photo.p_id);
+          res = __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/api/photos/like/check/' + user_screen_name + '/' + this.photo.p_id);
           if (res.data == true) {
             this.isLiked = true;
           }
@@ -16789,7 +16792,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.likenum[data-v-18bb2376] {\n  margin-left: 0.5rem;\n}\n.post[data-v-18bb2376] {\n  padding-bottom: 3rem;\n}\n.post .post-header[data-v-18bb2376] {\n    height: 2rem;\n    position: relative;\n    margin-bottom: 0.2em;\n}\n.post .post-header .post-header-left[data-v-18bb2376] {\n      display: inline-block;\n      position: absolute;\n      left: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-header .post-header-left p[data-v-18bb2376] {\n        display: inline-block;\n        vertical-align: middle;\n        height: 2rem;\n        line-height: 2rem;\n}\n.post .post-header .post-header-left p img[data-v-18bb2376] {\n        width: 2rem;\n        height: 2rem;\n        margin-right: 0.2rem;\n        border-radius: 100%;\n}\n.post .post-header .post-header-right[data-v-18bb2376] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-contents[data-v-18bb2376] {\n    margin-top: 0.25rem;\n    text-align: center;\n    overflow-x: inherit;\n    text-align: center;\n}\n@media (max-width: 800px) {\n.post .post-contents[data-v-18bb2376] {\n        overflow-x: scroll;\n}\n}\n.post .post-contents img[data-v-18bb2376] {\n      display: inline-block;\n      max-height: 80vh;\n}\n.post .post-footer[data-v-18bb2376] {\n    position: relative;\n    margin-left: 0.5rem;\n    margin-top: 0rem;\n}\n.post .post-footer .post-right[data-v-18bb2376] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0.2rem;\n      bottom: 0;\n}\n.info[data-v-18bb2376] {\n  line-height: 1.8;\n}\n.tag[data-v-18bb2376] {\n  margin-right: 2px;\n}\na strong[data-v-18bb2376] {\n  color: white;\n}\na[data-v-18bb2376] {\n  color: white;\n}\n", ""]);
+exports.push([module.i, "\n.likenum[data-v-18bb2376] {\n  margin-left: 0.5rem;\n}\n.post[data-v-18bb2376] {\n  padding-bottom: 3rem;\n}\n.post .post-header[data-v-18bb2376] {\n    height: 2rem;\n    position: relative;\n    margin-bottom: 0.2em;\n}\n.post .post-header .post-header-left[data-v-18bb2376] {\n      display: inline-block;\n      position: absolute;\n      left: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-header .post-header-left p[data-v-18bb2376] {\n        display: inline-block;\n        vertical-align: middle;\n        height: 2rem;\n        line-height: 2rem;\n}\n.post .post-header .post-header-left p img[data-v-18bb2376] {\n        width: 2rem;\n        height: 2rem;\n        margin-right: 0.2rem;\n        border-radius: 100%;\n}\n.post .post-header .post-header-right[data-v-18bb2376] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-contents[data-v-18bb2376] {\n    margin-top: 0.25rem;\n    text-align: center;\n    overflow-x: inherit;\n    text-align: center;\n}\n@media (max-width: 800px) {\n.post .post-contents[data-v-18bb2376] {\n        overflow-x: scroll;\n}\n}\n.post .post-contents img[data-v-18bb2376] {\n      display: inline-block;\n      max-height: 80vh;\n}\n.post .post-footer[data-v-18bb2376] {\n    position: relative;\n    margin-left: 0.5rem;\n    text-align: left;\n    margin-top: 0rem;\n}\n.post .post-footer .post-right[data-v-18bb2376] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0.2rem;\n      bottom: 0;\n}\n.info[data-v-18bb2376] {\n  line-height: 1.8;\n}\n.tag[data-v-18bb2376] {\n  margin-right: 2px;\n}\na strong[data-v-18bb2376] {\n  color: white;\n}\na[data-v-18bb2376] {\n  color: white;\n}\n", ""]);
 
 // exports
 
@@ -16859,6 +16862,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
+//
 
 
 
@@ -16868,6 +16873,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
     return {
       showModal: false,
       isLiked: false,
+      isCopyed: false,
       likeNum: 0,
       tags: [],
       scaled: false,
@@ -16885,12 +16891,17 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             case 0:
               this.is_logined = user_screen_name == "" ? false : true;
 
-              _context.prev = 1;
+              if (!this.is_logined) {
+                _context.next = 16;
+                break;
+              }
+
+              _context.prev = 2;
               res = void 0;
-              _context.next = 5;
+              _context.next = 6;
               return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/photos/like/check/' + user_screen_name + '/' + this.photo.p_id);
 
-            case 5:
+            case 6:
               res = _context.sent;
 
 
@@ -16898,16 +16909,16 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                 this.isLiked = true;
               }
 
-              _context.next = 12;
+              _context.next = 13;
               break;
 
-            case 9:
-              _context.prev = 9;
-              _context.t0 = _context['catch'](1);
+            case 10:
+              _context.prev = 10;
+              _context.t0 = _context['catch'](2);
 
               console.error(_context.t0);
 
-            case 12:
+            case 13:
               tags_str = this.photo.tags || '';
 
               if (tags_str != '') {
@@ -16915,12 +16926,12 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
               }
               this.likeNum = this.photo.likes;
 
-            case 15:
+            case 16:
             case 'end':
               return _context.stop();
           }
         }
-      }, _callee, this, [[1, 9]]);
+      }, _callee, this, [[2, 10]]);
     }));
 
     function mounted() {
@@ -16931,6 +16942,20 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
   }(),
 
   methods: {
+    copyUrl: function copyUrl() {
+      var element = document.querySelector('#yourUrl');
+      var selection = window.getSelection();
+      var range = document.createRange();
+      range.selectNodeContents(element);
+      selection.removeAllRanges();
+      selection.addRange(range);
+      var succeeded = document.execCommand('copy');
+      if (succeeded) {
+        this.isCopyed = true;
+      } else {}
+      // selectionオブジェクトの持つrangeオブジェクトを全て削除しておきます。
+      selection.removeAllRanges();
+    },
     touch_start: function touch_start() {
       var img = this.$refs.img;
       var imgbox = this.$refs.imgbox;
@@ -16965,6 +16990,14 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
           console.log(error.response);
         });
       }
+    }
+  },
+  computed: {
+    convertedFilmingDate: function convertedFilmingDate() {
+      return this.photo.filming_date.replace(":", "/").replace(":", "/");
+    },
+    convertedLensName: function convertedLensName() {
+      return this.photo.lens.replace("/", " ");
     }
   }
 });
@@ -17832,6 +17865,16 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "post-right" }, [
+            _c(
+              "a",
+              {
+                staticClass: "button is-light",
+                class: { "is-info": _vm.isCopyed },
+                on: { click: _vm.copyUrl }
+              },
+              [_c("i", { staticClass: "far fa-clone" })]
+            ),
+            _vm._v(" "),
             _vm._m(0),
             _vm._v(" "),
             _c(
@@ -17903,7 +17946,7 @@ var render = function() {
             _vm.photo.filming_date
               ? _c("p", [
                   _c("i", { staticClass: "fas fa-calendar-alt fa-fw" }),
-                  _vm._v(" " + _vm._s(_vm.photo.filming_date))
+                  _vm._v(" " + _vm._s(_vm.convertedFilmingDate))
                 ])
               : _vm._e(),
             _vm._v(" "),
@@ -17975,10 +18018,10 @@ var render = function() {
                         attrs: {
                           to:
                             "/search/lenscamera/" +
-                            encodeURIComponent(_vm.photo.lens)
+                            encodeURIComponent(_vm.convertedLensName)
                         }
                       },
-                      [_vm._v(" " + _vm._s(_vm.photo.lens))]
+                      [_vm._v(" " + _vm._s(_vm.convertedLensName))]
                     )
                   ],
                   1
@@ -18005,7 +18048,17 @@ var render = function() {
             _vm._v(" "),
             _c("h3", [_vm._v("コメント")]),
             _vm._v(" "),
-            _vm._m(1)
+            _vm._m(1),
+            _vm._v(" "),
+            _c(
+              "p",
+              { staticClass: "has-text-black-ter", attrs: { id: "yourUrl" } },
+              [
+                _vm._v(
+                  "https://photo.noyatsu.club/photo/" + _vm._s(_vm.photo.p_id)
+                )
+              ]
+            )
           ])
         ])
       ])
@@ -21165,7 +21218,7 @@ var render = function() {
               _c(
                 "router-link",
                 { attrs: { to: "/search/freeword/" + this.query_text } },
-                [_vm._v("フリーワード")]
+                [_c("i", { staticClass: "far fa-images" })]
               )
             ],
             1
@@ -21177,7 +21230,7 @@ var render = function() {
               _c(
                 "router-link",
                 { attrs: { to: "/search/user/" + this.query_text } },
-                [_vm._v("ユーザ")]
+                [_c("i", { staticClass: "fas fa-users" })]
               )
             ],
             1
@@ -21189,7 +21242,7 @@ var render = function() {
               _c(
                 "router-link",
                 { attrs: { to: "/search/location/" + this.query_text } },
-                [_vm._v("場所")]
+                [_c("i", { staticClass: "fas fa-map-marker" })]
               )
             ],
             1
@@ -21201,7 +21254,7 @@ var render = function() {
               _c(
                 "router-link",
                 { attrs: { to: "/search/tag/" + this.query_text } },
-                [_vm._v("タグ")]
+                [_c("i", { staticClass: "fas fa-tags" })]
               )
             ],
             1
@@ -21213,7 +21266,10 @@ var render = function() {
               _c(
                 "router-link",
                 { attrs: { to: "/search/lenscamera/" + this.query_text } },
-                [_vm._v("カメラ・レンズ")]
+                [
+                  _c("i", { staticClass: "fas fa-camera" }),
+                  _c("i", { staticClass: "far fa-dot-circle" })
+                ]
               )
             ],
             1
@@ -21601,7 +21657,7 @@ var render = function() {
               _c(
                 "router-link",
                 { attrs: { to: "/search/freeword/" + this.query_text } },
-                [_vm._v("フリーワード")]
+                [_c("i", { staticClass: "far fa-images" })]
               )
             ],
             1
@@ -21614,7 +21670,7 @@ var render = function() {
               _c(
                 "router-link",
                 { attrs: { to: "/search/user/" + this.query_text } },
-                [_vm._v("ユーザ")]
+                [_c("i", { staticClass: "fas fa-users" })]
               )
             ],
             1
@@ -21626,7 +21682,7 @@ var render = function() {
               _c(
                 "router-link",
                 { attrs: { to: "/search/location/" + this.query_text } },
-                [_vm._v("場所")]
+                [_c("i", { staticClass: "fas fa-map-marker" })]
               )
             ],
             1
@@ -21638,7 +21694,7 @@ var render = function() {
               _c(
                 "router-link",
                 { attrs: { to: "/search/tag/" + this.query_text } },
-                [_vm._v("タグ")]
+                [_c("i", { staticClass: "fas fa-tags" })]
               )
             ],
             1
@@ -21650,7 +21706,10 @@ var render = function() {
               _c(
                 "router-link",
                 { attrs: { to: "/search/lenscamera/" + this.query_text } },
-                [_vm._v("カメラ・レンズ")]
+                [
+                  _c("i", { staticClass: "fas fa-camera" }),
+                  _c("i", { staticClass: "far fa-dot-circle" })
+                ]
               )
             ],
             1
@@ -21986,7 +22045,7 @@ var render = function() {
               _c(
                 "router-link",
                 { attrs: { to: "/search/freeword/" + this.query_text } },
-                [_vm._v("フリーワード")]
+                [_c("i", { staticClass: "far fa-images" })]
               )
             ],
             1
@@ -21998,7 +22057,7 @@ var render = function() {
               _c(
                 "router-link",
                 { attrs: { to: "/search/user/" + this.query_text } },
-                [_vm._v("ユーザ")]
+                [_c("i", { staticClass: "fas fa-users" })]
               )
             ],
             1
@@ -22011,7 +22070,7 @@ var render = function() {
               _c(
                 "router-link",
                 { attrs: { to: "/search/location/" + this.query_text } },
-                [_vm._v("場所")]
+                [_c("i", { staticClass: "fas fa-map-marker" })]
               )
             ],
             1
@@ -22023,7 +22082,7 @@ var render = function() {
               _c(
                 "router-link",
                 { attrs: { to: "/search/tag/" + this.query_text } },
-                [_vm._v("タグ")]
+                [_c("i", { staticClass: "fas fa-tags" })]
               )
             ],
             1
@@ -22035,7 +22094,10 @@ var render = function() {
               _c(
                 "router-link",
                 { attrs: { to: "/search/lenscamera/" + this.query_text } },
-                [_vm._v("カメラ・レンズ")]
+                [
+                  _c("i", { staticClass: "fas fa-camera" }),
+                  _c("i", { staticClass: "far fa-dot-circle" })
+                ]
               )
             ],
             1
@@ -22438,7 +22500,7 @@ var render = function() {
               _c(
                 "router-link",
                 { attrs: { to: "/search/freeword/" + this.query_text } },
-                [_vm._v("フリーワード")]
+                [_c("i", { staticClass: "far fa-images" })]
               )
             ],
             1
@@ -22450,7 +22512,7 @@ var render = function() {
               _c(
                 "router-link",
                 { attrs: { to: "/search/user/" + this.query_text } },
-                [_vm._v("ユーザ")]
+                [_c("i", { staticClass: "fas fa-users" })]
               )
             ],
             1
@@ -22462,7 +22524,7 @@ var render = function() {
               _c(
                 "router-link",
                 { attrs: { to: "/search/location/" + this.query_text } },
-                [_vm._v("場所")]
+                [_c("i", { staticClass: "fas fa-map-marker" })]
               )
             ],
             1
@@ -22475,7 +22537,7 @@ var render = function() {
               _c(
                 "router-link",
                 { attrs: { to: "/search/tag/" + this.query_text } },
-                [_vm._v("タグ")]
+                [_c("i", { staticClass: "fas fa-tags" })]
               )
             ],
             1
@@ -22487,7 +22549,10 @@ var render = function() {
               _c(
                 "router-link",
                 { attrs: { to: "/search/lenscamera/" + this.query_text } },
-                [_vm._v("カメラ・レンズ")]
+                [
+                  _c("i", { staticClass: "fas fa-camera" }),
+                  _c("i", { staticClass: "far fa-dot-circle" })
+                ]
               )
             ],
             1
@@ -22908,7 +22973,7 @@ var render = function() {
               _c(
                 "router-link",
                 { attrs: { to: "/search/freeword/" + this.query_text } },
-                [_vm._v("フリーワード")]
+                [_c("i", { staticClass: "far fa-images" })]
               )
             ],
             1
@@ -22920,7 +22985,7 @@ var render = function() {
               _c(
                 "router-link",
                 { attrs: { to: "/search/user/" + this.query_text } },
-                [_vm._v("ユーザ")]
+                [_c("i", { staticClass: "fas fa-users" })]
               )
             ],
             1
@@ -22932,7 +22997,7 @@ var render = function() {
               _c(
                 "router-link",
                 { attrs: { to: "/search/location/" + this.query_text } },
-                [_vm._v("場所")]
+                [_c("i", { staticClass: "fas fa-map-marker" })]
               )
             ],
             1
@@ -22944,7 +23009,7 @@ var render = function() {
               _c(
                 "router-link",
                 { attrs: { to: "/search/tag/" + this.query_text } },
-                [_vm._v("タグ")]
+                [_c("i", { staticClass: "fas fa-tags" })]
               )
             ],
             1
@@ -22957,7 +23022,10 @@ var render = function() {
               _c(
                 "router-link",
                 { attrs: { to: "/search/lenscamera/" + this.query_text } },
-                [_vm._v("カメラ・レンズ")]
+                [
+                  _c("i", { staticClass: "fas fa-camera" }),
+                  _c("i", { staticClass: "far fa-dot-circle" })
+                ]
               )
             ],
             1

@@ -13,8 +13,9 @@
       <div class="post-footer">
         <p class="post-title"><strong class="has-text-light">{{ photo.title }}</strong></p>
         <div class="post-right">
+          <a class="button is-light" v-on:click="copyUrl" v-bind:class="{ 'is-info': isCopyed }"><i class="far fa-clone"></i></a>
           <a class="button is-light"><i class="fas fa-share-alt"></i></a>
-          <a class="button is-light" @click="likeToggle" v-bind:class="{ 'is-danger': isLiked }">
+          <a class="button is-light" v-on:click="likeToggle" v-bind:class="{ 'is-danger': isLiked }">
             <i class="fas fa-heart"></i>
             <span class="likenum">{{ likeNum }}</span>
           </a>
@@ -29,10 +30,10 @@
               <router-link v-bind:to="'/search/tag/' + tag">{{ tag }}</router-link>
             </span>
           </p>
-          <p v-if="photo.filming_date"><i class="fas fa-calendar-alt fa-fw"></i> {{ photo.filming_date }}</p>
+          <p v-if="photo.filming_date"><i class="fas fa-calendar-alt fa-fw"></i> {{ convertedFilmingDate }}</p>
           <p v-if="photo.p_location"><i class="fas fa-map-marker fa-fw"></i><router-link v-bind:to="'/search/location/' + encodeURIComponent(photo.p_location)">{{ photo.location_name ? photo.location_name : photo.p_location }}<span v-if="photo.location_address">({{photo.location_address}})</span></router-link></p>
           <p v-if="photo.camera"><i class="fas fa-camera fa-fw"></i><router-link v-bind:to="'/search/lenscamera/' + encodeURIComponent(photo.camera)"> {{ photo.camera }}</router-link></p>
-          <p v-if="photo.lens"><i class="far fa-dot-circle fa-fw"></i><router-link v-bind:to="'/search/lenscamera/' + encodeURIComponent(photo.lens)"> {{ photo.lens }}</router-link></p>
+          <p v-if="photo.lens"><i class="far fa-dot-circle fa-fw"></i><router-link v-bind:to="'/search/lenscamera/' + encodeURIComponent(convertedLensName)"> {{ convertedLensName }}</router-link></p>
           <p v-if="photo.focal_length"><i class="fas fa-sliders-h fa-fw"></i> {{ photo.focal_length }}mm, {{ photo.speed }}, F{{ photo.iris }}, ISO{{ photo.iso }}</p>
           <p>{{ photo.p_description }}</p>
           <h3>コメント</h3>
@@ -44,6 +45,7 @@
               </span>
             </p>
           </div>
+          <p id="yourUrl" class="has-text-black-ter">https://photo.noyatsu.club/photo/{{ photo.p_id }}</p>
         </div>
       </div>
     </div>
@@ -58,6 +60,7 @@ export default{
     return {
       showModal: false,
       isLiked: false,
+      isCopyed: false,
       likeNum: 0,
       tags: [],
       scaled: false,
@@ -68,27 +71,43 @@ export default{
   },
   async mounted() {
     this.is_logined = (user_screen_name == "") ? false : true;
+    if(this.is_logined) {
+      try {
+        let res;
+        res = await axios.get('/api/photos/like/check/' + user_screen_name + '/' + this.photo.p_id);
 
-    try {
-      let res;
-      res = await axios.get('/api/photos/like/check/' + user_screen_name + '/' + this.photo.p_id);
+        if(res.data==true) {
+          this.isLiked = true;
+        }
 
-      if(res.data==true) {
-        this.isLiked = true;
+      } catch (e) {
+        console.error(e);
       }
 
-    } catch (e) {
-      console.error(e);
-    }
+      const tags_str = this.photo.tags || '';
+      if(tags_str != '') {
+        this.tags = tags_str.split(',');
+      }
+      this.likeNum = this.photo.likes;
 
-    const tags_str = this.photo.tags || '';
-    if(tags_str != '') {
-      this.tags = tags_str.split(',');
     }
-    this.likeNum = this.photo.likes;
-
   },
   methods: {
+    copyUrl: function() {
+      var element = document.querySelector('#yourUrl');
+      var selection = window.getSelection();
+      var range = document.createRange();
+      range.selectNodeContents(element);
+      selection.removeAllRanges();
+      selection.addRange(range);
+      var succeeded = document.execCommand('copy');
+      if (succeeded) {
+        this.isCopyed = true;
+      } else {
+      }
+      // selectionオブジェクトの持つrangeオブジェクトを全て削除しておきます。
+      selection.removeAllRanges();
+    },
     touch_start: function() {
       let img = this.$refs.img;
       let imgbox = this.$refs.imgbox;
@@ -125,6 +144,14 @@ export default{
           console.log(error.response)
         });
       }
+    }
+  },
+  computed: {
+    convertedFilmingDate: function() {
+      return this.photo.filming_date.replace(":", "/").replace(":", "/");
+    },
+    convertedLensName: function() {
+      return this.photo.lens.replace("/", " ");
     }
   }
 }
@@ -184,6 +211,7 @@ export default{
   .post-footer {
     position: relative;
     margin-left: 0.5rem;
+    text-align: left;
     .post-right {
       display: inline-block;
       position: absolute;
@@ -199,6 +227,7 @@ export default{
 
 .info {
   line-height: 1.8;
+
 }
 .tag {
   margin-right: 2px;

@@ -27,6 +27,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 import DetailContent from './DetailContent.vue';
 
 export default{
