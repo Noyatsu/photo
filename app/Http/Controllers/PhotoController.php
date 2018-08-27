@@ -188,6 +188,20 @@ class PhotoController extends Controller
     );
     }
 
+    public function incrementView(Request $request)
+    {
+      $screen_name = $request->input('screen_name');
+      $photo_id = $request->input('photo_id');
+      $user = User::firstOrNew(['screen_name' => $screen_name]);
+      $photo = Photo::firstOrNew(['id' => $photo_id]);
+
+      //写真の投稿者と見た人が一緒でなければインクリメント
+      if($photo->user_id != $user->id) {
+        $photo->views += 1;
+        $photo->save();
+      }
+    }
+
     /**
     * いいね/アンいいねのトグル
     */
