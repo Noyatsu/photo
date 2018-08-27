@@ -30,6 +30,8 @@ Route::group(['middleware' => 'auth'], function(){
   Route::get('/user', 'HomeController@index');
 
   Route::get('/search/{any}', 'HomeController@index')->where('any', '.*');
+  Route::get('/search/{any}/{any2}', 'HomeController@index')->where('any', '.*')->where('any2', '.*');
+
   Route::get('/config', 'HomeController@index');
   Route::get('/config/{any}', 'HomeController@index')->where('any', '.*');
 

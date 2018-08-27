@@ -3,11 +3,11 @@
     <div class="s-area has-background-light">
       <div class="tabs is-centered">
         <ul>
-          <li class="is-active"><router-link v-bind:to="'/search/freeword/' + this.query_text">フリーワード</router-link></li>
+          <li><router-link v-bind:to="'/search/freeword/' + this.query_text">フリーワード</router-link></li>
           <li><router-link v-bind:to="'/search/user/' + this.query_text">ユーザ</router-link></li>
           <li><router-link v-bind:to="'/search/location/' + this.query_text">場所</router-link></li>
           <li><router-link v-bind:to="'/search/tag/' + this.query_text">タグ</router-link></li>
-          <li><router-link v-bind:to="'/search/lenscamera/' + this.query_text">カメラ・レンズ</router-link></li>
+          <li class="is-active"><router-link v-bind:to="'/search/lenscamera/' + this.query_text">カメラ・レンズ</router-link></li>
         </ul>
       </div>
       <div class="field has-addons">
@@ -18,6 +18,15 @@
           <a class="button is-info" v-on:click="fw_search">
             <i class="fas fa-search"></i>
           </a>
+        </div>
+      </div>
+    </div>
+    <div class="hero is-bold">
+      <div class="hero-body">
+        <div class="hero_bg"></div>
+        <div class="container">
+          <h1 class="title has-text-light">{{ query_text }}</h1>
+          <h2 class="subtitle has-text-light"></h2>
         </div>
       </div>
     </div>
@@ -47,6 +56,7 @@ export default {
   data() {
     return {
       photo_list: [],
+      item_data: [],
       query_text: "",
       page: 1,
       loading: false
@@ -54,12 +64,19 @@ export default {
   },
   methods: {
     fw_search: function() {
-      this.$router.push('/search/freeword/' + encodeURIComponent(this.query_text));
+      this.$router.push('/search/lenscamera/' + encodeURIComponent(this.query_text));
     },
     created_method:async function(query_text) {
       try {
-        let res = await axios.get('/api/search/freeword?words=' + encodeURIComponent(query_text) + '&page=' + this.page);
+        let res = await axios.get('/api/search/lenscamera?words=' + encodeURIComponent(query_text) + '&page=' + this.page);
         this.photo_list = res.data;
+        let res_item = await axios.get(
+          '/api/webapi/item?appid=dj00aiZpPXVYcUxBZmxYZXBuNCZzPWNvbnN1bWVyc2VjcmV0Jng9M2M-'
+        + '&query='+ encodeURIComponent(query_text)
+        + '&price_from=10000'
+      );
+        this.item_data = res_item.data.ResultSet[0].Result[0];
+        console.log(this.item_data);
       } catch (e) {
         console.error(e)
       }
@@ -89,7 +106,7 @@ export default {
 <style scoped>
 .s-area {
   padding: 1.5rem;
-  margin-bottom: 1.5rem;
+
 }
 /*tab*/
 .is_selected {
@@ -122,5 +139,24 @@ export default {
 
 .is_round img{
   border-radius: 100px;
+}
+
+.hero {
+  position: relative;
+  height: 150px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.hero_bg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: hsl(204, 10%, 53%);
+  background-image: linear-gradient(hsl(217, 10%, 53%),hsl(204, 10%, 53%));
 }
 </style>
