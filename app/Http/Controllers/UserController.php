@@ -133,8 +133,9 @@ class UserController extends Controller
     public function getPhotosByUser($screen_name)
     {
         $user = User::firstOrNew(['screen_name' => $screen_name]);
-        return response(User::select('photos.location as p_location', 'photos.description as p_description', 'photos.created_at as p_created_at', 'photos.id as p_id', 'users.*', 'photos.*')
+        return response(User::select('photos.location as p_location', 'photos.description as p_description', 'photos.created_at as p_created_at', 'photos.id as p_id', 'users.*', 'photos.*', 'categories.name as c_name')
     ->join('photos', 'users.id', '=', 'photos.user_id')
+    ->join('categories', 'categories.id', '=', 'photos.category_id')
     ->where(['photos.user_id' => $user->id])
     ->orderBy('photos.id', 'desc')
     ->get());
@@ -167,8 +168,9 @@ class UserController extends Controller
     public function getLikePhotosByUser($screen_name)
     {
         $user = User::firstOrNew(['screen_name' => $screen_name]);
-        return response(Photo::select('photos.location as p_location', 'photos.description as p_description', 'photos.created_at as p_created_at', 'photos.id as p_id', 'likes.*', 'photos.*', 'users.*')
+        return response(Photo::select('photos.location as p_location', 'photos.description as p_description', 'photos.created_at as p_created_at', 'photos.id as p_id', 'likes.*', 'photos.*', 'users.*', 'categories.name as c_name')
     ->join('likes', 'photos.id', '=', 'likes.photo_id')
+    ->join('categories', 'categories.id', '=', 'photos.category_id')
     ->join('users', 'photos.user_id', '=', 'users.id')
     ->where(['likes.user_id' => $user->id])
     ->orderBy('photos.id', 'desc')

@@ -111,15 +111,15 @@ export default{
     touch_start: function() {
       let img = this.$refs.img;
       let imgbox = this.$refs.imgbox;
-      img.style.width = "200%";
-      imgbox.scrollLeft = event.changedTouches[0].pageX;
+      //img.style.width = "200%";
+      //imgbox.scrollLeft = event.changedTouches[0].pageX;
       //imgbox.scrollLeft = 50;
 
     },
     touch_end: function() {
       let img = this.$refs.img;
       let imgbox = this.$refs.imgbox;
-      img.style.width="100%";
+      //img.style.width="100%";
     },
     likeToggle: function() {
       if(this.is_logined){

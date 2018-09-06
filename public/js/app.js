@@ -16959,14 +16959,14 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
     touch_start: function touch_start() {
       var img = this.$refs.img;
       var imgbox = this.$refs.imgbox;
-      img.style.width = "200%";
-      imgbox.scrollLeft = event.changedTouches[0].pageX;
+      //img.style.width = "200%";
+      //imgbox.scrollLeft = event.changedTouches[0].pageX;
       //imgbox.scrollLeft = 50;
     },
     touch_end: function touch_end() {
       var img = this.$refs.img;
       var imgbox = this.$refs.imgbox;
-      img.style.width = "100%";
+      //img.style.width="100%";
     },
     likeToggle: function likeToggle() {
       var _this = this;
