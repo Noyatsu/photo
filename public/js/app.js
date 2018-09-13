@@ -16792,7 +16792,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.likenum[data-v-18bb2376] {\n  margin-left: 0.5rem;\n}\n.post[data-v-18bb2376] {\n  padding-bottom: 3rem;\n}\n.post .post-header[data-v-18bb2376] {\n    height: 2rem;\n    position: relative;\n    margin-bottom: 0.2em;\n}\n.post .post-header .post-header-left[data-v-18bb2376] {\n      display: inline-block;\n      position: absolute;\n      left: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-header .post-header-left p[data-v-18bb2376] {\n        display: inline-block;\n        vertical-align: middle;\n        height: 2rem;\n        line-height: 2rem;\n}\n.post .post-header .post-header-left p img[data-v-18bb2376] {\n        width: 2rem;\n        height: 2rem;\n        margin-right: 0.2rem;\n        border-radius: 100%;\n}\n.post .post-header .post-header-right[data-v-18bb2376] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-contents[data-v-18bb2376] {\n    margin-top: 0.25rem;\n    text-align: center;\n    overflow-x: inherit;\n    text-align: center;\n}\n@media (max-width: 800px) {\n.post .post-contents[data-v-18bb2376] {\n        overflow-x: scroll;\n}\n}\n.post .post-contents img[data-v-18bb2376] {\n      display: inline-block;\n      max-height: 80vh;\n}\n.post .post-footer[data-v-18bb2376] {\n    position: relative;\n    margin-left: 0.5rem;\n    text-align: left;\n    margin-top: 0rem;\n}\n.post .post-footer .post-right[data-v-18bb2376] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0.2rem;\n      bottom: 0;\n}\n.info[data-v-18bb2376] {\n  line-height: 1.8;\n}\n.tag[data-v-18bb2376] {\n  margin-right: 2px;\n}\na strong[data-v-18bb2376] {\n  color: white;\n}\na[data-v-18bb2376] {\n  color: white;\n}\n", ""]);
+exports.push([module.i, "\n.likenum[data-v-18bb2376] {\n  margin-left: 0.5rem;\n}\n.post[data-v-18bb2376] {\n  padding-bottom: 3rem;\n}\n.post .backgroundarea[data-v-18bb2376] {\n    position: fixed;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    top: 58px;\n    z-index: 0;\n    background-position: center;\n    background-repeat: no-repeat;\n    background-size: cover;\n    -webkit-filter: blur(15px) brightness(30%);\n            filter: blur(15px) brightness(30%);\n}\n@media (max-width: 800px) {\n.post .backgroundarea[data-v-18bb2376] {\n        top: 0;\n}\n}\n.post .mainarea[data-v-18bb2376] {\n    position: relative;\n    top: 0;\n    z-index: 1;\n}\n.post .post-header[data-v-18bb2376] {\n    height: 2rem;\n    position: relative;\n    margin-bottom: 0.2em;\n}\n.post .post-header .post-header-left[data-v-18bb2376] {\n      display: inline-block;\n      position: absolute;\n      left: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-header .post-header-left p[data-v-18bb2376] {\n        display: inline-block;\n        vertical-align: middle;\n        height: 2rem;\n        line-height: 2rem;\n}\n.post .post-header .post-header-left p img[data-v-18bb2376] {\n        width: 2rem;\n        height: 2rem;\n        margin-right: 0.2rem;\n        border-radius: 100%;\n}\n.post .post-header .post-header-right[data-v-18bb2376] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-contents[data-v-18bb2376] {\n    text-align: center;\n    margin-top: 0.25rem;\n    overflow-x: inherit;\n}\n.post .post-contents .imgbox[data-v-18bb2376] {\n      overflow-x: inherit;\n}\n@media (max-width: 800px) {\n.post .post-contents .imgbox[data-v-18bb2376] {\n          overflow-x: scroll;\n}\n}\n.post .post-contents img[data-v-18bb2376] {\n      width: 100%;\n      display: inline-block;\n}\n.post .post-footer[data-v-18bb2376] {\n    position: relative;\n    margin-left: 0.5rem;\n    text-align: left;\n    margin-top: 0rem;\n}\n.post .post-footer .post-right[data-v-18bb2376] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0.2rem;\n      bottom: 0;\n}\n.info[data-v-18bb2376] {\n  line-height: 1.8;\n}\n.tag[data-v-18bb2376] {\n  margin-right: 2px;\n}\na strong[data-v-18bb2376] {\n  color: white;\n}\na[data-v-18bb2376] {\n  color: white;\n}\n", ""]);
 
 // exports
 
@@ -16811,6 +16811,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
+//
 //
 //
 //
@@ -16959,14 +16960,15 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
     touch_start: function touch_start() {
       var img = this.$refs.img;
       var imgbox = this.$refs.imgbox;
-      //img.style.width = "200%";
+      img.style.overflowX = "scroll";
+      imgbox.style.width = "200%";
       //imgbox.scrollLeft = event.changedTouches[0].pageX;
-      //imgbox.scrollLeft = 50;
+      imgbox.scrollLeft = 50;
     },
     touch_end: function touch_end() {
       var img = this.$refs.img;
       var imgbox = this.$refs.imgbox;
-      //img.style.width="100%";
+      imgbox.style.width = "100%";
     },
     likeToggle: function likeToggle() {
       var _this = this;
@@ -17788,7 +17790,12 @@ var render = function() {
     "div",
     { staticClass: "post has-background-black-ter has-text-light" },
     [
-      _c("div", { staticClass: "container" }, [
+      _c("div", {
+        staticClass: "backgroundarea",
+        style: "background-image: url(/storage/thumb/" + _vm.photo.path + ");"
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "container mainarea" }, [
         _c("div", { staticClass: "post-header" }, [
           _c("div", { staticClass: "post-header-left is-size-7" }, [
             _c(
@@ -17831,7 +17838,6 @@ var render = function() {
           {
             ref: "imgbox",
             staticClass: "post-contents",
-            staticStyle: { margin: "0 auto" },
             on: {
               click: function($event) {
                 _vm.showModal = true
@@ -18505,7 +18511,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.slidemark[data-v-33cd90d3] {\n  height: 0.5rem;\n  width: 3rem;\n  margin-top: 0.25rem;\n  border-radius: 0.25rem;\n  display: inline-block;\n}\n.scrollarea[data-v-33cd90d3] {\n  overflow-y: scroll;\n  position: absolute;\n  top: 2rem;\n  bottom: 0;\n  left: 0;\n  right: 0;\n}\n.slidearea[data-v-33cd90d3] {\n  margin-top: 2.5px;\n  height: 2rem;\n  border-radius: 2rem 2rem 0px 0px;\n  text-align: center;\n  cursor: pointer;\n}\n.likenum[data-v-33cd90d3] {\n  margin-left: 0.5rem;\n}\n.post[data-v-33cd90d3] {\n  padding-top: 1rem;\n  padding-bottom: 1rem;\n  min-height: 100%;\n}\n.post .post-header[data-v-33cd90d3] {\n    height: 2rem;\n    position: relative;\n    margin-bottom: 0.2em;\n}\n.post .post-header .post-header-left[data-v-33cd90d3] {\n      display: inline-block;\n      position: absolute;\n      left: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-header .post-header-left p[data-v-33cd90d3] {\n        display: inline-block;\n        vertical-align: middle;\n        height: 2rem;\n        line-height: 1rem;\n        overflow: hidden;\n}\n.post .post-header .post-header-left p img[data-v-33cd90d3] {\n        width: 2rem;\n        height: 2rem;\n        margin-right: 0.2rem;\n        border-radius: 100%;\n}\n.post .post-header .post-header-right[data-v-33cd90d3] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-contents[data-v-33cd90d3] {\n    margin-top: 0.25rem;\n    background-color: #101010;\n    text-align: center;\n}\n.post .post-contents img[data-v-33cd90d3] {\n      display: inline-block;\n      max-width: 800px;\n      max-height: 80vh;\n}\n@media (max-width: 800px) {\n.post .post-contents img[data-v-33cd90d3] {\n        display: block;\n        width: 100%;\n        max-width: none;\n}\n}\n.post .post-footer[data-v-33cd90d3] {\n    position: relative;\n    margin-left: 0.5rem;\n    margin-top: 0rem;\n}\n.post .post-footer .post-right[data-v-33cd90d3] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0.2rem;\n      bottom: 0;\n}\n.modal[data-v-33cd90d3] {\n  z-index: 1000;\n  position: fixed;\n  top: 56px;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  display: block;\n}\n.closeBtn[data-v-33cd90d3] {\n  position: fixed;\n  top: 60px;\n  right: 3px;\n  color: white;\n  padding: 1rem;\n  z-index: 100000;\n}\n@media (max-width: 800px) {\n.modal[data-v-33cd90d3] {\n    top: 0;\n    bottom: 45px;\n}\n.closeBtn[data-v-33cd90d3] {\n    top: 3px;\n}\n}\na strong[data-v-33cd90d3] {\n  color: #000000;\n}\na[data-v-33cd90d3] {\n  color: white;\n}\n.is-size-8[data-v-33cd90d3] {\n  font-size: 75%;\n}\n", ""]);
+exports.push([module.i, "\n.slidemark[data-v-33cd90d3] {\n  height: 0.5rem;\n  width: 3rem;\n  margin-top: 0.25rem;\n  border-radius: 0.25rem;\n  display: inline-block;\n}\n.scrollarea[data-v-33cd90d3] {\n  overflow-y: scroll;\n  position: absolute;\n  top: 2rem;\n  bottom: 0;\n  left: 0;\n  right: 0;\n}\n.slidearea[data-v-33cd90d3] {\n  margin-top: 2.5px;\n  height: 2rem;\n  border-radius: 2rem 2rem 0px 0px;\n  text-align: center;\n  cursor: pointer;\n  z-index: 100000;\n  position: fixed;\n  top: 58px;\n  left: 0;\n  right: 0;\n}\n@media (max-width: 800px) {\n.slidearea[data-v-33cd90d3] {\n      top: 0.1rem;\n}\n}\n.likenum[data-v-33cd90d3] {\n  margin-left: 0.5rem;\n}\n.post[data-v-33cd90d3] {\n  padding-top: 1rem;\n  padding-bottom: 1rem;\n  min-height: 100%;\n}\n.post .post-header[data-v-33cd90d3] {\n    height: 2rem;\n    position: relative;\n    margin-bottom: 0.2em;\n}\n.post .post-header .post-header-left[data-v-33cd90d3] {\n      display: inline-block;\n      position: absolute;\n      left: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-header .post-header-left p[data-v-33cd90d3] {\n        display: inline-block;\n        vertical-align: middle;\n        height: 2rem;\n        line-height: 1rem;\n        overflow: hidden;\n}\n.post .post-header .post-header-left p img[data-v-33cd90d3] {\n        width: 2rem;\n        height: 2rem;\n        margin-right: 0.2rem;\n        border-radius: 100%;\n}\n.post .post-header .post-header-right[data-v-33cd90d3] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0;\n      bottom: 0;\n}\n.post .post-contents[data-v-33cd90d3] {\n    margin-top: 0.25rem;\n    background-color: #101010;\n    text-align: center;\n}\n.post .post-contents img[data-v-33cd90d3] {\n      display: inline-block;\n      max-width: 800px;\n      max-height: 80vh;\n}\n@media (max-width: 800px) {\n.post .post-contents img[data-v-33cd90d3] {\n        display: block;\n        width: 100%;\n        max-width: none;\n}\n}\n.post .post-footer[data-v-33cd90d3] {\n    position: relative;\n    margin-left: 0.5rem;\n    margin-top: 0rem;\n}\n.post .post-footer .post-right[data-v-33cd90d3] {\n      display: inline-block;\n      position: absolute;\n      right: 0.5rem;\n      top: 0.2rem;\n      bottom: 0;\n}\n.modal[data-v-33cd90d3] {\n  z-index: 1000;\n  position: fixed;\n  top: 56px;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  display: block;\n}\n.closeBtn[data-v-33cd90d3] {\n  position: fixed;\n  top: 60px;\n  right: 3px;\n  color: white;\n  padding: 1rem;\n  z-index: 100000;\n}\n@media (max-width: 800px) {\n.modal[data-v-33cd90d3] {\n    top: 0;\n    bottom: 45px;\n}\n.closeBtn[data-v-33cd90d3] {\n    top: 3px;\n}\n}\na strong[data-v-33cd90d3] {\n  color: #000000;\n}\na[data-v-33cd90d3] {\n  color: white;\n}\n.is-size-8[data-v-33cd90d3] {\n  font-size: 75%;\n}\n", ""]);
 
 // exports
 

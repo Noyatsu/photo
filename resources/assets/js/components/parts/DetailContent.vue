@@ -1,13 +1,14 @@
 <template>
   <div class="post has-background-black-ter has-text-light">
-    <div class="container">
+    <div class="backgroundarea" v-bind:style="'background-image: url(/storage/thumb/' + photo.path+');'"></div>
+    <div class="container mainarea">
       <div class="post-header">
         <div class="post-header-left is-size-7">
           <p><router-link v-bind:to="'/user/' + photo.screen_name"><img src="https://bulma.io/images/placeholders/128x128.png"></router-link></p>
           <p><router-link v-bind:to="'/user/' + photo.screen_name"><strong>{{ photo.name }}</strong>(@{{photo.screen_name}})</router-link></p>
         </div>
       </div>
-      <div ref="imgbox" class="post-contents" style="margin: 0 auto;" @click="showModal = true">
+      <div ref="imgbox" class="post-contents" @click="showModal = true">
         <img ref="img" v-bind:src="'/storage/' + photo.path" @click="showModal = true" @touchstart="touch_start()" @touchend="touch_end()">
       </div>
       <div class="post-footer">
@@ -111,15 +112,16 @@ export default{
     touch_start: function() {
       let img = this.$refs.img;
       let imgbox = this.$refs.imgbox;
-      //img.style.width = "200%";
+      img.style.overflowX = "scroll";
+      imgbox.style.width = "200%";
       //imgbox.scrollLeft = event.changedTouches[0].pageX;
-      //imgbox.scrollLeft = 50;
+      imgbox.scrollLeft = 50;
 
     },
     touch_end: function() {
       let img = this.$refs.img;
       let imgbox = this.$refs.imgbox;
-      //img.style.width="100%";
+      imgbox.style.width="100%";
     },
     likeToggle: function() {
       if(this.is_logined){
@@ -162,6 +164,28 @@ export default{
 }
 .post {
   padding-bottom: 3rem;
+
+  .backgroundarea {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 58px;
+    @media (max-width: 800px) {
+      top: 0;
+    }
+    z-index: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(15px) brightness(30%);
+  }
+  .mainarea {
+    position: relative;
+    top: 0;
+
+    z-index: 1;
+  }
   .post-header {
 
     height: 2rem;
@@ -196,16 +220,19 @@ export default{
     }
   }
   .post-contents {
+    text-align: center;
     margin-top: 0.25rem;
-    text-align: center;
     overflow-x: inherit;
-    text-align: center;
-    @media (max-width: 800px) {
-      overflow-x: scroll;
+    .imgbox {
+      overflow-x: inherit;
+      @media (max-width: 800px) {
+        overflow-x: scroll;
+      }
     }
+
     img {
+      width: 100%;
       display: inline-block;
-      max-height: 80vh;
     }
   }
   .post-footer {
