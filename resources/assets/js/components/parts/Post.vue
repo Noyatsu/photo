@@ -3,11 +3,8 @@
     <transition name="fadeup">
       <div class="modal" v-if="showModal">
         <div class="slidearea has-background-black-ter has-text-light" v-on:click="modalToggle()">
-          <!--<div class="slidemark has-background-grey">
-          </div>-->
           <i class="fas fa-chevron-down fa-lg"></i>
         </div>
-        <!--<div class="closeBtn" v-on:click="modalToggle()"><i class="far fa-times-circle fa-lg"></i></div>-->
         <div class="scrollarea">
           <detail-content v-bind:photo="photo" v-on:toggleLike="likeToggleData()"></detail-content>
         </div>

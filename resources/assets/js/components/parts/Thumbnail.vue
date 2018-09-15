@@ -151,10 +151,18 @@ export default{
 }
 .slidearea {
   margin-top: 2.5px;
-  height: 2rem;
+  height: 1.7rem;
   border-radius: 2rem 2rem 0px 0px;
   text-align: center;
   cursor: pointer;
+  z-index: 100000;
+  position: fixed;
+  top: 58px;
+  left: 0;
+  right: 0;
+  @media (max-width: 800px) {
+    top: 0.1rem;
+  }
 }
 
 .modal {

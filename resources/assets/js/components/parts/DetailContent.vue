@@ -112,10 +112,9 @@ export default{
     touch_start: function() {
       let img = this.$refs.img;
       let imgbox = this.$refs.imgbox;
-      img.style.overflowX = "scroll";
-      imgbox.style.width = "200%";
+      //imgbox.style.width = "200%";
       //imgbox.scrollLeft = event.changedTouches[0].pageX;
-      imgbox.scrollLeft = 50;
+      //imgbox.scrollLeft = 50;
 
     },
     touch_end: function() {
@@ -231,8 +230,9 @@ export default{
     }
 
     img {
-      width: 100%;
       display: inline-block;
+      max-height: 60vh;
+
     }
   }
   .post-footer {
