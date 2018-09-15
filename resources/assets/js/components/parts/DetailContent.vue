@@ -25,6 +25,7 @@
           <p class="is-size-7 has-text-grey-lighter">{{ photo.p_created_at }}</p>
           <br>
           <p><i class="fas fa-user fa-fw"></i> <router-link v-bind:to="'/user/' + photo.screen_name">{{ photo.name }}</router-link>(@{{photo.screen_name}})</p>
+          <p><i class="fas fa-bolt fa-fw"></i> {{ slicePoints }} points</p>
           <p><i class="fas fa-tag fa-fw"></i>
             <span class="tag is-light">{{ photo.c_name }}</span>
             <span class="tag is-dark" v-for="tag in tags">
@@ -74,12 +75,23 @@ export default{
     this.is_logined = (user_screen_name == "") ? false : true;
     if(this.is_logined) {
       try {
+        //いいねのチェック
         let res;
         res = await axios.get('/api/photos/like/check/' + user_screen_name + '/' + this.photo.p_id);
-
         if(res.data==true) {
           this.isLiked = true;
         }
+
+        //ビューのインクリメント
+        await axios.post('/api/photos/view/increment', {
+          screen_name: user_screen_name,
+          photo_id: this.photo.p_id,
+          api_token: user_api_token,
+          csrfToken: window.Laravel.csrfToken
+        })
+        .catch((response) => {
+          console.error(response.data);
+        })
 
       } catch (e) {
         console.error(e);
@@ -153,6 +165,9 @@ export default{
     },
     convertedLensName: function() {
       return this.photo.lens.replace("/", " ");
+    },
+    slicePoints: function() {
+      return String(this.photo.points).slice(0,4);
     }
   }
 }

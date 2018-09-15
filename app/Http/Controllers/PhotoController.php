@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Photo;
 use App\Like;
 use App\User;
+use App\Follow;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\Controller;
@@ -198,6 +199,7 @@ class PhotoController extends Controller
       //写真の投稿者と見た人が一緒でなければインクリメント
       if($photo->user_id != $user->id) {
         $photo->views += 1;
+        $photo->points = self::computeScore($photo->views, $photo->likes, $user);
         $photo->save();
       }
     }
@@ -216,12 +218,12 @@ class PhotoController extends Controller
             $like = Like::firstOrNew(['user_id' => $user->id, 'photo_id' => $photo_id]);
             $like->delete();
             $photo->likes -= 1;
-            $photo->save();
         } else {
             Like::insert(['user_id' => $user->id, 'photo_id' => $photo_id, 'updated_at' => date('Y/m/d H:i:s'), 'created_at' => date('Y/m/d H:i:s')]);
             $photo->likes += 1;
-            $photo->save();
         }
+        $photo->points = self::computeScore($photo->views, $photo->likes, $user);
+        $photo->save();
     }
 
     public function checkLike($screen_name, $photo_id)
@@ -339,5 +341,17 @@ class PhotoController extends Controller
             }
         }
         return response($q->orderBy('photos.id', 'desc')->paginate(12));
+    }
+
+    /**
+     * スコアの計算
+     */
+    static public function computeScore($views, $likes, $objUser)
+    {
+      $follower = Follow::select()->where(['follow_user_id' => $objUser->id ])->count();
+      $follower = ($follower > 5000) ? 5000 : $follower;
+      $follower = ($follower == 0) ? 1 : $follower;
+      $follower = $follower / 5000 * 10;
+      return log10(((double)$likes*2 + (double)$views)/(double)$follower)*10.0;
     }
 }

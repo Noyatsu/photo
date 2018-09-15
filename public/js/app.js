@@ -16865,6 +16865,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
 
 
 
@@ -16893,11 +16894,13 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
               this.is_logined = user_screen_name == "" ? false : true;
 
               if (!this.is_logined) {
-                _context.next = 16;
+                _context.next = 18;
                 break;
               }
 
               _context.prev = 2;
+
+              //いいねのチェック
               res = void 0;
               _context.next = 6;
               return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/photos/like/check/' + user_screen_name + '/' + this.photo.p_id);
@@ -16905,21 +16908,32 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             case 6:
               res = _context.sent;
 
-
               if (res.data == true) {
                 this.isLiked = true;
               }
 
-              _context.next = 13;
-              break;
+              //ビューのインクリメント
+              _context.next = 10;
+              return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post('/api/photos/view/increment', {
+                screen_name: user_screen_name,
+                photo_id: this.photo.p_id,
+                api_token: user_api_token,
+                csrfToken: window.Laravel.csrfToken
+              }).catch(function (response) {
+                console.error(response.data);
+              });
 
             case 10:
-              _context.prev = 10;
+              _context.next = 15;
+              break;
+
+            case 12:
+              _context.prev = 12;
               _context.t0 = _context['catch'](2);
 
               console.error(_context.t0);
 
-            case 13:
+            case 15:
               tags_str = this.photo.tags || '';
 
               if (tags_str != '') {
@@ -16927,12 +16941,12 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
               }
               this.likeNum = this.photo.likes;
 
-            case 16:
+            case 18:
             case 'end':
               return _context.stop();
           }
         }
-      }, _callee, this, [[2, 10]]);
+      }, _callee, this, [[2, 12]]);
     }));
 
     function mounted() {
@@ -16999,6 +17013,9 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
     },
     convertedLensName: function convertedLensName() {
       return this.photo.lens.replace("/", " ");
+    },
+    slicePoints: function slicePoints() {
+      return String(this.photo.points).slice(0, 4);
     }
   }
 });
@@ -17920,6 +17937,11 @@ var render = function() {
               ],
               1
             ),
+            _vm._v(" "),
+            _c("p", [
+              _c("i", { staticClass: "fas fa-bolt fa-fw" }),
+              _vm._v(" " + _vm._s(_vm.slicePoints) + " points")
+            ]),
             _vm._v(" "),
             _c(
               "p",
