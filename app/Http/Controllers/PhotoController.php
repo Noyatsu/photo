@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Photo;
 use App\Like;
 use App\User;
+use App\Follow;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\Controller;
@@ -188,6 +189,21 @@ class PhotoController extends Controller
     );
     }
 
+    public function incrementView(Request $request)
+    {
+      $screen_name = $request->input('screen_name');
+      $photo_id = $request->input('photo_id');
+      $user = User::firstOrNew(['screen_name' => $screen_name]);
+      $photo = Photo::firstOrNew(['id' => $photo_id]);
+
+      //写真の投稿者と見た人が一緒でなければインクリメント
+      if($photo->user_id != $user->id) {
+        $photo->views += 1;
+        $photo->points = self::computeScore($photo->views, $photo->likes, $user);
+        $photo->save();
+      }
+    }
+
     /**
     * いいね/アンいいねのトグル
     */
@@ -202,12 +218,12 @@ class PhotoController extends Controller
             $like = Like::firstOrNew(['user_id' => $user->id, 'photo_id' => $photo_id]);
             $like->delete();
             $photo->likes -= 1;
-            $photo->save();
         } else {
             Like::insert(['user_id' => $user->id, 'photo_id' => $photo_id, 'updated_at' => date('Y/m/d H:i:s'), 'created_at' => date('Y/m/d H:i:s')]);
             $photo->likes += 1;
-            $photo->save();
         }
+        $photo->points = self::computeScore($photo->views, $photo->likes, $user);
+        $photo->save();
     }
 
     public function checkLike($screen_name, $photo_id)
@@ -231,7 +247,7 @@ class PhotoController extends Controller
         $words = explode(' ', $words);
 
         //クエリ
-        $q = Photo::select('photos.location as p_location', 'photos.description as p_description', 'photos.created_at as p_created_at', 'photos.id as p_id', 'photos.*', 'users.screen_name');
+        $q = Photo::select('photos.location as p_location', 'photos.description as p_description', 'photos.created_at as p_created_at', 'photos.id as p_id', 'photos.*', 'users.screen_name', 'users.name', 'categories.name as c_name');
         $q->join('users', 'photos.user_id', '=', 'users.id');
         $q->join('categories', 'photos.category_id', '=', 'categories.id');
         if ($words) {
@@ -262,7 +278,7 @@ class PhotoController extends Controller
         $words = explode(' ', $words);
 
         //クエリ
-        $q = Photo::select('photos.location as p_location', 'photos.description as p_description', 'photos.created_at as p_created_at', 'photos.id as p_id', 'photos.*', 'users.screen_name');
+        $q = Photo::select('photos.location as p_location', 'photos.description as p_description', 'photos.created_at as p_created_at', 'photos.id as p_id', 'photos.*', 'users.screen_name', 'users.name', 'categories.name as c_name');
         $q->join('users', 'photos.user_id', '=', 'users.id');
         $q->join('categories', 'photos.category_id', '=', 'categories.id');
         if ($words) {
@@ -289,7 +305,7 @@ class PhotoController extends Controller
         $words = explode(' ', $words);
 
         //クエリ
-        $q = Photo::select('photos.location as p_location', 'photos.description as p_description', 'photos.created_at as p_created_at', 'photos.id as p_id', 'photos.*', 'users.screen_name');
+        $q = Photo::select('photos.location as p_location', 'photos.description as p_description', 'photos.created_at as p_created_at', 'photos.id as p_id', 'photos.*', 'users.screen_name', 'users.name', 'categories.name as c_name');
         $q->join('users', 'photos.user_id', '=', 'users.id');
         $q->join('categories', 'photos.category_id', '=', 'categories.id');
         if ($words) {
@@ -313,7 +329,7 @@ class PhotoController extends Controller
         $words = explode(' ', $words);
 
         //クエリ
-        $q = Photo::select('photos.location as p_location', 'photos.description as p_description', 'photos.created_at as p_created_at', 'photos.id as p_id', 'photos.*', 'users.screen_name');
+        $q = Photo::select('photos.location as p_location', 'photos.description as p_description', 'photos.created_at as p_created_at', 'photos.id as p_id', 'photos.*', 'users.screen_name', 'users.name', 'categories.name as c_name');
         $q->join('users', 'photos.user_id', '=', 'users.id');
         $q->join('categories', 'photos.category_id', '=', 'categories.id');
         if ($words) {
@@ -325,5 +341,17 @@ class PhotoController extends Controller
             }
         }
         return response($q->orderBy('photos.id', 'desc')->paginate(12));
+    }
+
+    /**
+     * スコアの計算
+     */
+    static public function computeScore($views, $likes, $objUser)
+    {
+      $follower = Follow::select()->where(['follow_user_id' => $objUser->id ])->count();
+      $follower = ($follower > 5000) ? 5000 : $follower;
+      $follower = ($follower == 0) ? 1 : $follower;
+      $follower = $follower / 5000 * 10;
+      return log10(((double)$likes*2 + (double)$views)/(double)$follower)*10.0;
     }
 }

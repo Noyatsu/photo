@@ -1,13 +1,14 @@
 <template>
   <div>
+    <back-button></back-button>
     <div class="s-area has-background-light">
       <div class="tabs is-centered">
         <ul>
-          <li><router-link v-bind:to="'/search/freeword/' + this.query_text">フリーワード</router-link></li>
-          <li class="is-active"><router-link v-bind:to="'/search/user/' + this.query_text">ユーザ</router-link></li>
-          <li><router-link v-bind:to="'/search/location/' + this.query_text">場所</router-link></li>
-          <li><router-link v-bind:to="'/search/tag/' + this.query_text">タグ</router-link></li>
-          <li><router-link v-bind:to="'/search/lenscamera/' + this.query_text">カメラ・レンズ</router-link></li>
+          <li><router-link v-bind:to="'/search/freeword/' + this.query_text"><i class="far fa-images"></i></router-link></li>
+          <li class="is-active"><router-link v-bind:to="'/search/user/' + this.query_text"><i class="fas fa-users"></i></router-link></li>
+          <li><router-link v-bind:to="'/search/location/' + this.query_text"><i class="fas fa-map-marker"></i></router-link></li>
+          <li><router-link v-bind:to="'/search/tag/' + this.query_text"><i class="fas fa-tags"></i></router-link></li>
+          <li><router-link v-bind:to="'/search/lenscamera/' + this.query_text"><i class="fas fa-camera"></i><i class="far fa-dot-circle"></i></router-link></li>
         </ul>
       </div>
       <div class="field has-addons">
@@ -30,6 +31,7 @@
 <script>
 import axios from 'axios';
 
+import BackButton from '../parts/BackButton.vue';
 import UserListItemComponent from '../parts/UserListItem.vue';
 
 export default {
@@ -55,6 +57,7 @@ export default {
     }
   },
   components: {
+    'back-button': BackButton,
     'user-list-item-component': UserListItemComponent
   },
   async created() {

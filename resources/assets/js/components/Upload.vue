@@ -32,21 +32,7 @@
           <label class="label"></label>
         </div>
         <div class="field-body">
-          <div class="field">
-            <!-- <div>
-            <span class="tag is-info">Nature</span>
-            <span class="tag is-info">ファインダーの中の私の世界</span>
-            <span class="tag is-info">sky</span>
-            <span class="tag is-info">写真好きな人とつながりたい</span>
-            <span class="tag is-info">絶景</span>
-          </div> -->
-
-          <p class="control is-expanded has-icons-left">
-            <input class="input" type="text" name="tags" v-model="tags" placeholder="タグ(コンマ(,)区切り)">
-            <span class="icon is-small is-left">
-              <i class="fas fa-tag"></i>
-            </span>
-          </p>
+          <tagarea v-on:update-tags="updateTags"></tagarea>
         </div>
       </div>
     </div>
@@ -102,7 +88,8 @@
 
 <script>
 import axios from 'axios';
-const upd_area = require('./parts/UploadArea');
+import upd_area from './parts/UploadArea.vue';
+import TagArea from './parts/TagArea.vue';
 
 export default {
   data() {
@@ -164,7 +151,9 @@ export default {
     //子コンポネートからファイルを受け取り
     sendFile(files) {
       this.files = files;
-      this.upload_mes = "";
+    },
+    updateTags(tags_str) {
+      this.tags = tags_str;
     }
   },
   async created() {
@@ -184,8 +173,8 @@ export default {
     );
   },
   components:{
-    //コンポーネントを登録する！
-    'apdarea':upd_area
+    'apdarea':upd_area,
+    'tagarea':TagArea
   }
 }
 
