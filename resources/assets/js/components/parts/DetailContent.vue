@@ -8,8 +8,10 @@
           <p><router-link v-bind:to="'/user/' + photo.screen_name"><strong>{{ photo.name }}</strong>(@{{photo.screen_name}})</router-link></p>
         </div>
       </div>
-      <div ref="imgbox" class="post-contents" @click="showModal = true">
-        <img ref="img" v-bind:src="'/storage/' + photo.path" @click="showModal = true" @touchstart="touch_start()" @touchend="touch_end()">
+      <div ref="imgbox" class="post-contents">
+        <a v-bind:href="'/storage/' + photo.path" class="js-smartPhoto" v-bind:data-caption="photo.title + ' by @' + photo.screen_name" v-bind:data-id="photo.p_id">
+          <img ref="src" v-bind:src="'/storage/' + photo.path">
+        </a>
       </div>
       <div class="post-footer">
         <p class="post-title"><strong class="has-text-light">{{ photo.title }}</strong></p>
@@ -104,6 +106,9 @@ export default{
       this.likeNum = this.photo.likes;
 
     }
+    new SmartPhoto(".js-smartPhoto", {
+      nav: false
+    });
   },
   methods: {
     copyUrl: function() {

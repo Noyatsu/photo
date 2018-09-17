@@ -13,9 +13,20 @@
       </div>
     </div>
     <div class="container has-text-centered">
-      <h1 class="title">最近の投稿</h1>
+      <h1 class="is-size-4"><i class="fas fa-clock"></i></i></h1>
+      <p>最近の投稿</p>
+      <br>
       <div class="photoarea">
         <thumb-component v-for="photo in photo_list" :photo="photo" :key="photo.p_id"></thumb-component>
+      </div>
+    </div>
+    <br>
+    <div class="container has-text-centered">
+      <h1 class="is-size-4"><i class="fas fa-fire"></i></h1>
+      <p>高スコアの投稿</p>
+      <br>
+      <div class="photoarea">
+        <thumb-component v-for="photo in photo_list_score" :photo="photo" :key="photo.p_id"></thumb-component>
       </div>
     </div>
   </div>
@@ -30,6 +41,7 @@ export default {
   data() {
     return {
       photo_list: [],
+      photo_list_score: [],
       query_text: "",
       loading: false
     };
@@ -44,8 +56,10 @@ export default {
   },
   async created() {
     try {
-      let res = await axios.get('/api/photos/');
+      const res = await axios.get('/api/photos/');
+      const res_score = await axios.get('/api/photos/index/score');
       this.photo_list = res.data.data;
+      this.photo_list_score = res_score.data.data;
     } catch (e) {
       console.error(e)
     }

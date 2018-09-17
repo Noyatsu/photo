@@ -39,6 +39,22 @@ class PhotoController extends Controller
     }
 
     /**
+    * スコアが高い順に表示(後々時間の制限をつける)
+    *
+    * @return \Illuminate\Http\Response
+    */
+    public function indexByScore()
+    {
+        return response(
+      Photo::select('photos.location as p_location', 'photos.description as p_description', 'photos.created_at as p_created_at', 'photos.id as p_id', 'photos.*', 'users.*', 'categories.name as c_name')
+      ->join('users', 'photos.user_id', '=', 'users.id')
+      ->join('categories', 'categories.id', '=', 'photos.category_id')
+      ->orderBy('photos.points', 'desc')
+      ->paginate(6)
+    );
+    }
+
+    /**
     * Show the form for creating a new resource.
     *
     * @return \Illuminate\Http\Response
