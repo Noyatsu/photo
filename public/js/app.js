@@ -21147,7 +21147,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.backarea {\r\n  position: fixed;\r\n  top: 1px;\r\n  left: 0px;\r\n  padding: 0.5rem;\r\n  width: 10rem;\r\n  line-height: 1.5;\r\n  text-align: left;\r\n  z-index: 1000;\n}\r\n", ""]);
+exports.push([module.i, "\n.backarea {\r\n  position: fixed;\r\n  top: 1px;\r\n  left: 0px;\r\n  padding: 0.5rem;\r\n  width: 15rem;\r\n  line-height: 1.5;\r\n  text-align: left;\r\n  z-index: 1000;\n}\r\n", ""]);
 
 // exports
 

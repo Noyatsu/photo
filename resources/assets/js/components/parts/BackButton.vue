@@ -16,7 +16,7 @@
   top: 1px;
   left: 0px;
   padding: 0.5rem;
-  width: 10rem;
+  width: 15rem;
   line-height: 1.5;
   text-align: left;
   z-index: 1000;
