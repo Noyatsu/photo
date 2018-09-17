@@ -16756,45 +16756,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     t_start: function t_start(event) {
       var touchObject = event.changedTouches[0];
-      var y = void 0;
-      if (window.parent.screen.height < 800) {
-        y = touchObject.screenY - 165; // 垂直方向の位置座標
-      } else {
-        y = touchObject.screenY - 115; // 垂直方向の位置座標
-      }
-      this.$refs.modal.style.top = y + "px";
-      this.$refs.modalbar.style.top = y + "px";
+      this.touchOffset = touchObject.screenY;
+      this.startModal = this.$refs.modal.style.top;
+      this.startModalBar = this.$refs.modalbar.style.top;
     },
     t_move: function t_move(event) {
       var touchObject = event.changedTouches[0];
-      var y = void 0;
-      if (window.parent.screen.height < 800) {
-        y = touchObject.screenY - 165; // 垂直方向の位置座標
-      } else {
-        y = touchObject.screenY - 115; // 垂直方向の位置座標
-      }
-      this.$refs.modal.style.top = y + "px";
-      this.$refs.modal.style.opacity = 1.0 - y / window.parent.screen.height;
-      this.$refs.modalbar.style.top = y + "px";
+      var offset = touchObject.screenY - this.touchOffset;
+      this.$refs.modal.style.top = offset + "px";
+      this.$refs.modalbar.style.top = offset + "px";
+      this.$refs.modal.style.opacity = 1.0 - offset / window.parent.screen.height;
     },
     t_end: function t_end(event) {
       var touchObject = event.changedTouches[0];
-      var y = void 0;
-      if (window.parent.screen.height < 800) {
-        y = touchObject.screenY - 165; // 垂直方向の位置座標
-      } else {
-        y = touchObject.screenY - 115; // 垂直方向の位置座標
-      }
-      if (y >= window.parent.screen.height / 3) {
+      var offset = touchObject.screenY - this.touchOffset;
+      if (offset >= window.parent.screen.height / 3) {
         this.modalToggle();
       } else {
-        if (window.parent.screen.height < 800) {
-          this.$refs.modal.style.top = "0.1rem";
-          this.$refs.modalbar.style.top = "0";
-        } else {
-          this.$refs.modal.style.top = "52px";
-          this.$refs.modalbar.style.top = "50px";
-        }
+        this.$refs.modal.style.top = this.startModal;
+        this.$refs.modalbar.style.top = this.startModalBar;
         this.$refs.modal.style.opacity = 1.0;
       }
     }
@@ -18656,7 +18636,10 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
     return {
       showModal: false,
       isLiked: false,
-      likeNum: 0
+      likeNum: 0,
+      touchOffset: 0,
+      startModal: 0,
+      startModalBar: 0
     };
   },
   created: function () {
@@ -18740,45 +18723,25 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
     },
     t_start: function t_start(event) {
       var touchObject = event.changedTouches[0];
-      var y = void 0;
-      if (window.parent.screen.height < 800) {
-        y = touchObject.screenY - 165; // 垂直方向の位置座標
-      } else {
-        y = touchObject.screenY - 115; // 垂直方向の位置座標
-      }
-      this.$refs.modal.style.top = y + "px";
-      this.$refs.modalbar.style.top = y + "px";
+      this.touchOffset = touchObject.screenY;
+      this.startModal = this.$refs.modal.style.top;
+      this.startModalBar = this.$refs.modalbar.style.top;
     },
     t_move: function t_move(event) {
       var touchObject = event.changedTouches[0];
-      var y = void 0;
-      if (window.parent.screen.height < 800) {
-        y = touchObject.screenY - 165; // 垂直方向の位置座標
-      } else {
-        y = touchObject.screenY - 115; // 垂直方向の位置座標
-      }
-      this.$refs.modal.style.top = y + "px";
-      this.$refs.modal.style.opacity = 1.0 - y / window.parent.screen.height;
-      this.$refs.modalbar.style.top = y + "px";
+      var offset = touchObject.screenY - this.touchOffset;
+      this.$refs.modal.style.top = offset + "px";
+      this.$refs.modalbar.style.top = offset + "px";
+      this.$refs.modal.style.opacity = 1.0 - offset / window.parent.screen.height;
     },
     t_end: function t_end(event) {
       var touchObject = event.changedTouches[0];
-      var y = void 0;
-      if (window.parent.screen.height < 800) {
-        y = touchObject.screenY - 165; // 垂直方向の位置座標
-      } else {
-        y = touchObject.screenY - 115; // 垂直方向の位置座標
-      }
-      if (y >= window.parent.screen.height / 3) {
+      var offset = touchObject.screenY - this.touchOffset;
+      if (offset >= window.parent.screen.height / 3) {
         this.modalToggle();
       } else {
-        if (window.parent.screen.height < 800) {
-          this.$refs.modal.style.top = "0.1rem";
-          this.$refs.modalbar.style.top = "0";
-        } else {
-          this.$refs.modal.style.top = "52px";
-          this.$refs.modalbar.style.top = "50px";
-        }
+        this.$refs.modal.style.top = this.startModal;
+        this.$refs.modalbar.style.top = this.startModalBar;
         this.$refs.modal.style.opacity = 1.0;
       }
     }
