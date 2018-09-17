@@ -39,6 +39,7 @@ Route::get('/users/likephoto/{screen_name}', 'UserController@getLikePhotosByUser
 Route::get('/users/timeline/{screen_name}', 'UserController@getTimelineByUser');
 
 Route::get('/photos', 'PhotoController@index');
+Route::get('/photos/index/score', 'PhotoController@indexByScore');
 Route::post('/photos/upload', 'PhotoController@store');
 Route::get('/photos/get/{id}', 'PhotoController@get');
 

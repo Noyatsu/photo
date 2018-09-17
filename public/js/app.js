@@ -12799,6 +12799,9 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
       setTimeout(function () {
         self.is_notification = false;
       }, 4000);
+    },
+    scroll_to_top: function scroll_to_top() {
+      window.scrollTo(0, 0);
     }
   },
   created: function created() {
@@ -16750,6 +16753,50 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         history.pushState('', '', "/photo/" + this.photo.p_id);
       }
       this.showModal = !this.showModal;
+    },
+    t_start: function t_start(event) {
+      var touchObject = event.changedTouches[0];
+      var y = void 0;
+      if (window.parent.screen.height < 800) {
+        y = touchObject.screenY - 165; // 垂直方向の位置座標
+      } else {
+        y = touchObject.screenY - 115; // 垂直方向の位置座標
+      }
+      this.$refs.modal.style.top = y + "px";
+      this.$refs.modalbar.style.top = y + "px";
+    },
+    t_move: function t_move(event) {
+      var touchObject = event.changedTouches[0];
+      var y = void 0;
+      if (window.parent.screen.height < 800) {
+        y = touchObject.screenY - 165; // 垂直方向の位置座標
+      } else {
+        y = touchObject.screenY - 115; // 垂直方向の位置座標
+      }
+      this.$refs.modal.style.top = y + "px";
+      this.$refs.modal.style.opacity = 1.0 - y / window.parent.screen.height;
+      this.$refs.modalbar.style.top = y + "px";
+    },
+    t_end: function t_end(event) {
+      var touchObject = event.changedTouches[0];
+      var y = void 0;
+      if (window.parent.screen.height < 800) {
+        y = touchObject.screenY - 165; // 垂直方向の位置座標
+      } else {
+        y = touchObject.screenY - 115; // 垂直方向の位置座標
+      }
+      if (y >= window.parent.screen.height / 3) {
+        this.modalToggle();
+      } else {
+        if (window.parent.screen.height < 800) {
+          this.$refs.modal.style.top = "0.1rem";
+          this.$refs.modalbar.style.top = "0";
+        } else {
+          this.$refs.modal.style.top = "52px";
+          this.$refs.modalbar.style.top = "50px";
+        }
+        this.$refs.modal.style.opacity = 1.0;
+      }
     }
   },
   created: function created() {
@@ -16811,6 +16858,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
+//
+//
 //
 //
 //
@@ -16942,6 +16991,11 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
               this.likeNum = this.photo.likes;
 
             case 18:
+              new SmartPhoto(".js-smartPhoto", {
+                nav: false
+              });
+
+            case 19:
             case 'end':
               return _context.stop();
           }
@@ -17849,35 +17903,26 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _c(
-          "div",
-          {
-            ref: "imgbox",
-            staticClass: "post-contents",
-            on: {
-              click: function($event) {
-                _vm.showModal = true
+        _c("div", { ref: "imgbox", staticClass: "post-contents" }, [
+          _c(
+            "a",
+            {
+              staticClass: "js-smartPhoto",
+              attrs: {
+                href: "/storage/" + _vm.photo.path,
+                "data-caption":
+                  _vm.photo.title + " by @" + _vm.photo.screen_name,
+                "data-id": _vm.photo.p_id
               }
-            }
-          },
-          [
-            _c("img", {
-              ref: "img",
-              attrs: { src: "/storage/" + _vm.photo.path },
-              on: {
-                click: function($event) {
-                  _vm.showModal = true
-                },
-                touchstart: function($event) {
-                  _vm.touch_start()
-                },
-                touchend: function($event) {
-                  _vm.touch_end()
-                }
-              }
-            })
-          ]
-        ),
+            },
+            [
+              _c("img", {
+                ref: "src",
+                attrs: { src: "/storage/" + _vm.photo.path }
+              })
+            ]
+          )
+        ]),
         _vm._v(" "),
         _c("div", { staticClass: "post-footer" }, [
           _c("p", { staticClass: "post-title" }, [
@@ -18141,16 +18186,20 @@ var render = function() {
     [
       _c("transition", { attrs: { name: "fadeup" } }, [
         _vm.showModal
-          ? _c("div", { staticClass: "modal" }, [
+          ? _c("div", { ref: "modal", staticClass: "modal" }, [
               _c(
                 "div",
                 {
+                  ref: "modalbar",
                   staticClass:
                     "slidearea has-background-black-ter has-text-light",
                   on: {
                     click: function($event) {
                       _vm.modalToggle()
-                    }
+                    },
+                    touchstart: _vm.t_start,
+                    touchmove: _vm.t_move,
+                    touchend: _vm.t_end
                   }
                 },
                 [_c("i", { staticClass: "fas fa-chevron-down fa-lg" })]
@@ -18688,6 +18737,50 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         history.pushState('', '', "/photo/" + this.photo.p_id);
       }
       this.showModal = !this.showModal;
+    },
+    t_start: function t_start(event) {
+      var touchObject = event.changedTouches[0];
+      var y = void 0;
+      if (window.parent.screen.height < 800) {
+        y = touchObject.screenY - 165; // 垂直方向の位置座標
+      } else {
+        y = touchObject.screenY - 115; // 垂直方向の位置座標
+      }
+      this.$refs.modal.style.top = y + "px";
+      this.$refs.modalbar.style.top = y + "px";
+    },
+    t_move: function t_move(event) {
+      var touchObject = event.changedTouches[0];
+      var y = void 0;
+      if (window.parent.screen.height < 800) {
+        y = touchObject.screenY - 165; // 垂直方向の位置座標
+      } else {
+        y = touchObject.screenY - 115; // 垂直方向の位置座標
+      }
+      this.$refs.modal.style.top = y + "px";
+      this.$refs.modal.style.opacity = 1.0 - y / window.parent.screen.height;
+      this.$refs.modalbar.style.top = y + "px";
+    },
+    t_end: function t_end(event) {
+      var touchObject = event.changedTouches[0];
+      var y = void 0;
+      if (window.parent.screen.height < 800) {
+        y = touchObject.screenY - 165; // 垂直方向の位置座標
+      } else {
+        y = touchObject.screenY - 115; // 垂直方向の位置座標
+      }
+      if (y >= window.parent.screen.height / 3) {
+        this.modalToggle();
+      } else {
+        if (window.parent.screen.height < 800) {
+          this.$refs.modal.style.top = "0.1rem";
+          this.$refs.modalbar.style.top = "0";
+        } else {
+          this.$refs.modal.style.top = "52px";
+          this.$refs.modalbar.style.top = "50px";
+        }
+        this.$refs.modal.style.opacity = 1.0;
+      }
     }
   }
 
@@ -18706,16 +18799,20 @@ var render = function() {
     [
       _c("transition", { attrs: { name: "fadeup" } }, [
         _vm.showModal
-          ? _c("div", { staticClass: "modal" }, [
+          ? _c("div", { ref: "modal", staticClass: "modal" }, [
               _c(
                 "div",
                 {
+                  ref: "modalbar",
                   staticClass:
                     "slidearea has-background-black-ter has-text-light",
                   on: {
                     click: function($event) {
                       _vm.modalToggle()
-                    }
+                    },
+                    touchstart: _vm.t_start,
+                    touchmove: _vm.t_move,
+                    touchend: _vm.t_end
                   }
                 },
                 [_c("i", { staticClass: "fas fa-chevron-down fa-lg" })]
@@ -19046,6 +19143,17 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -19055,6 +19163,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
   data: function data() {
     return {
       photo_list: [],
+      photo_list_score: [],
       query_text: "",
       loading: false
     };
@@ -19070,7 +19179,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
   },
   created: function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
-      var res;
+      var res, res_score;
       return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -19081,23 +19190,29 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
             case 3:
               res = _context.sent;
+              _context.next = 6;
+              return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/photos/index/score');
+
+            case 6:
+              res_score = _context.sent;
 
               this.photo_list = res.data.data;
-              _context.next = 10;
+              this.photo_list_score = res_score.data.data;
+              _context.next = 14;
               break;
 
-            case 7:
-              _context.prev = 7;
+            case 11:
+              _context.prev = 11;
               _context.t0 = _context['catch'](0);
 
               console.error(_context.t0);
 
-            case 10:
+            case 14:
             case 'end':
               return _context.stop();
           }
         }
-      }, _callee, this, [[0, 7]]);
+      }, _callee, this, [[0, 11]]);
     }));
 
     function created() {
@@ -19163,7 +19278,11 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "container has-text-centered" }, [
-      _c("h1", { staticClass: "title" }, [_vm._v("最近の投稿")]),
+      _vm._m(0),
+      _vm._v(" "),
+      _c("p", [_vm._v("最近の投稿")]),
+      _vm._v(" "),
+      _c("br"),
       _vm._v(" "),
       _c(
         "div",
@@ -19175,10 +19294,48 @@ var render = function() {
           })
         })
       )
+    ]),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _c("div", { staticClass: "container has-text-centered" }, [
+      _vm._m(1),
+      _vm._v(" "),
+      _c("p", [_vm._v("高スコアの投稿")]),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "photoarea" },
+        _vm._l(_vm.photo_list_score, function(photo) {
+          return _c("thumb-component", {
+            key: photo.p_id,
+            attrs: { photo: photo }
+          })
+        })
+      )
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h1", { staticClass: "is-size-4" }, [
+      _c("i", { staticClass: "fas fa-clock" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h1", { staticClass: "is-size-4" }, [
+      _c("i", { staticClass: "fas fa-fire" })
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -19762,7 +19919,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.tag[data-v-bf4bc238]{\n  margin-right: 0.3rem;\n  margin-bottom: 0.3rem;\n}\n", ""]);
+exports.push([module.i, "\n.tag[data-v-bf4bc238]{\r\n  margin-right: 0.3rem;\r\n  margin-bottom: 0.3rem;\n}\r\n", ""]);
 
 // exports
 
@@ -21086,7 +21243,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.backarea {\r\n  position: fixed;\r\n  top: 1px;\r\n  left: 0px;\r\n  padding: 0.5rem;\r\n  width: 10rem;\r\n  line-height: 1.5;\r\n  text-align: left;\r\n  z-index: 1000;\n}\r\n", ""]);
+exports.push([module.i, "\n.backarea {\r\n  position: fixed;\r\n  top: 1px;\r\n  left: 0px;\r\n  padding: 0.5rem;\r\n  width: 15rem;\r\n  line-height: 1.5;\r\n  text-align: left;\r\n  z-index: 1000;\n}\r\n", ""]);
 
 // exports
 

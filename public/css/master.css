@@ -173,3 +173,7 @@ img, router-view{
   display: block;
   box-shadow: 0px 0px 50px 50px rgba(0,0,0,0.4);
 }
+
+.smartphoto {
+  z-index: 100000000000;
+}

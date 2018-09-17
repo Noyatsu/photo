@@ -24,6 +24,7 @@
   <link rel="apple-touch-icon" type="image/png" href="/images/icons/icon-96x96.png" sizes="96x96">
   <link rel="apple-touch-icon" type="image/png" href="/images/icons/icon-192x192.png" sizes="192x192">
 
+
   <script>
   // service workerが有効なら、service-worker.js を登録します
   if ('serviceWorker' in navigator) {
@@ -35,7 +36,10 @@
   <title>Photo Club</title>
 
   <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/smartphoto.min.css') }}">
   <link rel="stylesheet" href="{{ asset('css/master.css') }}">
+
+  <script src="{{ asset('js/smartphoto.min.js') }}"></script>
   <script>
   window.Laravel = {
     csrfToken: "{{ csrf_token() }}"

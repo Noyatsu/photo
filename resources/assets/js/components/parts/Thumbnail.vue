@@ -1,8 +1,8 @@
 <template>
   <div>
     <transition name="fadeup">
-      <div class="modal" v-if="showModal">
-        <div class="slidearea has-background-black-ter has-text-light" v-on:click="modalToggle()">
+      <div class="modal" v-if="showModal" ref="modal">
+        <div class="slidearea has-background-black-ter has-text-light" ref="modalbar" v-on:click="modalToggle()" v-on:touchstart="t_start" v-on:touchmove="t_move" v-on:touchend="t_end">
           <!--<div class="slidemark has-background-grey">
         </div>-->
         <i class="fas fa-chevron-down fa-lg"></i>
@@ -87,6 +87,55 @@ export default{
         history.pushState('', '', "/photo/" + this.photo.p_id);
       }
       this.showModal = !this.showModal;
+    },
+    t_start(event) {
+      const touchObject = event.changedTouches[0] ;
+      let y;
+      if (window.parent.screen.height < 800) {
+        y = touchObject.screenY - 165;	// 垂直方向の位置座標
+      }
+      else {
+        y = touchObject.screenY - 115;	// 垂直方向の位置座標
+      }
+      this.$refs.modal.style.top = y + "px";
+      this.$refs.modalbar.style.top = y + "px";
+    },
+    t_move(event) {
+      const touchObject = event.changedTouches[0] ;
+      let y;
+      if (window.parent.screen.height < 800) {
+        y = touchObject.screenY - 165;	// 垂直方向の位置座標
+      }
+      else {
+        y = touchObject.screenY - 115;	// 垂直方向の位置座標
+      }
+      this.$refs.modal.style.top = y + "px";
+      this.$refs.modal.style.opacity = 1.0 - y / window.parent.screen.height;
+      this.$refs.modalbar.style.top = y + "px";
+    },
+    t_end(event) {
+      const touchObject = event.changedTouches[0] ;
+      let y;
+      if (window.parent.screen.height < 800) {
+        y = touchObject.screenY - 165;	// 垂直方向の位置座標
+      }
+      else {
+        y = touchObject.screenY - 115;	// 垂直方向の位置座標
+      }
+      if(y >= window.parent.screen.height/3) {
+        this.modalToggle();
+      }
+      else {
+        if (window.parent.screen.height < 800) {
+          this.$refs.modal.style.top = "0.1rem";
+          this.$refs.modalbar.style.top = "0";
+        }
+        else {
+          this.$refs.modal.style.top = "52px";
+          this.$refs.modalbar.style.top = "50px";
+        }
+        this.$refs.modal.style.opacity = 1.0;
+      }
     }
   },
   created() {
