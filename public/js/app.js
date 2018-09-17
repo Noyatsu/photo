@@ -16753,6 +16753,50 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         history.pushState('', '', "/photo/" + this.photo.p_id);
       }
       this.showModal = !this.showModal;
+    },
+    t_start: function t_start(event) {
+      var touchObject = event.changedTouches[0];
+      var y = void 0;
+      if (window.parent.screen.height < 800) {
+        y = touchObject.screenY - 165; // 垂直方向の位置座標
+      } else {
+        y = touchObject.screenY - 115; // 垂直方向の位置座標
+      }
+      this.$refs.modal.style.top = y + "px";
+      this.$refs.modalbar.style.top = y + "px";
+    },
+    t_move: function t_move(event) {
+      var touchObject = event.changedTouches[0];
+      var y = void 0;
+      if (window.parent.screen.height < 800) {
+        y = touchObject.screenY - 165; // 垂直方向の位置座標
+      } else {
+        y = touchObject.screenY - 115; // 垂直方向の位置座標
+      }
+      this.$refs.modal.style.top = y + "px";
+      this.$refs.modal.style.opacity = 1.0 - y / window.parent.screen.height;
+      this.$refs.modalbar.style.top = y + "px";
+    },
+    t_end: function t_end(event) {
+      var touchObject = event.changedTouches[0];
+      var y = void 0;
+      if (window.parent.screen.height < 800) {
+        y = touchObject.screenY - 165; // 垂直方向の位置座標
+      } else {
+        y = touchObject.screenY - 115; // 垂直方向の位置座標
+      }
+      if (y >= window.parent.screen.height / 3) {
+        this.modalToggle();
+      } else {
+        if (window.parent.screen.height < 800) {
+          this.$refs.modal.style.top = "0.1rem";
+          this.$refs.modalbar.style.top = "0";
+        } else {
+          this.$refs.modal.style.top = "52px";
+          this.$refs.modalbar.style.top = "50px";
+        }
+        this.$refs.modal.style.opacity = 1.0;
+      }
     }
   },
   created: function created() {
@@ -18142,16 +18186,20 @@ var render = function() {
     [
       _c("transition", { attrs: { name: "fadeup" } }, [
         _vm.showModal
-          ? _c("div", { staticClass: "modal" }, [
+          ? _c("div", { ref: "modal", staticClass: "modal" }, [
               _c(
                 "div",
                 {
+                  ref: "modalbar",
                   staticClass:
                     "slidearea has-background-black-ter has-text-light",
                   on: {
                     click: function($event) {
                       _vm.modalToggle()
-                    }
+                    },
+                    touchstart: _vm.t_start,
+                    touchmove: _vm.t_move,
+                    touchend: _vm.t_end
                   }
                 },
                 [_c("i", { staticClass: "fas fa-chevron-down fa-lg" })]
@@ -18689,6 +18737,50 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         history.pushState('', '', "/photo/" + this.photo.p_id);
       }
       this.showModal = !this.showModal;
+    },
+    t_start: function t_start(event) {
+      var touchObject = event.changedTouches[0];
+      var y = void 0;
+      if (window.parent.screen.height < 800) {
+        y = touchObject.screenY - 165; // 垂直方向の位置座標
+      } else {
+        y = touchObject.screenY - 115; // 垂直方向の位置座標
+      }
+      this.$refs.modal.style.top = y + "px";
+      this.$refs.modalbar.style.top = y + "px";
+    },
+    t_move: function t_move(event) {
+      var touchObject = event.changedTouches[0];
+      var y = void 0;
+      if (window.parent.screen.height < 800) {
+        y = touchObject.screenY - 165; // 垂直方向の位置座標
+      } else {
+        y = touchObject.screenY - 115; // 垂直方向の位置座標
+      }
+      this.$refs.modal.style.top = y + "px";
+      this.$refs.modal.style.opacity = 1.0 - y / window.parent.screen.height;
+      this.$refs.modalbar.style.top = y + "px";
+    },
+    t_end: function t_end(event) {
+      var touchObject = event.changedTouches[0];
+      var y = void 0;
+      if (window.parent.screen.height < 800) {
+        y = touchObject.screenY - 165; // 垂直方向の位置座標
+      } else {
+        y = touchObject.screenY - 115; // 垂直方向の位置座標
+      }
+      if (y >= window.parent.screen.height / 3) {
+        this.modalToggle();
+      } else {
+        if (window.parent.screen.height < 800) {
+          this.$refs.modal.style.top = "0.1rem";
+          this.$refs.modalbar.style.top = "0";
+        } else {
+          this.$refs.modal.style.top = "52px";
+          this.$refs.modalbar.style.top = "50px";
+        }
+        this.$refs.modal.style.opacity = 1.0;
+      }
     }
   }
 
@@ -18707,16 +18799,20 @@ var render = function() {
     [
       _c("transition", { attrs: { name: "fadeup" } }, [
         _vm.showModal
-          ? _c("div", { staticClass: "modal" }, [
+          ? _c("div", { ref: "modal", staticClass: "modal" }, [
               _c(
                 "div",
                 {
+                  ref: "modalbar",
                   staticClass:
                     "slidearea has-background-black-ter has-text-light",
                   on: {
                     click: function($event) {
                       _vm.modalToggle()
-                    }
+                    },
+                    touchstart: _vm.t_start,
+                    touchmove: _vm.t_move,
+                    touchend: _vm.t_end
                   }
                 },
                 [_c("i", { staticClass: "fas fa-chevron-down fa-lg" })]
