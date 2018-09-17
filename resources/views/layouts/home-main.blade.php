@@ -42,7 +42,7 @@
       @endguest
     </nav>
     <div class="m-tab-bar" v-if="is_logined">
-      <router-link class="m-tab" to='/home' tag="div"><i class="fas fa-home"></i></router-link>
+      <div class="m-tab" v-on:click="scroll_to_top"><router-link to='/home' tag="div"><i class="fas fa-home"></i></router-link></div>
       <router-link class="m-tab" to='/home/search' tag="div"><i class="fas fa-search"></i></router-link>
       <router-link class="m-tab" to='/home/upload' tag="div"><i class="far fa-plus-square"></i></router-link>
       <router-link class="m-tab" to='/home/like' tag="div"><i class="fas fa-heart"></i></router-link>

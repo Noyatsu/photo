@@ -92,6 +92,9 @@ const app = new Vue({
       setTimeout(function(){
         self.is_notification = false;
       }, 4000);
+    },
+    scroll_to_top: function() {
+      window.scrollTo(0, 0);
     }
   },
   created: function() {

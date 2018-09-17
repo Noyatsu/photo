@@ -12799,6 +12799,9 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
       setTimeout(function () {
         self.is_notification = false;
       }, 4000);
+    },
+    scroll_to_top: function scroll_to_top() {
+      window.scrollTo(0, 0);
     }
   },
   created: function created() {
@@ -19762,7 +19765,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.tag[data-v-bf4bc238]{\n  margin-right: 0.3rem;\n  margin-bottom: 0.3rem;\n}\n", ""]);
+exports.push([module.i, "\n.tag[data-v-bf4bc238]{\r\n  margin-right: 0.3rem;\r\n  margin-bottom: 0.3rem;\n}\r\n", ""]);
 
 // exports
 
