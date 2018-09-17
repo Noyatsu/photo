@@ -1,5 +1,7 @@
-
-
+html.is-fixed,
+html.is-fixed body {
+    overflow: hidden;
+}
 
 /*navbar*/
 body {

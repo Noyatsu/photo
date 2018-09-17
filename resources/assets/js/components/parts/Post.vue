@@ -103,6 +103,7 @@ export default{
       }
       else {
         history.pushState('', '', "/photo/" + this.photo.p_id);
+        window.scrollTo(0, 0);
       }
       this.showModal = !this.showModal;
     },
@@ -146,7 +147,7 @@ export default{
 .scrollarea {
   overflow-y: scroll;
   position: absolute;
-  top: 2rem;
+  top: 3rem;
   bottom: 0;
   left: 0;
   right: 0;
@@ -154,7 +155,8 @@ export default{
 }
 .slidearea {
   margin-top: 2.5px;
-  height: 2rem;
+  height: 3rem;
+  line-height: 3rem;
   border-radius: 2rem 2rem 0px 0px;
   text-align: center;
   cursor: pointer;

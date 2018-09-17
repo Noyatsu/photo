@@ -182,6 +182,7 @@ export default{
   margin-left: 0.5rem;
 }
 .post {
+  padding-top: 0.5rem;
   padding-bottom: 3rem;
 
   .backgroundarea {
