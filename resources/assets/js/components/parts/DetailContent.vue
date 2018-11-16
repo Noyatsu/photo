@@ -30,7 +30,7 @@
           <p><i class="fas fa-bolt fa-fw"></i> {{ slicePoints }} points</p>
           <p><i class="fas fa-tag fa-fw"></i>
             <span class="tag is-light">{{ photo.c_name }}</span>
-            <span class="tag is-dark" v-for="tag in tags">
+            <span class="tag is-dark" v-for="tag in tags" v-bind:key="tag">
               <router-link v-bind:to="'/search/tag/' + tag">{{ tag }}</router-link>
             </span>
           </p>
@@ -264,8 +264,6 @@ export default {
       right: 0.5rem;
       top: 0.2rem;
       bottom: 0;
-    }
-    .post-title {
     }
     margin-top: 0rem;
   }

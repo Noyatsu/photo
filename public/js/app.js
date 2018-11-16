@@ -17970,7 +17970,7 @@ var render = function() {
                 _vm._l(_vm.tags, function(tag) {
                   return _c(
                     "span",
-                    { staticClass: "tag is-dark" },
+                    { key: tag, staticClass: "tag is-dark" },
                     [
                       _c(
                         "router-link",
@@ -19487,7 +19487,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
-//
 
 
 
@@ -19867,7 +19866,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.tag[data-v-bf4bc238]{\r\n  margin-right: 0.3rem;\r\n  margin-bottom: 0.3rem;\n}\r\n", ""]);
+exports.push([module.i, "\n.tag[data-v-bf4bc238] {\r\n  margin-right: 0.3rem;\r\n  margin-bottom: 0.3rem;\n}\r\n", ""]);
 
 // exports
 
@@ -19901,7 +19900,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   data: function data() {
     return {
       tags: [],
-      tags_str: ''
+      tags_str: ""
     };
   },
 
@@ -19910,14 +19909,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       if (this.$refs.tag.value != "") {
         this.tags.push(this.$refs.tag.value);
         this.$refs.tag.value = "";
-        this.tags_str = this.tags.join(',');
-        this.$emit('update-tags', this.tags_str);
+        this.tags_str = this.tags.join(",");
+        this.$emit("update-tags", this.tags_str);
+        this.$refs.tag.focus();
       }
     },
     deleteTag: function deleteTag(id) {
       this.tags.splice(id, 1);
-      this.tags_str = this.tags.join(',');
-      this.$emit('update-tags', this.tags_str);
+      this.tags_str = this.tags.join(",");
+      this.$emit("update-tags", this.tags_str);
     }
   },
   created: function created() {}

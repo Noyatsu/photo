@@ -234,8 +234,6 @@ export default {
       top: 0.2rem;
       bottom: 0;
     }
-    .post-title {
-    }
     margin-top: 0rem;
   }
 }

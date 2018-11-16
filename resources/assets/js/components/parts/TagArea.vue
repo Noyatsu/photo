@@ -21,31 +21,30 @@ export default {
   data() {
     return {
       tags: [],
-      tags_str: ''
+      tags_str: ""
     };
   },
   methods: {
     addTag() {
-      if(this.$refs.tag.value != "") {
+      if (this.$refs.tag.value != "") {
         this.tags.push(this.$refs.tag.value);
         this.$refs.tag.value = "";
-        this.tags_str = this.tags.join(',');
-        this.$emit('update-tags', this.tags_str);
+        this.tags_str = this.tags.join(",");
+        this.$emit("update-tags", this.tags_str);
+        this.$refs.tag.focus();
       }
     },
     deleteTag(id) {
       this.tags.splice(id, 1);
-      this.tags_str = this.tags.join(',');
-      this.$emit('update-tags', this.tags_str);
+      this.tags_str = this.tags.join(",");
+      this.$emit("update-tags", this.tags_str);
     }
   },
-  created() {
-
-  }
-}
+  created() {}
+};
 </script>
 <style scoped>
-.tag{
+.tag {
   margin-right: 0.3rem;
   margin-bottom: 0.3rem;
 }

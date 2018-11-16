@@ -35,7 +35,6 @@
           <tagarea v-on:update-tags="updateTags"></tagarea>
         </div>
       </div>
-    </div>
     <div class="field is-horizontal">
       <div class="field-label is-normal">
         <label class="label"></label>
