@@ -2,9 +2,9 @@
   <div class="container">
     <div class="card">
       <div class="m-profile">
-        <div class="m-profile-img has-background-link" v-bind:style="{ 'background-image': 'url(/storage/' + user_data.background + ')', 'background-position':'center center', 'background-size': 'cover' }">
+        <div class="m-profile-img has-background-link" v-bind:style="{ 'background-image': 'url(/' + user_data.background + ')', 'background-position':'center center', 'background-size': 'cover' }">
           <figure class="image is-96x96">
-            <img v-bind:src="'/storage/icon/' + user_data.icon">
+            <img v-bind:src="'/' + user_data.icon">
           </figure>
         </div>
         <div class="content">
@@ -52,13 +52,12 @@
   </div>
 </template>
 <script>
-import axios from 'axios';
+import axios from "axios";
 
 //子コンポネート
-import PostComponent from './parts/Post.vue';
-import ThumbComponent from './parts/Thumbnail.vue';
-import UserListItemComponent from './parts/UserListItem.vue';
-
+import PostComponent from "./parts/Post.vue";
+import ThumbComponent from "./parts/Thumbnail.vue";
+import UserListItemComponent from "./parts/UserListItem.vue";
 
 export default {
   data() {
@@ -74,85 +73,94 @@ export default {
     };
   },
   components: {
-    'post-component': PostComponent,
-    'thumb-component': ThumbComponent,
-    'user-list-item-component': UserListItemComponent
+    "post-component": PostComponent,
+    "thumb-component": ThumbComponent,
+    "user-list-item-component": UserListItemComponent
   },
   async created() {
-    this.is_logined = (user_screen_name == "") ? false : true;
+    this.is_logined = user_screen_name == "" ? false : true;
     this.created_method(this.$route.params.screen_name);
   },
   methods: {
     created_method: async function(screen_name) {
-      this.$emit('tglloading', '読み込み中');
+      //this.$emit("tglloading", "読み込み中");
       //ユーザデータ
       try {
         let res;
         if (this.$route.params.screen_name == undefined) {
-          res = await axios.get('/api/users/' + user_screen_name);
+          res = await axios.get("/api/users/" + user_screen_name);
           this.isMine = true;
-        }
-        else {
-          res = await axios.get('/api/users/' + screen_name);
+        } else {
+          res = await axios.get("/api/users/" + screen_name);
           this.isMine = false;
         }
         this.user_data = res.data;
       } catch (e) {
-        console.error(e)
+        console.error(e);
       }
       //フォローチェック・情報
       try {
         let res;
         if (this.is_logined) {
-          res = await axios.get('/api/users/follow/check/' + user_screen_name + '/' + this.user_data.screen_name);
-          if(res.data==true) {
+          res = await axios.get(
+            "/api/users/follow/check/" +
+              user_screen_name +
+              "/" +
+              this.user_data.screen_name
+          );
+          if (res.data == true) {
             this.isFollow = true;
           }
         }
-        res = await axios.get('/api/users/follow/list/' + this.user_data.screen_name);
+        res = await axios.get(
+          "/api/users/follow/list/" + this.user_data.screen_name
+        );
         this.follow_list = res.data;
 
-        res = await axios.get('/api/users/photo/' + this.user_data.screen_name);
+        res = await axios.get("/api/users/photo/" + this.user_data.screen_name);
         this.photo_list = res.data;
 
-        res = await axios.get('/api/users/likephoto/' + this.user_data.screen_name);
+        res = await axios.get(
+          "/api/users/likephoto/" + this.user_data.screen_name
+        );
         this.like_list = res.data;
-        this.$emit('tglloading', '読み込み中');
-
+        //this.$emit("tglloading", "読み込み中");
       } catch (e) {
-        console.error(e)
-        this.$emit('tglloading', '読み込み中');
-        this.$emit('shownotification',"エラーが発生しました…("+e+" "+e.response.data+")",'is-danger')
-
+        console.error(e);
+        //this.$emit("tglloading", "読み込み中");
+        this.$emit(
+          "shownotification",
+          "エラーが発生しました…(" + e + " " + e.response.data + ")",
+          "is-danger"
+        );
       }
     },
     followToggle: function() {
-      axios.post('/api/users/follow/toggle', {
-        screen_name: user_screen_name,
-        api_token: user_api_token,
-        opponent_screen_name: this.user_data.screen_name,
-        csrfToken: window.Laravel.csrfToken
-      })
-      .then(response => {
-        if(this.isFollow == true){
-          this.isFollow = false;
-        }
-        else {
-          this.isFollow = true;
-        }
-      })
-      .catch(error => {
-        console.log(error.response)
-      });;
+      axios
+        .post("/api/users/follow/toggle", {
+          screen_name: user_screen_name,
+          api_token: user_api_token,
+          opponent_screen_name: this.user_data.screen_name,
+          csrfToken: window.Laravel.csrfToken
+        })
+        .then(response => {
+          if (this.isFollow == true) {
+            this.isFollow = false;
+          } else {
+            this.isFollow = true;
+          }
+        })
+        .catch(error => {
+          console.log(error.response);
+        });
     }
   },
   watch: {
-    '$route' (to, from) {
+    $route(to, from) {
       this.created_method(to.params.screen_name);
     }
   }
-}
-
+};
 </script>
 
 <style scoped>
@@ -171,7 +179,7 @@ export default {
   justify-content: center;
 }
 
-.is_round img{
+.is_round img {
   border-radius: 100px;
 }
 
@@ -196,7 +204,7 @@ export default {
 
 .m-profile img {
   border: solid 2px white;
-  border-radius:100px;
+  border-radius: 100px;
 }
 
 @media (max-width: 767px) {
@@ -215,8 +223,7 @@ export default {
 
   .m-profile img {
     border: solid 2px white;
-    border-radius:100px;
+    border-radius: 100px;
   }
-
 }
 </style>

@@ -10,17 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-//PhotoController
-Route::get('/photo/{id}', 'HomeController@photodetail');
-Route::get('/photo', 'HomeController@photodetail');
-
-Route::get('/user/{screen_name}', 'HomeController@index');
-
-Route::get('/', function () {
-    return view('welcome');
-});
-Auth::routes();
-
 Route::group(['middleware' => 'auth'], function(){
   //HomeController
   Route::get('/home', 'HomeController@index');
@@ -36,3 +25,12 @@ Route::group(['middleware' => 'auth'], function(){
   Route::get('/config/{any}', 'HomeController@index')->where('any', '.*');
 
 });
+Route::get('/photo/{id}', 'HomeController@photodetail');
+Route::get('/photo', 'HomeController@photodetail');
+
+Route::get('/user/{screen_name}', 'HomeController@index');
+
+Route::get('/', function () {
+    return view('welcome');
+});
+Auth::routes();

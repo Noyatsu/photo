@@ -17,33 +17,33 @@
 export default {
   data() {
     return {
-      uploadedImage: ''
+      uploadedImage: ""
     };
   },
-  props: [ 'beforephoto'],
+  props: ["beforephoto"],
   methods: {
     //画像が変わったときのイベント
     onFileChange(e) {
       let files = e.target.files || e.dataTransfer.files;
       this.createImage(files[0]);
 
-      this.$emit('send-file', files);
+      this.$emit("send-file", files);
     },
     // アップロードした画像を表示
     createImage(file) {
       let reader = new FileReader();
-      reader.onload = (e) => {
+      reader.onload = e => {
         this.uploadedImage = e.target.result;
       };
       this.path = reader.readAsDataURL(file);
     }
   },
   created() {
-    if (this.beforephoto!="") {
+    if (this.beforephoto != "") {
       this.uploadedImage = this.beforephoto;
     }
   }
-}
+};
 </script>
 <style scoped>
 .m-file {
@@ -67,5 +67,9 @@ export default {
 }
 .width100 {
   width: 100%;
+}
+
+.file-label {
+  text-shadow: 0px 0px 3px #000000;
 }
 </style>

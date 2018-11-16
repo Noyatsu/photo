@@ -9,13 +9,13 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 
 //子コンポネート
-import PostComponent from './parts/Post.vue';
+import PostComponent from "./parts/Post.vue";
 
 export default {
-  name: 'timeline',
+  name: "timeline",
   data() {
     return {
       photos_list: [],
@@ -28,61 +28,62 @@ export default {
     };
   },
   components: {
-    'post-component': PostComponent
+    "post-component": PostComponent
   },
   methods: {
-    async fetch () {
+    async fetch() {
       try {
-        if(!this.is_fetching) {
+        if (!this.is_fetching) {
           this.is_fetching = true;
-          let tl_res = await axios.get('/api/users/timeline/' + user_screen_name + '?page=' + String(this.page));
-          if(this.page-1 != tl_res.data.last_page) {
-            for(var i = tl_res.data.from-1; i<tl_res.data.to; i++) {
+          let tl_res = await axios.get(
+            "/api/users/timeline/" +
+              user_screen_name +
+              "?page=" +
+              String(this.page)
+          );
+          if (this.page - 1 != tl_res.data.last_page) {
+            for (var i = tl_res.data.from - 1; i < tl_res.data.to; i++) {
               this.photos_list.push(tl_res.data.data[i]);
             }
             this.page++;
             setTimeout(() => {
               this.is_fetching = false;
             }, 500);
-          }
-          else {
+          } else {
             this.is_last = true;
           }
         }
       } catch (e) {
-        console.error(e)
+        console.error(e);
       }
     },
-    startWatchingScroll: function () {
+    startWatchingScroll: function() {
       var self = this;
-      window.addEventListener('scroll', () => {
+      window.addEventListener("scroll", () => {
         //スクロール一番下で次読み込み
-        this.scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
-        this.scrollHeight = document.body.scrollHeight || document.documentElement.scrollHeight;
+        this.scrollTop =
+          document.body.scrollTop || document.documentElement.scrollTop;
+        this.scrollHeight =
+          document.body.scrollHeight || document.documentElement.scrollHeight;
         this.scrollPosition = window.innerHeight + this.scrollTop;
         if (this.scrollHeight - this.scrollPosition <= 1) {
           //スクロールの位置が下部に来た場合
           this.fetch();
-        };
-      })
+        }
+      });
     }
   },
 
   async created() {
-    this.$emit('tglloading', '読み込み中');
-
     try {
-      let tl_res = await axios.get('/api/users/timeline/' + user_screen_name);
+      let tl_res = await axios.get("/api/users/timeline/" + user_screen_name);
       this.photos_list = tl_res.data.data;
     } catch (e) {
-      console.error(e)
+      console.error(e);
     }
     this.startWatchingScroll();
-  },
-  mounted () {
-    this.$emit('tglloading', '読み込み中');
   }
-}
+};
 </script>
 
 <style scoped>

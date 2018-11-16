@@ -16900,7 +16900,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['photo', 'photo_id'],
+  props: ["photo", "photo_id"],
   data: function data() {
     return {
       showModal: false,
@@ -16933,7 +16933,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
               //いいねのチェック
               res = void 0;
               _context.next = 6;
-              return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/photos/like/check/' + user_screen_name + '/' + this.photo.p_id);
+              return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get("/api/photos/like/check/" + user_screen_name + "/" + this.photo.p_id);
 
             case 6:
               res = _context.sent;
@@ -16944,7 +16944,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
               //ビューのインクリメント
               _context.next = 10;
-              return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post('/api/photos/view/increment', {
+              return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post("/api/photos/view/increment", {
                 screen_name: user_screen_name,
                 photo_id: this.photo.p_id,
                 api_token: user_api_token,
@@ -16959,15 +16959,15 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
             case 12:
               _context.prev = 12;
-              _context.t0 = _context['catch'](2);
+              _context.t0 = _context["catch"](2);
 
               console.error(_context.t0);
 
             case 15:
-              tags_str = this.photo.tags || '';
+              tags_str = this.photo.tags || "";
 
-              if (tags_str != '') {
-                this.tags = tags_str.split(',');
+              if (tags_str != "") {
+                this.tags = tags_str.split(",");
               }
               this.likeNum = this.photo.likes;
 
@@ -16977,7 +16977,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
               });
 
             case 19:
-            case 'end':
+            case "end":
               return _context.stop();
           }
         }
@@ -16993,13 +16993,13 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
   methods: {
     copyUrl: function copyUrl() {
-      var element = document.querySelector('#yourUrl');
+      var element = document.querySelector("#yourUrl");
       var selection = window.getSelection();
       var range = document.createRange();
       range.selectNodeContents(element);
       selection.removeAllRanges();
       selection.addRange(range);
-      var succeeded = document.execCommand('copy');
+      var succeeded = document.execCommand("copy");
       if (succeeded) {
         this.isCopyed = true;
       } else {}
@@ -17022,7 +17022,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
       var _this = this;
 
       if (this.is_logined) {
-        __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post('/api/photos/like/toggle', {
+        __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post("/api/photos/like/toggle", {
           screen_name: user_screen_name,
           api_token: user_api_token,
           photo_id: this.photo.p_id,
@@ -17035,7 +17035,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             _this.isLiked = true;
             _this.likeNum = _this.likeNum + 1;
           }
-          _this.$emit('toggleLike');
+          _this.$emit("toggleLike");
         }).catch(function (error) {
           console.log(error.response);
         });
@@ -17841,11 +17841,6 @@ var render = function() {
     "div",
     { staticClass: "post has-background-black-ter has-text-light" },
     [
-      _c("div", {
-        staticClass: "backgroundarea",
-        style: "background-image: url(/storage/thumb/" + _vm.photo.path + ");"
-      }),
-      _vm._v(" "),
       _c("div", { staticClass: "container mainarea" }, [
         _c("div", { staticClass: "post-header" }, [
           _c("div", { staticClass: "post-header-left is-size-7" }, [
@@ -17855,13 +17850,7 @@ var render = function() {
                 _c(
                   "router-link",
                   { attrs: { to: "/user/" + _vm.photo.screen_name } },
-                  [
-                    _c("img", {
-                      attrs: {
-                        src: "https://bulma.io/images/placeholders/128x128.png"
-                      }
-                    })
-                  ]
+                  [_c("img", { attrs: { src: "/" + _vm.photo.icon } })]
                 )
               ],
               1
@@ -17981,7 +17970,7 @@ var render = function() {
                 _vm._l(_vm.tags, function(tag) {
                   return _c(
                     "span",
-                    { staticClass: "tag is-dark" },
+                    { key: tag, staticClass: "tag is-dark" },
                     [
                       _c(
                         "router-link",
@@ -18385,7 +18374,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'timeline',
+  name: "timeline",
   data: function data() {
     return {
       photos_list: [],
@@ -18399,7 +18388,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
   },
 
   components: {
-    'post-component': __WEBPACK_IMPORTED_MODULE_2__parts_Post_vue___default.a
+    "post-component": __WEBPACK_IMPORTED_MODULE_2__parts_Post_vue___default.a
   },
   methods: {
     fetch: function () {
@@ -18420,7 +18409,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
                 this.is_fetching = true;
                 _context.next = 5;
-                return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/users/timeline/' + user_screen_name + '?page=' + String(this.page));
+                return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get("/api/users/timeline/" + user_screen_name + "?page=" + String(this.page));
 
               case 5:
                 tl_res = _context.sent;
@@ -18443,12 +18432,12 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
               case 9:
                 _context.prev = 9;
-                _context.t0 = _context['catch'](0);
+                _context.t0 = _context["catch"](0);
 
                 console.error(_context.t0);
 
               case 12:
-              case 'end':
+              case "end":
                 return _context.stop();
             }
           }
@@ -18466,7 +18455,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
       var _this2 = this;
 
       var self = this;
-      window.addEventListener('scroll', function () {
+      window.addEventListener("scroll", function () {
         //スクロール一番下で次読み込み
         _this2.scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
         _this2.scrollHeight = document.body.scrollHeight || document.documentElement.scrollHeight;
@@ -18474,7 +18463,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         if (_this2.scrollHeight - _this2.scrollPosition <= 1) {
           //スクロールの位置が下部に来た場合
           _this2.fetch();
-        };
+        }
       });
     }
   },
@@ -18486,34 +18475,32 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
-              this.$emit('tglloading', '読み込み中');
+              _context2.prev = 0;
+              _context2.next = 3;
+              return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get("/api/users/timeline/" + user_screen_name);
 
-              _context2.prev = 1;
-              _context2.next = 4;
-              return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/users/timeline/' + user_screen_name);
-
-            case 4:
+            case 3:
               tl_res = _context2.sent;
 
               this.photos_list = tl_res.data.data;
-              _context2.next = 11;
+              _context2.next = 10;
               break;
 
-            case 8:
-              _context2.prev = 8;
-              _context2.t0 = _context2['catch'](1);
+            case 7:
+              _context2.prev = 7;
+              _context2.t0 = _context2["catch"](0);
 
               console.error(_context2.t0);
 
-            case 11:
+            case 10:
               this.startWatchingScroll();
 
-            case 12:
-            case 'end':
+            case 11:
+            case "end":
               return _context2.stop();
           }
         }
-      }, _callee2, this, [[1, 8]]);
+      }, _callee2, this, [[0, 7]]);
     }));
 
     function created() {
@@ -18521,10 +18508,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
     }
 
     return created;
-  }(),
-  mounted: function mounted() {
-    this.$emit('tglloading', '読み込み中');
-  }
+  }()
 });
 
 /***/ }),
@@ -18629,10 +18613,10 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    'detail-content': __WEBPACK_IMPORTED_MODULE_2__DetailContent_vue___default.a
+    "detail-content": __WEBPACK_IMPORTED_MODULE_2__DetailContent_vue___default.a
   },
-  name: 'post-component',
-  props: ['photo'],
+  name: "post-component",
+  props: ["photo"],
   data: function data() {
     return {
       showModal: false,
@@ -18653,7 +18637,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
               _context.prev = 0;
               res = void 0;
               _context.next = 4;
-              return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/photos/like/check/' + user_screen_name + '/' + this.photo.p_id);
+              return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get("/api/photos/like/check/" + user_screen_name + "/" + this.photo.p_id);
 
             case 4:
               res = _context.sent;
@@ -18661,13 +18645,12 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
               if (res.data == true) {
                 this.isLiked = true;
               }
-
               _context.next = 11;
               break;
 
             case 8:
               _context.prev = 8;
-              _context.t0 = _context['catch'](0);
+              _context.t0 = _context["catch"](0);
 
               console.error(_context.t0);
 
@@ -18676,7 +18659,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
               this.likeNum = this.photo.likes;
 
             case 12:
-            case 'end':
+            case "end":
               return _context.stop();
           }
         }
@@ -18694,7 +18677,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
     likeToggle: function likeToggle() {
       var _this = this;
 
-      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post('/api/photos/like/toggle', {
+      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post("/api/photos/like/toggle", {
         screen_name: user_screen_name,
         api_token: user_api_token,
         photo_id: this.photo.p_id,
@@ -18718,7 +18701,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
       if (this.showModal) {
         window.history.back();
       } else {
-        history.pushState('', '', "/photo/" + this.photo.p_id);
+        history.pushState("", "", "/photo/" + this.photo.p_id);
         window.scrollTo(0, 0);
       }
       this.showModal = !this.showModal;
@@ -18748,7 +18731,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
       }
     }
   }
-
 });
 
 /***/ }),
@@ -18811,13 +18793,7 @@ var render = function() {
                 _c(
                   "router-link",
                   { attrs: { to: "/user/" + _vm.photo.screen_name } },
-                  [
-                    _c("img", {
-                      attrs: {
-                        src: "https://bulma.io/images/placeholders/128x128.png"
-                      }
-                    })
-                  ]
+                  [_c("img", { attrs: { src: _vm.photo.icon } })]
                 )
               ],
               1
@@ -19064,7 +19040,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.s-area[data-v-7b88e3df] {\r\n  padding: 1.5rem;\r\n  margin-bottom: 1.5rem;\n}\r\n/*tab*/\n.is_selected[data-v-7b88e3df] {\r\n  border-bottom: solid 3px hsl(217, 71%, 53%);\n}\n.tab-contents[data-v-7b88e3df] {\r\n  margin-top: 1rem;\n}\n.photoarea[data-v-7b88e3df] {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -ms-flex-wrap: wrap;\r\n      flex-wrap: wrap;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\n}\n.photo[data-v-7b88e3df] {\r\n  height: 150px;\r\n  width: 150px;\r\n  background-color: hsl(217, 71%, 53%);\r\n  background-image: url(\"/storage/photo/1.JPG\");\r\n  background-position: center;\r\n  background-repeat: no-repeat;\r\n  background-size: cover;\r\n  text-align: center;\r\n  margin: 1rem;\r\n  color: white;\r\n  line-height: 150px;\n}\n.is_round img[data-v-7b88e3df]{\r\n  border-radius: 100px;\n}\r\n", ""]);
+exports.push([module.i, "\n.s-area[data-v-7b88e3df] {\r\n  padding: 1.5rem;\r\n  margin-bottom: 1.5rem;\n}\r\n/*tab*/\n.is_selected[data-v-7b88e3df] {\r\n  border-bottom: solid 3px hsl(217, 71%, 53%);\n}\n.tab-contents[data-v-7b88e3df] {\r\n  margin-top: 1rem;\n}\n.photoarea[data-v-7b88e3df] {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -ms-flex-wrap: wrap;\r\n      flex-wrap: wrap;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\n}\n.photo[data-v-7b88e3df] {\r\n  height: 150px;\r\n  width: 150px;\r\n  background-color: hsl(217, 71%, 53%);\r\n  background-image: url(\"/storage/photo/1.JPG\");\r\n  background-position: center;\r\n  background-repeat: no-repeat;\r\n  background-size: cover;\r\n  text-align: center;\r\n  margin: 1rem;\r\n  color: white;\r\n  line-height: 150px;\n}\n.is_round img[data-v-7b88e3df] {\r\n  border-radius: 100px;\n}\r\n", ""]);
 
 // exports
 
@@ -19136,11 +19112,11 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
   methods: {
     fw_search: function fw_search() {
-      this.$router.push('/search/freeword/' + encodeURIComponent(this.query_text));
+      this.$router.push("/search/freeword/" + encodeURIComponent(this.query_text));
     }
   },
   components: {
-    'thumb-component': __WEBPACK_IMPORTED_MODULE_2__parts_Thumbnail_vue___default.a
+    "thumb-component": __WEBPACK_IMPORTED_MODULE_2__parts_Thumbnail_vue___default.a
   },
   created: function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
@@ -19151,12 +19127,12 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             case 0:
               _context.prev = 0;
               _context.next = 3;
-              return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/photos/');
+              return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get("/api/photos/");
 
             case 3:
               res = _context.sent;
               _context.next = 6;
-              return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/photos/index/score');
+              return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get("/api/photos/index/score");
 
             case 6:
               res_score = _context.sent;
@@ -19168,12 +19144,12 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
             case 11:
               _context.prev = 11;
-              _context.t0 = _context['catch'](0);
+              _context.t0 = _context["catch"](0);
 
               console.error(_context.t0);
 
             case 14:
-            case 'end':
+            case "end":
               return _context.stop();
           }
         }
@@ -19506,7 +19482,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
-//
 
 
 
@@ -19518,11 +19493,11 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
       is_uploading: false,
       categories: [],
       files: [],
-      title: '',
-      tags: '',
-      description: '',
-      category: '1',
-      autocomplete: ''
+      title: "",
+      tags: "",
+      description: "",
+      category: "1",
+      autocomplete: ""
     };
   },
 
@@ -19532,39 +19507,39 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
       var _this = this;
 
       if (undefined != this.files[0]) {
-        this.$emit('tglloading', 'アップロード中');
+        this.$emit("tglloading", "アップロード中");
 
         this.is_uploading = true;
         var place = this.autocomplete.getPlace();
         var data = new FormData();
-        var txtbox = document.getElementById('txtbox');
-        data.append('title', this.title ? this.title : 'Untitled');
-        data.append('location', txtbox.value);
+        var txtbox = document.getElementById("txtbox");
+        data.append("title", this.title ? this.title : "Untitled");
+        data.append("location", txtbox.value);
         if (typeof place != "undefined") {
-          data.append('location_name', place.name);
-          data.append('location_address', place.formatted_address);
-          data.append('location_point', place.geometry.location.lat() + ',' + place.geometry.location.lng());
+          data.append("location_name", place.name);
+          data.append("location_address", place.formatted_address);
+          data.append("location_point", place.geometry.location.lat() + "," + place.geometry.location.lng());
         }
-        data.append('tags', this.tags);
-        data.append('description', this.description);
-        data.append('category', this.category);
-        data.append('photofile', this.files[0]);
-        data.append('screen_name', user_screen_name);
-        data.append('api_token', user_api_token);
+        data.append("tags", this.tags);
+        data.append("description", this.description);
+        data.append("category", this.category);
+        data.append("photofile", this.files[0]);
+        data.append("screen_name", user_screen_name);
+        data.append("api_token", user_api_token);
         //axiosでサーバーに送信
-        __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post('/api/photos/upload', data).then(function (response) {
+        __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post("/api/photos/upload", data).then(function (response) {
           console.log(response.data);
-          _this.$emit('shownotification', '写真の投稿に成功しました!', 'is-success');
+          _this.$emit("shownotification", "写真の投稿に成功しました!", "is-success");
           _this.is_uploading = false;
-          _this.$emit('tglloading', 'アップロード中');
+          _this.$emit("tglloading", "アップロード中");
         }).catch(function (error) {
           console.log(error.response);
-          _this.$emit('shownotification', "アップロードに失敗しました…(" + error + " " + error.response.data + ")", 'is-danger');
+          _this.$emit("shownotification", "アップロードに失敗しました…(" + error + " " + error.response.data + ")", "is-danger");
           _this.is_uploading = false;
-          _this.$emit('tglloading', 'アップロード中');
+          _this.$emit("tglloading", "アップロード中");
         });
       } else {
-        this.$emit('shownotification', 'ファイルを選択して下さい!', 'is-warning');
+        this.$emit("shownotification", "ファイルを選択して下さい!", "is-warning");
       }
     },
 
@@ -19585,7 +19560,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             case 0:
               _context.prev = 0;
               _context.next = 3;
-              return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/categories/');
+              return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get("/api/categories/");
 
             case 3:
               res = _context.sent;
@@ -19596,12 +19571,12 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
             case 7:
               _context.prev = 7;
-              _context.t0 = _context['catch'](0);
+              _context.t0 = _context["catch"](0);
 
               console.error(_context.t0);
 
             case 10:
-            case 'end':
+            case "end":
               return _context.stop();
           }
         }
@@ -19615,13 +19590,15 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
     return created;
   }(),
   mounted: function mounted() {
-    var txtbox = document.getElementById('txtbox');
-    this.autocomplete = new google.maps.places.Autocomplete(txtbox, { types: ['establishment', 'geocode'] });
+    var txtbox = document.getElementById("txtbox");
+    this.autocomplete = new google.maps.places.Autocomplete(txtbox, {
+      types: ["establishment", "geocode"]
+    });
   },
 
   components: {
-    'apdarea': __WEBPACK_IMPORTED_MODULE_2__parts_UploadArea_vue___default.a,
-    'tagarea': __WEBPACK_IMPORTED_MODULE_3__parts_TagArea_vue___default.a
+    apdarea: __WEBPACK_IMPORTED_MODULE_2__parts_UploadArea_vue___default.a,
+    tagarea: __WEBPACK_IMPORTED_MODULE_3__parts_TagArea_vue___default.a
   }
 });
 
@@ -19660,7 +19637,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.m-file[data-v-40360b21] {\r\n  width: 100%;\r\n  height: 100%;\r\n  min-height: 96px;\r\n  max-height: 400px;\r\n  margin: 0 auto;\r\n  text-align: center;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  cursor: pointer;\r\n  background-position: center;\r\n  background-repeat: no-repeat;\r\n  background-size: cover;\n}\n.updimg[data-v-40360b21] {\r\n  max-width: 200px;\n}\n.width100[data-v-40360b21] {\r\n  width: 100%;\n}\r\n", ""]);
+exports.push([module.i, "\n.m-file[data-v-40360b21] {\r\n  width: 100%;\r\n  height: 100%;\r\n  min-height: 96px;\r\n  max-height: 400px;\r\n  margin: 0 auto;\r\n  text-align: center;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  cursor: pointer;\r\n  background-position: center;\r\n  background-repeat: no-repeat;\r\n  background-size: cover;\n}\n.updimg[data-v-40360b21] {\r\n  max-width: 200px;\n}\n.width100[data-v-40360b21] {\r\n  width: 100%;\n}\n.file-label[data-v-40360b21] {\r\n  text-shadow: 0px 0px 3px #000000;\n}\r\n", ""]);
 
 // exports
 
@@ -19690,18 +19667,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      uploadedImage: ''
+      uploadedImage: ""
     };
   },
 
-  props: ['beforephoto'],
+  props: ["beforephoto"],
   methods: {
     //画像が変わったときのイベント
     onFileChange: function onFileChange(e) {
       var files = e.target.files || e.dataTransfer.files;
       this.createImage(files[0]);
 
-      this.$emit('send-file', files);
+      this.$emit("send-file", files);
     },
 
     // アップロードした画像を表示
@@ -19884,7 +19861,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.tag[data-v-bf4bc238]{\r\n  margin-right: 0.3rem;\r\n  margin-bottom: 0.3rem;\n}\r\n", ""]);
+exports.push([module.i, "\n.tag[data-v-bf4bc238] {\r\n  margin-right: 0.3rem;\r\n  margin-bottom: 0.3rem;\n}\r\n", ""]);
 
 // exports
 
@@ -19918,7 +19895,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   data: function data() {
     return {
       tags: [],
-      tags_str: ''
+      tags_str: ""
     };
   },
 
@@ -19927,14 +19904,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       if (this.$refs.tag.value != "") {
         this.tags.push(this.$refs.tag.value);
         this.$refs.tag.value = "";
-        this.tags_str = this.tags.join(',');
-        this.$emit('update-tags', this.tags_str);
+        this.tags_str = this.tags.join(",");
+        this.$emit("update-tags", this.tags_str);
+        this.$refs.tag.focus();
       }
     },
     deleteTag: function deleteTag(id) {
       this.tags.splice(id, 1);
-      this.tags_str = this.tags.join(',');
-      this.$emit('update-tags', this.tags_str);
+      this.tags_str = this.tags.join(",");
+      this.$emit("update-tags", this.tags_str);
     }
   },
   created: function created() {}
@@ -20190,9 +20168,11 @@ var render = function() {
                     }
                   },
                   _vm._l(_vm.categories, function(category) {
-                    return _c("option", { domProps: { value: category.id } }, [
-                      _vm._v(_vm._s(category.name))
-                    ])
+                    return _c(
+                      "option",
+                      { key: category.id, domProps: { value: category.id } },
+                      [_vm._v(_vm._s(category.name))]
+                    )
                   })
                 )
               ])
@@ -20428,7 +20408,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/*tab*/\n.is_selected[data-v-22ef5402] {\r\n  border-bottom: solid 3px hsl(217, 71%, 53%);\n}\n.tab-contents[data-v-22ef5402] {\r\n  margin-top: 1rem;\n}\n.photoarea[data-v-22ef5402] {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -ms-flex-wrap: wrap;\r\n      flex-wrap: wrap;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\n}\n.is_round img[data-v-22ef5402]{\r\n  border-radius: 100px;\n}\r\n\r\n/*profile*/\n.m-profile[data-v-22ef5402] {\r\n  text-align: center;\r\n  margin: 0 auto;\n}\n.m-profile-img[data-v-22ef5402] {\r\n  height: 256px;\r\n  margin-bottom: 52px;\r\n  position: relative;\n}\n.m-profile figure[data-v-22ef5402] {\r\n  position: absolute;\r\n  bottom: -48px;\r\n  left: 50%;\r\n  margin-left: -48px;\n}\n.m-profile img[data-v-22ef5402] {\r\n  border: solid 2px white;\r\n  border-radius:100px;\n}\n@media (max-width: 767px) {\n.m-profile-img[data-v-22ef5402] {\r\n    height: 128px;\r\n    margin-bottom: 52px;\r\n    position: relative;\n}\n.m-profile figure[data-v-22ef5402] {\r\n    position: absolute;\r\n    bottom: -48px;\r\n    left: 50%;\r\n    margin-left: -48px;\n}\n.m-profile img[data-v-22ef5402] {\r\n    border: solid 2px white;\r\n    border-radius:100px;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/*tab*/\n.is_selected[data-v-22ef5402] {\r\n  border-bottom: solid 3px hsl(217, 71%, 53%);\n}\n.tab-contents[data-v-22ef5402] {\r\n  margin-top: 1rem;\n}\n.photoarea[data-v-22ef5402] {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -ms-flex-wrap: wrap;\r\n      flex-wrap: wrap;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\n}\n.is_round img[data-v-22ef5402] {\r\n  border-radius: 100px;\n}\r\n\r\n/*profile*/\n.m-profile[data-v-22ef5402] {\r\n  text-align: center;\r\n  margin: 0 auto;\n}\n.m-profile-img[data-v-22ef5402] {\r\n  height: 256px;\r\n  margin-bottom: 52px;\r\n  position: relative;\n}\n.m-profile figure[data-v-22ef5402] {\r\n  position: absolute;\r\n  bottom: -48px;\r\n  left: 50%;\r\n  margin-left: -48px;\n}\n.m-profile img[data-v-22ef5402] {\r\n  border: solid 2px white;\r\n  border-radius: 100px;\n}\n@media (max-width: 767px) {\n.m-profile-img[data-v-22ef5402] {\r\n    height: 128px;\r\n    margin-bottom: 52px;\r\n    position: relative;\n}\n.m-profile figure[data-v-22ef5402] {\r\n    position: absolute;\r\n    bottom: -48px;\r\n    left: 50%;\r\n    margin-left: -48px;\n}\n.m-profile img[data-v-22ef5402] {\r\n    border: solid 2px white;\r\n    border-radius: 100px;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -20529,9 +20509,9 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
   },
 
   components: {
-    'post-component': __WEBPACK_IMPORTED_MODULE_2__parts_Post_vue___default.a,
-    'thumb-component': __WEBPACK_IMPORTED_MODULE_3__parts_Thumbnail_vue___default.a,
-    'user-list-item-component': __WEBPACK_IMPORTED_MODULE_4__parts_UserListItem_vue___default.a
+    "post-component": __WEBPACK_IMPORTED_MODULE_2__parts_Post_vue___default.a,
+    "thumb-component": __WEBPACK_IMPORTED_MODULE_3__parts_Thumbnail_vue___default.a,
+    "user-list-item-component": __WEBPACK_IMPORTED_MODULE_4__parts_UserListItem_vue___default.a
   },
   created: function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
@@ -20543,7 +20523,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
               this.created_method(this.$route.params.screen_name);
 
             case 2:
-            case 'end':
+            case "end":
               return _context.stop();
           }
         }
@@ -20566,108 +20546,105 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                this.$emit('tglloading', '読み込み中');
-                //ユーザデータ
-                _context2.prev = 1;
+                _context2.prev = 0;
                 res = void 0;
 
                 if (!(this.$route.params.screen_name == undefined)) {
-                  _context2.next = 10;
+                  _context2.next = 9;
                   break;
                 }
 
-                _context2.next = 6;
-                return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/users/' + user_screen_name);
+                _context2.next = 5;
+                return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get("/api/users/" + user_screen_name);
 
-              case 6:
+              case 5:
                 res = _context2.sent;
 
                 this.isMine = true;
-                _context2.next = 14;
+                _context2.next = 13;
                 break;
 
-              case 10:
-                _context2.next = 12;
-                return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/users/' + screen_name);
+              case 9:
+                _context2.next = 11;
+                return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get("/api/users/" + screen_name);
 
-              case 12:
+              case 11:
                 res = _context2.sent;
 
                 this.isMine = false;
 
-              case 14:
+              case 13:
                 this.user_data = res.data;
-                _context2.next = 20;
+                _context2.next = 19;
                 break;
 
-              case 17:
-                _context2.prev = 17;
-                _context2.t0 = _context2['catch'](1);
+              case 16:
+                _context2.prev = 16;
+                _context2.t0 = _context2["catch"](0);
 
                 console.error(_context2.t0);
 
-              case 20:
-                _context2.prev = 20;
+              case 19:
+                _context2.prev = 19;
                 _res = void 0;
 
                 if (!this.is_logined) {
-                  _context2.next = 27;
+                  _context2.next = 26;
                   break;
                 }
 
-                _context2.next = 25;
-                return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/users/follow/check/' + user_screen_name + '/' + this.user_data.screen_name);
+                _context2.next = 24;
+                return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get("/api/users/follow/check/" + user_screen_name + "/" + this.user_data.screen_name);
 
-              case 25:
+              case 24:
                 _res = _context2.sent;
 
                 if (_res.data == true) {
                   this.isFollow = true;
                 }
 
-              case 27:
-                _context2.next = 29;
-                return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/users/follow/list/' + this.user_data.screen_name);
+              case 26:
+                _context2.next = 28;
+                return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get("/api/users/follow/list/" + this.user_data.screen_name);
 
-              case 29:
+              case 28:
                 _res = _context2.sent;
 
                 this.follow_list = _res.data;
 
-                _context2.next = 33;
-                return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/users/photo/' + this.user_data.screen_name);
+                _context2.next = 32;
+                return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get("/api/users/photo/" + this.user_data.screen_name);
 
-              case 33:
+              case 32:
                 _res = _context2.sent;
 
                 this.photo_list = _res.data;
 
-                _context2.next = 37;
-                return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/users/likephoto/' + this.user_data.screen_name);
+                _context2.next = 36;
+                return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get("/api/users/likephoto/" + this.user_data.screen_name);
 
-              case 37:
+              case 36:
                 _res = _context2.sent;
 
                 this.like_list = _res.data;
-                this.$emit('tglloading', '読み込み中');
-
-                _context2.next = 47;
+                //this.$emit("tglloading", "読み込み中");
+                _context2.next = 44;
                 break;
 
-              case 42:
-                _context2.prev = 42;
-                _context2.t1 = _context2['catch'](20);
+              case 40:
+                _context2.prev = 40;
+                _context2.t1 = _context2["catch"](19);
 
                 console.error(_context2.t1);
-                this.$emit('tglloading', '読み込み中');
-                this.$emit('shownotification', "エラーが発生しました…(" + _context2.t1 + " " + _context2.t1.response.data + ")", 'is-danger');
+                //this.$emit("tglloading", "読み込み中");
+                this.$emit("shownotification", "エラーが発生しました…(" + _context2.t1 + " " + _context2.t1.response.data + ")", "is-danger");
 
-              case 47:
-              case 'end':
+              case 44:
+              case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, this, [[1, 17], [20, 42]]);
+        }, _callee2, this, [[0, 16], [19, 40]]);
       }));
 
       function created_method(_x) {
@@ -20679,7 +20656,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
     followToggle: function followToggle() {
       var _this = this;
 
-      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post('/api/users/follow/toggle', {
+      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post("/api/users/follow/toggle", {
         screen_name: user_screen_name,
         api_token: user_api_token,
         opponent_screen_name: this.user_data.screen_name,
@@ -20692,11 +20669,11 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         }
       }).catch(function (error) {
         console.log(error.response);
-      });;
+      });
     }
   },
   watch: {
-    '$route': function $route(to, from) {
+    $route: function $route(to, from) {
       this.created_method(to.params.screen_name);
     }
   }
@@ -20730,8 +20707,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['user']
-
+  props: ["user"]
 });
 
 /***/ }),
@@ -20751,9 +20727,7 @@ var render = function() {
           _c("div", { staticClass: "media" }, [
             _c("div", { staticClass: "media-left" }, [
               _c("figure", { staticClass: "image is-48x48 is_round" }, [
-                _c("img", {
-                  attrs: { src: "/storage/icon/" + _vm.user.icon, alt: "" }
-                })
+                _c("img", { attrs: { src: "/" + _vm.user.icon, alt: "" } })
               ])
             ]),
             _vm._v(" "),
@@ -20799,17 +20773,14 @@ var render = function() {
           {
             staticClass: "m-profile-img has-background-link",
             style: {
-              "background-image":
-                "url(/storage/" + _vm.user_data.background + ")",
+              "background-image": "url(/" + _vm.user_data.background + ")",
               "background-position": "center center",
               "background-size": "cover"
             }
           },
           [
             _c("figure", { staticClass: "image is-96x96" }, [
-              _c("img", {
-                attrs: { src: "/storage/icon/" + _vm.user_data.icon }
-              })
+              _c("img", { attrs: { src: "/" + _vm.user_data.icon } })
             ])
           ]
         ),
@@ -23879,7 +23850,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/*tab*/\n.is_selected[data-v-5e031a86] {\r\n  border-bottom: solid 3px hsl(217, 71%, 53%);\n}\n.tab-contents[data-v-5e031a86] {\r\n  margin-top: 1rem;\n}\n.photoarea[data-v-5e031a86] {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -ms-flex-wrap: wrap;\r\n      flex-wrap: wrap;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\n}\n.flex[data-v-5e031a86] {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -ms-flex-wrap: wrap;\r\n      flex-wrap: wrap;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  padding-bottom: 1rem;\n}\r\n\r\n/*profile*/\n.m-profile[data-v-5e031a86] {\r\n  text-align: center;\r\n  margin: 0 auto;\n}\n.m-profile-img[data-v-5e031a86] {\r\n  height: 256px;\r\n  margin-bottom: 1rem;\r\n  position: relative;\n}\n.m-profile figure label[data-v-5e031a86]{\r\n  border: solid 2px white;\r\n  border-radius:100px;\r\n  font-size: 50%;\n}\n@media (max-width: 767px) {\n.m-profile-img[data-v-5e031a86] {\r\n    height: 128px;\r\n    margin-bottom: 1rem;\n}\n.m-profile figure[data-v-5e031a86] {\r\n    display: block;\n}\n.m-profile img[data-v-5e031a86] {\r\n    border: solid 2px white;\r\n    border-radius:100px;\n}\n}\nfooter[data-v-5e031a86] {\r\n  padding-top: 0.5rem;\r\n  padding-bottom: 0.5rem;\n}\r\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/*tab*/\n.is_selected[data-v-5e031a86] {\r\n  border-bottom: solid 3px hsl(217, 71%, 53%);\n}\n.tab-contents[data-v-5e031a86] {\r\n  margin-top: 1rem;\n}\n.photoarea[data-v-5e031a86] {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -ms-flex-wrap: wrap;\r\n      flex-wrap: wrap;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\n}\n.flex[data-v-5e031a86] {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -ms-flex-wrap: wrap;\r\n      flex-wrap: wrap;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  padding-bottom: 1rem;\n}\r\n\r\n/*profile*/\n.m-profile[data-v-5e031a86] {\r\n  text-align: center;\r\n  margin: 0 auto;\n}\n.m-profile-img[data-v-5e031a86] {\r\n  height: 256px;\r\n  margin-bottom: 1rem;\r\n  position: relative;\n}\n.m-profile figure label[data-v-5e031a86] {\r\n  border: solid 2px white;\r\n  border-radius: 100px;\r\n  font-size: 50%;\n}\n@media (max-width: 767px) {\n.m-profile-img[data-v-5e031a86] {\r\n    height: 128px;\r\n    margin-bottom: 1rem;\n}\n.m-profile figure[data-v-5e031a86] {\r\n    display: block;\n}\n.m-profile img[data-v-5e031a86] {\r\n    border: solid 2px white;\r\n    border-radius: 100px;\n}\n}\nfooter[data-v-5e031a86] {\r\n  padding-top: 0.5rem;\r\n  padding-bottom: 0.5rem;\n}\r\n", ""]);
 
 // exports
 
@@ -23933,6 +23904,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 //
 //
 //
+//
+//
 
 
 
@@ -23943,9 +23916,9 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
   data: function data() {
     return {
       user_data: [],
-      name: '',
-      location: '',
-      description: '',
+      name: "",
+      location: "",
+      description: "",
       icons: [],
       backs: [],
       is_logined: false
@@ -23953,8 +23926,8 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
   },
 
   components: {
-    'back-button': __WEBPACK_IMPORTED_MODULE_2__parts_BackButton_vue___default.a,
-    'upload-area': __WEBPACK_IMPORTED_MODULE_3__parts_UploadArea_vue___default.a
+    "back-button": __WEBPACK_IMPORTED_MODULE_2__parts_BackButton_vue___default.a,
+    "upload-area": __WEBPACK_IMPORTED_MODULE_3__parts_UploadArea_vue___default.a
   },
   created: function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
@@ -23966,7 +23939,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
               this.is_logined = user_screen_name == "" ? false : true;
               _context.prev = 1;
               _context.next = 4;
-              return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/users/' + user_screen_name);
+              return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get("/api/users/" + user_screen_name);
 
             case 4:
               res = _context.sent;
@@ -23980,12 +23953,12 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
             case 11:
               _context.prev = 11;
-              _context.t0 = _context['catch'](1);
+              _context.t0 = _context["catch"](1);
 
               console.error(_context.t0);
 
             case 14:
-            case 'end':
+            case "end":
               return _context.stop();
           }
         }
@@ -24004,25 +23977,26 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
     onSubmit: function onSubmit() {
       var _this = this;
 
-      this.$emit('tglloading', 'プロフィール設定中');
-      data.append('name', this.name ? this.name : 'Unnamed');
-      data.append('location', this.location);
-      data.append('description', this.description);
-      data.append('background', this.backs[0]);
-      data.append('icons', this.icons[0]);
-      data.append('screen_name', user_screen_name);
-      data.append('api_token', user_api_token);
+      var data = new FormData();
+      this.$emit("tglloading", "プロフィール設定中");
+      data.append("name", this.name ? this.name : "Unnamed");
+      data.append("location", this.location);
+      data.append("description", this.description);
+      data.append("backgrounds", this.backs[0]);
+      data.append("icons", this.icons[0]);
+      data.append("screen_name", user_screen_name);
+      data.append("api_token", user_api_token);
       //axiosでサーバーに送信
-      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post('/api/users/profile/update', data).then(function (response) {
+      __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post("/api/users/profile/update", data).then(function (response) {
         console.log(response.data);
-        _this.$emit('shownotification', 'プロフィールの更新に成功しました!', 'is-success');
+        _this.$emit("shownotification", "プロフィールの更新に成功しました!", "is-success");
         _this.is_uploading = false;
-        _this.$emit('tglloading', 'プロフィール設定中');
+        _this.$emit("tglloading", "プロフィール設定中");
       }).catch(function (error) {
         console.log(error.response);
-        _this.$emit('shownotification', "プロフィールの更新に失敗しました…(" + error + " " + error.response.data + ")", 'is-danger');
+        _this.$emit("shownotification", "プロフィールの更新に失敗しました…(" + error + " " + error.response.data + ")", "is-danger");
         _this.is_uploading = false;
-        _this.$emit('tglloading', 'プロフィール設定中');
+        _this.$emit("tglloading", "プロフィール設定中");
       });
     },
     sendIcon: function sendIcon(files) {
@@ -24049,63 +24023,62 @@ var render = function() {
       _c("back-button"),
       _vm._v(" "),
       _c("div", { staticClass: "card" }, [
-        _c("div", { staticClass: "m-profile" }, [
-          _c(
-            "div",
-            { staticClass: "m-profile-img has-background-link" },
-            [
-              _c("upload-area", {
-                attrs: { beforephoto: _vm.user_data.background },
-                on: { "send-file": _vm.sendBackground }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "flex" }, [
+        _c("form", [
+          _c("div", { staticClass: "m-profile" }, [
             _c(
-              "figure",
-              { staticClass: "image is-96x96 is-round" },
+              "div",
+              { staticClass: "m-profile-img has-background-link" },
               [
                 _c("upload-area", {
-                  attrs: { beforephoto: _vm.user_data.icon },
-                  on: { "send-file": _vm.sendIcon }
+                  attrs: { beforephoto: _vm.user_data.background },
+                  on: { "send-file": _vm.sendBackground }
                 })
               ],
               1
-            )
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.name,
-                expression: "name"
-              }
-            ],
-            staticClass: "has-text-centered input is-large",
-            attrs: { type: "text", placeholder: "表示名" },
-            domProps: { value: _vm.name },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "flex" }, [
+              _c(
+                "figure",
+                { staticClass: "image is-96x96 is-round" },
+                [
+                  _c("upload-area", {
+                    attrs: { beforephoto: _vm.user_data.icon },
+                    on: { "send-file": _vm.sendIcon }
+                  })
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.name,
+                  expression: "name"
                 }
-                _vm.name = $event.target.value
+              ],
+              staticClass: "has-text-centered input is-large",
+              attrs: { type: "text", placeholder: "表示名" },
+              domProps: { value: _vm.name },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.name = $event.target.value
+                }
               }
-            }
-          }),
-          _vm._v(" "),
-          _c("p", { staticClass: "is-size-7 has-text-grey-light" }, [
-            _vm._v("@"),
-            _c("span", [_vm._v(_vm._s(_vm.user_data.screen_name))])
-          ]),
-          _vm._v(" "),
-          _c(
-            "textarea",
-            {
+            }),
+            _vm._v(" "),
+            _c("p", { staticClass: "is-size-7 has-text-grey-light" }, [
+              _vm._v("@"),
+              _c("span", [_vm._v(_vm._s(_vm.user_data.screen_name))])
+            ]),
+            _vm._v(" "),
+            _c("textarea", {
               directives: [
                 {
                   name: "model",
@@ -24125,46 +24098,46 @@ var render = function() {
                   _vm.description = $event.target.value
                 }
               }
-            },
-            [_vm._v(_vm._s(_vm.user_data.description))]
-          ),
-          _vm._v(" "),
-          _c("br"),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.location,
-                expression: "location"
-              }
-            ],
-            staticClass: "has-text-centered input",
-            attrs: { type: "text", placeholder: "場所" },
-            domProps: { value: _vm.location },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.location = $event.target.value
-              }
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("footer", [
-          _c("div", { staticClass: "field is-grouped is-grouped-centered" }, [
-            _c("p", { staticClass: "control" }, [
-              _c(
-                "a",
+            }),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
                 {
-                  staticClass: "button is-primary",
-                  on: { click: _vm.onSubmit }
-                },
-                [_vm._v("\n            保存\n          ")]
-              )
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.location,
+                  expression: "location"
+                }
+              ],
+              staticClass: "has-text-centered input",
+              attrs: { type: "text", placeholder: "場所" },
+              domProps: { value: _vm.location },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.location = $event.target.value
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("footer", [
+            _c("div", { staticClass: "field is-grouped is-grouped-centered" }, [
+              _c("p", { staticClass: "control" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "button is-primary",
+                    attrs: { type: "button" },
+                    on: { click: _vm.onSubmit }
+                  },
+                  [_vm._v("\n            保存\n          ")]
+                )
+              ])
             ])
           ])
         ])

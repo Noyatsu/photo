@@ -29,7 +29,6 @@ class HomeController extends Controller
     $apiToken = Auth::check() ? UserController::generateApiToken() : '';
 
     return view('home')->with('api_token', $apiToken);
-    ;
   }
 
   /**
@@ -47,6 +46,5 @@ class HomeController extends Controller
     $apiToken = Auth::check() ? UserController::generateApiToken() : '';
 
     return view('photodetail')->with(['api_token' =>  $apiToken, 'photo' => $data[0]]);
-    ;
   }
 }

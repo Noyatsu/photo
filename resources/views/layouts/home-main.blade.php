@@ -48,23 +48,17 @@
       <router-link class="m-tab" to='/home/like' tag="div"><i class="fas fa-heart"></i></router-link>
       <router-link class="m-tab" to='/home/profile' tag="div"><i class="fas fa-user-circle"></i></router-link>
     </div>
-    <transition name="fade">
       <div class="center-box" v-if="is_loading">
         <i class="fas fa-circle-notch fa-spin fa-2x"></i>
         <p v-text="loading_msg"></p>
       </div>
-    </transition>
     <div class="block-box" v-if="is_loading"></div>
-
-    <transition name="fade" mode="out-in">
-      <keep-alive>
-
         <div v-bind:class="{blur : is_loading}">
-          <router-view v-on:tglloading="tgl_loading" v-on:shownotification="show_notification"></router-view>
+          <keep-alive>
+            <router-view v-on:tglloading="tgl_loading" v-on:shownotification="show_notification"></router-view>
+          </keep-alive>
         </div>
-      </keep-alive>
-
-    </transition>
+    </div>
   </div>
   <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyAItrDehXl9lF8abSCqiYuP9onCHY7gs7M&libraries=places"></script>
 

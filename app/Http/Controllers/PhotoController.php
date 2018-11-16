@@ -123,7 +123,7 @@ class PhotoController extends Controller
 
         // ここにデータベースに追加するやつ書く
         DB::table('photos')->insert(
-      [
+       [
         'user_id' => User::firstOrNew(['screen_name' => $request->input('screen_name')])->id,
         'category_id' => $request->input('category'),
         'title' => $request->input('title'),
@@ -229,15 +229,16 @@ class PhotoController extends Controller
         $photo_id = $request->input('photo_id');
         $user = User::firstOrNew(['screen_name' => $screen_name]);
         $photo = Photo::firstOrNew(['id' => $photo_id]);
-
+        $temp = (int)$photo->likes;
         if (Like::select()->where(['user_id' => $user->id, 'photo_id' => $photo_id])->exists()) {
             $like = Like::firstOrNew(['user_id' => $user->id, 'photo_id' => $photo_id]);
             $like->delete();
-            $photo->likes -= 1;
+            $temp -= 1;
         } else {
             Like::insert(['user_id' => $user->id, 'photo_id' => $photo_id, 'updated_at' => date('Y/m/d H:i:s'), 'created_at' => date('Y/m/d H:i:s')]);
-            $photo->likes += 1;
+            $temp += 1;
         }
+        $photo->likes = $temp;
         $photo->points = self::computeScore($photo->views, $photo->likes, $user);
         $photo->save();
     }
@@ -364,10 +365,15 @@ class PhotoController extends Controller
      */
     static public function computeScore($views, $likes, $objUser)
     {
-      $follower = Follow::select()->where(['follow_user_id' => $objUser->id ])->count();
-      $follower = ($follower > 5000) ? 5000 : $follower;
-      $follower = ($follower == 0) ? 1 : $follower;
-      $follower = $follower / 5000 * 10;
-      return log10(((double)$likes*2 + (double)$views)/(double)$follower)*10.0;
+        if((int)$likes == 0) {
+            return 0;
+        }
+        else {
+            $follower = Follow::select()->where(['follow_user_id' => $objUser->id ])->count();
+            $follower = ($follower > 5000) ? 5000 : $follower;
+            $follower = ($follower == 0) ? 1 : $follower;
+            $follower = $follower / 5000 * 10;
+            return log10(((double)$likes*2 + (double)$views)/(double)$follower)*10.0;
+        }
     }
 }

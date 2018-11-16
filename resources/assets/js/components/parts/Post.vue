@@ -13,7 +13,7 @@
     <div class="post">
       <div class="post-header">
         <div class="post-header-left is-size-7">
-          <p><router-link v-bind:to="'/user/' + photo.screen_name"><img src="https://bulma.io/images/placeholders/128x128.png"></router-link></p>
+          <p><router-link v-bind:to="'/user/' + photo.screen_name"><img v-bind:src="photo.icon"></router-link></p>
           <p>
             <router-link v-bind:to="'/user/' + photo.screen_name"><strong>{{ photo.name }}</strong></router-link>(@{{photo.screen_name}})
             <br><span v-if="photo.p_location" class="has-text-grey is-size-8">{{ photo.location_name ? photo.location_name : photo.p_location }}</span>
@@ -39,16 +39,16 @@
 </template>
 
 <script>
-import axios from 'axios';
-import DetailContent from './DetailContent.vue';
+import axios from "axios";
+import DetailContent from "./DetailContent.vue";
 
-export default{
+export default {
   components: {
-    'detail-content': DetailContent
+    "detail-content": DetailContent
   },
-  name: 'post-component',
-  props: [ 'photo' ],
-  data: function () {
+  name: "post-component",
+  props: ["photo"],
+  data: function() {
     return {
       showModal: false,
       isLiked: false,
@@ -56,16 +56,17 @@ export default{
       touchOffset: 0,
       startModal: 0,
       startModalBar: 0
-    }
+    };
   },
   async created() {
     try {
       let res;
-      res = await axios.get('/api/photos/like/check/' + user_screen_name + '/' + this.photo.p_id);
-      if(res.data==true) {
+      res = await axios.get(
+        "/api/photos/like/check/" + user_screen_name + "/" + this.photo.p_id
+      );
+      if (res.data == true) {
         this.isLiked = true;
       }
-
     } catch (e) {
       console.error(e);
     }
@@ -74,35 +75,34 @@ export default{
   },
   methods: {
     likeToggle: function() {
-      axios.post('/api/photos/like/toggle', {
-        screen_name: user_screen_name,
-        api_token: user_api_token,
-        photo_id: this.photo.p_id,
-        csrfToken: window.Laravel.csrfToken
-      })
-      .then(response => {
-        this.likeToggleData();
-      })
-      .catch(error => {
-        console.log(error.response)
-      });
+      axios
+        .post("/api/photos/like/toggle", {
+          screen_name: user_screen_name,
+          api_token: user_api_token,
+          photo_id: this.photo.p_id,
+          csrfToken: window.Laravel.csrfToken
+        })
+        .then(response => {
+          this.likeToggleData();
+        })
+        .catch(error => {
+          console.log(error.response);
+        });
     },
     likeToggleData: function() {
-      if(this.isLiked == true){
+      if (this.isLiked == true) {
         this.isLiked = false;
         this.likeNum = this.likeNum - 1;
-      }
-      else {
+      } else {
         this.isLiked = true;
         this.likeNum = this.likeNum + 1;
       }
     },
     modalToggle: function() {
-      if(this.showModal) {
+      if (this.showModal) {
         window.history.back();
-      }
-      else {
-        history.pushState('', '', "/photo/" + this.photo.p_id);
+      } else {
+        history.pushState("", "", "/photo/" + this.photo.p_id);
         window.scrollTo(0, 0);
       }
       this.showModal = !this.showModal;
@@ -114,32 +114,31 @@ export default{
       this.startModalBar = this.$refs.modalbar.style.top;
     },
     t_move(event) {
-      const touchObject = event.changedTouches[0] ;
+      const touchObject = event.changedTouches[0];
       const offset = touchObject.screenY - this.touchOffset;
       this.$refs.modal.style.top = offset + "px";
       this.$refs.modalbar.style.top = offset + "px";
-      this.$refs.modal.style.opacity = 1.0 - offset / window.parent.screen.height;
+      this.$refs.modal.style.opacity =
+        1.0 - offset / window.parent.screen.height;
     },
     t_end(event) {
-      const touchObject = event.changedTouches[0] ;
+      const touchObject = event.changedTouches[0];
       const offset = touchObject.screenY - this.touchOffset;
-      if(offset >= window.parent.screen.height/3) {
+      if (offset >= window.parent.screen.height / 3) {
         this.modalToggle();
-      }
-      else {
+      } else {
         this.$refs.modal.style.top = this.startModal;
         this.$refs.modalbar.style.top = this.startModalBar;
         this.$refs.modal.style.opacity = 1.0;
       }
     }
   }
-
-}
+};
 </script>
 <style scoped lang="scss">
 .slidemark {
   height: 0.5rem;
-  width:3rem;
+  width: 3rem;
   margin-top: 0.25rem;
   border-radius: 0.25rem;
   display: inline-block;
@@ -151,7 +150,6 @@ export default{
   bottom: 0;
   left: 0;
   right: 0;
-
 }
 .slidearea {
   margin-top: 2.5px;
@@ -180,7 +178,6 @@ export default{
     height: 2rem;
     position: relative;
     margin-bottom: 0.2em;
-
 
     .post-header-left {
       display: inline-block;
@@ -237,8 +234,6 @@ export default{
       top: 0.2rem;
       bottom: 0;
     }
-    .post-title {
-    }
     margin-top: 0rem;
   }
 }
@@ -270,7 +265,7 @@ export default{
   }
 }
 
-a strong{
+a strong {
   color: #000000;
 }
 

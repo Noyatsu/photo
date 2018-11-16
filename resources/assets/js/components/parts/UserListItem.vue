@@ -5,7 +5,7 @@
         <div class="media">
           <div class="media-left">
             <figure class="image is-48x48 is_round">
-              <img v-bind:src="'/storage/icon/' + user.icon" alt="">
+              <img v-bind:src="'/' + user.icon" alt="">
             </figure>
           </div>
           <div class="media-content">
@@ -20,7 +20,6 @@
 
 <script>
 export default {
-  props: [ 'user' ]
-
-}
+  props: ["user"]
+};
 </script>

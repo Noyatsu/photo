@@ -27,10 +27,10 @@ let router = new VueRouter({
 
     { path: '/photo/:id', component: require('./components/Detail.vue') },
 
-    { path: '/user/' + user_screen_name,  redirect: '/home/profile' },
+    { path: '/user/' + user_screen_name, redirect: '/home/profile' },
     { path: '/user/:screen_name', component: require('./components/Profile.vue') },
 
-    { path: '/search',  redirect: '/home/search' },
+    { path: '/search', redirect: '/home/search' },
     { path: '/search/freeword', redirect: '/home/search' },
     { path: '/search/user', redirect: '/home/search' },
     { path: '/search/freeword/:words', component: require('./components/search/Freeword.vue') },
@@ -43,7 +43,7 @@ let router = new VueRouter({
     { path: '/config/profile', component: require('./components/config/Profile.vue') },
   ],
 
-  scrollBehavior (to, from, savedPosition) {
+  scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
       return savedPosition
     } else {
@@ -72,33 +72,32 @@ const app = new Vue({
     notification_msg: "こんにちは",
     notification_type: "",
     tabnavs: [
-      { cls: 'fas fa-home', isActive: false, name: 'timeline'},
+      { cls: 'fas fa-home', isActive: false, name: 'timeline' },
       { cls: 'fas fa-search', isActive: false, name: 'search' },
       { cls: 'far fa-plus-square', isActive: false, name: 'upload' },
-      { cls: 'fas fa-heart', isActive:false, name: 'like' },
-      { cls: 'fas fa-user-circle', isActive:false, name: 'profile' }
+      { cls: 'fas fa-heart', isActive: false, name: 'like' },
+      { cls: 'fas fa-user-circle', isActive: false, name: 'profile' }
     ]
   },
   methods: {
-    tgl_loading: function(msg) {
+    tgl_loading: function (msg) {
       this.loading_msg = msg;
       this.is_loading = !this.is_loading;
     },
-    show_notification: function(msg, type) {
+    show_notification: function (msg, type) {
       this.notification_msg = msg;
       this.notification_type = type;
       this.is_notification = true;
       const self = this;
-      setTimeout(function(){
+      setTimeout(function () {
         self.is_notification = false;
       }, 4000);
     },
-    scroll_to_top: function() {
+    scroll_to_top: function () {
       window.scrollTo(0, 0);
     }
   },
-  created: function() {
+  created: function () {
     this.is_logined = (user_screen_name == "") ? false : true;
-
   }
 });
