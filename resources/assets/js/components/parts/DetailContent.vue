@@ -4,7 +4,7 @@
     <div class="container mainarea">
       <div class="post-header">
         <div class="post-header-left is-size-7">
-          <p><router-link v-bind:to="'/user/' + photo.screen_name"><img src="https://bulma.io/images/placeholders/128x128.png"></router-link></p>
+          <p><router-link v-bind:to="'/user/' + photo.screen_name"><img v-bind:src="'/' + photo.icon"></router-link></p>
           <p><router-link v-bind:to="'/user/' + photo.screen_name"><strong>{{ photo.name }}</strong>(@{{photo.screen_name}})</router-link></p>
         </div>
       </div>
@@ -56,11 +56,11 @@
   </div>
 </template>
 <script>
-import axios from 'axios';
+import axios from "axios";
 
-export default{
-  props: [ 'photo', 'photo_id' ],
-  data: function () {
+export default {
+  props: ["photo", "photo_id"],
+  data: function() {
     return {
       showModal: false,
       isLiked: false,
@@ -71,40 +71,41 @@ export default{
       imgWidth: 0,
       imgHeight: 0,
       is_logined: false
-    }
+    };
   },
   async mounted() {
-    this.is_logined = (user_screen_name == "") ? false : true;
-    if(this.is_logined) {
+    this.is_logined = user_screen_name == "" ? false : true;
+    if (this.is_logined) {
       try {
         //いいねのチェック
         let res;
-        res = await axios.get('/api/photos/like/check/' + user_screen_name + '/' + this.photo.p_id);
-        if(res.data==true) {
+        res = await axios.get(
+          "/api/photos/like/check/" + user_screen_name + "/" + this.photo.p_id
+        );
+        if (res.data == true) {
           this.isLiked = true;
         }
 
         //ビューのインクリメント
-        await axios.post('/api/photos/view/increment', {
-          screen_name: user_screen_name,
-          photo_id: this.photo.p_id,
-          api_token: user_api_token,
-          csrfToken: window.Laravel.csrfToken
-        })
-        .catch((response) => {
-          console.error(response.data);
-        })
-
+        await axios
+          .post("/api/photos/view/increment", {
+            screen_name: user_screen_name,
+            photo_id: this.photo.p_id,
+            api_token: user_api_token,
+            csrfToken: window.Laravel.csrfToken
+          })
+          .catch(response => {
+            console.error(response.data);
+          });
       } catch (e) {
         console.error(e);
       }
 
-      const tags_str = this.photo.tags || '';
-      if(tags_str != '') {
-        this.tags = tags_str.split(',');
+      const tags_str = this.photo.tags || "";
+      if (tags_str != "") {
+        this.tags = tags_str.split(",");
       }
       this.likeNum = this.photo.likes;
-
     }
     new SmartPhoto(".js-smartPhoto", {
       nav: false
@@ -112,13 +113,13 @@ export default{
   },
   methods: {
     copyUrl: function() {
-      var element = document.querySelector('#yourUrl');
+      var element = document.querySelector("#yourUrl");
       var selection = window.getSelection();
       var range = document.createRange();
       range.selectNodeContents(element);
       selection.removeAllRanges();
       selection.addRange(range);
-      var succeeded = document.execCommand('copy');
+      var succeeded = document.execCommand("copy");
       if (succeeded) {
         this.isCopyed = true;
       } else {
@@ -132,35 +133,34 @@ export default{
       //imgbox.style.width = "200%";
       //imgbox.scrollLeft = event.changedTouches[0].pageX;
       //imgbox.scrollLeft = 50;
-
     },
     touch_end: function() {
       let img = this.$refs.img;
       let imgbox = this.$refs.imgbox;
-      imgbox.style.width="100%";
+      imgbox.style.width = "100%";
     },
     likeToggle: function() {
-      if(this.is_logined){
-        axios.post('/api/photos/like/toggle', {
-          screen_name: user_screen_name,
-          api_token: user_api_token,
-          photo_id: this.photo.p_id,
-          csrfToken: window.Laravel.csrfToken
-        })
-        .then(response => {
-          if(this.isLiked == true){
-            this.isLiked = false;
-            this.likeNum = this.likeNum - 1;
-          }
-          else {
-            this.isLiked = true;
-            this.likeNum = this.likeNum + 1;
-          }
-          this.$emit('toggleLike');
-        })
-        .catch(error => {
-          console.log(error.response)
-        });
+      if (this.is_logined) {
+        axios
+          .post("/api/photos/like/toggle", {
+            screen_name: user_screen_name,
+            api_token: user_api_token,
+            photo_id: this.photo.p_id,
+            csrfToken: window.Laravel.csrfToken
+          })
+          .then(response => {
+            if (this.isLiked == true) {
+              this.isLiked = false;
+              this.likeNum = this.likeNum - 1;
+            } else {
+              this.isLiked = true;
+              this.likeNum = this.likeNum + 1;
+            }
+            this.$emit("toggleLike");
+          })
+          .catch(error => {
+            console.log(error.response);
+          });
       }
     }
   },
@@ -172,10 +172,10 @@ export default{
       return this.photo.lens.replace("/", " ");
     },
     slicePoints: function() {
-      return String(this.photo.points).slice(0,4);
+      return String(this.photo.points).slice(0, 4);
     }
   }
-}
+};
 </script>
 <style scoped lang="scss">
 .likenum {
@@ -207,7 +207,6 @@ export default{
     z-index: 1;
   }
   .post-header {
-
     height: 2rem;
     position: relative;
     margin-bottom: 0.2em;
@@ -253,7 +252,6 @@ export default{
     img {
       display: inline-block;
       max-height: 60vh;
-
     }
   }
   .post-footer {
@@ -275,13 +273,12 @@ export default{
 
 .info {
   line-height: 1.8;
-
 }
 .tag {
   margin-right: 2px;
 }
 
-a strong{
+a strong {
   color: white;
 }
 

@@ -222,16 +222,16 @@ class UserController extends Controller
             // 画像を処理・保存(iconはスクリーンネームで保存される)
             if (null != $request->file('icons')) {
                 Image::make($request->file('icons'))->resize(250, 250)
-                ->save('storage/icon/'.$request->input('screen_name').'jpg', 100);
+                ->save('storage/icon/'.$request->input('screen_name').'.jpg', 100);
 
-                $user->icon = 'storage/icon/'.$request->input('screen_name').'jpg';
+                $user->icon = 'storage/icon/'.$request->input('screen_name').'.jpg';
             }
             if (null != $request->file('backgrounds')) {
                 Image::make($request->file('backgrounds'))->resize(1024, null, function ($constraint) {
                     $constraint->aspectRatio();
-                })->save('storage/back/'.$request->input('screen_name').'jpg', 100);
+                })->save('storage/back/'.$request->input('screen_name').'.jpg', 100);
                 
-                $user->background = 'storage/back/'.$request->input('screen_name').'jpg';
+                $user->background = 'storage/back/'.$request->input('screen_name').'.jpg';
             }
 
             // ユーザモデルを更新

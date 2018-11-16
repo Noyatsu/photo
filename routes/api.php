@@ -27,7 +27,6 @@ Route::group(['middleware' => CheckApiToken::class], function(){
 
 });
 
-// 設定ファイル
 Route::post('/users/profile/update', 'UserController@updateProfile');
 
 

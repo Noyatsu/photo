@@ -16900,7 +16900,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['photo', 'photo_id'],
+  props: ["photo", "photo_id"],
   data: function data() {
     return {
       showModal: false,
@@ -16933,7 +16933,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
               //いいねのチェック
               res = void 0;
               _context.next = 6;
-              return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/photos/like/check/' + user_screen_name + '/' + this.photo.p_id);
+              return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get("/api/photos/like/check/" + user_screen_name + "/" + this.photo.p_id);
 
             case 6:
               res = _context.sent;
@@ -16944,7 +16944,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
               //ビューのインクリメント
               _context.next = 10;
-              return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post('/api/photos/view/increment', {
+              return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post("/api/photos/view/increment", {
                 screen_name: user_screen_name,
                 photo_id: this.photo.p_id,
                 api_token: user_api_token,
@@ -16959,15 +16959,15 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
             case 12:
               _context.prev = 12;
-              _context.t0 = _context['catch'](2);
+              _context.t0 = _context["catch"](2);
 
               console.error(_context.t0);
 
             case 15:
-              tags_str = this.photo.tags || '';
+              tags_str = this.photo.tags || "";
 
-              if (tags_str != '') {
-                this.tags = tags_str.split(',');
+              if (tags_str != "") {
+                this.tags = tags_str.split(",");
               }
               this.likeNum = this.photo.likes;
 
@@ -16977,7 +16977,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
               });
 
             case 19:
-            case 'end':
+            case "end":
               return _context.stop();
           }
         }
@@ -16993,13 +16993,13 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
   methods: {
     copyUrl: function copyUrl() {
-      var element = document.querySelector('#yourUrl');
+      var element = document.querySelector("#yourUrl");
       var selection = window.getSelection();
       var range = document.createRange();
       range.selectNodeContents(element);
       selection.removeAllRanges();
       selection.addRange(range);
-      var succeeded = document.execCommand('copy');
+      var succeeded = document.execCommand("copy");
       if (succeeded) {
         this.isCopyed = true;
       } else {}
@@ -17022,7 +17022,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
       var _this = this;
 
       if (this.is_logined) {
-        __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post('/api/photos/like/toggle', {
+        __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post("/api/photos/like/toggle", {
           screen_name: user_screen_name,
           api_token: user_api_token,
           photo_id: this.photo.p_id,
@@ -17035,7 +17035,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             _this.isLiked = true;
             _this.likeNum = _this.likeNum + 1;
           }
-          _this.$emit('toggleLike');
+          _this.$emit("toggleLike");
         }).catch(function (error) {
           console.log(error.response);
         });
@@ -17855,13 +17855,7 @@ var render = function() {
                 _c(
                   "router-link",
                   { attrs: { to: "/user/" + _vm.photo.screen_name } },
-                  [
-                    _c("img", {
-                      attrs: {
-                        src: "https://bulma.io/images/placeholders/128x128.png"
-                      }
-                    })
-                  ]
+                  [_c("img", { attrs: { src: "/" + _vm.photo.icon } })]
                 )
               ],
               1
