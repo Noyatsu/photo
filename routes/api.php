@@ -24,7 +24,12 @@ Route::group(['middleware' => CheckApiToken::class], function(){
   Route::post('/photos/like/toggle', 'PhotoController@toggleLike');
   Route::post('/photos/view/increment', 'PhotoController@incrementView');
 
+
 });
+
+// 設定ファイル
+Route::post('/users/profile/update', 'UserController@updateProfile');
+
 
 Route::get('/users/follow/check/{screen_name}/{opponent_screen_name}', 'UserController@checkFollow');
 Route::get('/photos/like/check/{screen_name}/{photo_id}', 'PhotoController@checkLike');

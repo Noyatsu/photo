@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Image;
 
 class UserController extends Controller
 {
@@ -207,5 +208,41 @@ class UserController extends Controller
         $itemsForCurrentPage = array_slice($photos, $offSet, $paginate, true);
         $results = new \Illuminate\Pagination\LengthAwarePaginator($itemsForCurrentPage, count($photos), $paginate, $page);
         return response($results);
+    }
+
+    /**
+     * ユーザプロフィールをアップデート
+     */
+    public function updateProfile(Request $request)
+    {
+        if(null != $_POST) {
+            // ユーザモデルを取得
+            $user = User::firstOrNew(['screen_name' => $request->input('screen_name')]);
+            
+            // 画像を処理・保存(iconはスクリーンネームで保存される)
+            if (null != $request->file('icons')) {
+                Image::make($request->file('icons'))->resize(250, 250)
+                ->save('storage/icon/'.$request->input('screen_name').'jpg', 100);
+
+                $user->icon = 'storage/icon/'.$request->input('screen_name').'jpg';
+            }
+            if (null != $request->file('backgrounds')) {
+                Image::make($request->file('backgrounds'))->resize(1024, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                })->save('storage/back/'.$request->input('screen_name').'jpg', 100);
+                
+                $user->background = 'storage/back/'.$request->input('screen_name').'jpg';
+            }
+
+            // ユーザモデルを更新
+            $user->name = $request->input('name');
+            $user->location = $request->input('location');
+            $user->description = $request->input('description');
+
+            // DBに登録
+            $user->save();
+
+            return response((array)$user);
+        }
     }
 }

@@ -123,7 +123,7 @@ class PhotoController extends Controller
 
         // ここにデータベースに追加するやつ書く
         DB::table('photos')->insert(
-      [
+       [
         'user_id' => User::firstOrNew(['screen_name' => $request->input('screen_name')])->id,
         'category_id' => $request->input('category'),
         'title' => $request->input('title'),
