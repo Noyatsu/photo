@@ -83,7 +83,7 @@ export default {
   },
   methods: {
     created_method: async function(screen_name) {
-      this.$emit("tglloading", "読み込み中");
+      //this.$emit("tglloading", "読み込み中");
       //ユーザデータ
       try {
         let res;
@@ -124,10 +124,10 @@ export default {
           "/api/users/likephoto/" + this.user_data.screen_name
         );
         this.like_list = res.data;
-        this.$emit("tglloading", "読み込み中");
+        //this.$emit("tglloading", "読み込み中");
       } catch (e) {
         console.error(e);
-        this.$emit("tglloading", "読み込み中");
+        //this.$emit("tglloading", "読み込み中");
         this.$emit(
           "shownotification",
           "エラーが発生しました…(" + e + " " + e.response.data + ")",

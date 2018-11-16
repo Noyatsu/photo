@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class="container has-text-centered">
-      <h1 class="is-size-4"><i class="fas fa-clock"></i></i></h1>
+      <h1 class="is-size-4"><i class="fas fa-clock"></i></h1>
       <p>最近の投稿</p>
       <br>
       <div class="photoarea">
@@ -33,9 +33,9 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 
-import ThumbComponent from './parts/Thumbnail.vue';
+import ThumbComponent from "./parts/Thumbnail.vue";
 
 export default {
   data() {
@@ -48,25 +48,25 @@ export default {
   },
   methods: {
     fw_search: function() {
-      this.$router.push('/search/freeword/' + encodeURIComponent(this.query_text));
+      this.$router.push(
+        "/search/freeword/" + encodeURIComponent(this.query_text)
+      );
     }
   },
   components: {
-    'thumb-component': ThumbComponent
+    "thumb-component": ThumbComponent
   },
   async created() {
     try {
-      const res = await axios.get('/api/photos/');
-      const res_score = await axios.get('/api/photos/index/score');
+      const res = await axios.get("/api/photos/");
+      const res_score = await axios.get("/api/photos/index/score");
       this.photo_list = res.data.data;
       this.photo_list_score = res_score.data.data;
     } catch (e) {
-      console.error(e)
+      console.error(e);
     }
   }
-}
-
-
+};
 </script>
 
 <style scoped>
@@ -103,7 +103,7 @@ export default {
   line-height: 150px;
 }
 
-.is_round img{
+.is_round img {
   border-radius: 100px;
 }
 </style>

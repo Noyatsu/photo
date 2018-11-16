@@ -18374,7 +18374,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'timeline',
+  name: "timeline",
   data: function data() {
     return {
       photos_list: [],
@@ -18388,7 +18388,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
   },
 
   components: {
-    'post-component': __WEBPACK_IMPORTED_MODULE_2__parts_Post_vue___default.a
+    "post-component": __WEBPACK_IMPORTED_MODULE_2__parts_Post_vue___default.a
   },
   methods: {
     fetch: function () {
@@ -18409,7 +18409,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
                 this.is_fetching = true;
                 _context.next = 5;
-                return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/users/timeline/' + user_screen_name + '?page=' + String(this.page));
+                return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get("/api/users/timeline/" + user_screen_name + "?page=" + String(this.page));
 
               case 5:
                 tl_res = _context.sent;
@@ -18432,12 +18432,12 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
               case 9:
                 _context.prev = 9;
-                _context.t0 = _context['catch'](0);
+                _context.t0 = _context["catch"](0);
 
                 console.error(_context.t0);
 
               case 12:
-              case 'end':
+              case "end":
                 return _context.stop();
             }
           }
@@ -18455,7 +18455,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
       var _this2 = this;
 
       var self = this;
-      window.addEventListener('scroll', function () {
+      window.addEventListener("scroll", function () {
         //スクロール一番下で次読み込み
         _this2.scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
         _this2.scrollHeight = document.body.scrollHeight || document.documentElement.scrollHeight;
@@ -18463,7 +18463,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         if (_this2.scrollHeight - _this2.scrollPosition <= 1) {
           //スクロールの位置が下部に来た場合
           _this2.fetch();
-        };
+        }
       });
     }
   },
@@ -18475,34 +18475,32 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
-              this.$emit('tglloading', '読み込み中');
+              _context2.prev = 0;
+              _context2.next = 3;
+              return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get("/api/users/timeline/" + user_screen_name);
 
-              _context2.prev = 1;
-              _context2.next = 4;
-              return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/users/timeline/' + user_screen_name);
-
-            case 4:
+            case 3:
               tl_res = _context2.sent;
 
               this.photos_list = tl_res.data.data;
-              _context2.next = 11;
+              _context2.next = 10;
               break;
 
-            case 8:
-              _context2.prev = 8;
-              _context2.t0 = _context2['catch'](1);
+            case 7:
+              _context2.prev = 7;
+              _context2.t0 = _context2["catch"](0);
 
               console.error(_context2.t0);
 
-            case 11:
+            case 10:
               this.startWatchingScroll();
 
-            case 12:
-            case 'end':
+            case 11:
+            case "end":
               return _context2.stop();
           }
         }
-      }, _callee2, this, [[1, 8]]);
+      }, _callee2, this, [[0, 7]]);
     }));
 
     function created() {
@@ -18510,10 +18508,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
     }
 
     return created;
-  }(),
-  mounted: function mounted() {
-    this.$emit('tglloading', '読み込み中');
-  }
+  }()
 });
 
 /***/ }),
@@ -19045,7 +19040,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.s-area[data-v-7b88e3df] {\r\n  padding: 1.5rem;\r\n  margin-bottom: 1.5rem;\n}\r\n/*tab*/\n.is_selected[data-v-7b88e3df] {\r\n  border-bottom: solid 3px hsl(217, 71%, 53%);\n}\n.tab-contents[data-v-7b88e3df] {\r\n  margin-top: 1rem;\n}\n.photoarea[data-v-7b88e3df] {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -ms-flex-wrap: wrap;\r\n      flex-wrap: wrap;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\n}\n.photo[data-v-7b88e3df] {\r\n  height: 150px;\r\n  width: 150px;\r\n  background-color: hsl(217, 71%, 53%);\r\n  background-image: url(\"/storage/photo/1.JPG\");\r\n  background-position: center;\r\n  background-repeat: no-repeat;\r\n  background-size: cover;\r\n  text-align: center;\r\n  margin: 1rem;\r\n  color: white;\r\n  line-height: 150px;\n}\n.is_round img[data-v-7b88e3df]{\r\n  border-radius: 100px;\n}\r\n", ""]);
+exports.push([module.i, "\n.s-area[data-v-7b88e3df] {\r\n  padding: 1.5rem;\r\n  margin-bottom: 1.5rem;\n}\r\n/*tab*/\n.is_selected[data-v-7b88e3df] {\r\n  border-bottom: solid 3px hsl(217, 71%, 53%);\n}\n.tab-contents[data-v-7b88e3df] {\r\n  margin-top: 1rem;\n}\n.photoarea[data-v-7b88e3df] {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -ms-flex-wrap: wrap;\r\n      flex-wrap: wrap;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\n}\n.photo[data-v-7b88e3df] {\r\n  height: 150px;\r\n  width: 150px;\r\n  background-color: hsl(217, 71%, 53%);\r\n  background-image: url(\"/storage/photo/1.JPG\");\r\n  background-position: center;\r\n  background-repeat: no-repeat;\r\n  background-size: cover;\r\n  text-align: center;\r\n  margin: 1rem;\r\n  color: white;\r\n  line-height: 150px;\n}\n.is_round img[data-v-7b88e3df] {\r\n  border-radius: 100px;\n}\r\n", ""]);
 
 // exports
 
@@ -19117,11 +19112,11 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
   methods: {
     fw_search: function fw_search() {
-      this.$router.push('/search/freeword/' + encodeURIComponent(this.query_text));
+      this.$router.push("/search/freeword/" + encodeURIComponent(this.query_text));
     }
   },
   components: {
-    'thumb-component': __WEBPACK_IMPORTED_MODULE_2__parts_Thumbnail_vue___default.a
+    "thumb-component": __WEBPACK_IMPORTED_MODULE_2__parts_Thumbnail_vue___default.a
   },
   created: function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
@@ -19132,12 +19127,12 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
             case 0:
               _context.prev = 0;
               _context.next = 3;
-              return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/photos/');
+              return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get("/api/photos/");
 
             case 3:
               res = _context.sent;
               _context.next = 6;
-              return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/photos/index/score');
+              return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get("/api/photos/index/score");
 
             case 6:
               res_score = _context.sent;
@@ -19149,12 +19144,12 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
             case 11:
               _context.prev = 11;
-              _context.t0 = _context['catch'](0);
+              _context.t0 = _context["catch"](0);
 
               console.error(_context.t0);
 
             case 14:
-            case 'end':
+            case "end":
               return _context.stop();
           }
         }
@@ -20551,107 +20546,105 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                this.$emit("tglloading", "読み込み中");
-                //ユーザデータ
-                _context2.prev = 1;
+                _context2.prev = 0;
                 res = void 0;
 
                 if (!(this.$route.params.screen_name == undefined)) {
-                  _context2.next = 10;
+                  _context2.next = 9;
                   break;
                 }
 
-                _context2.next = 6;
+                _context2.next = 5;
                 return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get("/api/users/" + user_screen_name);
 
-              case 6:
+              case 5:
                 res = _context2.sent;
 
                 this.isMine = true;
-                _context2.next = 14;
+                _context2.next = 13;
                 break;
 
-              case 10:
-                _context2.next = 12;
+              case 9:
+                _context2.next = 11;
                 return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get("/api/users/" + screen_name);
 
-              case 12:
+              case 11:
                 res = _context2.sent;
 
                 this.isMine = false;
 
-              case 14:
+              case 13:
                 this.user_data = res.data;
-                _context2.next = 20;
+                _context2.next = 19;
                 break;
 
-              case 17:
-                _context2.prev = 17;
-                _context2.t0 = _context2["catch"](1);
+              case 16:
+                _context2.prev = 16;
+                _context2.t0 = _context2["catch"](0);
 
                 console.error(_context2.t0);
 
-              case 20:
-                _context2.prev = 20;
+              case 19:
+                _context2.prev = 19;
                 _res = void 0;
 
                 if (!this.is_logined) {
-                  _context2.next = 27;
+                  _context2.next = 26;
                   break;
                 }
 
-                _context2.next = 25;
+                _context2.next = 24;
                 return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get("/api/users/follow/check/" + user_screen_name + "/" + this.user_data.screen_name);
 
-              case 25:
+              case 24:
                 _res = _context2.sent;
 
                 if (_res.data == true) {
                   this.isFollow = true;
                 }
 
-              case 27:
-                _context2.next = 29;
+              case 26:
+                _context2.next = 28;
                 return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get("/api/users/follow/list/" + this.user_data.screen_name);
 
-              case 29:
+              case 28:
                 _res = _context2.sent;
 
                 this.follow_list = _res.data;
 
-                _context2.next = 33;
+                _context2.next = 32;
                 return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get("/api/users/photo/" + this.user_data.screen_name);
 
-              case 33:
+              case 32:
                 _res = _context2.sent;
 
                 this.photo_list = _res.data;
 
-                _context2.next = 37;
+                _context2.next = 36;
                 return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get("/api/users/likephoto/" + this.user_data.screen_name);
 
-              case 37:
+              case 36:
                 _res = _context2.sent;
 
                 this.like_list = _res.data;
-                this.$emit("tglloading", "読み込み中");
-                _context2.next = 47;
+                //this.$emit("tglloading", "読み込み中");
+                _context2.next = 44;
                 break;
 
-              case 42:
-                _context2.prev = 42;
-                _context2.t1 = _context2["catch"](20);
+              case 40:
+                _context2.prev = 40;
+                _context2.t1 = _context2["catch"](19);
 
                 console.error(_context2.t1);
-                this.$emit("tglloading", "読み込み中");
+                //this.$emit("tglloading", "読み込み中");
                 this.$emit("shownotification", "エラーが発生しました…(" + _context2.t1 + " " + _context2.t1.response.data + ")", "is-danger");
 
-              case 47:
+              case 44:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, this, [[1, 17], [20, 42]]);
+        }, _callee2, this, [[0, 16], [19, 40]]);
       }));
 
       function created_method(_x) {
