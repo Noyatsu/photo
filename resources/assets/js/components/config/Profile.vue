@@ -77,8 +77,6 @@ export default {
       data.append("icons", this.icons[0]);
       data.append("screen_name", user_screen_name);
       data.append("api_token", user_api_token);
-      console.log(user_screen_name);
-      console.log(user_api_token);
       //axiosでサーバーに送信
       axios
         .post("/api/users/profile/update", data)

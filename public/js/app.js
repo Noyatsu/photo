@@ -17841,11 +17841,6 @@ var render = function() {
     "div",
     { staticClass: "post has-background-black-ter has-text-light" },
     [
-      _c("div", {
-        staticClass: "backgroundarea",
-        style: "background-image: url(/storage/thumb/" + _vm.photo.path + ");"
-      }),
-      _vm._v(" "),
       _c("div", { staticClass: "container mainarea" }, [
         _c("div", { staticClass: "post-header" }, [
           _c("div", { staticClass: "post-header-left is-size-7" }, [
@@ -19648,7 +19643,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.m-file[data-v-40360b21] {\r\n  width: 100%;\r\n  height: 100%;\r\n  min-height: 96px;\r\n  max-height: 400px;\r\n  margin: 0 auto;\r\n  text-align: center;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  cursor: pointer;\r\n  background-position: center;\r\n  background-repeat: no-repeat;\r\n  background-size: cover;\n}\n.updimg[data-v-40360b21] {\r\n  max-width: 200px;\n}\n.width100[data-v-40360b21] {\r\n  width: 100%;\n}\r\n", ""]);
+exports.push([module.i, "\n.m-file[data-v-40360b21] {\r\n  width: 100%;\r\n  height: 100%;\r\n  min-height: 96px;\r\n  max-height: 400px;\r\n  margin: 0 auto;\r\n  text-align: center;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  cursor: pointer;\r\n  background-position: center;\r\n  background-repeat: no-repeat;\r\n  background-size: cover;\n}\n.updimg[data-v-40360b21] {\r\n  max-width: 200px;\n}\n.width100[data-v-40360b21] {\r\n  width: 100%;\n}\n.file-label[data-v-40360b21] {\r\n  text-shadow: 0px 0px 3px #000000;\n}\r\n", ""]);
 
 // exports
 
@@ -19678,18 +19673,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      uploadedImage: ''
+      uploadedImage: ""
     };
   },
 
-  props: ['beforephoto'],
+  props: ["beforephoto"],
   methods: {
     //画像が変わったときのイベント
     onFileChange: function onFileChange(e) {
       var files = e.target.files || e.dataTransfer.files;
       this.createImage(files[0]);
 
-      this.$emit('send-file', files);
+      this.$emit("send-file", files);
     },
 
     // アップロードした画像を表示
@@ -20719,8 +20714,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['user']
-
+  props: ["user"]
 });
 
 /***/ }),
@@ -20740,9 +20734,7 @@ var render = function() {
           _c("div", { staticClass: "media" }, [
             _c("div", { staticClass: "media-left" }, [
               _c("figure", { staticClass: "image is-48x48 is_round" }, [
-                _c("img", {
-                  attrs: { src: "/storage/icon/" + _vm.user.icon, alt: "" }
-                })
+                _c("img", { attrs: { src: "/" + _vm.user.icon, alt: "" } })
               ])
             ]),
             _vm._v(" "),
@@ -23865,7 +23857,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/*tab*/\n.is_selected[data-v-5e031a86] {\r\n  border-bottom: solid 3px hsl(217, 71%, 53%);\n}\n.tab-contents[data-v-5e031a86] {\r\n  margin-top: 1rem;\n}\n.photoarea[data-v-5e031a86] {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -ms-flex-wrap: wrap;\r\n      flex-wrap: wrap;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\n}\n.flex[data-v-5e031a86] {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -ms-flex-wrap: wrap;\r\n      flex-wrap: wrap;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  padding-bottom: 1rem;\n}\r\n\r\n/*profile*/\n.m-profile[data-v-5e031a86] {\r\n  text-align: center;\r\n  margin: 0 auto;\n}\n.m-profile-img[data-v-5e031a86] {\r\n  height: 256px;\r\n  margin-bottom: 1rem;\r\n  position: relative;\n}\n.m-profile figure label[data-v-5e031a86] {\r\n  border: solid 2px white;\r\n  border-radius: 100px;\r\n  font-size: 50%;\n}\n@media (max-width: 767px) {\n.m-profile-img[data-v-5e031a86] {\r\n    height: 128px;\r\n    margin-bottom: 1rem;\n}\n.m-profile figure[data-v-5e031a86] {\r\n    display: block;\n}\n.m-profile img[data-v-5e031a86] {\r\n    border: solid 2px white;\r\n    border-radius: 100px;\n}\n}\nfooter[data-v-5e031a86] {\r\n  padding-top: 0.5rem;\r\n  padding-bottom: 0.5rem;\n}\r\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\r\n/*tab*/\n.is_selected[data-v-5e031a86] {\r\n  border-bottom: solid 3px hsl(217, 71%, 53%);\n}\n.tab-contents[data-v-5e031a86] {\r\n  margin-top: 1rem;\n}\n.photoarea[data-v-5e031a86] {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -ms-flex-wrap: wrap;\r\n      flex-wrap: wrap;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\n}\n.flex[data-v-5e031a86] {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -ms-flex-wrap: wrap;\r\n      flex-wrap: wrap;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  padding-bottom: 1rem;\n}\r\n\r\n/*profile*/\n.m-profile[data-v-5e031a86] {\r\n  text-align: center;\r\n  margin: 0 auto;\n}\n.m-profile-img[data-v-5e031a86] {\r\n  height: 256px;\r\n  margin-bottom: 1rem;\r\n  position: relative;\n}\n.m-profile figure label[data-v-5e031a86] {\r\n  border: solid 2px white;\r\n  border-radius: 100px;\r\n  font-size: 50%;\n}\n@media (max-width: 767px) {\n.m-profile-img[data-v-5e031a86] {\r\n    height: 128px;\r\n    margin-bottom: 1rem;\n}\n.m-profile figure[data-v-5e031a86] {\r\n    display: block;\n}\n.m-profile img[data-v-5e031a86] {\r\n    border: solid 2px white;\r\n    border-radius: 100px;\n}\n}\nfooter[data-v-5e031a86] {\r\n  padding-top: 0.5rem;\r\n  padding-bottom: 0.5rem;\n}\r\n", ""]);
 
 // exports
 
@@ -24001,8 +23993,6 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
       data.append("icons", this.icons[0]);
       data.append("screen_name", user_screen_name);
       data.append("api_token", user_api_token);
-      console.log(user_screen_name);
-      console.log(user_api_token);
       //axiosでサーバーに送信
       __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post("/api/users/profile/update", data).then(function (response) {
         console.log(response.data);

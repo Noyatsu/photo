@@ -23,11 +23,10 @@ Route::group(['middleware' => CheckApiToken::class], function(){
   Route::post('/users/follow/toggle', 'UserController@toggleFollow');
   Route::post('/photos/like/toggle', 'PhotoController@toggleLike');
   Route::post('/photos/view/increment', 'PhotoController@incrementView');
-
-
+  Route::post('/photos/upload', 'PhotoController@store');
+  Route::post('/users/profile/update', 'UserController@updateProfile');
 });
 
-Route::post('/users/profile/update', 'UserController@updateProfile');
 
 
 Route::get('/users/follow/check/{screen_name}/{opponent_screen_name}', 'UserController@checkFollow');
@@ -44,7 +43,6 @@ Route::get('/users/timeline/{screen_name}', 'UserController@getTimelineByUser');
 
 Route::get('/photos', 'PhotoController@index');
 Route::get('/photos/index/score', 'PhotoController@indexByScore');
-Route::post('/photos/upload', 'PhotoController@store');
 Route::get('/photos/get/{id}', 'PhotoController@get');
 
 Route::get('/search/freeword', 'PhotoController@freewordSearch');

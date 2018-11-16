@@ -27,7 +27,7 @@ class HomeController extends Controller
   {
     //APIトークン生成
     $apiToken = Auth::check() ? UserController::generateApiToken() : '';
-    
+
     return view('home')->with('api_token', $apiToken);
   }
 

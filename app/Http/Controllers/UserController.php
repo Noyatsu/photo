@@ -25,13 +25,13 @@ class UserController extends Controller
     public static function generateApiToken()
     {
         $user = Auth::user();
-        $apiToken = Hash::make($user->id . time());
+        if(abs(strtotime($user->update_at) - time()) < 5.0) {
+            //APIトークンをdatabaseに格納
+            $user->api_token = Hash::make($user->id . time());
+            $user->save();
+        }  
 
-        //APIトークンをdatabaseに格納
-        $user->api_token = $apiToken;
-        $user->save();
-
-        return $apiToken;
+        return $user->api_token;
     }
 
     /**
@@ -218,7 +218,7 @@ class UserController extends Controller
         if(null != $_POST) {
             // ユーザモデルを取得
             $user = User::firstOrNew(['screen_name' => $request->input('screen_name')]);
-            
+
             // 画像を処理・保存(iconはスクリーンネームで保存される)
             if (null != $request->file('icons')) {
                 Image::make($request->file('icons'))->resize(250, 250)

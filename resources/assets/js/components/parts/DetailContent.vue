@@ -1,6 +1,6 @@
 <template>
   <div class="post has-background-black-ter has-text-light">
-    <div class="backgroundarea" v-bind:style="'background-image: url(/storage/thumb/' + photo.path+');'"></div>
+    <!--<div class="backgroundarea" v-bind:style="'background-image: url(/storage/thumb/' + photo.path+');'"></div>-->
     <div class="container mainarea">
       <div class="post-header">
         <div class="post-header-left is-size-7">
