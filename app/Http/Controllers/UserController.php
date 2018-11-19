@@ -25,11 +25,11 @@ class UserController extends Controller
     public static function generateApiToken()
     {
         $user = Auth::user();
-        if(abs(strtotime($user->update_at) - time()) < 5.0) {
+        if(abs(strtotime($user->update_at) - time()) < 2.0) {
             //APIトークンをdatabaseに格納
             $user->api_token = Hash::make($user->id . time());
-            $user->save();
-        }  
+        }
+        $user->update();
 
         return $user->api_token;
     }
