@@ -26,9 +26,10 @@ class HomeController extends Controller
   public function index()
   {
     //APIトークン生成
-    $apiToken = Auth::check() ? UserController::generateApiToken() : '';
+    //$apiToken = Auth::check() ? UserController::generateApiToken() : '';
 
-    return view('home')->with('api_token', $apiToken);
+    //return view('home')->with('api_token', $apiToken);
+    return view('home');
   }
 
   /**
@@ -43,8 +44,8 @@ class HomeController extends Controller
     ->join('users', 'photos.user_id', '=', 'users.id')->join('categories', 'categories.id', '=', 'photos.category_id')->where('photos.id', $id)->get();
 
     //APIトークン生成
-    $apiToken = Auth::check() ? UserController::generateApiToken() : '';
+    //$apiToken = Auth::check() ? UserController::generateApiToken() : '';
 
-    return view('photodetail')->with(['api_token' =>  $apiToken, 'photo' => $data[0]]);
+    return view('photodetail')->with('photo', $data[0]);
   }
 }

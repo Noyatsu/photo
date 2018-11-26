@@ -44,7 +44,7 @@
   window.Laravel = {
     csrfToken: "{{ csrf_token() }}"
   };
-  const user_api_token = "{{ $api_token }}";
+  const user_api_token = "{{ @Auth::user()->api_token }}";
   const user_screen_name = "{{ @Auth::user()->screen_name }}";
 
   </script>
