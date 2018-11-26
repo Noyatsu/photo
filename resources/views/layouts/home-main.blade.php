@@ -18,9 +18,6 @@
       <div class="m-navbar-right">
         <div class="dropdown is-active is-right">
           <div class="dropdown-trigger">
-            <button onclick="location.reload()" class="button">
-              <i class="fas fa-sync-alt"></i>
-            </button>
             <button v-on:click="is_displaydd = !is_displaydd" class="button" aria-haspopup="true" aria-controls="dropdown-menu2">
               <i class="fas fa-ellipsis-h"></i>
             </button>
@@ -65,3 +62,9 @@
 </body>
 <script src="{{ mix('js/app.js') }}"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+<script>
+PullToRefresh.init({
+  mainElement: 'body',
+  onRefresh: function(){ window.location.reload(); }
+});
+</script>

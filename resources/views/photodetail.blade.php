@@ -39,6 +39,7 @@
   <link rel="stylesheet" href="{{ asset('css/smartphoto.min.css') }}">
   <link rel="stylesheet" href="{{ asset('css/master.css') }}">
 
+  <script src="{{ asset('js/pulltorefresh.min.js') }}"></script>
   <script src="{{ asset('js/smartphoto.min.js') }}"></script>
   <script>
   window.Laravel = {
