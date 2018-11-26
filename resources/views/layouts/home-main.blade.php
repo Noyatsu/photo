@@ -18,9 +18,6 @@
       <div class="m-navbar-right">
         <div class="dropdown is-active is-right">
           <div class="dropdown-trigger">
-            <button onclick="location.reload()" class="button">
-              <i class="fas fa-sync-alt"></i>
-            </button>
             <button v-on:click="is_displaydd = !is_displaydd" class="button" aria-haspopup="true" aria-controls="dropdown-menu2">
               <i class="fas fa-ellipsis-h"></i>
             </button>
