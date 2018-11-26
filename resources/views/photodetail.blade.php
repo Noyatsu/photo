@@ -37,6 +37,7 @@
 
   <link rel="stylesheet" href="{{ mix('css/app.css') }}">
   <link rel="stylesheet" href="{{ asset('css/smartphoto.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/pulltorefresh.min.css') }}">
   <link rel="stylesheet" href="{{ asset('css/master.css') }}">
 
   <script src="{{ asset('js/smartphoto.min.js') }}"></script>
